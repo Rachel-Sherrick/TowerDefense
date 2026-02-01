@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://cmjnhkpnq3l66"]
+
+[ext_resource type="PackedScene" uid="uid://eou4mq5n6oh3" path="res://tower.tscn" id="1_ig7tw"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_7dm0k"]
+size = Vector3(60, 2, 60)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7dm0k"]
+size = Vector3(60, 2, 60)
+
+[sub_resource type="Sky" id="Sky_ig7tw"]
+
+[sub_resource type="Environment" id="Environment_0xm2m"]
+background_mode = 1
+background_color = Color(0.41504437, 0.53465366, 0.41490436, 1)
+sky = SubResource("Sky_ig7tw")
+tonemap_mode = 2
+
+[node name="Main" type="Node" unique_id=1776296673]
+
+[node name="Ground" type="StaticBody3D" parent="." unique_id=1885948079]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground" unique_id=1828453882]
+mesh = SubResource("BoxMesh_7dm0k")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=1595735021]
+shape = SubResource("BoxShape3D_7dm0k")
+
+[node name="Marker3D" type="Marker3D" parent="." unique_id=611099172]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0.184, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Marker3D" unique_id=1112084879]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19)
+projection = 1
+size = 24.0
+far = 40.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Marker3D" unique_id=584399821]
+transform = Transform3D(0.95105654, 0.108725056, -0.2892583, 0, 0.93605953, 0.35184166, 0.309017, -0.3346213, 0.89024556, 0, 0, 23)
+shadow_enabled = true
+shadow_bias = 0.04
+shadow_blur = 1.5
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1008975528]
+environment = SubResource("Environment_0xm2m")
+
+[node name="CharacterBody3D" parent="." unique_id=254305490 instance=ExtResource("1_ig7tw")]
