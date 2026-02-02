@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://eou4mq5n6oh3"]
+
+[ext_resource type="Script" uid="uid://dc4uuaa405mkw" path="res://character.gd" id="1_k1sas"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_dnc73"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_glpr6"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_pjt0s"]
+radius = 1.0
+
+[node name="Character" type="CharacterBody3D" unique_id=254305490 groups=["Character"]]
+script = ExtResource("1_k1sas")
+
+[node name="Body" type="MeshInstance3D" parent="." unique_id=447693479]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_dnc73")
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="." unique_id=492885942]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_glpr6")
+
+[node name="Range" type="Area3D" parent="." unique_id=1602429880 groups=["Character"]]
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Range" unique_id=831990961]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.080657, 0)
+shape = SubResource("CylinderShape3D_pjt0s")
+
+[connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]

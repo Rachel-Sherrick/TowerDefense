@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://doxjo2c5tjq6e"]
+
+[ext_resource type="PackedScene" uid="uid://eou4mq5n6oh3" path="res://character.tscn" id="1_7k104"]
+[ext_resource type="Script" uid="uid://dlboh3dd1qiim" path="res://enemy.gd" id="2_4gyqm"]
+
+[node name="Enemy" unique_id=254305490 groups=["Enemy"] instance=ExtResource("1_7k104")]
+script = ExtResource("2_4gyqm")
+
+[node name="Range" parent="." index="2" unique_id=1602429880 groups=["Enemy"]]
