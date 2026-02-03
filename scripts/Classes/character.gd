@@ -1,6 +1,7 @@
 extends CharacterBody3D
 class_name Character
 
+
 ## Movement speed multiplier for the character 
 @export var speed = 5.0
 ## Veloicty for when / if the chracter jumps
@@ -40,4 +41,4 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_range_body_entered(body: Node3D) -> void:
-	pass # Replace with function body.
+	print(body.name)

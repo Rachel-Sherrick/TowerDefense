@@ -1,7 +1,13 @@
 [gd_scene format=3 uid="uid://bmslpuj4gik5"]
 
 [ext_resource type="PackedScene" uid="uid://eou4mq5n6oh3" path="res://character.tscn" id="1_4flbx"]
-[ext_resource type="Script" uid="uid://c1msriimmkk0j" path="res://tower.gd" id="1_k1sas"]
+[ext_resource type="Script" uid="uid://c1msriimmkk0j" path="res://scripts/Classes/tower.gd" id="1_k1sas"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vedim"]
+albedo_color = Color(0, 1, 1, 1)
 
 [node name="Tower" unique_id=254305490 groups=["Tower"] instance=ExtResource("1_4flbx")]
 script = ExtResource("1_k1sas")
+
+[node name="Body" parent="." index="0" unique_id=447693479]
+surface_material_override/0 = SubResource("StandardMaterial3D_vedim")
