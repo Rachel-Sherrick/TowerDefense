@@ -9,14 +9,14 @@ class_name Character
 ## Health for when the character gets attacked
 @export var health = 1
 ## Range multiplier for the character's range
-@export var range = 1
+@export var range_detection = 1
 ## Damage multiplier for when the character deals damage to another character
 @export var damage = 1
 
 
 func _ready() -> void:
 	pass
-
+	
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -41,4 +41,14 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_range_body_entered(body: Node3D) -> void:
-	print(body.name)
+	if (body.name != get_node(".").name):
+		$RayCast3D.set_physics_process(true)
+		print(body.name)
+	else:
+		print("Self is " + get_node(".").name)
+
+func _on_ray_cast_3d_detect_foe(body: CollisionObject3D) -> void:
+	print("Detected" + body.to_string())
+
+func _on_ray_cast_3d_detect_friend(body: CollisionObject3D) -> void:
+	print("Detected" + body.to_string())
