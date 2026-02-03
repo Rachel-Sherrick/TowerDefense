@@ -6,6 +6,7 @@ extends RayCast3D
 @onready var range : Area3D =  $"../Range"
 
 var target : Character = null
+var attack = false
 func _physics_process(delta) -> void:
 	if is_colliding(): 
 			#Am I hitting a character or the landscape
@@ -15,5 +16,8 @@ func _physics_process(delta) -> void:
 				#Am I hitting a friend or an enemy?
 				if target.get_groups() == characterBody.get_groups(): 
 					print ("Friend!")
+					attack = false
 				else: 
 					print ("Enemy!")
+					attack = true
+					

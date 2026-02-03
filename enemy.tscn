@@ -16,6 +16,3 @@ surface_material_override/0 = SubResource("StandardMaterial3D_4gyqm")
 
 [node name="RayCast3D" parent="." index="3" unique_id=208812573]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6307461, 0)
-target_position = Vector3(0, 0, 10)
-debug_shape_custom_color = Color(1, 0, 0, 1)
-debug_shape_thickness = 5

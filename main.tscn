@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://eou4mq5n6oh3" path="res://character.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://doxjo2c5tjq6e" path="res://enemy.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://bmslpuj4gik5" path="res://tower.tscn" id="3_h2yge"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_7dm0k"]
 size = Vector3(60, 2, 60)
@@ -51,3 +52,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4021816, 0, -4.694281)
 
 [node name="Enemy" parent="." unique_id=138773206 instance=ExtResource("2_0xm2m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.36716032, 4.7683716e-07, -4.803752)
+
+[node name="StaticEnemy" parent="." unique_id=519614720 instance=ExtResource("2_0xm2m")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 9.23199, 0, 10.750366)
+
+[node name="Tower" parent="." unique_id=1156599137 instance=ExtResource("3_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.051405, 0, -12.343912)
