@@ -12,8 +12,6 @@ func _ready() -> void:
 	##Defaults the raycast to the radius of the RangeDetection
 	var range_radius = $"../RangeDetection/RangeCollision".shape.radius
 	target_position.z = range_radius
-	set_physics_process(false)
-	hide()
 
 func _physics_process(delta) -> void:
 	if is_colliding(): 
@@ -29,13 +27,17 @@ func _physics_process(delta) -> void:
 					print ("Enemy!")
 					emit_signal("detect_foe", target)
 				target_position = to_local(get_collision_point())
-	else:
+	else: ## for some reason right after when scene begins, collisions stop detecting each other
+			## this cause a premature suicide
+			## might have to put a buffer in so this doesnt occur immediately after insantiation
 		## Commits processing suicide
+		print($"..".name + " stopped casting w/ no collisions") 
 		set_physics_process(false)
 		hide()
 
 ## Sets the raycast to track an object entering RangeDetection
 func _on_character_enable_tracking(body: CollisionObject3D) -> void:
+		print($"..".name + " started casting")
 		set_physics_process(true)
 		show()
 		target_position = to_local(body.global_transform.origin)
@@ -49,3 +51,4 @@ func _on_character_disable_tracking(body: CollisionObject3D) -> void:
 		target_position.z = $"../RangeDetection/RangeCollision".shape.radius
 		set_physics_process(false)
 		hide()
+		print($"..".name + " stopped casting w/ " + body.name)

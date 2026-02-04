@@ -47,6 +47,7 @@ target_position = Vector3(0, 0, 3)
 debug_shape_custom_color = Color(1, 0, 0, 1)
 debug_shape_thickness = 5
 script = ExtResource("2_pjt0s")
+metadata/_edit_lock_ = true
 
 [node name="Body" type="MeshInstance3D" parent="." unique_id=447693479]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -56,19 +57,23 @@ mesh = SubResource("CapsuleMesh_dnc73")
 [node name="CharacterCollision" type="CollisionShape3D" parent="." unique_id=492885942]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_glpr6")
+metadata/_edit_lock_ = true
 
 [node name="RangeDetection" type="Area3D" parent="." unique_id=1602429880 groups=["Character"]]
 monitorable = false
 script = SubResource("GDScript_pjt0s")
 metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="RangeMesh" type="MeshInstance3D" parent="RangeDetection" unique_id=371440239]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 mesh = SubResource("CylinderMesh_pjt0s")
+metadata/_edit_lock_ = true
 
 [node name="RangeCollision" type="CollisionShape3D" parent="RangeDetection" unique_id=831990961]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("CylinderShape3D_pjt0s")
+metadata/_edit_lock_ = true
 
 [connection signal="disable_tracking" from="." to="RayCast3D" method="_on_character_disable_tracking"]
 [connection signal="enable_tracking" from="." to="RayCast3D" method="_on_character_enable_tracking"]

@@ -13,7 +13,7 @@ func _physics_process(delta: float) -> void:
 	super(delta)
 
 func _on_ray_cast_3d_detect_foe(body: CollisionObject3D) -> void:
-	print("Detected" + body.name)
+	print(name + " detected " + body.name)
 	deal_damage(body)
 
 func _on_ray_cast_3d_detect_friend(body: CollisionObject3D) -> void:

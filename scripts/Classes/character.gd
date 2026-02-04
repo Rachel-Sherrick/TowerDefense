@@ -42,21 +42,21 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _on_ray_cast_3d_detect_foe(body: CollisionObject3D) -> void:
-	print(name + "detected" + body.to_string())
+	print(name + " detected " + body.name)
 
 func _on_ray_cast_3d_detect_friend(body: CollisionObject3D) -> void:
-	print(name + "detected" + body.to_string())
+	print(name + " detected " + body.name)
 
 func _on_range_detection_body_exited(body: Node3D) -> void:
 	## When translating the Character adn entering scene, RangeDetection will detect its own Body 
 	if (body.name != name):
-		print(name + "no longer tracking " + body.name)
+		print(name + " no longer tracking " + body.name)
 		emit_signal("disable_tracking", body)
 
 func _on_range_body_entered(body: Node3D) -> void:
 	## When translating the Character adn entering scene, RangeDetection will detect its own Body 
 	if (body.name != name):
-		print(name + "tracking" + body.name)
+		print(name + " tracking " + body.name)
 		emit_signal("enable_tracking", body)
 	else:
 		pass
