@@ -51,10 +51,10 @@ environment = SubResource("Environment_0xm2m")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.522292, 0, 9.377613)
 
 [node name="Enemy" parent="." unique_id=138773206 instance=ExtResource("2_0xm2m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.689644, 4.7683716e-07, -25.351933)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85435534, 4.7683716e-07, -17.85769)
 
 [node name="StaticEnemy" parent="." unique_id=519614720 instance=ExtResource("2_0xm2m")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.87935734, 0, -13.211468)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -7.0640373, 0, -16.348095)
 
 [node name="Tower" parent="." unique_id=1156599137 instance=ExtResource("3_h2yge")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.051405, 0, -12.343912)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6225486, 0, -15.580182)
