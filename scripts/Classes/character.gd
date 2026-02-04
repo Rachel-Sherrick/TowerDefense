@@ -1,6 +1,7 @@
 extends CharacterBody3D
 class_name Character
-
+signal enable_tracking(body : CollisionObject3D)
+signal disable_tracking(body : CollisionObject3D)
 
 ## Movement speed multiplier for the character 
 @export var speed = 5.0
@@ -9,14 +10,15 @@ class_name Character
 ## Health for when the character gets attacked
 @export var health = 1
 ## Range multiplier for the character's range
-@export var range = 1
+## Only set range through RangeDetection's set_range
+@export var range_detection = 1
 ## Damage multiplier for when the character deals damage to another character
 @export var damage = 1
 
 
 func _ready() -> void:
 	pass
-
+	
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -39,6 +41,22 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
+func _on_ray_cast_3d_detect_foe(body: CollisionObject3D) -> void:
+	print(name + " detected " + body.name)
+
+func _on_ray_cast_3d_detect_friend(body: CollisionObject3D) -> void:
+	print(name + " detected " + body.name)
+
+func _on_range_detection_body_exited(body: Node3D) -> void:
+	## When translating the Character adn entering scene, RangeDetection will detect its own Body 
+	if (body.name != name):
+		print(name + " no longer tracking " + body.name)
+		emit_signal("disable_tracking", body)
 
 func _on_range_body_entered(body: Node3D) -> void:
-	print(body.name)
+	## When translating the Character adn entering scene, RangeDetection will detect its own Body 
+	if (body.name != name):
+		print(name + " tracking " + body.name)
+		emit_signal("enable_tracking", body)
+	else:
+		pass

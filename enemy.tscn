@@ -9,10 +9,7 @@ albedo_color = Color(1, 0, 0, 1)
 [node name="Enemy" unique_id=254305490 groups=["Enemy"] instance=ExtResource("1_7k104")]
 script = ExtResource("2_4gyqm")
 
-[node name="Body" parent="." index="0" unique_id=447693479]
+[node name="Body" parent="." index="1" unique_id=447693479]
 surface_material_override/0 = SubResource("StandardMaterial3D_4gyqm")
 
-[node name="Range" parent="." index="2" unique_id=1602429880 groups=["Enemy"]]
-
-[node name="RayCast3D" parent="." index="3" unique_id=208812573]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6307461, 0)
+[node name="RangeDetection" parent="." index="3" unique_id=1602429880 groups=["Enemy"]]

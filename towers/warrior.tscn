@@ -8,7 +8,8 @@
 [node name="Warrior" unique_id=254305490 instance=ExtResource("1_yvydg")]
 script = ExtResource("2_ctqbo")
 
-[node name="CollisionShape3d" parent="." index="1" unique_id=492885942]
+[node name="CharacterCollision" parent="." index="2" unique_id=492885942]
 shape = SubResource("CapsuleShape3D_k1sas")
 
-[node name="CollisionShape3D" parent="Range" parent_id_path=PackedInt32Array(1602429880) index="0" unique_id=831990961 groups=["Character", "Tower"]]
+[node name="RangeCollision" parent="RangeDetection" parent_id_path=PackedInt32Array(1602429880) index="1" unique_id=831990961 groups=["Character", "Tower"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5098562, 0)

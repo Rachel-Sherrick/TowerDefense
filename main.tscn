@@ -22,39 +22,45 @@ tonemap_mode = 2
 
 [node name="Ground" type="StaticBody3D" parent="." unique_id=1885948079]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+metadata/_edit_lock_ = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground" unique_id=1828453882]
 mesh = SubResource("BoxMesh_7dm0k")
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=1595735021]
 shape = SubResource("BoxShape3D_7dm0k")
+metadata/_edit_lock_ = true
 
 [node name="Marker3D" type="Marker3D" parent="." unique_id=611099172]
 transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0.184, 0, 0)
+metadata/_edit_lock_ = true
 
 [node name="Camera3D" type="Camera3D" parent="Marker3D" unique_id=1112084879]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19)
 projection = 1
 size = 24.0
 far = 40.0
+metadata/_edit_lock_ = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Marker3D" unique_id=584399821]
 transform = Transform3D(0.95105654, 0.108725056, -0.2892583, 0, 0.93605953, 0.35184166, 0.309017, -0.3346213, 0.89024556, 0, 0, 23)
 shadow_enabled = true
 shadow_bias = 0.04
 shadow_blur = 1.5
+metadata/_edit_lock_ = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1008975528]
 environment = SubResource("Environment_0xm2m")
 
 [node name="CharacterBody3D" parent="." unique_id=254305490 instance=ExtResource("1_ig7tw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4021816, 0, -4.694281)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.522292, 0, 9.377613)
 
 [node name="Enemy" parent="." unique_id=138773206 instance=ExtResource("2_0xm2m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.36716032, 4.7683716e-07, -4.803752)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4959116, 4.7683716e-07, -16.019958)
 
 [node name="StaticEnemy" parent="." unique_id=519614720 instance=ExtResource("2_0xm2m")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 9.23199, 0, 10.750366)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -8.918488, 0, -16.348095)
 
 [node name="Tower" parent="." unique_id=1156599137 instance=ExtResource("3_h2yge")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.051405, 0, -12.343912)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6225486, 0, -15.580182)
