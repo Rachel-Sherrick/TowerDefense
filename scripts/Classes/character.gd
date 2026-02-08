@@ -1,7 +1,12 @@
 extends CharacterBody3D
 class_name Character
-signal enable_tracking(body : CollisionObject3D)
-signal disable_tracking(body : CollisionObject3D)
+##signal enable_tracking(body : CollisionObject3D)
+##signal disable_tracking(body : CollisionObject3D)
+
+var tracking_distance: Dictionary[RayCast3D, float] = {}
+var tracking_object: Dictionary[Node3D, RayCast3D] = {}
+
+@onready var raycast_scene: PackedScene = preload("res://ray_cast_3d.tscn")
 
 ## Movement speed multiplier for the character 
 @export var speed = 5.0
@@ -41,22 +46,37 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
+func create_raycast(character: Node3D) -> RayCast3D:
+	var raycast = raycast_scene.instantiate()
+	add_child(raycast)
+	raycast.connect("detect_foe", _on_ray_cast_3d_detect_foe)
+	raycast.connect("detect_friend", _on_ray_cast_3d_detect_friend)
+	##connect("_on_ray_cast_3d_detect_foe", raycast.detect_foe)
+	##connect("_on_ray_cast_3d_detect_friend", raycast.detect_friend)
+	raycast.enable_tracking(character)
+	return raycast
+
 func _on_ray_cast_3d_detect_foe(body: CollisionObject3D) -> void:
-	print(name + " detected " + body.name)
+	print(name + " detected foe " + body.name)
 
 func _on_ray_cast_3d_detect_friend(body: CollisionObject3D) -> void:
-	print(name + " detected " + body.name)
+	print(name + " detected friend " + body.name)
 
 func _on_range_detection_body_exited(body: Node3D) -> void:
-	## When translating the Character adn entering scene, RangeDetection will detect its own Body 
+	## When translating the Character and entering scene, RangeDetection will detect its own Body 
 	if (body.name != name):
+		var raycast = tracking_object[body]
+		tracking_object.erase(body)
+		raycast.disable_tracking(body)
+		tracking_distance.erase(raycast)
 		print(name + " no longer tracking " + body.name)
-		emit_signal("disable_tracking", body)
 
 func _on_range_body_entered(body: Node3D) -> void:
 	## When translating the Character adn entering scene, RangeDetection will detect its own Body 
 	if (body.name != name):
+		var raycast = create_raycast(body)
+		tracking_object[body] = raycast
+		tracking_distance[raycast] = raycast.target_position.length()
 		print(name + " tracking " + body.name)
-		emit_signal("enable_tracking", body)
 	else:
 		pass
