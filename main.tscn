@@ -3,7 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://doxjo2c5tjq6e" path="res://enemy.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://bmslpuj4gik5" path="res://tower.tscn" id="3_h2yge"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xm2m"]
+albedo_color = Color(0.9690177, 0.78790724, 0.3537356, 1)
+
 [sub_resource type="BoxMesh" id="BoxMesh_7dm0k"]
+material = SubResource("StandardMaterial3D_0xm2m")
 size = Vector3(60, 2, 60)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7dm0k"]
@@ -53,7 +57,7 @@ metadata/_edit_lock_ = true
 environment = SubResource("Environment_0xm2m")
 
 [node name="Enemy" parent="." unique_id=254305490 instance=ExtResource("2_0xm2m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.082725, 0, -1.6524782)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.177015, 0, -1.6524782)
 collision_layer = 1
 collision_mask = 1
 
@@ -63,6 +67,7 @@ collision_layer = 1
 collision_mask = 1
 
 [node name="Enemy2" parent="." unique_id=142310831 instance=ExtResource("2_0xm2m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6397731, 0, -2.330083)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.646488, 0, -2.330083)
 collision_layer = 1
 collision_mask = 1
+tracking_friends = true
