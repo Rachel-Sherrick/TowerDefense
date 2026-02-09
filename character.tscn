@@ -6,23 +6,6 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_glpr6"]
 
-[sub_resource type="GDScript" id="GDScript_pjt0s"]
-script/source = "extends Area3D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-func set_radius(amount : float):
-	$RangeMesh.mesh.top_radius = amount
-	$RangeCollision.shape.radius = amount
-"
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pjt0s"]
 transparency = 1
 albedo_color = Color(0.5689727, 0.56897277, 0.5689727, 0.2784314)
@@ -56,7 +39,6 @@ metadata/_edit_lock_ = true
 collision_layer = 6
 collision_mask = 7
 monitorable = false
-script = SubResource("GDScript_pjt0s")
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 

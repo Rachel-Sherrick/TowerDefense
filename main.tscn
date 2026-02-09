@@ -53,12 +53,12 @@ metadata/_edit_lock_ = true
 environment = SubResource("Environment_0xm2m")
 
 [node name="Enemy" parent="." unique_id=254305490 instance=ExtResource("2_0xm2m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.302319, 0, -1.6524782)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.082725, 0, -1.6524782)
 collision_layer = 1
 collision_mask = 1
 
 [node name="Tower" parent="." unique_id=643498303 instance=ExtResource("3_h2yge")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.972378, 0, -0.16845536)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.6145887, 0, -0.16845536)
 collision_layer = 1
 collision_mask = 1
 
