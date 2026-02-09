@@ -18,7 +18,7 @@ const WEAK = 4
 ## map and array for tracking chracters within the range
 # need to add functions to empty array and map if there are no non
 # null elements
-var tracking_dict: Dictionary[Node3D, int] = {}
+var tracking_dict: Dictionary[Node3D, float] = {}
 var tracking_array = []
 
 ######################
@@ -117,7 +117,7 @@ func target(body: Node3D) -> bool:
 		_:
 			return false	
 
-func get_distance_char(body: Node3D) -> int:
+func get_distance_char(body: Node3D) -> float:
 	return to_local(body.global_transform.origin).length()
 
 func remove_char_array(body: Node3D) -> void:
