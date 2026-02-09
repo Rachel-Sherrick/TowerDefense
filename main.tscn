@@ -58,7 +58,7 @@ collision_layer = 1
 collision_mask = 1
 
 [node name="Tower" parent="." unique_id=643498303 instance=ExtResource("3_h2yge")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2153983, 0, -0.16845536)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.972378, 0, -0.16845536)
 collision_layer = 1
 collision_mask = 1
 

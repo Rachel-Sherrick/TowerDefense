@@ -3,8 +3,18 @@ class_name Character
 ##signal enable_tracking(body : CollisionObject3D)
 ##signal disable_tracking(body : CollisionObject3D)
 
+## Targeting constants
+const CLOSE = 0
+const FAR = 1
+const FIRST = 2
+const LAST = 3
+const STRONG = 4
+const WEAK = 5
+
 var tracking_distance: Dictionary[RayCast3D, float] = {}
 var tracking_object: Dictionary[Node3D, RayCast3D] = {}
+var tracking_dict: Dictionary[Node3D, int] = {}
+var tracking_array = []
 
 @onready var raycast_scene: PackedScene = preload("res://ray_cast_3d.tscn")
 
@@ -45,38 +55,55 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, speed)
 
 	move_and_slide()
+	
+	var obj_list = $RangeDetection.get_overlapping_bodies()
+	## updates the position for all colliding bodies
+	for body in obj_list:
+		print(body.name + " distance from " + name + " is " + str(get_distance_char(body)))
+		tracking_dict[body] = get_distance_char(body)
 
-func create_raycast(character: Node3D) -> RayCast3D:
-	var raycast = raycast_scene.instantiate()
-	add_child(raycast)
-	raycast.connect("detect_foe", _on_ray_cast_3d_detect_foe)
-	raycast.connect("detect_friend", _on_ray_cast_3d_detect_friend)
-	##connect("_on_ray_cast_3d_detect_foe", raycast.detect_foe)
-	##connect("_on_ray_cast_3d_detect_friend", raycast.detect_friend)
-	raycast.enable_tracking(character)
-	return raycast
+#func create_raycast(character: Node3D) -> RayCast3D:
+	#var raycast = raycast_scene.instantiate()
+	#add_child(raycast)
+	#raycast.connect("detect_foe", _on_ray_cast_3d_detect_foe)
+	#raycast.connect("detect_friend", _on_ray_cast_3d_detect_friend)
+	###connect("_on_ray_cast_3d_detect_foe", raycast.detect_foe)
+	###connect("_on_ray_cast_3d_detect_friend", raycast.detect_friend)
+	#raycast.enable_tracking(character)
+	#return raycast
 
-func _on_ray_cast_3d_detect_foe(body: CollisionObject3D) -> void:
-	print(name + " detected foe " + body.name)
+func get_distance_char(body: Node3D) -> int:
+	return to_local(body.global_transform.origin).length()
 
-func _on_ray_cast_3d_detect_friend(body: CollisionObject3D) -> void:
-	print(name + " detected friend " + body.name)
+func remove_char_array(body: Node3D) -> void:
+	tracking_array[tracking_array.find(body)] = null
+	return 
+
+#func _on_ray_cast_3d_detect_foe(body: CollisionObject3D) -> void:
+	#print(name + " detected foe " + body.name)
+#
+#func _on_ray_cast_3d_detect_friend(body: CollisionObject3D) -> void:
+	#print(name + " detected friend " + body.name)
 
 func _on_range_detection_body_exited(body: Node3D) -> void:
 	## When translating the Character and entering scene, RangeDetection will detect its own Body 
 	if (body.name != name):
-		var raycast = tracking_object[body]
-		tracking_object.erase(body)
-		raycast.disable_tracking(body)
-		tracking_distance.erase(raycast)
+		tracking_dict.erase(body)
+		remove_char_array(body)
+		#var raycast = tracking_object[body]
+		#tracking_object.erase(body)
+		#raycast.disable_tracking(body)
+		#tracking_distance.erase(raycast)
 		print(name + " no longer tracking " + body.name)
 
 func _on_range_body_entered(body: Node3D) -> void:
 	## When translating the Character adn entering scene, RangeDetection will detect its own Body 
 	if (body.name != name):
-		var raycast = create_raycast(body)
-		tracking_object[body] = raycast
-		tracking_distance[raycast] = raycast.target_position.length()
+		tracking_dict[body] = get_distance_char(body)
+		tracking_array.append(body)
+		
+		#var raycast = create_raycast(body)
+		#tracking_object[body] = raycast
+		#tracking_distance[raycast] = raycast.target_position.length()
+		
 		print(name + " tracking " + body.name)
-	else:
-		pass

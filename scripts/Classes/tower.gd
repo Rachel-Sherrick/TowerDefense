@@ -12,12 +12,12 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	super(delta)
 
-func _on_ray_cast_3d_detect_foe(body: CollisionObject3D) -> void:
-	print(name + " detected " + body.name)
-	deal_damage(body)
-
-func _on_ray_cast_3d_detect_friend(body: CollisionObject3D) -> void:
-	super(body)
+#func _on_ray_cast_3d_detect_foe(body: CollisionObject3D) -> void:
+	#print(name + " detected " + body.name)
+	#deal_damage(body)
+#
+#func _on_ray_cast_3d_detect_friend(body: CollisionObject3D) -> void:
+	#super(body)
 
 func deal_damage(enemy):
 	if time_elapsed >= 1.0:
