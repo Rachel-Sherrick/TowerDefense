@@ -41,8 +41,6 @@ var phys_framecount = 0
 @export var damage = 1
 ## The default targeting priority
 @export var target_type: int = FIRST
-## Bool to toggle friend tracking
-@export var tracking_friends: bool = false
 
 #########################
 ## Functions & Methods ##
@@ -67,15 +65,13 @@ func set_target_type(type: int) -> bool:
 	target_type = type
 	return true
 
-func get_tracking_friends() -> bool:
-	return tracking_friends
-
 func _ready() -> void:
 	pass
 
 func _physics_process(delta: float) -> void:
 	set_phys_framecount(get_phys_framecount() + 1)
 	## DEBUG LINE: print(get_phys_framecount())
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -120,23 +116,20 @@ func get_distance_char(body: Node3D) -> float:
 	return to_local(body.global_transform.origin).length()
 
 func remove_char_array(body: Node3D) -> void:
-	tracking_array[tracking_array.find(body)] = null
+	var index = tracking_array.find(body)
+	## this means that the body was not found
+	if index == -1:
+		print(body.name + "does not exist within the array")
+		return
+	tracking_array[index] = null
 	return 
 
 ## clears the tracking data structures of elements
 ## to prevent them from becoming too large
 func clear_tracking() -> bool:
-	var obj_list = $RangeDetection.get_overlapping_bodies()
-	if !obj_list.is_empty():
-		for body in obj_list:
-			## ignores if the body is self or is part of the same group
-			if (body.name != name):
-				## Skips if is friend and allowed to track friends
-				if (body.get_groups() == get_groups()) && (get_tracking_friends()):
-					continue
-				## returns false if the obj_list contains a single non-friend obj
-				print(name + " failed to clear tracking list")
-				return false
+	## See healer.gd for old code
+	if !($RangeDetection.has_overlapping_bodies()):
+		return false
 	tracking_dict.clear()
 	tracking_array.clear()
 	print(name + " cleared tracking list")
@@ -148,38 +141,21 @@ func update_tracking_structures() -> bool:
 	var obj_list = $RangeDetection.get_overlapping_bodies()
 	## updates the position for all colliding bodies
 	for body in obj_list:
-		## ignores if the body is self or is part of the same group
-		if (body.name != name):
-			## Skips if is friend and not allowed to track friends
-			if (body.get_groups() == get_groups()) && (!get_tracking_friends()):
-				continue
-			print(body.name + " distance from " + name + " is " + str(get_distance_char(body)))
-			tracking_dict[body] = get_distance_char(body)
+		## See healer.gd for old code
+		print(body.name + " distance from " + name + " is " + str(get_distance_char(body)))
+		tracking_dict[body] = get_distance_char(body)
 	return true
 
 func _on_range_detection_body_exited(body: Node3D) -> void:
-	## When translating the Character and entering scene, 
-	## RangeDetection will detect its own Body 
-	if (body.name != name):
-		## prevents the removal of friends if they couldn't have been added to the
-		## the group
-		if (body.get_groups() == get_groups()) && (!get_tracking_friends()):
-			return
-		tracking_dict.erase(body)
-		remove_char_array(body)
-		## Attempts to clear the tracking data structures
-		clear_tracking()
-		print(name + " no longer tracking " + body.name)
+	##See healer.gd for old code
+	tracking_dict.erase(body)
+	remove_char_array(body)
+	## Attempts to clear the tracking data structures
+	clear_tracking()
+	print(name + " no longer tracking " + body.name)
 
-func _on_range_body_entered(body: Node3D) -> bool:
-	## When translating the Character and entering scene, 
-	## RangeDetection will detect its own Body 
-	if (body.name != name):
-		## Returns if is friend and not allowed to track friends
-		if (body.get_groups() == get_groups()) && (!get_tracking_friends()):
-			return false
-		tracking_dict[body] = get_distance_char(body)
-		tracking_array.append(body)
-		print(name + " tracking " + body.name)
-		return true
-	return false
+func _on_range_body_entered(body: Node3D) -> void:
+	## See healer.gd for old code
+	tracking_dict[body] = get_distance_char(body)
+	tracking_array.append(body)
+	print(name + " tracking " + body.name)
