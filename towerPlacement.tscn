@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://saf6d5teewoh"]
+[gd_scene format=3 uid="uid://saf6d5teewoh"]
 
-[ext_resource type="Script" uid="uid://px8nxyf5q1jv" path="res://towerPlacement.gd" id="1_pv8e4"]
+[ext_resource type="Script" uid="uid://px8nxyf5q1jv" path="res://scripts/components/towerPlacement.gd" id="1_pv8e4"]
 [ext_resource type="PackedScene" uid="uid://tu18fp20hsnf" path="res://towers/warrior.tscn" id="2_xuqwe"]
 
 [node name="towerPlacement" type="Node3D"]
