@@ -1,8 +1,13 @@
 [gd_scene format=3 uid="uid://cmjnhkpnq3l66"]
 
-[ext_resource type="PackedScene" uid="uid://eou4mq5n6oh3" path="res://tower.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://doxjo2c5tjq6e" path="res://enemy.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://bmslpuj4gik5" path="res://tower.tscn" id="3_h2yge"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xm2m"]
+albedo_color = Color(0.9690177, 0.78790724, 0.3537356, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_7dm0k"]
+material = SubResource("StandardMaterial3D_0xm2m")
 size = Vector3(60, 2, 60)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7dm0k"]
@@ -20,29 +25,51 @@ tonemap_mode = 2
 
 [node name="Ground" type="StaticBody3D" parent="." unique_id=1885948079]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+metadata/_edit_lock_ = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground" unique_id=1828453882]
 mesh = SubResource("BoxMesh_7dm0k")
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=1595735021]
 shape = SubResource("BoxShape3D_7dm0k")
+metadata/_edit_lock_ = true
 
 [node name="Marker3D" type="Marker3D" parent="." unique_id=611099172]
 transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0.184, 0, 0)
+metadata/_edit_lock_ = true
 
 [node name="Camera3D" type="Camera3D" parent="Marker3D" unique_id=1112084879]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19)
 projection = 1
 size = 24.0
 far = 40.0
+metadata/_edit_lock_ = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Marker3D" unique_id=584399821]
 transform = Transform3D(0.95105654, 0.108725056, -0.2892583, 0, 0.93605953, 0.35184166, 0.309017, -0.3346213, 0.89024556, 0, 0, 23)
 shadow_enabled = true
 shadow_bias = 0.04
 shadow_blur = 1.5
+metadata/_edit_lock_ = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1008975528]
 environment = SubResource("Environment_0xm2m")
 
-[node name="CharacterBody3D" parent="." unique_id=254305490 instance=ExtResource("1_ig7tw")]
+[node name="Tower" parent="." unique_id=766364614 instance=ExtResource("3_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.012677, 0, -2.3001575)
+
+[node name="Character" parent="." unique_id=1096929630 instance=ExtResource("2_0xm2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.581392, 0, 0)
+
+[node name="Character2" parent="." unique_id=254305490 instance=ExtResource("2_0xm2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.367853, 0, 0)
+
+[node name="Tower2" parent="." unique_id=1568776403 instance=ExtResource("3_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.921337, 0, 0)
+
+[node name="Character3" parent="." unique_id=691519270 instance=ExtResource("2_0xm2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.906646, 0, -3.317461)
+
+[node name="Character4" parent="." unique_id=830281426 instance=ExtResource("2_0xm2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.465977, 0, -3.3592243)

@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://tu18fp20hsnf"]
+
+[ext_resource type="PackedScene" uid="uid://bmslpuj4gik5" path="res://tower.tscn" id="1_yvydg"]
+[ext_resource type="Script" uid="uid://cwgafh5f6iy56" path="res://towers/warrior.gd" id="2_ctqbo"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k1sas"]
+
+[node name="Warrior" unique_id=254305490 instance=ExtResource("1_yvydg")]
+script = ExtResource("2_ctqbo")
+
+[node name="CharacterCollision" parent="." index="1" unique_id=492885942]
+shape = SubResource("CapsuleShape3D_k1sas")
+
+[node name="RangeCollision" parent="RangeDetection" parent_id_path=PackedInt32Array(1602429880) index="1" unique_id=831990961 groups=["Character", "Tower"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5098562, 0)

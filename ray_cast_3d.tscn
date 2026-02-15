@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://b8ti7e2em1sdq"]
+
+[sub_resource type="GDScript" id="GDScript_vhdpi"]
+script/source = "extends RayCast3D
+signal detect_friend(body : CollisionObject3D)
+signal detect_foe(body : CollisionObject3D)
+
+#pulls the character3D to access the groups
+@onready var characterBody : Character = $\"..\"
+#pulls range to filter out characters outside the range
+@onready var range_detection : Area3D =  $\"../RangeDetection\"
+var target : Character = null
+var range_radius = 0
+
+func _ready() -> void:
+	##Defaults the raycast to the radius of the RangeDetection
+	range_radius = $\"../RangeDetection/RangeCollision\".shape.radius
+	target_position = Vector3.ZERO
+
+func _physics_process(delta) -> void:
+	range_radius = $\"../RangeDetection/RangeCollision\".shape.radius
+	if is_colliding():
+		while (get_collider() != target):
+			print(\"Collision removed with \" + get_collider().name)
+			add_exception(get_collider())
+			force_raycast_update()
+		#Am I hitting a character or the landscape
+		print(\"Collision detected with \" + get_collider().name)
+		if get_collider() is Character: 
+			#what am I hitting
+			target = get_collider()
+			target_position = to_local(target.global_transform.origin)
+			#Am I hitting a friend or an enemy?
+			print(characterBody.name + \" targeted \" + target.name)
+			if target.get_groups() == characterBody.get_groups(): 
+				print (\"Friend!\")
+				detect_friend.emit(target)
+			else: 
+				print (\"Enemy!\")
+				detect_foe.emit(target)
+	else: ## for some reason right after when scene begins, collisions stop detecting each other
+			## this cause a premature suicide
+			## might have to put a buffer in so this doesnt occur immediately after insantiation
+		## Commits processing suicide
+		print(characterBody.name + \" stopped casting w/ no collisions\")
+		characterBody._on_range_detection_body_exited(target)
+		set_physics_process(false)
+		hide()
+
+## Sets the raycast to track an object entering RangeDetection
+func enable_tracking(body: CollisionObject3D) -> void:
+	target = body
+	print(characterBody.name + \" started casting to \" + target.name)
+	target_position = to_local(body.global_transform.origin)
+	set_physics_process(true)
+	show()
+
+## Sets the raycast to stop	if target_position == to_local(body.global_transform.origin): tracking an object
+func disable_tracking(body: CollisionObject3D) -> void:
+	## Rejects the object if it is not the object it is currently tracking
+	## This check may be passed up to be handled by character.gd later
+	## if target_position == to_local(body.global_transform.origin):
+		## Returns to defaults
+		print(characterBody.name + \" stopped casting w/ \" + body.name)
+		target_position = Vector3.ZERO
+		set_physics_process(false)
+		hide()
+		queue_free()
+"
+
+[node name="RayCast3D" type="RayCast3D" unique_id=1391192404]
+target_position = Vector3(0, 0, 0)
+collision_mask = 6
+hit_from_inside = true
+debug_shape_custom_color = Color(1, 0, 0, 1)
+debug_shape_thickness = 5
+script = SubResource("GDScript_vhdpi")
