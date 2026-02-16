@@ -26,6 +26,7 @@ radius = 0.05
 sections = 30
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wa5vi"]
+resource_local_to_scene = true
 animations = [{
 "frames": [{
 "duration": 1.0,
