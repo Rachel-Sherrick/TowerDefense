@@ -3,6 +3,28 @@
 [ext_resource type="Script" uid="uid://dc4uuaa405mkw" path="res://scripts/Classes/character.gd" id="1_k1sas"]
 [ext_resource type="Texture2D" uid="uid://nj37xla1vxmg" path="res://sprites/testbert.png" id="2_pjt0s"]
 
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_dnc73"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_glpr6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pjt0s"]
+transparency = 1
+albedo_color = Color(0, 0, 0, 0.33333334)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_pjt0s"]
+material = SubResource("StandardMaterial3D_pjt0s")
+top_radius = 3.0
+bottom_radius = 3.0
+height = 0.05
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_pjt0s"]
+height = 1.0
+radius = 3.0
+
+[sub_resource type="TubeTrailMesh" id="TubeTrailMesh_pjt0s"]
+radius = 0.05
+sections = 30
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_wa5vi"]
 animations = [{
 "frames": [{
@@ -14,38 +36,10 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_dnc73"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_glpr6"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pjt0s"]
-transparency = 1
-albedo_color = Color(0.5689727, 0.56897277, 0.5689727, 0.2784314)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_pjt0s"]
-material = SubResource("StandardMaterial3D_pjt0s")
-top_radius = 3.0
-bottom_radius = 3.0
-height = 1.0
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_pjt0s"]
-height = 1.0
-radius = 3.0
-
 [node name="Character" type="CharacterBody3D" unique_id=254305490 groups=["Character"]]
 collision_layer = 6
 collision_mask = 7
 script = ExtResource("1_k1sas")
-
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=1996147602]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
-billboard = 1
-shaded = true
-alpha_cut = 1
-render_priority = 1
-sprite_frames = SubResource("SpriteFrames_wa5vi")
-frame_progress = 0.2903971
-metadata/_edit_lock_ = true
 
 [node name="Body" type="MeshInstance3D" parent="." unique_id=447693479]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -66,13 +60,30 @@ metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
 [node name="RangeMesh" type="MeshInstance3D" parent="RangeDetection" unique_id=371440239]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 0)
+sorting_offset = -1.0
 mesh = SubResource("CylinderMesh_pjt0s")
 metadata/_edit_lock_ = true
 
 [node name="RangeCollision" type="CollisionShape3D" parent="RangeDetection" unique_id=831990961]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("CylinderShape3D_pjt0s")
+metadata/_edit_lock_ = true
+
+[node name="DiameterCheckMesh" type="MeshInstance3D" parent="RangeDetection" unique_id=2108971858]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0.1, 0)
+mesh = SubResource("TubeTrailMesh_pjt0s")
+metadata/_edit_lock_ = true
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=1996147602]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0.8, -0.9)
+layers = 4
+sorting_offset = 1.0
+shaded = true
+alpha_cut = 1
+render_priority = 1
+sprite_frames = SubResource("SpriteFrames_wa5vi")
+frame_progress = 0.51347226
 metadata/_edit_lock_ = true
 
 [connection signal="body_entered" from="RangeDetection" to="." method="_on_range_body_entered"]

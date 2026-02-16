@@ -11,13 +11,14 @@ collision_layer = 2
 script = ExtResource("2_4gyqm")
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite3D" parent="." index="0" unique_id=1996147602]
-modulate = Color(0.9303277, 0.5836599, 0.5333295, 1)
-
-[node name="Body" parent="." index="1" unique_id=447693479]
+[node name="Body" parent="." index="0" unique_id=447693479]
 surface_material_override/0 = SubResource("StandardMaterial3D_4gyqm")
 metadata/_edit_lock_ = true
 
-[node name="RangeDetection" parent="." index="3" unique_id=1602429880 groups=["Enemy"]]
+[node name="RangeDetection" parent="." index="2" unique_id=1602429880 groups=["Enemy"]]
 collision_layer = 2
 collision_mask = 4
+
+[node name="AnimatedSprite3D" parent="." index="3" unique_id=1996147602]
+modulate = Color(0.9303277, 0.5836599, 0.5333295, 1)
+billboard = 0
