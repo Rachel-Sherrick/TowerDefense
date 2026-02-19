@@ -36,7 +36,7 @@ var phys_framecount = 0
 ## Veloicty for when / if the chracter jumps
 @export var jump_velocity = 4.5
 ## Health for when the character gets attacked
-@export var health = 1
+@export var health = 5
 ## Range multiplier for the character's range
 ## Only set range through RangeDetection's set_range
 @export var range_detection = 1
@@ -59,6 +59,16 @@ func set_phys_framecount(new_count: int) -> bool:
 		phys_framecount = 1
 		return false
 	phys_framecount = new_count
+	return true
+	
+func get_health() -> int:
+	return health
+	
+func set_health(health_lost: int) -> bool:
+	if health <= 0:
+		#isDead bool variable?
+		return false
+	health = health - health_lost
 	return true
 	
 func get_target_type() -> int:
