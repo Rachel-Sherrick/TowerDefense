@@ -9,6 +9,7 @@ var swing_cooldown : float = 3.0
 #is the cooldown over
 var swing_ready : bool = false
 
+#show/hide mesh
 @onready var hurt_box: Area3D = $HurtBox
 
 func _ready() -> void:
@@ -47,8 +48,9 @@ func _on_range_body_entered(body: Node3D) -> void:
 #dealing warrior sword swing damage to enemies
 func warrior_swing(enemy) -> void:
 	print("attacked ", enemy)
-	enemy.health -= 1
-	print("enemy health: ", enemy.health)
+	#getter/setter for health
+	#enemy.health -= 1
+	#print("enemy health: ", enemy.health)
 
 #reset timer and swing ready and make hurt box invisible on cooldown
 func reset_cooldown() -> void:
