@@ -18,7 +18,10 @@ const WEAK = 4
 ## data structures for tracking chracters within the range
 # need to add functions to empty array and map if there are no non
 # null elements
+# !! replace tracking_dict with a sorted array !!
 var tracking_dict: Dictionary[Node3D, float] = {}
+# !! make sure this array only has up two elements, with the first representing
+# the last body to enter and the second representing the newest !!
 var tracking_array = []
 
 ######################
@@ -41,6 +44,8 @@ var phys_framecount = 0
 @export var damage = 1
 ## The default targeting priority
 @export var target_type: int = FIRST
+## Arbitrary definition for strength for targeting
+@export var strength: int = 0
 
 #########################
 ## Functions & Methods ##
@@ -55,12 +60,14 @@ func set_phys_framecount(new_count: int) -> bool:
 		return false
 	phys_framecount = new_count
 	return true
-
+	
 func get_target_type() -> int:
 	return target_type
 
 func set_target_type(type: int) -> bool:
 	if (type < 0 && type > 8):
+		## !! insert code to toggle how the sorted array sorts
+		## between distance and strength here !!
 		return false
 	target_type = type
 	return true
@@ -138,13 +145,16 @@ func clear_tracking() -> bool:
 ## updates the structures the object tracks
 ## by rule of thumb characters do not tracks allies unless toggled
 func update_tracking_structures() -> bool:
-	var obj_list = $RangeDetection.get_overlapping_bodies()
 	## updates the position for all colliding bodies
+	var obj_list = $RangeDetection.get_overlapping_bodies()
+	## !! remove the for loop below and replace with a call to sort
+	## the distance / strength array using the Array's built-in sort_custom()!!
 	for body in obj_list:
 		## See healer.gd for old code
 		print(body.name + " distance from " + name + " is " + str(get_distance_char(body)))
 		tracking_dict[body] = get_distance_char(body)
 	return true
+	
 
 func _on_range_detection_body_exited(body: Node3D) -> void:
 	##See healer.gd for old code
