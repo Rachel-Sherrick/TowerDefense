@@ -61,7 +61,7 @@ environment = SubResource("Environment_0xm2m")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.012677, 0, -2.3001575)
 
 [node name="Character" parent="." unique_id=1096929630 instance=ExtResource("2_0xm2m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.581392, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.788729, 0, 0)
 
 [node name="Health" type="Node" parent="Character" unique_id=160208790]
 script = ExtResource("3_1bvp3")
