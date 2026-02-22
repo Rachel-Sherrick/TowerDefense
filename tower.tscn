@@ -30,11 +30,13 @@ collision_mask = 2
 
 [node name="HurtBox" type="Area3D" parent="." index="3" unique_id=1132407237]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.575932)
+visible = false
 collision_layer = 6
 collision_mask = 6
 
 [node name="HurtBoxMesh" type="MeshInstance3D" parent="HurtBox" index="0" unique_id=874668653]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.991)
+sorting_offset = 5.0
 mesh = SubResource("BoxMesh_vedim")
 surface_material_override/0 = SubResource("StandardMaterial3D_stebd")
 

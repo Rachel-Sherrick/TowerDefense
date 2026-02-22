@@ -63,7 +63,8 @@ func set_phys_framecount(new_count: int) -> bool:
 	
 func get_health() -> int:
 	return health
-	
+
+## !! Change so that health	
 func set_health(health_lost: int) -> bool:
 	if health <= 0:
 		#isDead bool variable?

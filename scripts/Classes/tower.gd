@@ -5,8 +5,9 @@ class_name Tower
 ## var enemy : Character = null
 var time_elapsed : float = 0.0
 
-#func _process(delta: float) -> void:
-	#time_elapsed += delta
+
+func _process(delta: float) -> void:
+	pass
 	
 func _physics_process(delta: float) -> void:
 	super(delta)
