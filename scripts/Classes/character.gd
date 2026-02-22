@@ -169,3 +169,11 @@ func _on_range_body_entered(body: Node3D) -> void:
 	tracking_dict[body] = get_distance_char(body)
 	tracking_array.append(body)
 	print(name + " tracking " + body.name)
+
+
+##H.S added to get health to work properly
+@onready var health_component = $Health
+
+func take_damage(amount: int) -> void:
+	if health_component:
+		health_component.take_damage(amount)

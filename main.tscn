@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cmjnhkpnq3l66"]
 
 [ext_resource type="PackedScene" uid="uid://doxjo2c5tjq6e" path="res://enemy.tscn" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://bnxn14t7crcv4" path="res://scripts/components/health.gd" id="3_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://bmslpuj4gik5" path="res://tower.tscn" id="3_h2yge"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xm2m"]
@@ -62,8 +63,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.012677, 0, -2.3001575)
 [node name="Character" parent="." unique_id=1096929630 instance=ExtResource("2_0xm2m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.581392, 0, 0)
 
+[node name="Health" type="Node" parent="Character" unique_id=160208790]
+script = ExtResource("3_1bvp3")
+
 [node name="Character2" parent="." unique_id=254305490 instance=ExtResource("2_0xm2m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.367853, 0, 0)
+
+[node name="Health" type="Node" parent="Character2" unique_id=1315739753]
+script = ExtResource("3_1bvp3")
 
 [node name="Tower2" parent="." unique_id=1568776403 instance=ExtResource("3_h2yge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.921337, 0, 0)
@@ -71,5 +78,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.921337, 0, 0)
 [node name="Character3" parent="." unique_id=691519270 instance=ExtResource("2_0xm2m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.906646, 0, -3.317461)
 
+[node name="Health" type="Node" parent="Character3" unique_id=1478692132]
+script = ExtResource("3_1bvp3")
+
 [node name="Character4" parent="." unique_id=830281426 instance=ExtResource("2_0xm2m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.465977, 0, -3.3592243)
+
+[node name="Health" type="Node" parent="Character4" unique_id=1640370023]
+script = ExtResource("3_1bvp3")
