@@ -65,7 +65,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.581392, 0, 0)
 
 [node name="Health" type="Node" parent="Character" unique_id=160208790]
 script = ExtResource("3_1bvp3")
-max_health = 3
 
 [node name="Character2" parent="." unique_id=254305490 instance=ExtResource("2_0xm2m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.367853, 0, 0)
