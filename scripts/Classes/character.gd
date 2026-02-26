@@ -19,10 +19,10 @@ const WEAK = 4
 # need to add functions to empty array and map if there are no non
 # null elements
 # !! replace tracking_dict with a sorted array !!
-var tracking_dict: Dictionary[Node3D, float] = {}
+# var tracking_dict: Dictionary[Node3D, float] = {}
 # !! make sure this array only has up two elements, with the first representing
 # the last body to enter and the second representing the newest !!
-var tracking_array = []
+var tracking_array : Array[CharacterBody3D] = []
 
 ######################
 ## Global Variables ##
@@ -97,18 +97,7 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = jump_velocity
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var input_dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction:
-		velocity.x = direction.x * speed
-		velocity.z = direction.z * speed
-	else:
-		velocity.x = move_toward(velocity.x, 0, speed)
-		velocity.z = move_toward(velocity.z, 0, speed)
-
+		
 	move_and_slide()
 	
 	## updates body positions every 4 frames
@@ -148,7 +137,7 @@ func clear_tracking() -> bool:
 	## See healer.gd for old code
 	if !($RangeDetection.has_overlapping_bodies()):
 		return false
-	tracking_dict.clear()
+	#tracking_dict.clear()
 	tracking_array.clear()
 	print(name + " cleared tracking list")
 	return true
@@ -163,20 +152,38 @@ func update_tracking_structures() -> bool:
 	for body in obj_list:
 		## See healer.gd for old code
 		print(body.name + " distance from " + name + " is " + str(get_distance_char(body)))
-		tracking_dict[body] = get_distance_char(body)
+		#tracking_dict[body] = get_distance_char(body)
 	return true
 	
 
 func _on_range_detection_body_exited(body: Node3D) -> void:
 	##See healer.gd for old code
-	tracking_dict.erase(body)
-	remove_char_array(body)
-	## Attempts to clear the tracking data structures
-	clear_tracking()
+	#tracking_dict.erase(body)
+	#remove_char_array(body)
+	trackingArrayManagement()
 	print(name + " no longer tracking " + body.name)
-
+	print(tracking_array)
+	
 func _on_range_body_entered(body: Node3D) -> void:
 	## See healer.gd for old code
-	tracking_dict[body] = get_distance_char(body)
-	tracking_array.append(body)
+	# tracking_dict[body] = get_distance_char(body)
+	#adds the body entering to the front of the array
+	tracking_array.push_front(body)
+	trackingArrayManagement()
 	print(name + " tracking " + body.name)
+	print("Body Entered!")
+	print(tracking_array) 
+
+
+##Making sure the array is only two long
+func trackingArrayManagement(): 
+	while (tracking_array.size() > 2): 
+		tracking_array.pop_back()
+
+
+##H.S added to get health to work properly
+@onready var health_component = $Health
+
+func take_damage(amount: int) -> void:
+	if health_component:
+		health_component.take_damage(amount)
