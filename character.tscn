@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dc4uuaa405mkw" path="res://scripts/Classes/character.gd" id="1_k1sas"]
 [ext_resource type="Texture2D" uid="uid://nj37xla1vxmg" path="res://sprites/testbert.png" id="2_pjt0s"]
+[ext_resource type="Script" uid="uid://k3ho7ef46d6" path="res://animation_controller.gd" id="2_wa5vi"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_dnc73"]
 
@@ -76,8 +77,12 @@ transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0
 mesh = SubResource("TubeTrailMesh_pjt0s")
 metadata/_edit_lock_ = true
 
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=1996147602]
+[node name="AnimationController" type="Node3D" parent="." unique_id=1020417921]
 transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0.8, -0.9)
+script = ExtResource("2_wa5vi")
+
+[node name="SpriteBody" type="AnimatedSprite3D" parent="AnimationController" unique_id=1996147602]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 layers = 4
 sorting_offset = 1.0
 shaded = true
