@@ -31,14 +31,12 @@ func take_damage(amount: int) -> void:
 	if current_health <= 0:
 		return  # already dead, ignore
 
-	current_health -= amount
-	# Subtract damage.
+	current_health -= amount # Subtract damage.
+	print("Damage taken. Current health:", current_health)
 
-	current_health = max(current_health, 0)
-	# Prevent health going below 0.
+	current_health = max(current_health, 0) # Prevent health going below 0.
 
-	emit_signal("health_changed", current_health, max_health)
-	# Notify listeners of change.
+	emit_signal("health_changed", current_health, max_health) # Notify listeners of change.
 
 	if current_health == 0:
 		_handle_death()
