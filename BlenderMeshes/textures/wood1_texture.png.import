@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://wuhtwl0qibf1"
-path.s3tc="res://.godot/imported/wood1_texture.png-978824a7e4b139f78ef08c1a82d79b5b.s3tc.ctex"
+path.s3tc="res://.godot/imported/wood1_texture.png-8257c3cbf8e79e450ec5361e055d500a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://BlenderMeshes/Textures/wood1_texture.png"
-dest_files=["res://.godot/imported/wood1_texture.png-978824a7e4b139f78ef08c1a82d79b5b.s3tc.ctex"]
+source_file="res://BlenderMeshes/textures/wood1_texture.png"
+dest_files=["res://.godot/imported/wood1_texture.png-8257c3cbf8e79e450ec5361e055d500a.s3tc.ctex"]
 
 [params]
 
