@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://doxjo2c5tjq6e" path="res://enemy.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://tu18fp20hsnf" path="res://towers/warrior.tscn" id="3_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://bmslpuj4gik5" path="res://tower.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://saf6d5teewoh" path="res://towerPlacement.tscn" id="4_1bvp3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xm2m"]
 albedo_color = Color(0.56590307, 0.45444906, 0.19438995, 1)
@@ -21,6 +22,9 @@ background_mode = 1
 background_color = Color(0.41504437, 0.53465366, 0.41490436, 1)
 sky = SubResource("Sky_ig7tw")
 tonemap_mode = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h2yge"]
+size = Vector3(20, 2, 20)
 
 [node name="Main" type="Node" unique_id=1776296673]
 
@@ -59,6 +63,12 @@ environment = SubResource("Environment_0xm2m")
 
 [node name="Tower" parent="." unique_id=766364614 instance=ExtResource("3_h2yge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.012677, 0, -2.3001575)
+axis_lock_linear_x = false
+axis_lock_linear_y = false
+axis_lock_linear_z = false
+axis_lock_angular_x = false
+axis_lock_angular_y = false
+axis_lock_angular_z = false
 
 [node name="Character" parent="." unique_id=1096929630 instance=ExtResource("2_0xm2m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.788729, 0, 0)
@@ -68,6 +78,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.367853, 0, 0)
 
 [node name="Tower2" parent="." unique_id=1568776403 instance=ExtResource("3_h2yge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.921337, 0, 0)
+axis_lock_linear_x = false
+axis_lock_linear_y = false
+axis_lock_linear_z = false
+axis_lock_angular_x = false
+axis_lock_angular_y = false
+axis_lock_angular_z = false
 
 [node name="Character3" parent="." unique_id=691519270 instance=ExtResource("2_0xm2m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.906646, 0, -3.317461)
@@ -76,3 +92,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.906646, 0, -3.317461)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.465977, 0, -3.3592243)
 
 [node name="Warrior" parent="." unique_id=198302004 instance=ExtResource("3_1bvp3")]
+axis_lock_linear_x = false
+axis_lock_linear_y = false
+axis_lock_linear_z = false
+axis_lock_angular_x = false
+axis_lock_angular_y = false
+axis_lock_angular_z = false
+
+[node name="MainField" type="Area3D" parent="." unique_id=125249582]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MainField" unique_id=2063056620]
+shape = SubResource("BoxShape3D_h2yge")
+
+[node name="towerPlacement" parent="." unique_id=666569105 instance=ExtResource("4_1bvp3")]
