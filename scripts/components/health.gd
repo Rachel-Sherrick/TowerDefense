@@ -26,7 +26,6 @@ func _ready() -> void:
 	emit_signal("health_changed", current_health, max_health)
 	# Notify others that health is initialized.
 
-
 func take_damage(amount: int) -> void:
 	if current_health <= 0:
 		return  # already dead, ignore

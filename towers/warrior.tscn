@@ -2,11 +2,156 @@
 
 [ext_resource type="PackedScene" uid="uid://bmslpuj4gik5" path="res://tower.tscn" id="1_yvydg"]
 [ext_resource type="Script" uid="uid://cwgafh5f6iy56" path="res://towers/warrior.gd" id="2_ctqbo"]
+[ext_resource type="Script" uid="uid://xe4f7j5avtj" path="res://towers/animation_controller_warrior.gd" id="3_6csb2"]
+[ext_resource type="Texture2D" uid="uid://nj37xla1vxmg" path="res://sprites/testbert.png" id="3_ctqbo"]
+[ext_resource type="Texture2D" uid="uid://buh8w0f7d6bqm" path="res://sprites/towers/thimble/testthim.png" id="4_43db8"]
+[ext_resource type="Texture2D" uid="uid://bu1mmya81dvu6" path="res://sprites/towers/thimble/ThimbleSwing/SwingBodySouth/frame0000.png" id="5_4wr01"]
+[ext_resource type="Texture2D" uid="uid://dfuehjha55uj1" path="res://sprites/towers/thimble/ThimbleSwing/SwingBodySouth/frame0001.png" id="6_6csb2"]
+[ext_resource type="Texture2D" uid="uid://c84wswflqcqxp" path="res://sprites/towers/thimble/ThimbleSwing/SwingBodySouth/frame0002.png" id="7_3a2cj"]
+[ext_resource type="Texture2D" uid="uid://yd1icvrmscyi" path="res://sprites/towers/thimble/ThimbleSwing/SwingBodySouth/frame0003.png" id="8_ce4m4"]
+[ext_resource type="Texture2D" uid="uid://de8ytu6np5oun" path="res://sprites/towers/thimble/ThimbleSwing/SwingBodySouth/frame0004.png" id="9_dwig4"]
+[ext_resource type="Texture2D" uid="uid://cyaqngv0whycw" path="res://sprites/towers/thimble/ThimbleSwing/SwingBodySouth/frame0005.png" id="10_ljagw"]
+[ext_resource type="Texture2D" uid="uid://bpewia6puo02h" path="res://sprites/towers/thimble/ThimbleSwing/SwingBodySouth/frame0006.png" id="11_c4xwt"]
+[ext_resource type="Texture2D" uid="uid://be8n3aqfvef0g" path="res://sprites/towers/thimble/ThimbleSwing/SwingBodySouth/frame0007.png" id="12_a8qjh"]
+[ext_resource type="Texture2D" uid="uid://cdgca3wr23b2j" path="res://sprites/towers/thimble/ThimbleSwing/SwingBodySouth/frame0008.png" id="13_pudqc"]
+[ext_resource type="Texture2D" uid="uid://co4a5dj6skhh" path="res://sprites/towers/thimble/ThimbleSwing/SwingBodySouth/frame0009.png" id="14_kd3x3"]
+[ext_resource type="Texture2D" uid="uid://deflndqeu4f36" path="res://sprites/towers/thimble/ThimbleSwing/SwingBodySouth/frame0010.png" id="15_h8fil"]
+[ext_resource type="Texture2D" uid="uid://cjwp5e4vjnspi" path="res://sprites/towers/thimble/ThimbleSwing/SwingBodySouth/frame0011.png" id="16_h2evf"]
+[ext_resource type="Texture2D" uid="uid://b2jgp6w2u20lm" path="res://sprites/towers/thimble/ThimbleSwing/SwingBodySouth/frame0012.png" id="17_g7w3e"]
+[ext_resource type="Texture2D" uid="uid://c8idobeu4ji6n" path="res://sprites/towers/thimble/ThimbleSwing/Swing/frame0000.png" id="19_buox4"]
+[ext_resource type="Texture2D" uid="uid://cu58bobjyptxp" path="res://sprites/towers/thimble/ThimbleSwing/Swing/frame0001.png" id="20_w8ig0"]
+[ext_resource type="Texture2D" uid="uid://d03jt22tyqal" path="res://sprites/towers/thimble/ThimbleSwing/Swing/frame0002.png" id="21_rlcom"]
+[ext_resource type="Texture2D" uid="uid://bpxm8tvkvb21f" path="res://sprites/towers/thimble/ThimbleSwing/Swing/frame0003.png" id="22_3c305"]
+[ext_resource type="Texture2D" uid="uid://bw0fj0qu1kw4v" path="res://sprites/towers/thimble/ThimbleSwing/Swing/frame0004.png" id="23_2il7x"]
+[ext_resource type="Texture2D" uid="uid://boq841m48moh2" path="res://sprites/towers/thimble/ThimbleSwing/Swing/frame0005.png" id="24_66nyw"]
+[ext_resource type="Texture2D" uid="uid://hkfsugqcbeku" path="res://sprites/towers/thimble/ThimbleSwing/Swing/frame0006.png" id="25_qdvcy"]
+[ext_resource type="Texture2D" uid="uid://cad0mlq7ekctd" path="res://sprites/towers/thimble/ThimbleSwing/Swing/frame0007.png" id="26_62ov2"]
+[ext_resource type="Texture2D" uid="uid://dgttdk5muol5m" path="res://sprites/towers/thimble/ThimbleSwing/Swing/frame0008.png" id="27_fjmhf"]
+[ext_resource type="Texture2D" uid="uid://cc8xcemir4l4r" path="res://sprites/towers/thimble/ThimbleSwing/Swing/frame0009.png" id="28_f0jnt"]
+[ext_resource type="Texture2D" uid="uid://dnpk58okwersf" path="res://sprites/towers/thimble/ThimbleSwing/Swing/frame0010.png" id="29_rh0km"]
+[ext_resource type="Texture2D" uid="uid://chim8ds0rph21" path="res://sprites/towers/thimble/ThimbleSwing/Swing/frame0011.png" id="30_rd3u6"]
+[ext_resource type="Texture2D" uid="uid://ci0v3wi8o5ndr" path="res://sprites/towers/thimble/ThimbleSwing/Swing/frame0012.png" id="31_ir3o3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yvydg"]
 albedo_color = Color(1, 0.80784315, 0, 1)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k1sas"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3a2cj"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ctqbo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_43db8")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_4wr01")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_6csb2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_3a2cj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ce4m4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_dwig4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ljagw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_c4xwt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_a8qjh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_pudqc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_kd3x3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_h8fil")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_h2evf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_g7w3e")
+}],
+"loop": true,
+"name": &"swing_south",
+"speed": 24.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yjbyf"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_buox4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_w8ig0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_rlcom")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_3c305")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_2il7x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_66nyw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_qdvcy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_62ov2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_fjmhf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_f0jnt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_rh0km")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_rd3u6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_ir3o3")
+}],
+"loop": true,
+"name": &"swing_south",
+"speed": 24.0
+}]
 
 [node name="Warrior" unique_id=254305490 instance=ExtResource("1_yvydg")]
 script = ExtResource("2_ctqbo")
@@ -17,8 +162,23 @@ surface_material_override/0 = SubResource("StandardMaterial3D_yvydg")
 [node name="CharacterCollision" parent="." index="1" unique_id=492885942]
 shape = SubResource("CapsuleShape3D_k1sas")
 
-[node name="RangeCollision" parent="RangeDetection" parent_id_path=PackedInt32Array(1602429880) index="1" unique_id=831990961 groups=["Character", "Tower"]]
+[node name="RangeCollision" parent="RangeDetection" parent_id_path=PackedInt32Array(1602429880) index="1" unique_id=831990961]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5098562, 0)
 
-[node name="HurtBox" parent="." index="3" unique_id=1132407237]
-visible = true
+[node name="AnimationController" parent="." index="3" unique_id=1020417921]
+script = ExtResource("3_6csb2")
+
+[node name="SpriteBody" parent="AnimationController" index="0" unique_id=1996147602]
+modulate = Color(1, 1, 1, 1)
+sprite_frames = SubResource("SpriteFrames_3a2cj")
+animation = &"swing_south"
+frame_progress = 0.1589687
+
+[node name="SpriteSword" type="AnimatedSprite3D" parent="AnimationController" index="1" unique_id=228143765]
+transform = Transform3D(1.2499999, 0, 0, 0, 1.2500002, 0, 0, 0, 1.2500002, 0, 0, 0)
+sprite_frames = SubResource("SpriteFrames_yjbyf")
+animation = &"swing_south"
+frame_progress = 0.73451877
+
+[connection signal="animation_changed" from="AnimationController/SpriteBody" to="AnimationController" method="_on_sprite_body_animation_changed"]
+
