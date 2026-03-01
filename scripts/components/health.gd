@@ -43,7 +43,6 @@ func take_damage(amount: int) -> void:
 	if current_health == 0:
 		_handle_death()
 
-
 func heal(amount: int) -> void:
 	if amount <= 0 or current_health <= 0:
 		return
