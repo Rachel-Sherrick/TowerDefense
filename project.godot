@@ -19,6 +19,15 @@ run/main_scene="uid://cmjnhkpnq3l66"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=1366
+window/size/viewport_height=720
+
+[filesystem]
+
+import/blender/enabled=false
+
 [layer_names]
 
 3d_physics/layer_1="World"

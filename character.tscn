@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://eou4mq5n6oh3"]
 
 [ext_resource type="Script" uid="uid://dc4uuaa405mkw" path="res://scripts/Classes/character.gd" id="1_k1sas"]
+[ext_resource type="Texture2D" path="res://sprites/testbert.png" id="2_pjt0s"]
+[ext_resource type="Script" path="res://animation_controller.gd" id="2_wa5vi"]
+[ext_resource type="Script" uid="uid://bnxn14t7crcv4" path="res://scripts/components/health.gd" id="4_wfnr8"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_dnc73"]
 
@@ -8,25 +11,54 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pjt0s"]
 transparency = 1
-albedo_color = Color(0.5689727, 0.56897277, 0.5689727, 0.2784314)
+albedo_color = Color(0, 0, 0, 0.33333334)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_pjt0s"]
 material = SubResource("StandardMaterial3D_pjt0s")
 top_radius = 3.0
 bottom_radius = 3.0
-height = 1.0
+height = 0.05
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_pjt0s"]
 height = 1.0
 radius = 3.0
 
+[sub_resource type="TubeTrailMesh" id="TubeTrailMesh_pjt0s"]
+radius = 0.05
+sections = 30
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wa5vi"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_pjt0s")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wfnr8"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_wfnr8"]
+material = SubResource("StandardMaterial3D_wfnr8")
+size = Vector3(1, 0.1, 0.05)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_px5sl"]
+albedo_color = Color(1.5323492, 1.0383938e-05, 3.6757306e-06, 1)
+rim_enabled = true
+grow_amount = 0.2
+
 [node name="Character" type="CharacterBody3D" unique_id=254305490 groups=["Character"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
 collision_layer = 6
 collision_mask = 7
 script = ExtResource("1_k1sas")
 
 [node name="Body" type="MeshInstance3D" parent="." unique_id=447693479]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+visible = false
 layers = 2
 mesh = SubResource("CapsuleMesh_dnc73")
 
@@ -43,7 +75,8 @@ metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
 [node name="RangeMesh" type="MeshInstance3D" parent="RangeDetection" unique_id=371440239]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 0)
+sorting_offset = -1.0
 mesh = SubResource("CylinderMesh_pjt0s")
 metadata/_edit_lock_ = true
 
@@ -51,6 +84,39 @@ metadata/_edit_lock_ = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("CylinderShape3D_pjt0s")
 metadata/_edit_lock_ = true
+
+[node name="DiameterCheckMesh" type="MeshInstance3D" parent="RangeDetection" unique_id=2108971858]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0.1, 0)
+mesh = SubResource("TubeTrailMesh_pjt0s")
+metadata/_edit_lock_ = true
+
+[node name="AnimationController" type="Node3D" parent="." unique_id=1020417921]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0.8, -0.9)
+script = ExtResource("2_wa5vi")
+
+[node name="SpriteBody" type="AnimatedSprite3D" parent="AnimationController" unique_id=1996147602]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+layers = 4
+sorting_offset = 1.0
+shaded = true
+alpha_cut = 1
+render_priority = 1
+sprite_frames = SubResource("SpriteFrames_wa5vi")
+frame_progress = 0.51347226
+metadata/_edit_lock_ = true
+
+[node name="Health" type="Node" parent="." unique_id=1530811456]
+script = ExtResource("4_wfnr8")
+max_health = 5
+
+[node name="HealthBar" type="Node3D" parent="." unique_id=263389330]
+transform = Transform3D(1, 0, 0, 0, 0.7847764, 0.619779, 0, -0.619779, 0.7847764, 0, 2.725, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="HealthBar" unique_id=628147743]
+transform = Transform3D(1, 0, 0, 0, -0.99415094, 0.107999355, 0, -0.107999355, -0.99415094, 0, 2, -0.031)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_wfnr8")
+surface_material_override/0 = SubResource("StandardMaterial3D_px5sl")
 
 [connection signal="body_entered" from="RangeDetection" to="." method="_on_range_body_entered"]
 [connection signal="body_exited" from="RangeDetection" to="." method="_on_range_detection_body_exited"]
