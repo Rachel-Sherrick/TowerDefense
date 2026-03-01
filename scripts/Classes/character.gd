@@ -35,8 +35,6 @@ var phys_framecount = 0
 @export var speed = 5.0
 ## Veloicty for when / if the chracter jumps
 @export var jump_velocity = 4.5
-## Health for when the character gets attacked
-@export var health = 1
 ## Range multiplier for the character's range
 ## Only set range through RangeDetection's set_range
 @export var range_detection = 1
@@ -60,6 +58,15 @@ func set_phys_framecount(new_count: int) -> bool:
 		return false
 	phys_framecount = new_count
 	return true
+	
+func get_health() -> int:
+	return health_component.current_health
+
+## !! Change so that health	
+func set_health(health_lost: int) -> bool:
+	if health_component.set_current_health(health_lost):
+		return true
+	return false
 	
 func get_target_type() -> int:
 	return target_type
@@ -163,16 +170,13 @@ func _on_range_body_entered(body: Node3D) -> void:
 	print("Body Entered!")
 	print(tracking_array) 
 
-
 ##Making sure the array is only two long
 func trackingArrayManagement(): 
 	while (tracking_array.size() > 2): 
 		tracking_array.pop_back()
 
-
 ##H.S added to get health to work properly
 @onready var health_component = $Health
 
 func take_damage(amount: int) -> void:
-	if health_component:
-		health_component.take_damage(amount)
+	health_component.take_damage(amount)

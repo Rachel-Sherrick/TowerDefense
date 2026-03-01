@@ -3,6 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://doxjo2c5tjq6e" path="res://enemy.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://tu18fp20hsnf" path="res://towers/warrior.tscn" id="3_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://bmslpuj4gik5" path="res://tower.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://coejem0sg3e82" path="res://BlenderMeshes/WoodTree1.blend" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://byffj00bhr6ln" path="res://BlenderMeshes/WoodTree2.blend" id="5_lquwl"]
+[ext_resource type="PackedScene" uid="uid://tlbe5if6ocfu" path="res://BlenderMeshes/WoodTree3.blend" id="6_7mycd"]
+[ext_resource type="PackedScene" uid="uid://n0fsop56at0s" path="res://BlenderMeshes/WoodTree4.blend" id="7_272bh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xm2m"]
 albedo_color = Color(0.56590307, 0.45444906, 0.19438995, 1)
@@ -37,7 +41,7 @@ shape = SubResource("BoxShape3D_7dm0k")
 metadata/_edit_lock_ = true
 
 [node name="Marker3D" type="Marker3D" parent="." unique_id=611099172]
-transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0.184, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0.184, 5, 5)
 metadata/_edit_lock_ = true
 
 [node name="Camera3D" type="Camera3D" parent="Marker3D" unique_id=1112084879]
@@ -75,4 +79,31 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.906646, 0, -3.317461)
 [node name="Character4" parent="." unique_id=830281426 instance=ExtResource("2_0xm2m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.465977, 0, -3.3592243)
 
-[node name="Warrior" parent="." unique_id=198302004 instance=ExtResource("3_1bvp3")]
+[node name="Trees" type="Node" parent="." unique_id=1611541056]
+
+[node name="WoodTree12" parent="Trees" unique_id=1645660628 instance=ExtResource("4_1bvp3")]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, -9.501386, 5.6, -12.142471)
+
+[node name="WoodTree22" parent="Trees" unique_id=886218980 instance=ExtResource("5_lquwl")]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 10.464756, 5.6, -10.981894)
+
+[node name="WoodTree32" parent="Trees" unique_id=2032175803 instance=ExtResource("6_7mycd")]
+transform = Transform3D(1.75, 0, 0, 0, 1.75, 0, 0, 0, 1.75, -16.842981, 8, -10.281412)
+
+[node name="WoodTree42" parent="Trees" unique_id=107973572 instance=ExtResource("7_272bh")]
+transform = Transform3D(1.35, 0, 0, 0, 1.35, 0, 0, 0, 1.35, 18.949173, 6.1, -8.354029)
+
+[node name="WoodTree13" parent="Trees" unique_id=1300089406 instance=ExtResource("4_1bvp3")]
+transform = Transform3D(0.9903354, 0, -0.76271605, 0, 1.25, 0, 0.76271605, 0, 0.9903354, -9.501386, 5.6, 16.168005)
+
+[node name="WoodTree23" parent="Trees" unique_id=1584459046 instance=ExtResource("5_lquwl")]
+transform = Transform3D(0.92928135, 0, 0.83602405, 0, 1.25, 0, -0.83602405, 0, 0.92928135, 10.464756, 5.6, 17.504486)
+
+[node name="WoodTree33" parent="Trees" unique_id=2145005653 instance=ExtResource("6_7mycd")]
+transform = Transform3D(0.12643047, 0, 1.745427, 0, 1.75, 0, -1.745427, 0, 0.12643047, -16.842981, 8, 16.3348)
+
+[node name="WoodTree43" parent="Trees" unique_id=268245617 instance=ExtResource("7_272bh")]
+transform = Transform3D(0.53441906, 0, -1.239716, 0, 1.3499999, 0, 1.239716, 0, 0.53441906, 18.949173, 6.1, 15.2875805)
+
+[node name="Warrior" parent="." unique_id=1210425893 instance=ExtResource("3_1bvp3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.253868, -0.02395606, -5.8090324)
