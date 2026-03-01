@@ -2,9 +2,22 @@
 
 [ext_resource type="PackedScene" uid="uid://eou4mq5n6oh3" path="res://character.tscn" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://c1msriimmkk0j" path="res://scripts/Classes/tower.gd" id="1_k1sas"]
+[ext_resource type="Texture2D" uid="uid://nj37xla1vxmg" path="res://sprites/testbert.png" id="3_stebd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vedim"]
 albedo_color = Color(0, 1, 1, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_stebd"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_stebd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Tower" unique_id=254305490 groups=["Tower"] instance=ExtResource("1_4flbx")]
 collision_layer = 4
@@ -23,3 +36,9 @@ surface_material_override/0 = SubResource("StandardMaterial3D_vedim")
 [node name="RangeDetection" parent="." index="2" unique_id=1602429880]
 collision_layer = 4
 collision_mask = 2
+
+[node name="SpriteBody" parent="Animation Controller" parent_id_path=PackedInt32Array(1020417921) index="0" unique_id=1996147602]
+layers = 524289
+modulate = Color(0.33333334, 1, 0.9098039, 1)
+sprite_frames = SubResource("SpriteFrames_stebd")
+frame_progress = 0.63789123
