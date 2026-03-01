@@ -9,7 +9,7 @@ func _process(delta: float) -> void:
 	time_elapsed += delta
 	
 	if time_elapsed >= 1.0:
-		var enemy = get_parent().get_node("Character2")
+		var enemy = tracking_array [0]
 		deal_damage(enemy) ##h.s edited to see if health will work properly
 
 func _physics_process(delta: float) -> void:
@@ -23,5 +23,8 @@ func _on_range_body_entered(body: Node3D) -> void:
 
 func deal_damage(enemy):
 	if time_elapsed >= 1.0:
-		enemy.take_damage(1)
-		time_elapsed = 0.0
+		#Checks to see if the array is filled. This probably the worst way to do this 
+		#but idk anymore. If array is filled take damage. 
+		if (enemy != null): 
+			self.take_damage(1)
+			time_elapsed = 0.0

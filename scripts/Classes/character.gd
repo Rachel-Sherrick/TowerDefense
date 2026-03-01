@@ -22,7 +22,7 @@ const WEAK = 4
 # var tracking_dict: Dictionary[Node3D, float] = {}
 # !! make sure this array only has up two elements, with the first representing
 # the last body to enter and the second representing the newest !!
-var tracking_array : Array[CharacterBody3D] = []
+var tracking_array : Array[CharacterBody3D] = [null, null]
 
 ######################
 ## Global Variables ##

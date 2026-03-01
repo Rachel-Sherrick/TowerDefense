@@ -25,7 +25,10 @@ func movement ():
 		#puts them on the left edge of the map, 
 		#off screen so they can go back to the right. 
 
-#Attacks towers within radius
-func attackingTowers(): 
-	pass
+#If towers in radius, take damage. 
+#the index needs to be changed so player can toggle first, last, etc. 
+#This is really just to get the bugs to stop. Needs replaced so they attack others, not just themselves. 
+func attacked(): 
+	if (tracking_array[0] != null): 
+		self.take_damage(1)
 	
