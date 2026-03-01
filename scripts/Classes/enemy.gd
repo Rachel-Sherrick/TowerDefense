@@ -6,7 +6,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	super(delta)
-	#movement()
+	movement()
 
 func _on_range_detection_body_exited(body: Node3D) -> void:
 	super(body)

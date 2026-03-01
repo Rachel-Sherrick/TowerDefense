@@ -1,10 +1,6 @@
 extends Character
 class_name Tower
 
-## @onready var ray_cast_3d: RayCast3D = $RayCast3D
-## var enemy : Character = null
-var time_elapsed : float = 0.0
-
 func _physics_process(delta: float) -> void:
 	super(delta)
 #
