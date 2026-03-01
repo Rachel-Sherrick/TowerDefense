@@ -33,16 +33,17 @@ func _process(delta: float) -> void:
 	#if the swing is ready and there's collision objects in hurt box
 	## !! Append this if statement to the one above, no need to revaluate
 	## swing_ready !!
-	if swing_ready == true && warrior_hurt_box.has_overlapping_bodies():
+	if swing_ready == true && $RangeDetection.has_overlapping_bodies():
+		show_hurt_box()
 		var enemy_in_range = warrior_hurt_box.get_overlapping_bodies()
 		## !! Edited to make sure all enemies in range were hit
 		## also add call to target a specific enemy using the
 		## target() template (as seen in character) is needed to be added !!
-		target(enemy_in_range)
+		#target(enemy_in_range)
 		for enemy in enemy_in_range:
 			warrior_swing(enemy)
 		## !! time_elapsed passed will always be 0 when passed here !!
-		#show_hurt_box(time_elapsed)
+		
 		reset_cooldown()
 
 func _physics_process(delta: float) -> void:
@@ -55,7 +56,7 @@ func _on_range_body_entered(body: Node3D) -> void:
 	super(body)
 	if swing_ready:
 		warrior_swing(body)
-		#warrior_hurt_box.show()
+		show_hurt_box()
 		reset_cooldown()
 		## !! add call to show hurt box here !!
 		## !! add call to reset cooldown !!
@@ -63,13 +64,12 @@ func _on_range_body_entered(body: Node3D) -> void:
 func _on_timer_timeout():
 	swing_ready = true
 	print(name, "'s ATTACK READY")
-	show_hurt_box()
 	
 #dealing warrior sword swing damage to enemies
-func warrior_swing(enemy) -> void:
+func warrior_swing(enemy: Enemy) -> void:
 	print(name, " attacked ", enemy.name)
 	## !! see comments in Character.gd !!
-	#enemy.set_health(1)
+	enemy.take_damage(1)
 	print(enemy.name + " health: ", enemy.get_health())
 
 #reset timer and swing ready and make hurt box invisible on cooldown
@@ -91,6 +91,6 @@ func show_hurt_box() -> void:
 	print(name + "'s hurt box shown")
 	## this line will wait 3 sec before proceeding to the next
 	## as there is no need to repeatedly call hurt_box.show()
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(0.5).timeout
 	warrior_hurt_box.hide()
 	print(name + "'s hurt box hidden")

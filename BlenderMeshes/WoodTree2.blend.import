@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://byffj00bhr6ln"
-path="res://.godot/imported/WoodTree2.blend-fef79ae0480dc070c93b13340bb021e7.scn"
+valid=false
 
 [deps]
 
 source_file="res://BlenderMeshes/WoodTree2.blend"
-dest_files=["res://.godot/imported/WoodTree2.blend-fef79ae0480dc070c93b13340bb021e7.scn"]
 
 [params]
 
