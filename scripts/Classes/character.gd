@@ -168,4 +168,11 @@ func _on_range_body_entered(body: Node3D) -> void:
 func trackingArrayManagement(): 
 	while (tracking_array.size() > 2): 
 		tracking_array.pop_back()
-		
+
+
+##H.S added to get health to work properly
+@onready var health_component = $Health
+
+func take_damage(amount: int) -> void:
+	if health_component:
+		health_component.take_damage(amount)
