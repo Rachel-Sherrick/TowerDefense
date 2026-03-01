@@ -168,6 +168,4 @@ func _on_range_body_entered(body: Node3D) -> void:
 func trackingArrayManagement(): 
 	while (tracking_array.size() > 2): 
 		tracking_array.pop_back()
-
-		
 		
