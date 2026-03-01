@@ -25,7 +25,7 @@ func update_tracking_structures() -> bool:
 			if (body.get_groups() == get_groups()) && (!get_tracking_friends()):
 				continue
 			print(body.name + " distance from " + name + " is " + str(get_distance_char(body)))
-			tracking_dict[body] = get_distance_char(body)
+			#tracking_dict[body] = get_distance_char(body)
 	return true
 
 ## clears the tracking data structures of elements
@@ -42,7 +42,7 @@ func clear_tracking() -> bool:
 				## returns false if the obj_list contains a single non-friend obj
 				print(name + " failed to clear tracking list")
 				return false
-	tracking_dict.clear()
+	#tracking_dict.clear()
 	tracking_array.clear()
 	print(name + " cleared tracking list")
 	return true
@@ -55,7 +55,7 @@ func _on_range_detection_body_exited(body: Node3D) -> void:
 		## the group
 		if (body.get_groups() == get_groups()) && (!get_tracking_friends()):
 			return
-		tracking_dict.erase(body)
+		#tracking_dict.erase(body)
 		remove_char_array(body)
 		## Attempts to clear the tracking data structures
 		clear_tracking()
@@ -68,7 +68,7 @@ func _on_range_body_entered(body: Node3D) -> void:
 		## Returns if is friend and not allowed to track friends
 		if (body.get_groups() == get_groups()) && (!get_tracking_friends()):
 			return
-		tracking_dict[body] = get_distance_char(body)
+		#tracking_dict[body] = get_distance_char(body)
 		tracking_array.append(body)
 		print(name + " tracking " + body.name)
 		return
