@@ -128,6 +128,8 @@ transform = Transform3D(1, 0, 0, 0, -0.99415094, 0.107999355, 0, -0.107999355, -
 cast_shadow = 0
 mesh = SubResource("BoxMesh_wfnr8")
 surface_material_override/0 = SubResource("StandardMaterial3D_px5sl")
+[node name="Enemy" parent="." unique_id=138773206 instance=ExtResource("2_0xm2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.841621, 4.7683716e-07, -16.019958)
 
 [connection signal="body_entered" from="RangeDetection" to="." method="_on_range_body_entered"]
 [connection signal="body_exited" from="RangeDetection" to="." method="_on_range_detection_body_exited"]
