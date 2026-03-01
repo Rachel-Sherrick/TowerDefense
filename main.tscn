@@ -1,10 +1,5 @@
 [gd_scene format=3 uid="uid://cmjnhkpnq3l66"]
 
-[ext_resource type="Script" uid="uid://dc4uuaa405mkw" path="res://scripts/Classes/character.gd" id="1_1bvp3"]
-[ext_resource type="Script" path="res://animation_controller.gd" id="2_lquwl"]
-[ext_resource type="Script" uid="uid://bnxn14t7crcv4" path="res://scripts/components/health.gd" id="4_272bh"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_dnc73"]
 [ext_resource type="PackedScene" uid="uid://doxjo2c5tjq6e" path="res://enemy.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://tu18fp20hsnf" path="res://towers/warrior.tscn" id="3_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://bmslpuj4gik5" path="res://tower.tscn" id="3_h2yge"]
@@ -16,123 +11,59 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xm2m"]
 albedo_color = Color(0.56590307, 0.45444906, 0.19438995, 1)
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_glpr6"]
+[sub_resource type="BoxMesh" id="BoxMesh_7dm0k"]
+material = SubResource("StandardMaterial3D_0xm2m")
+size = Vector3(60, 2, 60)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pjt0s"]
-transparency = 1
-albedo_color = Color(0, 0, 0, 0.33333334)
+[sub_resource type="BoxShape3D" id="BoxShape3D_7dm0k"]
+size = Vector3(60, 2, 60)
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_pjt0s"]
-material = SubResource("StandardMaterial3D_pjt0s")
-top_radius = 3.0
-bottom_radius = 3.0
-height = 0.05
+[sub_resource type="Sky" id="Sky_ig7tw"]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_pjt0s"]
-height = 1.0
-radius = 3.0
+[sub_resource type="Environment" id="Environment_0xm2m"]
+background_mode = 1
+background_color = Color(0.41504437, 0.53465366, 0.41490436, 1)
+sky = SubResource("Sky_ig7tw")
+tonemap_mode = 2
 
-[sub_resource type="TubeTrailMesh" id="TubeTrailMesh_pjt0s"]
-radius = 0.05
-sections = 30
+[node name="Main" type="Node" unique_id=1776296673]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_wa5vi"]
-resource_local_to_scene = true
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": null
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wfnr8"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_wfnr8"]
-material = SubResource("StandardMaterial3D_wfnr8")
-size = Vector3(1, 0.1, 0.05)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_px5sl"]
-albedo_color = Color(1.5323492, 1.0383938e-05, 3.6757306e-06, 1)
-rim_enabled = true
-grow_amount = 0.2
-
-[node name="Character" type="CharacterBody3D" unique_id=254305490 groups=["Character"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
-collision_layer = 6
-collision_mask = 7
-script = ExtResource("1_1bvp3")
-
-[node name="Body" type="MeshInstance3D" parent="." unique_id=447693479]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-visible = false
-layers = 2
-mesh = SubResource("CapsuleMesh_dnc73")
-
-[node name="CharacterCollision" type="CollisionShape3D" parent="." unique_id=492885942]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("CapsuleShape3D_glpr6")
+[node name="Ground" type="StaticBody3D" parent="." unique_id=1885948079]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 metadata/_edit_lock_ = true
 
-[node name="RangeDetection" type="Area3D" parent="." unique_id=1602429880 groups=["Character"]]
-collision_layer = 6
-collision_mask = 6
-monitorable = false
-metadata/_edit_group_ = true
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground" unique_id=1828453882]
+mesh = SubResource("BoxMesh_7dm0k")
 metadata/_edit_lock_ = true
 
-[node name="RangeMesh" type="MeshInstance3D" parent="RangeDetection" unique_id=371440239]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 0)
-sorting_offset = -1.0
-mesh = SubResource("CylinderMesh_pjt0s")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=1595735021]
+shape = SubResource("BoxShape3D_7dm0k")
 metadata/_edit_lock_ = true
 
-[node name="RangeCollision" type="CollisionShape3D" parent="RangeDetection" unique_id=831990961]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-shape = SubResource("CylinderShape3D_pjt0s")
 [node name="Marker3D" type="Marker3D" parent="." unique_id=611099172]
 transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0.184, 5, 5)
 metadata/_edit_lock_ = true
 
-[node name="DiameterCheckMesh" type="MeshInstance3D" parent="RangeDetection" unique_id=2108971858]
-transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0.1, 0)
-mesh = SubResource("TubeTrailMesh_pjt0s")
+[node name="Camera3D" type="Camera3D" parent="Marker3D" unique_id=1112084879]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19)
+projection = 1
+size = 24.0
+far = 40.0
 metadata/_edit_lock_ = true
 
-[node name="AnimationController" type="Node3D" parent="." unique_id=1020417921]
-transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0.8, -0.9)
-script = ExtResource("2_lquwl")
-
-[node name="SpriteBody" type="AnimatedSprite3D" parent="AnimationController" unique_id=1996147602]
-transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
-layers = 4
-sorting_offset = 1.0
-shaded = true
-alpha_cut = 1
-render_priority = 1
-sprite_frames = SubResource("SpriteFrames_wa5vi")
-frame_progress = 0.51347226
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Marker3D" unique_id=584399821]
+transform = Transform3D(0.95105654, 0.108725056, -0.2892583, 0, 0.93605953, 0.35184166, 0.309017, -0.3346213, 0.89024556, 0, 0, 23)
+shadow_enabled = true
+shadow_bias = 0.04
+shadow_blur = 1.5
 metadata/_edit_lock_ = true
 
-[node name="Health" type="Node" parent="." unique_id=1530811456]
-script = ExtResource("4_272bh")
-max_health = 5
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1008975528]
+environment = SubResource("Environment_0xm2m")
 
-[node name="HealthBar" type="Node3D" parent="." unique_id=263389330]
-transform = Transform3D(1, 0, 0, 0, 0.7847764, 0.619779, 0, -0.619779, 0.7847764, 0, 2.725, 0)
+[node name="Tower" parent="." unique_id=766364614 instance=ExtResource("3_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.012677, 0, -2.3001575)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="HealthBar" unique_id=628147743]
-transform = Transform3D(1, 0, 0, 0, -0.99415094, 0.107999355, 0, -0.107999355, -0.99415094, 0, 2, -0.031)
-cast_shadow = 0
-mesh = SubResource("BoxMesh_wfnr8")
-surface_material_override/0 = SubResource("StandardMaterial3D_px5sl")
-[node name="Enemy" parent="." unique_id=138773206 instance=ExtResource("2_0xm2m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.841621, 4.7683716e-07, -16.019958)
-
-[connection signal="body_entered" from="RangeDetection" to="." method="_on_range_body_entered"]
-[connection signal="body_exited" from="RangeDetection" to="." method="_on_range_detection_body_exited"]
 [node name="Character" parent="." unique_id=1096929630 instance=ExtResource("2_0xm2m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.788729, 0, 0)
 

@@ -124,11 +124,6 @@ target_position = Vector3(0, 0, 3)
 hit_from_inside = true
 debug_shape_custom_color = Color(1, 0, 0, 1)
 debug_shape_thickness = 5
-script = ExtResource("2_pjt0s")
 
-[connection signal="disable_tracking" from="." to="RayCast3D" method="_on_character_disable_tracking"]
-[connection signal="enable_tracking" from="." to="RayCast3D" method="_on_character_enable_tracking"]
 [connection signal="body_entered" from="RangeDetection" to="." method="_on_range_body_entered"]
 [connection signal="body_exited" from="RangeDetection" to="." method="_on_range_detection_body_exited"]
-[connection signal="detect_foe" from="RayCast3D" to="." method="_on_ray_cast_3d_detect_foe"]
-[connection signal="detect_friend" from="RayCast3D" to="." method="_on_ray_cast_3d_detect_friend"]
