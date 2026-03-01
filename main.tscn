@@ -79,9 +79,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.906646, 0, -3.317461)
 [node name="Character4" parent="." unique_id=830281426 instance=ExtResource("2_0xm2m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.465977, 0, -3.3592243)
 
-[node name="Health" type="Node" parent="Character4" unique_id=1640370023]
-script = ExtResource("3_1bvp3")
-
 [node name="Trees" type="Node" parent="." unique_id=1611541056]
 
 [node name="WoodTree12" parent="Trees" unique_id=1645660628 instance=ExtResource("4_1bvp3")]
@@ -108,3 +105,5 @@ transform = Transform3D(0.12643047, 0, 1.745427, 0, 1.75, 0, -1.745427, 0, 0.126
 [node name="WoodTree43" parent="Trees" unique_id=268245617 instance=ExtResource("7_272bh")]
 transform = Transform3D(0.53441906, 0, -1.239716, 0, 1.3499999, 0, 1.239716, 0, 0.53441906, 18.949173, 6.1, 15.2875805)
 
+[node name="Warrior" parent="." unique_id=1210425893 instance=ExtResource("3_1bvp3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.253868, -0.02395606, -5.8090324)
