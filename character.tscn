@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dc4uuaa405mkw" path="res://scripts/Classes/character.gd" id="1_k1sas"]
 [ext_resource type="Texture2D" uid="uid://nj37xla1vxmg" path="res://sprites/testbert.png" id="2_pjt0s"]
 [ext_resource type="Script" uid="uid://k3ho7ef46d6" path="res://animation_controller.gd" id="2_wa5vi"]
+[ext_resource type="Script" uid="uid://bnxn14t7crcv4" path="res://scripts/components/health.gd" id="4_wfnr8"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_dnc73"]
 
@@ -91,6 +92,9 @@ render_priority = 1
 sprite_frames = SubResource("SpriteFrames_wa5vi")
 frame_progress = 0.51347226
 metadata/_edit_lock_ = true
+
+[node name="Health" type="Node" parent="." unique_id=1530811456]
+script = ExtResource("4_wfnr8")
 
 [connection signal="body_entered" from="RangeDetection" to="." method="_on_range_body_entered"]
 [connection signal="body_exited" from="RangeDetection" to="." method="_on_range_detection_body_exited"]
