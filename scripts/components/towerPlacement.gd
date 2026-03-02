@@ -26,10 +26,20 @@ func _place_tower(mouse_pos: Vector2) -> void:
 	var query := PhysicsRayQueryParameters3D.create(from, to)
 	var result := get_world_3d().direct_space_state.intersect_ray(query)
 	
-	if result:
+	if result and _is_valid_position(result.position):
 		_spawn_tower(result.position)
 		
 func _spawn_tower(position: Vector3) -> void:
 	var tower := tower_scene.instantiate()
 	get_parent().add_child(tower)
 	tower.global_position = position
+	
+func _is_valid_position(position: Vector3) -> bool:
+	var area := get_parent().get_node("MainField") as Area3D 
+	var shape := area.get_node("CollisionShape3D").shape as BoxShape3D
+	var extents := shape.size * 0.5
+	var local_pos := area.to_local(position)
+	
+	return(
+		abs(local_pos.x) <= extents.x and abs(local_pos.z) <= extents.z
+	)
