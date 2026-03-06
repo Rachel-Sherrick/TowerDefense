@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://cmjnhkpnq3l66"]
 
+[ext_resource type="AudioStream" uid="uid://7vmjaaxleyae" path="res://songs/sneswip1.wav" id="1_kek77"]
 [ext_resource type="PackedScene" uid="uid://doxjo2c5tjq6e" path="res://enemy.tscn" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://cx5lcq6iqwfvi" path="res://audio_stream_player.gd" id="2_4c57u"]
 [ext_resource type="PackedScene" uid="uid://tu18fp20hsnf" path="res://towers/warrior.tscn" id="3_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://bmslpuj4gik5" path="res://tower.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://bu6x0lnlcixer" path="res://EnvironmentGLBs/WoodTree1.glb" id="5_272bh"]
@@ -27,6 +29,11 @@ sky = SubResource("Sky_ig7tw")
 tonemap_mode = 2
 
 [node name="Main" type="Node" unique_id=1776296673]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=306243073]
+stream = ExtResource("1_kek77")
+volume_db = -15.0
+script = ExtResource("2_4c57u")
 
 [node name="Ground" type="StaticBody3D" parent="." unique_id=1885948079]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
