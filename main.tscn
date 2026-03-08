@@ -32,6 +32,17 @@ tonemap_mode = 2
 [sub_resource type="BoxShape3D" id="BoxShape3D_h2yge"]
 size = Vector3(20, 2, 20)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_4c57u"]
+size = Vector3(20, 2, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_efxa6"]
+transparency = 1
+albedo_color = Color(0.95686275, 1, 0.9372549, 0.14901961)
+
+[sub_resource type="BoxMesh" id="BoxMesh_dg77c"]
+material = SubResource("StandardMaterial3D_efxa6")
+size = Vector3(20, 2, 20)
+
 [node name="Main" type="Node" unique_id=1776296673]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=306243073]
@@ -115,7 +126,16 @@ axis_lock_angular_z = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MainField" unique_id=2063056620]
 shape = SubResource("BoxShape3D_h2yge")
 
+[node name="MainField" type="Area3D" parent="MainField" unique_id=278710084]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MainField/MainField" unique_id=2107546024]
+shape = SubResource("BoxShape3D_4c57u")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MainField/MainField" unique_id=1422258697]
+mesh = SubResource("BoxMesh_dg77c")
+
 [node name="towerPlacement" parent="." unique_id=666569105 instance=ExtResource("4_1bvp3")]
+
 [node name="Trees" type="Node" parent="." unique_id=1611541056]
 
 [node name="WoodTree12" parent="Trees" unique_id=669732448 instance=ExtResource("5_272bh")]
@@ -142,5 +162,5 @@ transform = Transform3D(1.2730215, 0, 0.44935077, 0, 1.3499999, 0, -0.44935077, 
 [node name="WoodTree44" parent="Trees" unique_id=1470201086 instance=ExtResource("6_kek77")]
 transform = Transform3D(0.4705501, 0, -1.2653387, 0, 1.3499998, 0, 1.2653387, 0, 0.4705501, 18.913647, 6.1, 15.274525)
 
-[node name="Warrior" parent="." unique_id=1210425893 instance=ExtResource("3_1bvp3")]
+[node name="Warrior2" parent="." unique_id=1210425893 instance=ExtResource("3_1bvp3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.253868, -0.02395606, -5.8090324)
