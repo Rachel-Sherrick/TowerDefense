@@ -116,6 +116,7 @@ axis_lock_angular_z = false
 shape = SubResource("BoxShape3D_h2yge")
 
 [node name="towerPlacement" parent="." unique_id=666569105 instance=ExtResource("4_1bvp3")]
+
 [node name="Trees" type="Node" parent="." unique_id=1611541056]
 
 [node name="WoodTree12" parent="Trees" unique_id=669732448 instance=ExtResource("5_272bh")]
@@ -142,5 +143,5 @@ transform = Transform3D(1.2730215, 0, 0.44935077, 0, 1.3499999, 0, -0.44935077, 
 [node name="WoodTree44" parent="Trees" unique_id=1470201086 instance=ExtResource("6_kek77")]
 transform = Transform3D(0.4705501, 0, -1.2653387, 0, 1.3499998, 0, 1.2653387, 0, 0.4705501, 18.913647, 6.1, 15.274525)
 
-[node name="Warrior" parent="." unique_id=1210425893 instance=ExtResource("3_1bvp3")]
+[node name="Warrior2" parent="." unique_id=1210425893 instance=ExtResource("3_1bvp3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.253868, -0.02395606, -5.8090324)
