@@ -100,20 +100,15 @@ func _physics_process(delta: float) -> void:
 	if get_phys_framecount() % 4 == 0:
 		update_tracking_structures()
 
-## function to be overridden by children; handles the targeting
-## of chracters for attacks. 
-## this serves only as a potential example
-func target(body: Node3D) -> bool:
+## Returns a character from one of the arrays using the given targeting_type
+func target() -> Character:
 	match get_target_type():
-		## targeting specfics could be handled by sub functions
 		FIRST:
-			print(name + " targeted " + body.name + " with First")
-			return true
+			return tracking_array.front()
 		LAST:
-			print(name + " targeted " + body.name + " with Last")
-			return true
+			return tracking_array.back()
 		_:
-			return false	
+			return null
 
 func get_distance_char(body: Node3D) -> float:
 	return to_local(body.global_transform.origin).length()
@@ -156,6 +151,7 @@ func _on_range_detection_body_exited(body: Node3D) -> void:
 	##See healer.gd for old code
 	#tracking_dict.erase(body)
 	#remove_char_array(body)
+	tracking_array.erase(body)
 	trackingArrayManagement()
 	print(name + " no longer tracking " + body.name)
 	print(tracking_array)

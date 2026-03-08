@@ -1,5 +1,5 @@
 extends AnimationController
-
+signal animation_finished()
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	play("idle")
@@ -48,6 +48,18 @@ func play(animation: String) -> bool:
 	$SpriteBody.play(animation)
 	return true
 
+## stops and resets all animations
+func stop() -> bool:
+	$SpriteBody.stop()
+	$SpriteSword.stop()
+	return true
 
 func _on_sprite_body_animation_changed() -> void:
 	animation_align()
+
+
+func _on_sprite_body_animation_finished() -> void:
+	print("Animation finished")
+	stop()
+	$SpriteSword.hide()
+	emit_signal("animation_finished")

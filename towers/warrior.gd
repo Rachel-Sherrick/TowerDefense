@@ -20,13 +20,9 @@ func _process(delta: float) -> void:
 	#if warrior_timer.is_stopped():
 		#print("TIMER NOT WORKING")
 	if swing_ready == true && $RangeDetection.has_overlapping_bodies():
-		show_hurt_box()
-		var enemy_in_range = warrior_hurt_box.get_overlapping_bodies()
-		## also add call to target a specific enemy using the
-		## target() template (as seen in character) is needed to be added !!
-		for enemy in enemy_in_range:
-			warrior_swing(enemy)
-		reset_cooldown()
+		##moved call to function to asynchronously wait for last attack
+		##to finish 
+		await attack_handler()
 	if !($RangeDetection.has_overlapping_bodies()):
 		animation_controller.play("idle")
 
@@ -38,21 +34,36 @@ func _on_range_detection_body_exited(body: Node3D) -> void:
 
 func _on_range_body_entered(body: Node3D) -> void:
 	super(body)
-	if swing_ready:
-		warrior_swing(body)
-		show_hurt_box()
-		reset_cooldown()
+	#if swing_ready:
+	#	attack_handler()
 	
 func _on_timer_timeout():
 	swing_ready = true
 	print(name, "'s ATTACK READY")
-	
-#dealing warrior sword swing damage to enemies
-func warrior_swing(enemy: Enemy) -> void:
-	print(name, " attacked ", enemy.name)
-	var dir = get_direction_to_enemy(enemy)
+
+##handles the attacking of enemies
+func attack_handler() -> void:
+		reset_cooldown()
+		var enemy_in_range = warrior_hurt_box.get_overlapping_bodies()
+		## targets an enemy; does not change target if there is no enemy returned
+		attack_alter_area(target())
+		show_hurt_box()
+		for enemy in enemy_in_range:
+			attack_damage(enemy)
+		##forces attacks to wait till animation is finished till a new one begins
+		await animation_controller.animation_finished
+
+## Handles the animation and the oritentation of an attack
+func attack_alter_area(target: Enemy) -> void:
+	if target == null:
+		return
+	var dir = get_direction_to_enemy(target)
 	var cardinal = get_cardinal_direction(dir)
 	change_attack_direction(cardinal)
+
+#dealing warrior sword swing damage to enemies
+func attack_damage(enemy: Enemy) -> void:
+	print(name, " attacked ", enemy.name)
 	## !! see comments in Character.gd !!
 	enemy.take_damage(1)
 	print(enemy.name + " health: ", enemy.get_health())
@@ -68,22 +79,13 @@ func show_hurt_box() -> void:
 	warrior_hurt_box.show()
 	print(name + "'s hurt box shown")
 	## this line will wait 3 sec before proceeding to the next
+	## altered to wait for the animation to finish
 	await get_tree().create_timer(0.5).timeout
 	warrior_hurt_box.hide()
 	print(name + "'s hurt box hidden")
 	
-func target(body: Node3D) -> bool:
-	match get_target_type():
-		## targeting specfics could be handled by sub functions
-		FIRST:
-			print(name + " targeted " + body.name + " with First")
-			return true
-		LAST:
-			print(name + " targeted " + body.name + " with Last")
-			return true
-		_:
-			return false	
-			
+## Needs to be altered to access the tracking array 
+## Use target() (see character.gd) instead
 func get_first_enemy() -> Enemy:
 	var first = null
 	#30 taken from movement function
@@ -97,7 +99,9 @@ func get_first_enemy() -> Enemy:
 			first = body
 	
 	return first
-	
+
+## Needs to be altered to access the tracking array 
+## Use target() (see character.gd) instead
 func get_last_enemy() -> Enemy:
 	var last = null
 	var edge = -30
@@ -139,16 +143,16 @@ func change_attack_direction(direction: int):
 		Direction.NORTH:
 			warrior_hurt_box.rotation.y = deg_to_rad(180)
 			animation_controller.play("swing_north")
-			animation_controller.play("swing")
+			#animation_controller.play("swing")
 		Direction.SOUTH:
 			warrior_hurt_box.rotation.y = deg_to_rad(0)
 			animation_controller.play("swing_south")
-			animation_controller.play("swing")
+			#animation_controller.play("swing")
 		Direction.EAST:
 			warrior_hurt_box.rotation.y = deg_to_rad(90)
 			animation_controller.play("swing_east")
-			animation_controller.play("swing")
+			#animation_controller.play("swing")
 		Direction.WEST:
 			warrior_hurt_box.rotation.y = deg_to_rad(-90)
 			animation_controller.play("swing_west")
-			animation_controller.play("swing")
+			#animation_controller.play("swing")
