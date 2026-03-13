@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://cmyw1wq2h0igv"]
+
+[ext_resource type="PackedScene" uid="uid://doxjo2c5tjq6e" path="res://enemy.tscn" id="1_5tacl"]
+[ext_resource type="Texture2D" uid="uid://nj37xla1vxmg" path="res://sprites/testbert.png" id="2_q4ieg"]
+[ext_resource type="Texture2D" uid="uid://djsvlxd4stdyy" path="res://sprites/enemies/ant/idle/anttest.png" id="3_gvseq"]
+[ext_resource type="Texture2D" uid="uid://nbsknk42hyih" path="res://sprites/enemies/ant/walk/frame0000.png" id="4_oa1bq"]
+[ext_resource type="Texture2D" uid="uid://cwhytdmjppukq" path="res://sprites/enemies/ant/walk/frame0001.png" id="5_s2dld"]
+[ext_resource type="Texture2D" uid="uid://3vyawqix5m7v" path="res://sprites/enemies/ant/walk/frame0002.png" id="6_raokg"]
+[ext_resource type="Texture2D" uid="uid://c4js8hvvpji2i" path="res://sprites/enemies/ant/walk/frame0003.png" id="7_xg3fw"]
+[ext_resource type="Texture2D" uid="uid://cah6x37x8j33q" path="res://sprites/enemies/ant/walk/frame0004.png" id="8_ya3fb"]
+[ext_resource type="Texture2D" uid="uid://o15w4si5vfqv" path="res://sprites/enemies/ant/walk/frame0005.png" id="9_ea7wc"]
+[ext_resource type="Texture2D" uid="uid://c3vg7w4yxheca" path="res://sprites/enemies/ant/walk/frame0006.png" id="10_2cirq"]
+[ext_resource type="Texture2D" uid="uid://bl1gt6tji0v1f" path="res://sprites/enemies/ant/walk/frame0007.png" id="11_qnfos"]
+[ext_resource type="Texture2D" uid="uid://de7xoowg3wfhi" path="res://sprites/enemies/ant/walk/frame0008.png" id="12_l43pa"]
+[ext_resource type="Texture2D" uid="uid://d0j13c5r6paks" path="res://sprites/enemies/ant/walk/frame0009.png" id="13_3kwd1"]
+[ext_resource type="Texture2D" uid="uid://dh37whmobbs5t" path="res://sprites/enemies/ant/walk/frame0010.png" id="14_ilbfg"]
+[ext_resource type="Texture2D" uid="uid://dp0i2pnvs16tm" path="res://sprites/enemies/ant/walk/frame0011.png" id="15_p73d7"]
+[ext_resource type="Texture2D" uid="uid://dug1wddiivyu6" path="res://sprites/enemies/ant/walk/frame0012.png" id="16_tovqm"]
+[ext_resource type="Texture2D" uid="uid://cw5tllp5f1ak7" path="res://sprites/enemies/ant/walk/frame0013.png" id="17_75ima"]
+[ext_resource type="Texture2D" uid="uid://cyky1ih3xjuo3" path="res://sprites/enemies/ant/walk/frame0014.png" id="18_kvl2v"]
+[ext_resource type="Texture2D" uid="uid://bk5qjveh8qksv" path="res://sprites/enemies/ant/walk/frame0015.png" id="19_yu62i"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2f0xw"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_q4ieg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_gvseq")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_gvseq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_oa1bq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_s2dld")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_raokg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_xg3fw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ya3fb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ea7wc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_2cirq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_qnfos")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_l43pa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_3kwd1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ilbfg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_p73d7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_tovqm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_75ima")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_kvl2v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_yu62i")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 24.0
+}]
+
+[node name="Character" unique_id=254305490 instance=ExtResource("1_5tacl")]
+
+[node name="SpriteBody" parent="AnimationController" parent_id_path=PackedInt32Array(1020417921) index="0" unique_id=1996147602]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, -0.3, 0)
+modulate = Color(1, 1, 1, 1)
+sprite_frames = SubResource("SpriteFrames_2f0xw")
+animation = &"walk"
+frame_progress = 0.0
