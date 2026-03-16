@@ -11,12 +11,12 @@ Stream mapping:
   Stream #1:0 (png) -> paletteuse
   paletteuse:default -> Stream #0:0 (gif)
 Press [q] to stop, [?] for help
-[in#0/image2 @ 0x5c7d2f2ba700] Thread message queue blocking; consider raising the thread_queue_size option (current value: 8)
+[in#0/image2 @ 0x607736cbb700] Thread message queue blocking; consider raising the thread_queue_size option (current value: 8)
 Output #0, gif, to '/home/nexus935115/OneDrive_fire5kirby/Pictures/Art/Projects/Ant/Walk/anttestanim.gif':
   Metadata:
     encoder         : Lavf60.16.100
   Stream #0:0: Video: gif, pal8(pc, gbr/unknown/unknown, progressive), 381x240 [SAR 1:1 DAR 127:80], q=2-31, 200 kb/s, 24 fps, 100 tbn
     Metadata:
       encoder         : Lavc60.31.102 gif
-frame=    0 fps=0.0 q=-0.0 size=       0kB time=00:00:00.00 bitrate=N/A speed=   0x    [out#0/gif @ 0x5c7d2f328100] video:374kB audio:0kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.005228%
-frame=   16 fps=0.0 q=-0.0 Lsize=     374kB time=00:00:00.62 bitrate=4896.6kbits/s speed= 6.7x    
+frame=    0 fps=0.0 q=-0.0 size=       0kB time=00:00:00.00 bitrate=N/A speed=   0x    [out#0/gif @ 0x607736d56980] video:190kB audio:0kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.010268%
+frame=   16 fps=0.0 q=-0.0 Lsize=     190kB time=00:00:00.62 bitrate=2493.5kbits/s speed=8.44x    
