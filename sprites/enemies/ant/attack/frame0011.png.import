@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwhytdmjppukq"
-path.s3tc="res://.godot/imported/frame0001.png-74272076c5e22d882892d2eb7edcb959.s3tc.ctex"
+uid="uid://cxsccpvy02g46"
+path.s3tc="res://.godot/imported/frame0011.png-49389ee7b7d7cbd9265e282051345c7e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://sprites/enemies/ant/walk/frame0001.png"
-dest_files=["res://.godot/imported/frame0001.png-74272076c5e22d882892d2eb7edcb959.s3tc.ctex"]
+source_file="res://sprites/enemies/ant/attack/frame0011.png"
+dest_files=["res://.godot/imported/frame0011.png-49389ee7b7d7cbd9265e282051345c7e.s3tc.ctex"]
 
 [params]
 

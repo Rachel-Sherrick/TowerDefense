@@ -1,28 +1,96 @@
 [gd_scene format=3 uid="uid://cmyw1wq2h0igv"]
 
 [ext_resource type="PackedScene" uid="uid://doxjo2c5tjq6e" path="res://enemy.tscn" id="1_5tacl"]
+[ext_resource type="Texture2D" uid="uid://cy4olopey5qye" path="res://sprites/enemies/ant/attack/frame0000.png" id="2_kvl2v"]
 [ext_resource type="Texture2D" uid="uid://nj37xla1vxmg" path="res://sprites/testbert.png" id="2_q4ieg"]
-[ext_resource type="Texture2D" uid="uid://djsvlxd4stdyy" path="res://sprites/enemies/ant/idle/anttest.png" id="3_gvseq"]
+[ext_resource type="Texture2D" uid="uid://ba020ghdrflc1" path="res://sprites/enemies/ant/attack/frame0001.png" id="3_yu62i"]
 [ext_resource type="Texture2D" uid="uid://nbsknk42hyih" path="res://sprites/enemies/ant/walk/frame0000.png" id="4_oa1bq"]
+[ext_resource type="Texture2D" uid="uid://b86v8mmkswr41" path="res://sprites/enemies/ant/attack/frame0002.png" id="4_xtrik"]
+[ext_resource type="Texture2D" uid="uid://mpet6tap42p1" path="res://sprites/enemies/ant/attack/frame0003.png" id="5_bulnm"]
 [ext_resource type="Texture2D" uid="uid://cwhytdmjppukq" path="res://sprites/enemies/ant/walk/frame0001.png" id="5_s2dld"]
+[ext_resource type="Texture2D" uid="uid://b6byo84eyoncc" path="res://sprites/enemies/ant/attack/frame0004.png" id="6_g3ivx"]
 [ext_resource type="Texture2D" uid="uid://3vyawqix5m7v" path="res://sprites/enemies/ant/walk/frame0002.png" id="6_raokg"]
+[ext_resource type="Texture2D" uid="uid://b1dnhglh8d7sc" path="res://sprites/enemies/ant/attack/frame0005.png" id="7_dhyn0"]
 [ext_resource type="Texture2D" uid="uid://c4js8hvvpji2i" path="res://sprites/enemies/ant/walk/frame0003.png" id="7_xg3fw"]
+[ext_resource type="Texture2D" uid="uid://dbnuaf0r11xrs" path="res://sprites/enemies/ant/attack/frame0006.png" id="8_o8e7g"]
 [ext_resource type="Texture2D" uid="uid://cah6x37x8j33q" path="res://sprites/enemies/ant/walk/frame0004.png" id="8_ya3fb"]
 [ext_resource type="Texture2D" uid="uid://o15w4si5vfqv" path="res://sprites/enemies/ant/walk/frame0005.png" id="9_ea7wc"]
+[ext_resource type="Texture2D" uid="uid://duvx3ly5yekxd" path="res://sprites/enemies/ant/attack/frame0007.png" id="9_vohnw"]
 [ext_resource type="Texture2D" uid="uid://c3vg7w4yxheca" path="res://sprites/enemies/ant/walk/frame0006.png" id="10_2cirq"]
+[ext_resource type="Texture2D" uid="uid://dscc8vwbetkh0" path="res://sprites/enemies/ant/attack/frame0008.png" id="10_jwpso"]
+[ext_resource type="Texture2D" uid="uid://b3p7wpqjdm74i" path="res://sprites/enemies/ant/attack/frame0009.png" id="11_3vr8v"]
 [ext_resource type="Texture2D" uid="uid://bl1gt6tji0v1f" path="res://sprites/enemies/ant/walk/frame0007.png" id="11_qnfos"]
+[ext_resource type="Texture2D" uid="uid://6lyidlhjueom" path="res://sprites/enemies/ant/attack/frame0010.png" id="12_0msx1"]
 [ext_resource type="Texture2D" uid="uid://de7xoowg3wfhi" path="res://sprites/enemies/ant/walk/frame0008.png" id="12_l43pa"]
 [ext_resource type="Texture2D" uid="uid://d0j13c5r6paks" path="res://sprites/enemies/ant/walk/frame0009.png" id="13_3kwd1"]
+[ext_resource type="Texture2D" uid="uid://cxsccpvy02g46" path="res://sprites/enemies/ant/attack/frame0011.png" id="13_fa6t3"]
 [ext_resource type="Texture2D" uid="uid://dh37whmobbs5t" path="res://sprites/enemies/ant/walk/frame0010.png" id="14_ilbfg"]
+[ext_resource type="Texture2D" uid="uid://bwqownslyph8f" path="res://sprites/enemies/ant/attack/frame0012.png" id="14_x12i8"]
 [ext_resource type="Texture2D" uid="uid://dp0i2pnvs16tm" path="res://sprites/enemies/ant/walk/frame0011.png" id="15_p73d7"]
+[ext_resource type="Texture2D" uid="uid://cos4vlj3eqqnw" path="res://sprites/enemies/ant/attack/frame0013.png" id="15_pxtlm"]
+[ext_resource type="Texture2D" uid="uid://buh2yvi56uekv" path="res://sprites/enemies/ant/attack/frame0014.png" id="16_qgxyw"]
 [ext_resource type="Texture2D" uid="uid://dug1wddiivyu6" path="res://sprites/enemies/ant/walk/frame0012.png" id="16_tovqm"]
 [ext_resource type="Texture2D" uid="uid://cw5tllp5f1ak7" path="res://sprites/enemies/ant/walk/frame0013.png" id="17_75ima"]
+[ext_resource type="Texture2D" uid="uid://bqpkx3x3y8xcu" path="res://sprites/enemies/ant/attack/frame0015.png" id="17_jvttg"]
 [ext_resource type="Texture2D" uid="uid://cyky1ih3xjuo3" path="res://sprites/enemies/ant/walk/frame0014.png" id="18_kvl2v"]
 [ext_resource type="Texture2D" uid="uid://bk5qjveh8qksv" path="res://sprites/enemies/ant/walk/frame0015.png" id="19_yu62i"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_gvseq"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_ragae"]
 resource_local_to_scene = true
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kvl2v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_yu62i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_xtrik")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_bulnm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_g3ivx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_dhyn0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_o8e7g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_vohnw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_jwpso")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_3vr8v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_0msx1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_fa6t3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_x12i8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_pxtlm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_qgxyw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_jvttg")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 24.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_q4ieg")
@@ -33,7 +101,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_gvseq")
+"texture": ExtResource("4_oa1bq")
 }],
 "loop": true,
 "name": &"idle",
@@ -101,6 +169,6 @@ animations = [{
 [node name="SpriteBody" parent="AnimationController" parent_id_path=PackedInt32Array(1020417921) index="0" unique_id=1996147602]
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, -0.3, 0)
 modulate = Color(1, 1, 1, 1)
-sprite_frames = SubResource("SpriteFrames_gvseq")
-animation = &"walk"
+sprite_frames = SubResource("SpriteFrames_ragae")
+animation = &"attack"
 frame_progress = 0.0
