@@ -10,6 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://b1e585hvcp0gh" path="res://EnvironmentGLBs/WoodTree2.glb" id="6_5vw27"]
 [ext_resource type="PackedScene" uid="uid://bumumn4opib2d" path="res://EnvironmentGLBs/WoodTree3.glb" id="6_272bh"]
 [ext_resource type="PackedScene" uid="uid://bh0iyhdkq376d" path="res://EnvironmentGLBs/WoodTree4.glb" id="6_kek77"]
+[ext_resource type="Script" uid="uid://cv5e3bja21535" path="res://scripts/components/enemypath.gd" id="11_efxa6"]
+[ext_resource type="Script" uid="uid://b7bc0flrcviuk" path="res://scripts/components/enemyspawner.gd" id="12_dg77c"]
+[ext_resource type="PackedScene" uid="uid://eou4mq5n6oh3" path="res://character.tscn" id="13_ycdy4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xm2m"]
 albedo_color = Color(0.56590307, 0.45444906, 0.19438995, 1)
@@ -42,6 +45,13 @@ albedo_color = Color(0.95686275, 1, 0.9372549, 0.14901961)
 [sub_resource type="BoxMesh" id="BoxMesh_dg77c"]
 material = SubResource("StandardMaterial3D_efxa6")
 size = Vector3(20, 2, 20)
+
+[sub_resource type="Curve3D" id="Curve3D_4c57u"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -29.254877, -0.838707, -0.85056686, 0, 0, 0, 0, 0, 0, -22.017288, -0.64634895, -0.62226105, 0, 0, 0, 0, 0, 0, -15.618401, -0.4219284, -0.4846344, 0, 0, 0, 0, 0, 0, -8.489264, -0.35780907, -0.111616135, 0, 0, 0, 0, 0, 0, -1.1903224, -0.0051498413, -0.06886864, 0, 0, 0, 0, 0, 0, 5.995418, 0.15514946, 0.19405937, 0, 0, 0, 0, 0, 0, 12.149313, 0.41162872, 0.27837753, 0, 0, 0, 0, 0, 0, 18.498735, 0.6360531, 0.41288757, 0, 0, 0, 0, 0, 0, 26.426603, 0.7963505, 0.7225342),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 9
 
 [node name="Main" type="Node" unique_id=1776296673]
 
@@ -92,12 +102,6 @@ axis_lock_angular_x = false
 axis_lock_angular_y = false
 axis_lock_angular_z = false
 
-[node name="Character" parent="." unique_id=1096929630 instance=ExtResource("2_0xm2m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.788729, 0, 0)
-
-[node name="Character2" parent="." unique_id=254305490 instance=ExtResource("2_0xm2m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.367853, 0, 0)
-
 [node name="Tower2" parent="." unique_id=1568776403 instance=ExtResource("3_h2yge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.921337, 0, 0)
 axis_lock_linear_x = false
@@ -107,12 +111,6 @@ axis_lock_angular_x = false
 axis_lock_angular_y = false
 axis_lock_angular_z = false
 
-[node name="Character3" parent="." unique_id=691519270 instance=ExtResource("2_0xm2m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.906646, 0, -3.317461)
-
-[node name="Character4" parent="." unique_id=830281426 instance=ExtResource("2_0xm2m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.465977, 0, -3.3592243)
-
 [node name="Warrior" parent="." unique_id=198302004 instance=ExtResource("3_1bvp3")]
 axis_lock_linear_x = false
 axis_lock_linear_y = false
@@ -120,6 +118,18 @@ axis_lock_linear_z = false
 axis_lock_angular_x = false
 axis_lock_angular_y = false
 axis_lock_angular_z = false
+
+[node name="Character2" parent="." unique_id=254305490 instance=ExtResource("2_0xm2m")]
+process_mode = 4
+transform = Transform3D(-0.9991573, -0.026541831, -0.0313074, -0.026502596, 0.9996465, -0.0016683816, 0.031340636, -0.00083724764, -0.9995084, -68.2198, -1.0654432, -0.4755193)
+
+[node name="Character3" parent="." unique_id=691519270 instance=ExtResource("2_0xm2m")]
+process_mode = 4
+transform = Transform3D(-0.9991573, -0.026541831, -0.0313074, -0.026502596, 0.9996465, -0.0016683816, 0.031340636, -0.00083724764, -0.9995084, -66.65597, -1.0211827, 2.7945156)
+
+[node name="Character4" parent="." unique_id=830281426 instance=ExtResource("2_0xm2m")]
+process_mode = 4
+transform = Transform3D(-0.9991573, -0.026541831, -0.0313074, -0.026502596, 0.9996465, -0.0016683816, 0.031340636, -0.00083724764, -0.9995084, -70.21099, -1.1154444, 2.9478102)
 
 [node name="MainField" type="Area3D" parent="." unique_id=125249582]
 
@@ -164,3 +174,18 @@ transform = Transform3D(0.4705501, 0, -1.2653387, 0, 1.3499998, 0, 1.2653387, 0,
 
 [node name="Warrior2" parent="." unique_id=1210425893 instance=ExtResource("3_1bvp3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.253868, -0.02395606, -5.8090324)
+
+[node name="EnemyPath" type="Path3D" parent="." unique_id=601443741]
+curve = SubResource("Curve3D_4c57u")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="EnemyPath" unique_id=1669817068]
+transform = Transform3D(-0.031528763, -0.026541831, -0.9991501, 0, 0.9996465, -0.02655505, 0.99950254, -0.00083724764, -0.031517647, -29.254877, -0.838707, -0.85056686)
+loop = false
+script = ExtResource("11_efxa6")
+
+[node name="Character" parent="EnemyPath/PathFollow3D" unique_id=1096929630 instance=ExtResource("2_0xm2m")]
+transform = Transform3D(-4.37114e-08, 0, 1.0000002, 0, 1, 0, -1.0000002, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="EnemySpawner" type="Node" parent="." unique_id=86536471]
+script = ExtResource("12_dg77c")
+enemy_scene = ExtResource("13_ycdy4")
