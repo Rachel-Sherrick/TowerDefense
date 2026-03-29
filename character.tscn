@@ -98,3 +98,4 @@ script = ExtResource("4_wfnr8")
 
 [connection signal="body_entered" from="RangeDetection" to="." method="_on_range_body_entered"]
 [connection signal="body_exited" from="RangeDetection" to="." method="_on_range_detection_body_exited"]
+[connection signal="died" from="Health" to="." method="_on_health_died"]
