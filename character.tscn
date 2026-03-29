@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://nj37xla1vxmg" path="res://sprites/testbert.png" id="2_pjt0s"]
 [ext_resource type="Script" uid="uid://k3ho7ef46d6" path="res://animation_controller.gd" id="2_wa5vi"]
 [ext_resource type="Script" uid="uid://bnxn14t7crcv4" path="res://scripts/components/health.gd" id="4_wfnr8"]
+[ext_resource type="Script" uid="uid://b1p8o3gtto0bw" path="res://potions.gd" id="5_px5sl"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_dnc73"]
 
@@ -124,6 +125,9 @@ target_position = Vector3(0, 0, 3)
 hit_from_inside = true
 debug_shape_custom_color = Color(1, 0, 0, 1)
 debug_shape_thickness = 5
+
+[node name="Potions" type="Node" parent="." unique_id=1579418923]
+script = ExtResource("5_px5sl")
 
 [connection signal="body_entered" from="RangeDetection" to="." method="_on_range_body_entered"]
 [connection signal="body_exited" from="RangeDetection" to="." method="_on_range_detection_body_exited"]
