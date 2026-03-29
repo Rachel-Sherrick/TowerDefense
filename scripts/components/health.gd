@@ -1,19 +1,15 @@
 extends Node
 # This script adds health behavior to a Node.
 
-
 signal health_changed(current_health: int, max_health: int)
 # Emitted whenever health changes.
 # Sends current and max health.
 
-
 signal died
 # Emitted when health reaches 0.
 
-
 @export var max_health: int = 100
 # Maximum possible health (editable in Inspector).
-
 
 var current_health: int
 # Stores current health value.
@@ -22,16 +18,25 @@ var current_health: int
 func _ready() -> void:
 	current_health = max_health
 	# Start fully healed.
-
 	emit_signal("health_changed", current_health, max_health)
 	# Notify others that health is initialized.
+
+func set_current_health(new_health: int) -> bool:
+	if new_health <= 0:
+		return false # cannot heal if dead
+	current_health = new_health
+	current_health = min(current_health, max_health)
+	# Prevent exceeding max health.
+	emit_signal("health_changed", current_health, max_health)
+	# Notify listeners of change.
+	return true
 
 func take_damage(amount: int) -> void:
 	if current_health <= 0:
 		return  # already dead, ignore
 
 	current_health -= amount # Subtract damage.
-	print("Damage taken. Current health:", current_health)
+	print($"..".name, " took damage. Current health:", current_health)
 
 	current_health = max(current_health, 0) # Prevent health going below 0.
 
@@ -40,7 +45,6 @@ func take_damage(amount: int) -> void:
 	if current_health == 0:
 		_handle_death()
 		# If health hits 0, handle death.
-
 
 func heal(amount: int) -> void:
 	if current_health <= 0:
