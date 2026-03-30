@@ -84,6 +84,8 @@ shape = SubResource("BoxShape3D_ycdy4")
 
 [node name="Player" type="Node" parent="." unique_id=955624252]
 script = ExtResource("3_dg77c")
+cash = 10.0
+interest = 1.2
 
 [node name="Battleground" type="Node3D" parent="." unique_id=1447681041]
 

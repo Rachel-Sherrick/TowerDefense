@@ -1,9 +1,10 @@
+class_name Player
 extends Node
 
 ##the amount of money the player has
-@export var cash: float = 0
+@export var cash: float
 ##the rate of intrest earned for clearing a wave
-@export var interest: float = 1.2
+@export var interest: float
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -16,9 +17,9 @@ func _process(delta: float) -> void:
 
 func _on_battleground_child_entered_tree(node) -> void:
 	if node.is_in_group("Enemy"):
-		node.connect("died", _earn_money)
+		node.connect("died", _alter_money)
 
-func _earn_money(value: float):
+func _alter_money(value: float):
 	cash += value
 
 ## needs to be linked with a signal on a wave clear
