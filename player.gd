@@ -14,8 +14,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-
-func _on_battleground_child_entered_tree(node: Node) -> void:
+func _on_battleground_child_entered_tree(node) -> void:
 	if node.is_in_group("Enemy"):
 		node.connect("died", _earn_money)
 
