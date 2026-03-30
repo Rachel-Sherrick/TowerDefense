@@ -89,7 +89,8 @@ func set_target_type(type: int) -> bool:
 	return true
 
 func _ready() -> void:
-	pass
+	print(name + " spawned at ", get_path(), " with position:")
+	print(global_position.x, " , ", global_position.y, " , ", global_position.z)
 
 func _physics_process(delta: float) -> void:
 	set_phys_framecount(get_phys_framecount() + 1)

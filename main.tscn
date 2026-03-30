@@ -7,11 +7,11 @@
 [ext_resource type="Script" uid="uid://cpi153lw0sggb" path="res://player.gd" id="3_dg77c"]
 [ext_resource type="PackedScene" uid="uid://bmslpuj4gik5" path="res://tower.tscn" id="3_h2yge"]
 [ext_resource type="Texture2D" uid="uid://cog7l0t4nycxo" path="res://sprites/ShopRender2.png" id="3_ycdy4"]
-[ext_resource type="PackedScene" uid="uid://saf6d5teewoh" path="res://towerPlacement.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://bu6x0lnlcixer" path="res://EnvironmentGLBs/WoodTree1.glb" id="5_272bh"]
 [ext_resource type="PackedScene" uid="uid://b1e585hvcp0gh" path="res://EnvironmentGLBs/WoodTree2.glb" id="6_5vw27"]
 [ext_resource type="PackedScene" uid="uid://bumumn4opib2d" path="res://EnvironmentGLBs/WoodTree3.glb" id="6_272bh"]
 [ext_resource type="PackedScene" uid="uid://bh0iyhdkq376d" path="res://EnvironmentGLBs/WoodTree4.glb" id="6_kek77"]
+[ext_resource type="Script" uid="uid://qen4u33hwelo" path="res://tower_placement.gd" id="9_w48qg"]
 [ext_resource type="PackedScene" uid="uid://cmyw1wq2h0igv" path="res://ant.tscn" id="11_efxa6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ycdy4"]
@@ -34,8 +34,16 @@ background_color = Color(0.41504437, 0.53465366, 0.41490436, 1)
 sky = SubResource("Sky_ig7tw")
 tonemap_mode = 2
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w48qg"]
+transparency = 1
+albedo_color = Color(0.57, 0.54605997, 0.4902, 0.49803922)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vivmo"]
+material = SubResource("StandardMaterial3D_w48qg")
+size = Vector3(20, 1.1, 20)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_h2yge"]
-size = Vector3(20, 2, 20)
+size = Vector3(20, 0.2, 20)
 
 [node name="Main" type="Node" unique_id=1602813131]
 
@@ -58,7 +66,6 @@ metadata/_edit_lock_ = true
 [node name="Camera3D" type="Camera3D" parent="Shop/ShopBody/ShopCamera" unique_id=1951541179]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19)
 projection = 1
-current = true
 size = 10.0
 far = 40.0
 metadata/_edit_lock_ = true
@@ -87,6 +94,7 @@ metadata/_edit_lock_ = true
 [node name="Camera3D" type="Camera3D" parent="Battleground/BattleCamera" unique_id=1112084879]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19)
 projection = 1
+current = true
 size = 24.0
 far = 40.0
 metadata/_edit_lock_ = true
@@ -157,14 +165,22 @@ axis_lock_angular_x = false
 axis_lock_angular_y = false
 axis_lock_angular_z = false
 
+[node name="Warrior2" parent="Battleground/Characters" unique_id=1210425893 instance=ExtResource("3_1bvp3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7588091, -0.02395606, -3.508875)
+
 [node name="PlaceableArea" type="Area3D" parent="Battleground" unique_id=125249582]
 collision_layer = 8
 collision_mask = 0
+script = ExtResource("9_w48qg")
+tower_scene = ExtResource("3_1bvp3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Battleground/PlaceableArea" unique_id=1195277658]
+mesh = SubResource("BoxMesh_vivmo")
+skeleton = NodePath("../CollisionShape3D")
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Battleground/PlaceableArea" unique_id=2063056620]
 shape = SubResource("BoxShape3D_h2yge")
-
-[node name="towerPlacement" parent="Battleground" unique_id=666569105 instance=ExtResource("4_1bvp3")]
 
 [node name="Trees" type="Node3D" parent="Battleground" unique_id=1164932755]
 
@@ -192,7 +208,5 @@ transform = Transform3D(1.2730215, 0, 0.44935077, 0, 1.3499999, 0, -0.44935077, 
 [node name="WoodTree44" parent="Battleground/Trees" unique_id=1470201086 instance=ExtResource("6_kek77")]
 transform = Transform3D(0.4705501, 0, -1.2653387, 0, 1.3499998, 0, 1.2653387, 0, 0.4705501, 18.913647, 6.1, 15.274525)
 
-[node name="Warrior2" parent="Battleground" unique_id=1210425893 instance=ExtResource("3_1bvp3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.253868, -0.02395606, -5.8090324)
-
 [connection signal="child_entered_tree" from="Battleground" to="Player" method="_on_battleground_child_entered_tree"]
+[connection signal="input_event" from="Battleground/PlaceableArea" to="Battleground/PlaceableArea" method="_place_tower"]
