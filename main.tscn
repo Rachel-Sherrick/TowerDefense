@@ -13,7 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://b1e585hvcp0gh" path="res://EnvironmentGLBs/WoodTree2.glb" id="6_5vw27"]
 [ext_resource type="PackedScene" uid="uid://bumumn4opib2d" path="res://EnvironmentGLBs/WoodTree3.glb" id="6_272bh"]
 [ext_resource type="PackedScene" uid="uid://bh0iyhdkq376d" path="res://EnvironmentGLBs/WoodTree4.glb" id="6_kek77"]
-[ext_resource type="Script" uid="uid://qen4u33hwelo" path="res://tower_placement.gd" id="9_w48qg"]
 [ext_resource type="PackedScene" uid="uid://cmyw1wq2h0igv" path="res://ant.tscn" id="11_efxa6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xm2m"]
@@ -66,8 +65,10 @@ script = ExtResource("2_4c57u")
 
 [node name="Player" type="Node" parent="." unique_id=955624252]
 script = ExtResource("3_dg77c")
+tower_scene = ExtResource("3_1bvp3")
 money = 5.0
 interest = 1.2
+selected_item = "warrior"
 
 [node name="Battleground" type="Node3D" parent="." unique_id=1447681041]
 
@@ -154,8 +155,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7588091, -0.02395606, -3.5
 [node name="PlaceableArea" type="Area3D" parent="Battleground" unique_id=125249582]
 collision_layer = 8
 collision_mask = 0
-script = ExtResource("9_w48qg")
-tower_scene = ExtResource("3_1bvp3")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Battleground/PlaceableArea" unique_id=1195277658]
 mesh = SubResource("BoxMesh_vivmo")
@@ -300,8 +299,8 @@ shadow_blur = 1.5
 metadata/_edit_lock_ = true
 
 [connection signal="child_entered_tree" from="Battleground" to="Player" method="_on_battleground_child_entered_tree"]
+[connection signal="input_event" from="Battleground/PlaceableArea" to="Player" method="_place_tower"]
 [connection signal="input_event" from="Battleground/PlaceableArea" to="Battleground/PlaceableArea" method="_place_tower"]
-[connection signal="tower_placed" from="Battleground/PlaceableArea" to="Player" method="_on_placeable_area_tower_placed"]
 [connection signal="purchase" from="Shop" to="Player" method="_on_shop_purchase"]
 [connection signal="input_event" from="Shop/ShopSlots/Slot1" to="Shop" method="_on_slot_1_input_event"]
 [connection signal="input_event" from="Shop/ShopSlots/Slot2" to="Shop" method="_on_slot_2_input_event"]
