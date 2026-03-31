@@ -33,6 +33,17 @@ tonemap_mode = 2
 [sub_resource type="BoxShape3D" id="BoxShape3D_h2yge"]
 size = Vector3(20, 2, 20)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_4c57u"]
+size = Vector3(20, 2, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_efxa6"]
+transparency = 1
+albedo_color = Color(0.95686275, 1, 0.9372549, 0.14901961)
+
+[sub_resource type="BoxMesh" id="BoxMesh_dg77c"]
+material = SubResource("StandardMaterial3D_efxa6")
+size = Vector3(20, 2, 20)
+
 [node name="Main" type="Node" unique_id=1776296673]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=306243073]
@@ -119,6 +130,14 @@ axis_lock_angular_z = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MainField" unique_id=2063056620]
 shape = SubResource("BoxShape3D_h2yge")
+
+[node name="MainField" type="Area3D" parent="MainField" unique_id=278710084]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MainField/MainField" unique_id=2107546024]
+shape = SubResource("BoxShape3D_4c57u")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MainField/MainField" unique_id=1422258697]
+mesh = SubResource("BoxMesh_dg77c")
 
 [node name="towerPlacement" parent="." unique_id=666569105 instance=ExtResource("4_1bvp3")]
 
