@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b1e585hvcp0gh" path="res://EnvironmentGLBs/WoodTree2.glb" id="6_5vw27"]
 [ext_resource type="PackedScene" uid="uid://bumumn4opib2d" path="res://EnvironmentGLBs/WoodTree3.glb" id="6_272bh"]
 [ext_resource type="PackedScene" uid="uid://bh0iyhdkq376d" path="res://EnvironmentGLBs/WoodTree4.glb" id="6_kek77"]
+[ext_resource type="PackedScene" uid="uid://cmyw1wq2h0igv" path="res://ant.tscn" id="11_efxa6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xm2m"]
 albedo_color = Color(0.56590307, 0.45444906, 0.19438995, 1)
@@ -81,10 +82,13 @@ axis_lock_angular_x = false
 axis_lock_angular_y = false
 axis_lock_angular_z = false
 
+[node name="Character5" parent="." unique_id=254305490 instance=ExtResource("11_efxa6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7218356, 0, 0)
+
 [node name="Character" parent="." unique_id=1096929630 instance=ExtResource("2_0xm2m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.788729, 0, 0)
 
-[node name="Character2" parent="." unique_id=254305490 instance=ExtResource("2_0xm2m")]
+[node name="Character2" parent="." unique_id=972001919 instance=ExtResource("2_0xm2m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.367853, 0, 0)
 
 [node name="Tower2" parent="." unique_id=1568776403 instance=ExtResource("3_h2yge")]
@@ -103,6 +107,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.906646, 0, -3.317461)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.465977, 0, -3.3592243)
 
 [node name="Warrior" parent="." unique_id=198302004 instance=ExtResource("3_1bvp3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72329473, 0, 0)
 axis_lock_linear_x = false
 axis_lock_linear_y = false
 axis_lock_linear_z = false
