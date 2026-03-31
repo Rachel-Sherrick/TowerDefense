@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://cmjnhkpnq3l66"]
 
 [ext_resource type="AudioStream" uid="uid://7vmjaaxleyae" path="res://songs/sneswip1.wav" id="1_kek77"]
+[ext_resource type="Script" uid="uid://buqk23l3b6tsp" path="res://main.gd" id="1_vivmo"]
 [ext_resource type="PackedScene" uid="uid://doxjo2c5tjq6e" path="res://enemy.tscn" id="2_0xm2m"]
 [ext_resource type="Script" uid="uid://cx5lcq6iqwfvi" path="res://audio_stream_player.gd" id="2_4c57u"]
 [ext_resource type="PackedScene" uid="uid://tu18fp20hsnf" path="res://towers/warrior.tscn" id="3_1bvp3"]
 [ext_resource type="Script" uid="uid://cpi153lw0sggb" path="res://player.gd" id="3_dg77c"]
 [ext_resource type="PackedScene" uid="uid://bmslpuj4gik5" path="res://tower.tscn" id="3_h2yge"]
+[ext_resource type="Script" uid="uid://c8gmgykjml3m1" path="res://shop.gd" id="3_w48qg"]
 [ext_resource type="Texture2D" uid="uid://cog7l0t4nycxo" path="res://sprites/ShopRender2.png" id="3_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://bu6x0lnlcixer" path="res://EnvironmentGLBs/WoodTree1.glb" id="5_272bh"]
 [ext_resource type="PackedScene" uid="uid://b1e585hvcp0gh" path="res://EnvironmentGLBs/WoodTree2.glb" id="6_5vw27"]
@@ -13,8 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://bh0iyhdkq376d" path="res://EnvironmentGLBs/WoodTree4.glb" id="6_kek77"]
 [ext_resource type="Script" uid="uid://qen4u33hwelo" path="res://tower_placement.gd" id="9_w48qg"]
 [ext_resource type="PackedScene" uid="uid://cmyw1wq2h0igv" path="res://ant.tscn" id="11_efxa6"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_ycdy4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xm2m"]
 albedo_color = Color(0.56590307, 0.45444906, 0.19438995, 1)
@@ -45,46 +45,28 @@ size = Vector3(20, 1.1, 20)
 [sub_resource type="BoxShape3D" id="BoxShape3D_h2yge"]
 size = Vector3(20, 0.2, 20)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ycdy4"]
+size = Vector3(1.8201904, 2.2025146, 0.40911865)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vivmo"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.11764706)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2cqfq"]
+material = SubResource("StandardMaterial3D_vivmo")
+size = Vector3(1.8201904, 2.2025146, 0.40911865)
+
 [node name="Main" type="Node" unique_id=1602813131]
+script = ExtResource("1_vivmo")
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=306243073]
 stream = ExtResource("1_kek77")
 volume_db = -15.0
 script = ExtResource("2_4c57u")
 
-[node name="Shop" type="Node3D" parent="." unique_id=685433725]
-visible = false
-
-[node name="ShopBody" type="Sprite3D" parent="Shop" unique_id=1266716294]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5, 0)
-texture = ExtResource("3_ycdy4")
-
-[node name="ShopCamera" type="Marker3D" parent="Shop/ShopBody" unique_id=955807357]
-transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, -10)
-metadata/_edit_lock_ = true
-
-[node name="Camera3D" type="Camera3D" parent="Shop/ShopBody/ShopCamera" unique_id=1951541179]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19)
-projection = 1
-size = 10.0
-far = 40.0
-metadata/_edit_lock_ = true
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Shop/ShopBody/ShopCamera" unique_id=1944261744]
-transform = Transform3D(0.95105654, 0.108725056, -0.2892583, 0, 0.93605953, 0.35184166, 0.309017, -0.3346213, 0.89024556, 0, 0, 23)
-shadow_enabled = true
-shadow_bias = 0.04
-shadow_blur = 1.5
-metadata/_edit_lock_ = true
-
-[node name="Area3D" type="Area3D" parent="Shop" unique_id=1881886495]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Shop/Area3D" unique_id=1627149523]
-shape = SubResource("BoxShape3D_ycdy4")
-
 [node name="Player" type="Node" parent="." unique_id=955624252]
 script = ExtResource("3_dg77c")
-cash = 10.0
+money = 5.0
 interest = 1.2
 
 [node name="Battleground" type="Node3D" parent="." unique_id=1447681041]
@@ -96,7 +78,6 @@ metadata/_edit_lock_ = true
 [node name="Camera3D" type="Camera3D" parent="Battleground/BattleCamera" unique_id=1112084879]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19)
 projection = 1
-current = true
 size = 24.0
 far = 40.0
 metadata/_edit_lock_ = true
@@ -210,5 +191,121 @@ transform = Transform3D(1.2730215, 0, 0.44935077, 0, 1.3499999, 0, -0.44935077, 
 [node name="WoodTree44" parent="Battleground/Trees" unique_id=1470201086 instance=ExtResource("6_kek77")]
 transform = Transform3D(0.4705501, 0, -1.2653387, 0, 1.3499998, 0, 1.2653387, 0, 0.4705501, 18.913647, 6.1, 15.274525)
 
+[node name="Shop" type="Node3D" parent="." unique_id=685433725]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.1362834, -67.38351)
+script = ExtResource("3_w48qg")
+
+[node name="ShopSlots" type="Node3D" parent="Shop" unique_id=2086348556]
+
+[node name="Slot1" type="Area3D" parent="Shop/ShopSlots" unique_id=1881886495]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1450207, 6.2278037, 0)
+collision_layer = 16
+collision_mask = 0
+collision_priority = 3.0
+priority = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Shop/ShopSlots/Slot1" unique_id=1627149523]
+shape = SubResource("BoxShape3D_ycdy4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Shop/ShopSlots/Slot1" unique_id=173694654]
+mesh = SubResource("BoxMesh_2cqfq")
+
+[node name="Slot2" type="Area3D" parent="Shop/ShopSlots" unique_id=851119325]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.228, 0)
+collision_layer = 16
+collision_mask = 0
+collision_priority = 3.0
+priority = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Shop/ShopSlots/Slot2" unique_id=714134950]
+shape = SubResource("BoxShape3D_ycdy4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Shop/ShopSlots/Slot2" unique_id=667260976]
+mesh = SubResource("BoxMesh_2cqfq")
+
+[node name="Slot3" type="Area3D" parent="Shop/ShopSlots" unique_id=1106821135]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.14, 6.228, 0)
+collision_layer = 16
+collision_mask = 0
+collision_priority = 3.0
+priority = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Shop/ShopSlots/Slot3" unique_id=218763590]
+shape = SubResource("BoxShape3D_ycdy4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Shop/ShopSlots/Slot3" unique_id=694261997]
+mesh = SubResource("BoxMesh_2cqfq")
+
+[node name="Slot4" type="Area3D" parent="Shop/ShopSlots" unique_id=2073790693]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1450207, 2.2739038, 0)
+collision_layer = 16
+collision_mask = 0
+collision_priority = 3.0
+priority = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Shop/ShopSlots/Slot4" unique_id=1345084675]
+shape = SubResource("BoxShape3D_ycdy4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Shop/ShopSlots/Slot4" unique_id=1563472806]
+mesh = SubResource("BoxMesh_2cqfq")
+
+[node name="Slot5" type="Area3D" parent="Shop/ShopSlots" unique_id=2129715403]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.003, 2.274, 0)
+collision_layer = 16
+collision_mask = 0
+collision_priority = 3.0
+priority = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Shop/ShopSlots/Slot5" unique_id=567519383]
+shape = SubResource("BoxShape3D_ycdy4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Shop/ShopSlots/Slot5" unique_id=1841361629]
+mesh = SubResource("BoxMesh_2cqfq")
+
+[node name="Slot6" type="Area3D" parent="Shop/ShopSlots" unique_id=2017723381]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.14, 2.274, 0)
+collision_layer = 16
+collision_mask = 0
+collision_priority = 3.0
+priority = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Shop/ShopSlots/Slot6" unique_id=1765999446]
+shape = SubResource("BoxShape3D_ycdy4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Shop/ShopSlots/Slot6" unique_id=1066225490]
+mesh = SubResource("BoxMesh_2cqfq")
+
+[node name="ShopBody" type="Sprite3D" parent="Shop" unique_id=1266716294]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5, 0)
+double_sided = false
+alpha_cut = 1
+texture = ExtResource("3_ycdy4")
+
+[node name="ShopCamera" type="Marker3D" parent="Shop/ShopBody" unique_id=955807357]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, -10)
+metadata/_edit_lock_ = true
+
+[node name="Camera3D" type="Camera3D" parent="Shop/ShopBody/ShopCamera" unique_id=1951541179]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19)
+projection = 1
+size = 10.0
+far = 40.0
+metadata/_edit_lock_ = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Shop/ShopBody/ShopCamera" unique_id=1944261744]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 23)
+shadow_enabled = true
+shadow_bias = 0.04
+shadow_blur = 1.5
+metadata/_edit_lock_ = true
+
 [connection signal="child_entered_tree" from="Battleground" to="Player" method="_on_battleground_child_entered_tree"]
 [connection signal="input_event" from="Battleground/PlaceableArea" to="Battleground/PlaceableArea" method="_place_tower"]
+[connection signal="tower_placed" from="Battleground/PlaceableArea" to="Player" method="_on_placeable_area_tower_placed"]
+[connection signal="purchase" from="Shop" to="Player" method="_on_shop_purchase"]
+[connection signal="input_event" from="Shop/ShopSlots/Slot1" to="Shop" method="_on_slot_1_input_event"]
+[connection signal="input_event" from="Shop/ShopSlots/Slot2" to="Shop" method="_on_slot_2_input_event"]
+[connection signal="input_event" from="Shop/ShopSlots/Slot3" to="Shop" method="_on_slot_3_input_event"]
+[connection signal="input_event" from="Shop/ShopSlots/Slot4" to="Shop" method="_on_slot_4_input_event"]
+[connection signal="input_event" from="Shop/ShopSlots/Slot5" to="Shop" method="_on_slot_5_input_event"]
+[connection signal="input_event" from="Shop/ShopSlots/Slot6" to="Shop" method="_on_slot_6_input_event"]
