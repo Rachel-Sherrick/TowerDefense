@@ -6,17 +6,19 @@
 [ext_resource type="PackedScene" uid="uid://tu18fp20hsnf" path="res://towers/warrior.tscn" id="3_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://bmslpuj4gik5" path="res://tower.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://saf6d5teewoh" path="res://towerPlacement.tscn" id="4_1bvp3"]
-[ext_resource type="PackedScene" uid="uid://bu6x0lnlcixer" path="res://EnvironmentGLBs/WoodTree1.glb" id="5_272bh"]
-[ext_resource type="PackedScene" uid="uid://b1e585hvcp0gh" path="res://EnvironmentGLBs/WoodTree2.glb" id="6_5vw27"]
-[ext_resource type="PackedScene" uid="uid://bumumn4opib2d" path="res://EnvironmentGLBs/WoodTree3.glb" id="6_272bh"]
-[ext_resource type="PackedScene" uid="uid://bh0iyhdkq376d" path="res://EnvironmentGLBs/WoodTree4.glb" id="6_kek77"]
+[ext_resource type="PackedScene" uid="uid://du3f6ur23w2rx" path="res://EnvironmentGLBs/KingMushPosterized.glb" id="8_ycdy4"]
+[ext_resource type="PackedScene" uid="uid://gbweq7qx68lx" path="res://EnvironmentGLBs/JackMushPosterized.glb" id="9_w48qg"]
+[ext_resource type="PackedScene" uid="uid://dfr2i3h1hgvs1" path="res://EnvironmentGLBs/rockPosterized.glb" id="10_vivmo"]
+[ext_resource type="PackedScene" uid="uid://ce1wxqj0h3g74" path="res://EnvironmentGLBs/tree3Posterized.glb" id="11_2cqfq"]
 [ext_resource type="PackedScene" uid="uid://cmyw1wq2h0igv" path="res://ant.tscn" id="11_efxa6"]
-[ext_resource type="PackedScene" uid="uid://lhrua8upn7sa" path="res://EnvironmentGLBs/KingMush.glb" id="12_w48qg"]
-[ext_resource type="PackedScene" uid="uid://ccec2jqqcc5a" path="res://EnvironmentGLBs/JackMush.glb" id="13_vivmo"]
-[ext_resource type="PackedScene" uid="uid://rtknlgvh45hw" path="res://EnvironmentGLBs/rock.glb" id="14_2cqfq"]
+[ext_resource type="PackedScene" uid="uid://c7bi1km7isxw" path="res://EnvironmentGLBs/tree2Posterized.glb" id="12_yaehf"]
+[ext_resource type="PackedScene" uid="uid://b5wynifishbr1" path="res://EnvironmentGLBs/tree1Posterized.glb" id="13_074og"]
+[ext_resource type="FontFile" uid="uid://cchfdyetdjd7q" path="res://fonts/DarumadropOne-Regular.ttf" id="14_w48qg"]
+[ext_resource type="FontFile" uid="uid://xrhcnace7lij" path="res://fonts/Chicle-Regular.ttf" id="15_vivmo"]
+[ext_resource type="Script" uid="uid://cnflpnfv23xkc" path="res://game_manager.gd" id="16_2cqfq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xm2m"]
-albedo_color = Color(0.56590307, 0.45444906, 0.19438995, 1)
+albedo_color = Color(0.33333334, 0.45490196, 0.14509805, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_7dm0k"]
 material = SubResource("StandardMaterial3D_0xm2m")
@@ -130,37 +132,168 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.253868, -0.02395606, -5.80
 
 [node name="Evironment" type="Node" parent="." unique_id=1005526282]
 
-[node name="Trees" type="Node" parent="Evironment" unique_id=1611541056]
+[node name="KingMushPosterized" parent="Evironment" unique_id=320133709 instance=ExtResource("8_ycdy4")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -16.87366, 0, -7.42759)
 
-[node name="WoodTree12" parent="Evironment/Trees" unique_id=669732448 instance=ExtResource("5_272bh")]
-transform = Transform3D(1.1325618, 0, -0.52896476, 0, 1.25, 0, 0.52896476, 0, 1.1325618, -9.510291, 5.6, -12.588)
+[node name="KingMushPosterized3" parent="Evironment" unique_id=192514602 instance=ExtResource("8_ycdy4")]
+transform = Transform3D(0.012233375, 0, -0.14950031, 0, 0.14999999, 0, 0.14950031, 0, 0.012233375, 13.638164, 0, -8.637053)
 
-[node name="WoodTree13" parent="Evironment/Trees" unique_id=783113124 instance=ExtResource("5_272bh")]
-transform = Transform3D(0.791304, 0, -0.96764565, 0, 1.25, 0, 0.96764565, 0, 0.791304, -9.510291, 5.6, 16.24421)
+[node name="KingMushPosterized2" parent="Evironment" unique_id=2075329831 instance=ExtResource("8_ycdy4")]
+transform = Transform3D(0.08131211, 0, 0.05820946, 0, 0.1, 0, -0.05820946, 0, 0.08131211, -18.150412, 0, -7.9646454)
 
-[node name="WoodTree24" parent="Evironment/Trees" unique_id=701856537 instance=ExtResource("6_5vw27")]
-transform = Transform3D(1.2362182, 0, 0.185107, 0, 1.25, 0, -0.185107, 0, 1.2362182, 10.440073, 5.6, -10.953772)
+[node name="JackMushPosterized" parent="Evironment" unique_id=581041537 instance=ExtResource("9_w48qg")]
+transform = Transform3D(0.1492276, 0, -0.0152027225, 0, 0.14999999, 0, 0.0152027225, 0, 0.1492276, -11.589592, -0.022137284, -9.516716)
 
-[node name="WoodTree25" parent="Evironment/Trees" unique_id=1746127060 instance=ExtResource("6_5vw27")]
-transform = Transform3D(0.903347, 0, 0.8639814, 0, 1.2499999, 0, -0.8639814, 0, 0.903347, 10.440073, 5.6, 17.468739)
+[node name="JackMushPosterized2" parent="Evironment" unique_id=2139271672 instance=ExtResource("9_w48qg")]
+transform = Transform3D(0.14480315, 0, -0.03914139, 0, 0.14999999, 0, 0.03914139, 0, 0.14480315, 4.936135, -0.022137284, -7.074197)
 
-[node name="WoodTree32" parent="Evironment/Trees" unique_id=1746399989 instance=ExtResource("6_272bh")]
-transform = Transform3D(1.6403183, 0, -0.6098007, 0, 1.7499996, 0, 0.6098007, 0, 1.6403183, -16.86222, 8, -10.155826)
+[node name="JackMushPosterized3" parent="Evironment" unique_id=308946483 instance=ExtResource("9_w48qg")]
+transform = Transform3D(-0.04772355, 0, 0.08787754, 0, 0.1, 0, -0.08787754, 0, -0.04772355, 3.213344, -0.025179341, -6.887666)
 
-[node name="WoodTree34" parent="Evironment/Trees" unique_id=1609063541 instance=ExtResource("6_272bh")]
-transform = Transform3D(0.30036443, 0, 1.7240305, 0, 1.75, 0, -1.7240305, 0, 0.30036443, -16.86222, 8, 16.323635)
+[node name="rockPosterized" parent="Evironment" unique_id=1085555523 instance=ExtResource("10_vivmo")]
+transform = Transform3D(0.52685195, 0, 0.8499571, 0, 0.5, 0, -0.8499571, 0, 0.52685195, 9.028254, 0.21762508, -10.887226)
 
-[node name="WoodTree42" parent="Evironment/Trees" unique_id=1940469332 instance=ExtResource("6_kek77")]
-transform = Transform3D(1.2730215, 0, 0.44935077, 0, 1.3499999, 0, -0.44935077, 0, 1.2730215, 18.913315, 6.1, -8.292487)
+[node name="rockPosterized2" parent="Evironment" unique_id=1364222263 instance=ExtResource("10_vivmo")]
+transform = Transform3D(-0.90765303, 0, -0.41972134, 0, 1, 0, 0.41972134, 0, -0.90765303, 18.090666, 0.5671008, -10.052722)
 
-[node name="WoodTree44" parent="Evironment/Trees" unique_id=1470201086 instance=ExtResource("6_kek77")]
-transform = Transform3D(0.4705501, 0, -1.2653387, 0, 1.3499998, 0, 1.2653387, 0, 0.4705501, 18.913647, 6.1, 15.274525)
+[node name="rockPosterized3" parent="Evironment" unique_id=1076093969 instance=ExtResource("10_vivmo")]
+transform = Transform3D(0.03120996, 0.0045707715, 0.39875442, 0.008477631, -0.39989096, 0.003920268, 0.39869052, 0.008145354, -0.031298324, 16.815424, 0.19209582, -9.27827)
 
-[node name="KingMush" parent="Evironment" unique_id=1996415724 instance=ExtResource("12_w48qg")]
-transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -13.218393, 0, -8.737293)
+[node name="trees" type="Node" parent="Evironment" unique_id=1848760493]
 
-[node name="JackMush" parent="Evironment" unique_id=1205753900 instance=ExtResource("13_vivmo")]
-transform = Transform3D(-0.14744464, 0, -0.027569544, 0, 0.14999999, 0, 0.027569544, 0, -0.14744464, -11.811058, -0.0014665127, -10.462612)
+[node name="tree3Posterized" parent="Evironment/trees" unique_id=1548448643 instance=ExtResource("11_2cqfq")]
+transform = Transform3D(1.1475049, 0, -0.49571398, 0, 1.25, 0, 0.49571398, 0, 1.1475049, -20.265957, 5.7, -8.291524)
 
-[node name="rock" parent="Evironment" unique_id=1050007194 instance=ExtResource("14_2cqfq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.22933, 0.6441321, -9.242993)
+[node name="tree3Posterized6" parent="Evironment/trees" unique_id=790721444 instance=ExtResource("11_2cqfq")]
+transform = Transform3D(0.14607677, 0, -1.2414353, 0, 1.25, 0, 1.2414353, 0, 0.14607677, -12.143865, 5.7, -12.329742)
+
+[node name="tree3Posterized2" parent="Evironment/trees" unique_id=1152562471 instance=ExtResource("11_2cqfq")]
+transform = Transform3D(1.0462898, 0, 0.6839428, 0, 1.25, 0, -0.6839428, 0, 1.0462898, -9.768726, 5.7, 18.115211)
+
+[node name="tree3Posterized4" parent="Evironment/trees" unique_id=1693942678 instance=ExtResource("11_2cqfq")]
+transform = Transform3D(0.32419813, 0, -1.2072264, 0, 1.25, 0, 1.2072264, 0, 0.32419813, 18.758821, 5.7, 22.330452)
+
+[node name="tree3Posterized3" parent="Evironment/trees" unique_id=2088078934 instance=ExtResource("11_2cqfq")]
+transform = Transform3D(0.8784366, 0, -0.8892969, 0, 1.25, 0, 0.8892969, 0, 0.8784366, 6.761676, 5.7, -8.291524)
+
+[node name="tree3Posterized5" parent="Evironment/trees" unique_id=1696600142 instance=ExtResource("11_2cqfq")]
+transform = Transform3D(0.23433384, 0, 1.2278386, 0, 1.25, 0, -1.2278386, 0, 0.23433384, 23.143972, 5.7, -12.643054)
+
+[node name="tree2Posterized" parent="Evironment/trees" unique_id=772968056 instance=ExtResource("12_yaehf")]
+transform = Transform3D(1.2463593, 0, 0.09533316, 0, 1.25, 0, -0.09533316, 0, 1.2463593, 20, 5.7, -8)
+
+[node name="tree2Posterized4" parent="Evironment/trees" unique_id=908793899 instance=ExtResource("12_yaehf")]
+transform = Transform3D(-0.46538445, 0, -1.1601367, 0, 1.25, 0, 1.1601367, 0, -0.46538445, 11.909061, 5.7, -8)
+
+[node name="tree2Posterized7" parent="Evironment/trees" unique_id=1514772624 instance=ExtResource("12_yaehf")]
+transform = Transform3D(1.2261813, 0, 0.24285716, 0, 1.25, 0, -0.24285716, 0, 1.2261813, 3.8887358, 5.7, -12.807425)
+
+[node name="tree2Posterized2" parent="Evironment/trees" unique_id=1368476822 instance=ExtResource("12_yaehf")]
+transform = Transform3D(1.2233293, 0, -0.25683722, 0, 1.25, 0, 0.25683722, 0, 1.2233293, -15.1254015, 5.7, -8.75)
+
+[node name="tree2Posterized3" parent="Evironment/trees" unique_id=350493589 instance=ExtResource("12_yaehf")]
+transform = Transform3D(1.1721718, 0, -0.43418106, 0, 1.25, 0, 0.43418106, 0, 1.1721718, -1.5093939, 5.7, 18.406734)
+
+[node name="tree2Posterized5" parent="Evironment/trees" unique_id=2135473525 instance=ExtResource("12_yaehf")]
+transform = Transform3D(0.6146938, 0, -1.0884169, 0, 1.25, 0, 1.0884169, 0, 0.6146938, -13.28653, 5.7, 21.749866)
+
+[node name="tree2Posterized6" parent="Evironment/trees" unique_id=1195458056 instance=ExtResource("12_yaehf")]
+transform = Transform3D(1.1405612, 0, 0.51148826, 0, 1.25, 0, -0.51148826, 0, 1.1405612, 12.410713, 5.7, 21.749866)
+
+[node name="tree1Posterized" parent="Evironment/trees" unique_id=682523987 instance=ExtResource("13_074og")]
+transform = Transform3D(0.34871793, 0, 1.2003732, 0, 1.25, 0, -1.2003732, 0, 0.34871793, -5.5056715, 5.625, 19.406734)
+
+[node name="tree1Posterized2" parent="Evironment/trees" unique_id=1254232757 instance=ExtResource("13_074og")]
+transform = Transform3D(0.7847332, 0, -0.9729819, 0, 1.2499999, 0, 0.9729819, 0, 0.7847332, 16.049, 5.625, 17.751942)
+
+[node name="tree1Posterized3" parent="Evironment/trees" unique_id=1746986550 instance=ExtResource("13_074og")]
+transform = Transform3D(0.61119545, 0, -1.0903856, 0, 1.25, 0, 1.0903856, 0, 0.61119545, 1.6630058, 5.625, -8.5)
+
+[node name="tree1Posterized5" parent="Evironment/trees" unique_id=851761650 instance=ExtResource("13_074og")]
+transform = Transform3D(1.2198578, 0, 0.27284938, 0, 1.25, 0, -0.27284938, 0, 1.2198578, 9.026466, 5.625, -13.451878)
+
+[node name="tree1Posterized4" parent="Evironment/trees" unique_id=1184460182 instance=ExtResource("13_074og")]
+transform = Transform3D(1.0543214, 0, 0.67149574, 0, 1.25, 0, -0.67149574, 0, 1.0543214, -17.265533, 5.625, -13.004545)
+
+[node name="GameCanvas" type="CanvasLayer" parent="." unique_id=1293876950]
+
+[node name="PauseButton" type="Button" parent="GameCanvas" unique_id=37511662]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -56.0
+offset_right = 89.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 0.7137255, 0.4, 1)
+theme_override_colors/font_hover_color = Color(0.79607844, 0.7176471, 1, 1)
+theme_override_fonts/font = ExtResource("14_w48qg")
+theme_override_font_sizes/font_size = 40
+text = "Pause"
+flat = true
+
+[node name="PauseCanvas" type="CanvasLayer" parent="." unique_id=1428411595]
+process_mode = 3
+layer = 2
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="PauseCanvas" unique_id=848731173]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.19607843, 0.32156864, 0.09803922, 0.5882353)
+
+[node name="Label" type="Label" parent="PauseCanvas" unique_id=1269939340]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -157.5
+offset_top = 100.0
+offset_right = 157.5
+offset_bottom = 188.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("15_vivmo")
+theme_override_font_sizes/font_size = 72
+text = "Game Paused"
+
+[node name="PlayButton" type="Button" parent="PauseCanvas" unique_id=1491613583]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -57.0
+offset_top = -120.0
+offset_right = 57.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("15_vivmo")
+theme_override_font_sizes/font_size = 72
+text = "Resume"
+flat = true
+
+[node name="QuitButton" type="Button" parent="PauseCanvas" unique_id=2047272908]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -57.0
+offset_top = -48.0
+offset_right = 57.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("15_vivmo")
+theme_override_font_sizes/font_size = 72
+text = "Quit"
+flat = true
+
+[node name="GameManager" type="Node" parent="." unique_id=705026765]
+script = ExtResource("16_2cqfq")
+
+[connection signal="pressed" from="GameCanvas/PauseButton" to="GameManager" method="_on_pause_button_pressed"]
+[connection signal="pressed" from="PauseCanvas/PlayButton" to="GameManager" method="_on_play_button_pressed"]
+[connection signal="pressed" from="PauseCanvas/QuitButton" to="GameManager" method="_on_quit_button_pressed"]
