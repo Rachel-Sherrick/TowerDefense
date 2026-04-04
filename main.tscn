@@ -16,6 +16,7 @@
 [ext_resource type="FontFile" uid="uid://cchfdyetdjd7q" path="res://fonts/DarumadropOne-Regular.ttf" id="14_w48qg"]
 [ext_resource type="FontFile" uid="uid://xrhcnace7lij" path="res://fonts/Chicle-Regular.ttf" id="15_vivmo"]
 [ext_resource type="Script" uid="uid://cnflpnfv23xkc" path="res://game_manager.gd" id="16_2cqfq"]
+[ext_resource type="PackedScene" uid="uid://cspaxkbchu6l3" path="res://wizard.tscn" id="17_yaehf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xm2m"]
 albedo_color = Color(0.33333334, 0.45490196, 0.14509805, 1)
@@ -293,6 +294,9 @@ flat = true
 
 [node name="GameManager" type="Node" parent="." unique_id=705026765]
 script = ExtResource("16_2cqfq")
+
+[node name="Wizard" parent="." unique_id=974184017 instance=ExtResource("17_yaehf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.891325, 0.0980255, 2.8341198)
 
 [connection signal="pressed" from="GameCanvas/PauseButton" to="GameManager" method="_on_pause_button_pressed"]
 [connection signal="pressed" from="PauseCanvas/PlayButton" to="GameManager" method="_on_play_button_pressed"]
