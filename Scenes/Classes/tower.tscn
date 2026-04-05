@@ -84,3 +84,5 @@ shadow_enabled = true
 shadow_bias = 0.04
 shadow_blur = 1.5
 metadata/_edit_lock_ = true
+
+[connection signal="item_selected" from="Control/OptionButton" to="." method="_on_option_button_item_selected"]

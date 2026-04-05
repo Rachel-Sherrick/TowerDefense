@@ -65,3 +65,7 @@ func findWeakest():
 		for item in tracking_array: 
 			pass
 			##compare strength attributes here
+
+
+func _on_option_button_item_selected(index):
+	set_target_type(index)
