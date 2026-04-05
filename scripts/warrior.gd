@@ -82,75 +82,14 @@ func show_hurt_box() -> void:
 	warrior_hurt_box.hide()
 	print(name + "'s hurt box hidden")
 	
-## Needs to be altered to access the tracking array 
-## Use target() (see character.gd) instead
-func get_first_enemy() -> Enemy:
-	var first = null
-	#30 taken from movement function
-	var edge = 30
-	var placeholder = 0
-	
-	for body in $RangeDetection.get_overlapping_bodies():
-		var pos = global_position
-		if pos < edge && pos > placeholder:
-			placeholder = pos
-			first = body
-	
-	return first
-
-## Needs to be altered to access the tracking array 
-## Use target() (see character.gd) instead
-func get_last_enemy() -> Enemy:
-	var last = null
-	var edge = -30
-	var placeholder = 0
-	
-	for body in $RangeDetection.get_overlapping_bodies():
-		var pos = global_position
-		if pos > edge && pos < placeholder:
-			placeholder = pos
-			last = body
-	
-	return last
-	
-func get_direction_to_enemy(enemy: Node3D) -> Vector3:
-	return (enemy.global_transform.origin - global_transform.origin).normalized()
-	
-enum Direction {
-	NORTH,
-	SOUTH,
-	EAST,
-	WEST
-}
-
-func get_cardinal_direction(dir: Vector3) -> int:
-	#if the absolute value of x is greater than z then its east to west
-	if abs(dir.x) > abs(dir.z):
-		if dir.x > 0:
-			return Direction.EAST
-		else:
-			return Direction.WEST
-	else:
-		if dir.z > 0:
-			return Direction.SOUTH
-		else:
-			return Direction.NORTH
+func target():
+	match get_target_type():
+		## targeting specfics could be handled by sub functions
+		##Warrier specific targeting goes here.
+		FIRST:
+			pass
 			
-func change_attack_direction(direction: int):
-	match direction:
-		Direction.NORTH:
-			warrior_hurt_box.rotation.y = deg_to_rad(180)
-			animation_controller.play("swing_north")
-			#animation_controller.play("swing")
-		Direction.SOUTH:
-			warrior_hurt_box.rotation.y = deg_to_rad(0)
-			animation_controller.play("swing_south")
-			#animation_controller.play("swing")
-		Direction.EAST:
-			warrior_hurt_box.rotation.y = deg_to_rad(90)
-			animation_controller.play("swing_east")
-			#animation_controller.play("swing")
-		Direction.WEST:
-			warrior_hurt_box.rotation.y = deg_to_rad(-90)
-			animation_controller.play("swing_west")
-			#animation_controller.play("swing")
+		LAST:
+			pass
+		_:
+			return false	
