@@ -28,6 +28,12 @@ axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
 script = ExtResource("1_k1sas")
+speed = null
+jump_velocity = null
+range_detection = null
+damage = null
+target_type = null
+strength = null
 metadata/_edit_group_ = true
 
 [node name="Body" parent="." index="0" unique_id=447693479]

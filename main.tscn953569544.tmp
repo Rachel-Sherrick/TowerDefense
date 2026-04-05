@@ -79,15 +79,12 @@ axis_lock_linear_z = false
 axis_lock_angular_x = false
 axis_lock_angular_y = false
 axis_lock_angular_z = false
-speed = 5.0
-jump_velocity = 4.5
-range_detection = 1
-damage = 1
-target_type = 0
-strength = 0
-
-[node name="Character2" parent="." unique_id=254305490 instance=ExtResource("2_0xm2m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.577457, 0, -2.1275253)
+speed = null
+jump_velocity = null
+range_detection = null
+damage = null
+target_type = null
+strength = null
 
 [node name="Character" parent="." unique_id=1096929630 instance=ExtResource("2_0xm2m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.788729, 0, -1.0637627)
@@ -124,6 +121,3 @@ transform = Transform3D(1.2730215, 0, 0.44935077, 0, 1.3499999, 0, -0.44935077, 
 
 [node name="WoodTree44" parent="Trees" unique_id=1470201086 instance=ExtResource("6_kek77")]
 transform = Transform3D(0.4705501, 0, -1.2653387, 0, 1.3499998, 0, 1.2653387, 0, 0.4705501, 18.913647, 6.1, 15.274525)
-
-[node name="Character3" parent="." unique_id=15760301 instance=ExtResource("2_0xm2m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.657145, 0, 0.14083862)

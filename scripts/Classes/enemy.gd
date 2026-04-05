@@ -18,7 +18,7 @@ func _on_range_body_entered(body: Node3D) -> void:
 #Uses randf range to create 'organic' movement on the z axis, needs more smoothing
 func movement ():
 	var variation = randf_range(.5, -.5)
-	self.position.z += lerp(variation, variation, .1)
+	#self.position.z += lerp(variation, variation, .1)
 	##moves the enemy along the x axis across the screen
 	if self.position.x < 30: 
 		self.position.x += 0.1

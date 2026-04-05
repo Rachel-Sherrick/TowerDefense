@@ -64,14 +64,14 @@ func show_hurt_box() -> void:
 	warrior_hurt_box.hide()
 	print(name + "'s hurt box hidden")
 	
-func target(body: Node3D) -> bool:
+func target():
 	match get_target_type():
 		## targeting specfics could be handled by sub functions
+		##Warrier specific targeting goes here.
 		FIRST:
-			print(name + " targeted " + body.name + " with First")
-			return true
+			pass
+			
 		LAST:
-			print(name + " targeted " + body.name + " with Last")
-			return true
+			pass
 		_:
 			return false	
