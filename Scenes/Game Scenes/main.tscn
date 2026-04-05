@@ -2,18 +2,14 @@
 
 [ext_resource type="AudioStream" uid="uid://7vmjaaxleyae" path="res://songs/sneswip1.wav" id="1_kek77"]
 [ext_resource type="Script" uid="uid://buqk23l3b6tsp" path="res://main.gd" id="1_vivmo"]
-[ext_resource type="PackedScene" uid="uid://doxjo2c5tjq6e" path="res://Scenes/Classes/enemy.tscn" id="2_0xm2m"]
 [ext_resource type="Script" uid="uid://cx5lcq6iqwfvi" path="res://scripts/audio_stream_player.gd" id="2_4c57u"]
-[ext_resource type="PackedScene" uid="uid://tu18fp20hsnf" path="res://Scenes/towers/warrior.tscn" id="3_1bvp3"]
 [ext_resource type="Script" uid="uid://cpi153lw0sggb" path="res://player.gd" id="3_dg77c"]
-[ext_resource type="PackedScene" uid="uid://bmslpuj4gik5" path="res://Scenes/Classes/tower.tscn" id="3_h2yge"]
 [ext_resource type="Script" uid="uid://c8gmgykjml3m1" path="res://shop.gd" id="3_w48qg"]
 [ext_resource type="Texture2D" uid="uid://cog7l0t4nycxo" path="res://sprites/ShopRender2.png" id="3_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://bu6x0lnlcixer" path="res://EnvironmentGLBs/WoodTree1.glb" id="5_272bh"]
 [ext_resource type="PackedScene" uid="uid://b1e585hvcp0gh" path="res://EnvironmentGLBs/WoodTree2.glb" id="6_5vw27"]
 [ext_resource type="PackedScene" uid="uid://bumumn4opib2d" path="res://EnvironmentGLBs/WoodTree3.glb" id="6_272bh"]
 [ext_resource type="PackedScene" uid="uid://bh0iyhdkq376d" path="res://EnvironmentGLBs/WoodTree4.glb" id="6_kek77"]
-[ext_resource type="PackedScene" uid="uid://cmyw1wq2h0igv" path="res://Scenes/enemies/ant.tscn" id="11_efxa6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xm2m"]
 albedo_color = Color(0.56590307, 0.45444906, 0.19438995, 1)
@@ -65,7 +61,6 @@ script = ExtResource("2_4c57u")
 
 [node name="Player" type="Node" parent="." unique_id=955624252]
 script = ExtResource("3_dg77c")
-tower_scene = ExtResource("3_1bvp3")
 money = 5.0
 interest = 1.2
 selected_item = "warrior"
@@ -107,50 +102,6 @@ environment = SubResource("Environment_0xm2m")
 
 [node name="Characters" type="Node3D" parent="Battleground" unique_id=765419014]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.012677, 0, -2.3001575)
-
-[node name="Warrior" parent="Battleground/Characters" unique_id=198302004 instance=ExtResource("3_1bvp3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.289383, 0, 2.3001575)
-axis_lock_linear_x = false
-axis_lock_linear_y = false
-axis_lock_linear_z = false
-axis_lock_angular_x = false
-axis_lock_angular_y = false
-axis_lock_angular_z = false
-
-[node name="Character3" parent="Battleground/Characters" unique_id=691519270 instance=ExtResource("2_0xm2m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1060314, 0, -1.0173035)
-
-[node name="Character4" parent="Battleground/Characters" unique_id=830281426 instance=ExtResource("2_0xm2m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4532995, 0, -1.0590668)
-
-[node name="Tower2" parent="Battleground/Characters" unique_id=1568776403 instance=ExtResource("3_h2yge")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.934013, 0, 2.3001575)
-axis_lock_linear_x = false
-axis_lock_linear_y = false
-axis_lock_linear_z = false
-axis_lock_angular_x = false
-axis_lock_angular_y = false
-axis_lock_angular_z = false
-
-[node name="Character" parent="Battleground/Characters" unique_id=1096929630 instance=ExtResource("2_0xm2m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7760506, 0, 2.3001575)
-
-[node name="Character2" parent="Battleground/Characters" unique_id=972001919 instance=ExtResource("2_0xm2m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.644824, 0, 2.3001575)
-
-[node name="Character5" parent="Battleground/Characters" unique_id=254305490 instance=ExtResource("11_efxa6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.734512, 0, 2.3001575)
-
-[node name="Tower" parent="Battleground/Characters" unique_id=766364614 instance=ExtResource("3_h2yge")]
-axis_lock_linear_x = false
-axis_lock_linear_y = false
-axis_lock_linear_z = false
-axis_lock_angular_x = false
-axis_lock_angular_y = false
-axis_lock_angular_z = false
-
-[node name="Warrior2" parent="Battleground/Characters" unique_id=1210425893 instance=ExtResource("3_1bvp3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7588091, -0.02395606, -3.508875)
 
 [node name="PlaceableArea" type="Area3D" parent="Battleground" unique_id=125249582]
 collision_layer = 8
