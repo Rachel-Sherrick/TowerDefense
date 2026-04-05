@@ -1,5 +1,6 @@
 extends Node3D
 
+signal tower_placed(tower: Tower)
 @export var tower_scene: PackedScene
 
 func _unhandled_input(event: InputEvent):
@@ -31,11 +32,12 @@ func _place_tower(mouse_pos: Vector2) -> void:
 		
 func _spawn_tower(position: Vector3) -> void:
 	var tower := tower_scene.instantiate()
-	get_parent().add_child(tower)
+	get_parent().get_node("Characters").add_child(tower)
 	tower.global_position = position
+	emit_signal("tower_placed", tower)
 	
 func _is_valid_position(position: Vector3) -> bool:
-	var area := get_parent().get_node("MainField") as Area3D 
+	var area := get_parent().get_node("PlaceableArea") as Area3D 
 	var shape := area.get_node("CollisionShape3D").shape as BoxShape3D
 	var extents := shape.size * 0.5
 	var local_pos := area.to_local(position)

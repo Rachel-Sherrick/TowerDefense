@@ -1,3 +1,4 @@
+class_name Health
 extends Node
 # This script adds health behavior to a Node.
 

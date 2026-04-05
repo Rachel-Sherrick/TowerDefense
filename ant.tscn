@@ -35,7 +35,7 @@
 [ext_resource type="Texture2D" uid="uid://cyky1ih3xjuo3" path="res://sprites/enemies/ant/walk/frame0014.png" id="18_kvl2v"]
 [ext_resource type="Texture2D" uid="uid://bk5qjveh8qksv" path="res://sprites/enemies/ant/walk/frame0015.png" id="19_yu62i"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_ragae"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_kvl2v"]
 resource_local_to_scene = true
 animations = [{
 "frames": [{
@@ -169,6 +169,6 @@ animations = [{
 [node name="SpriteBody" parent="AnimationController" parent_id_path=PackedInt32Array(1020417921) index="0" unique_id=1996147602]
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, -0.3, 0)
 modulate = Color(1, 1, 1, 1)
-sprite_frames = SubResource("SpriteFrames_ragae")
+sprite_frames = SubResource("SpriteFrames_kvl2v")
 animation = &"attack"
 frame_progress = 0.0
