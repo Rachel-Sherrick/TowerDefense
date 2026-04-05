@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://cmjnhkpnq3l66"]
 
-[ext_resource type="AudioStream" uid="uid://7vmjaaxleyae" path="res://songs/sneswip1.wav" id="1_kek77"]
-[ext_resource type="PackedScene" uid="uid://doxjo2c5tjq6e" path="res://enemy.tscn" id="2_0xm2m"]
-[ext_resource type="Script" path="res://audio_stream_player.gd" id="2_4c57u"]
-[ext_resource type="PackedScene" uid="uid://bmslpuj4gik5" path="res://tower.tscn" id="3_h2yge"]
-[ext_resource type="PackedScene" uid="uid://saf6d5teewoh" path="res://towerPlacement.tscn" id="4_1bvp3"]
-[ext_resource type="PackedScene" uid="uid://bu6x0lnlcixer" path="res://EnvironmentGLBs/WoodTree1.glb" id="5_272bh"]
-[ext_resource type="PackedScene" uid="uid://b1e585hvcp0gh" path="res://EnvironmentGLBs/WoodTree2.glb" id="6_5vw27"]
-[ext_resource type="PackedScene" uid="uid://bumumn4opib2d" path="res://EnvironmentGLBs/WoodTree3.glb" id="6_272bh"]
-[ext_resource type="PackedScene" uid="uid://bh0iyhdkq376d" path="res://EnvironmentGLBs/WoodTree4.glb" id="6_kek77"]
+[ext_resource type="AudioStream" uid="uid://7vmjaaxleyae" path="res://songs/sneswip1.wav" id="1_032wp"]
+[ext_resource type="Script" uid="uid://cx5lcq6iqwfvi" path="res://scripts/audio_stream_player.gd" id="2_0miwv"]
+[ext_resource type="PackedScene" uid="uid://bmslpuj4gik5" path="res://Scenes/Classes/tower.tscn" id="3_0w7h6"]
+[ext_resource type="PackedScene" uid="uid://doxjo2c5tjq6e" path="res://Scenes/Classes/enemy.tscn" id="4_84767"]
+[ext_resource type="PackedScene" uid="uid://saf6d5teewoh" path="res://Scenes/towerPlacement.tscn" id="5_t6f6y"]
+[ext_resource type="PackedScene" uid="uid://bu6x0lnlcixer" path="res://EnvironmentGLBs/WoodTree1.glb" id="6_57bla"]
+[ext_resource type="PackedScene" uid="uid://b1e585hvcp0gh" path="res://EnvironmentGLBs/WoodTree2.glb" id="7_hn62u"]
+[ext_resource type="PackedScene" uid="uid://bumumn4opib2d" path="res://EnvironmentGLBs/WoodTree3.glb" id="8_4yj7t"]
+[ext_resource type="PackedScene" uid="uid://bh0iyhdkq376d" path="res://EnvironmentGLBs/WoodTree4.glb" id="9_me364"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xm2m"]
 albedo_color = Color(0.56590307, 0.45444906, 0.19438995, 1)
@@ -34,9 +34,9 @@ size = Vector3(20, 2, 20)
 [node name="Main" type="Node" unique_id=1776296673]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=306243073]
-stream = ExtResource("1_kek77")
+stream = ExtResource("1_032wp")
 volume_db = -15.0
-script = ExtResource("2_4c57u")
+script = ExtResource("2_0miwv")
 
 [node name="Ground" type="StaticBody3D" parent="." unique_id=1885948079]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
@@ -71,7 +71,7 @@ metadata/_edit_lock_ = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1008975528]
 environment = SubResource("Environment_0xm2m")
 
-[node name="Tower" parent="." unique_id=766364614 instance=ExtResource("3_h2yge")]
+[node name="Tower" parent="." unique_id=766364614 instance=ExtResource("3_0w7h6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.012677, 0, -2.3001575)
 axis_lock_linear_x = false
 axis_lock_linear_y = false
@@ -79,17 +79,11 @@ axis_lock_linear_z = false
 axis_lock_angular_x = false
 axis_lock_angular_y = false
 axis_lock_angular_z = false
-speed = 5.0
-jump_velocity = 4.5
-range_detection = 1
-damage = 1
-target_type = 0
-strength = 0
 
-[node name="Character2" parent="." unique_id=254305490 instance=ExtResource("2_0xm2m")]
+[node name="Character2" parent="." unique_id=254305490 instance=ExtResource("4_84767")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.577457, 0, -2.1275253)
 
-[node name="Character" parent="." unique_id=1096929630 instance=ExtResource("2_0xm2m")]
+[node name="Character" parent="." unique_id=1096929630 instance=ExtResource("4_84767")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.788729, 0, -1.0637627)
 
 [node name="MainField" type="Area3D" parent="." unique_id=125249582]
@@ -97,33 +91,33 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.788729, 0, -1.0637627)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MainField" unique_id=2063056620]
 shape = SubResource("BoxShape3D_h2yge")
 
-[node name="towerPlacement" parent="." unique_id=666569105 instance=ExtResource("4_1bvp3")]
+[node name="towerPlacement" parent="." unique_id=666569105 instance=ExtResource("5_t6f6y")]
 
 [node name="Trees" type="Node" parent="." unique_id=1611541056]
 
-[node name="WoodTree12" parent="Trees" unique_id=669732448 instance=ExtResource("5_272bh")]
+[node name="WoodTree12" parent="Trees" unique_id=669732448 instance=ExtResource("6_57bla")]
 transform = Transform3D(1.1325618, 0, -0.52896476, 0, 1.25, 0, 0.52896476, 0, 1.1325618, -9.510291, 5.6, -12.588)
 
-[node name="WoodTree13" parent="Trees" unique_id=783113124 instance=ExtResource("5_272bh")]
+[node name="WoodTree13" parent="Trees" unique_id=783113124 instance=ExtResource("6_57bla")]
 transform = Transform3D(0.791304, 0, -0.96764565, 0, 1.25, 0, 0.96764565, 0, 0.791304, -9.510291, 5.6, 16.24421)
 
-[node name="WoodTree24" parent="Trees" unique_id=701856537 instance=ExtResource("6_5vw27")]
+[node name="WoodTree24" parent="Trees" unique_id=701856537 instance=ExtResource("7_hn62u")]
 transform = Transform3D(1.2362182, 0, 0.185107, 0, 1.25, 0, -0.185107, 0, 1.2362182, 10.440073, 5.6, -10.953772)
 
-[node name="WoodTree25" parent="Trees" unique_id=1746127060 instance=ExtResource("6_5vw27")]
+[node name="WoodTree25" parent="Trees" unique_id=1746127060 instance=ExtResource("7_hn62u")]
 transform = Transform3D(0.903347, 0, 0.8639814, 0, 1.2499999, 0, -0.8639814, 0, 0.903347, 10.440073, 5.6, 17.468739)
 
-[node name="WoodTree32" parent="Trees" unique_id=1746399989 instance=ExtResource("6_272bh")]
+[node name="WoodTree32" parent="Trees" unique_id=1746399989 instance=ExtResource("8_4yj7t")]
 transform = Transform3D(1.6403183, 0, -0.6098007, 0, 1.7499996, 0, 0.6098007, 0, 1.6403183, -16.86222, 8, -10.155826)
 
-[node name="WoodTree34" parent="Trees" unique_id=1609063541 instance=ExtResource("6_272bh")]
+[node name="WoodTree34" parent="Trees" unique_id=1609063541 instance=ExtResource("8_4yj7t")]
 transform = Transform3D(0.30036443, 0, 1.7240305, 0, 1.75, 0, -1.7240305, 0, 0.30036443, -16.86222, 8, 16.323635)
 
-[node name="WoodTree42" parent="Trees" unique_id=1940469332 instance=ExtResource("6_kek77")]
+[node name="WoodTree42" parent="Trees" unique_id=1940469332 instance=ExtResource("9_me364")]
 transform = Transform3D(1.2730215, 0, 0.44935077, 0, 1.3499999, 0, -0.44935077, 0, 1.2730215, 18.913315, 6.1, -8.292487)
 
-[node name="WoodTree44" parent="Trees" unique_id=1470201086 instance=ExtResource("6_kek77")]
+[node name="WoodTree44" parent="Trees" unique_id=1470201086 instance=ExtResource("9_me364")]
 transform = Transform3D(0.4705501, 0, -1.2653387, 0, 1.3499998, 0, 1.2653387, 0, 0.4705501, 18.913647, 6.1, 15.274525)
 
-[node name="Character3" parent="." unique_id=15760301 instance=ExtResource("2_0xm2m")]
+[node name="Character3" parent="." unique_id=15760301 instance=ExtResource("4_84767")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.657145, 0, 0.14083862)
