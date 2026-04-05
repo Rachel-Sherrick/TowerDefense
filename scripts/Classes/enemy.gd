@@ -18,7 +18,7 @@ func _on_range_body_entered(body: Node3D) -> void:
 #Uses randf range to create 'organic' movement on the z axis, needs more smoothing
 func movement ():
 	var variation = randf_range(.5, -.5)
-	#self.position.z += lerp(variation, variation, .1)
+	self.position.z += lerp(variation, variation, .1)
 	##moves the enemy along the x axis across the screen
 	if self.position.x < 30: 
 		self.position.x += 0.1
@@ -27,10 +27,7 @@ func movement ():
 		##puts them on the left edge of the map, 
 		##off screen so they can go back to the right. 
 
-#If towers in radius, take damage. 
-#the index needs to be changed so player can toggle first, last, etc. 
-#This is really just to get the bugs to stop. Needs replaced so they attack others, not just themselves. 
-func attacked(): 
-	if (tracking_array[0] != null): 
-		self.take_damage(1)
+#Attacks towers within radius
+func attackingTowers(): 
+	pass
 	
