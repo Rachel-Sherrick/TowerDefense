@@ -1,25 +1,26 @@
 [gd_scene format=3 uid="uid://bmslpuj4gik5"]
 
-[ext_resource type="PackedScene" uid="uid://eou4mq5n6oh3" path="res://Scenes/Classes/character.tscn" id="1_4flbx"]
-[ext_resource type="Script" uid="uid://c1msriimmkk0j" path="res://scripts/Classes/tower.gd" id="1_k1sas"]
-[ext_resource type="Texture2D" uid="uid://nj37xla1vxmg" path="res://sprites/testbert.png" id="3_stebd"]
+[ext_resource type="PackedScene" uid="uid://eou4mq5n6oh3" path="res://Scenes/Classes/character.tscn" id="1_g54jp"]
+[ext_resource type="Script" uid="uid://c1msriimmkk0j" path="res://scripts/Classes/tower.gd" id="2_gnv0d"]
+[ext_resource type="Script" uid="uid://7d8yo6rg6xgy" path="res://Scenes/Classes/towerGUI.gd" id="3_g54jp"]
+[ext_resource type="Texture2D" uid="uid://nj37xla1vxmg" path="res://sprites/testbert.png" id="3_suado"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vedim"]
 albedo_color = Color(0, 1, 1, 1)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_stebd"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_g54jp"]
 resource_local_to_scene = true
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_stebd")
+"texture": ExtResource("3_suado")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
 
-[node name="Tower" unique_id=254305490 groups=["Tower"] instance=ExtResource("1_4flbx")]
+[node name="Tower" unique_id=254305490 groups=["Tower"] instance=ExtResource("1_g54jp")]
 collision_layer = 4
 axis_lock_linear_x = true
 axis_lock_linear_y = true
@@ -27,7 +28,7 @@ axis_lock_linear_z = true
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
-script = ExtResource("1_k1sas")
+script = ExtResource("2_gnv0d")
 metadata/_edit_group_ = true
 
 [node name="Body" parent="." index="0" unique_id=447693479]
@@ -36,10 +37,52 @@ surface_material_override/0 = SubResource("StandardMaterial3D_vedim")
 [node name="RangeDetection" parent="." index="2" unique_id=1602429880]
 collision_layer = 4
 collision_mask = 2
-input_ray_pickable = false
 
 [node name="SpriteBody" parent="AnimationController" parent_id_path=PackedInt32Array(1020417921) index="0" unique_id=1996147602]
 layers = 524289
 modulate = Color(0.33333334, 1, 0.9098039, 1)
-sprite_frames = SubResource("SpriteFrames_stebd")
+sprite_frames = SubResource("SpriteFrames_g54jp")
 frame_progress = 0.63789123
+
+[node name="Control" type="Control" parent="." index="5" unique_id=356163926]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("3_g54jp")
+
+[node name="OptionButton" type="OptionButton" parent="Control" index="0" unique_id=766563876]
+layout_mode = 0
+offset_left = -54.0
+offset_top = -16.0
+offset_right = 54.0
+offset_bottom = 15.0
+item_count = 5
+popup/item_0/text = "First"
+popup/item_0/id = 0
+popup/item_1/text = "Last"
+popup/item_1/id = 1
+popup/item_2/text = "Closest"
+popup/item_2/id = 2
+popup/item_3/text = "Strongest"
+popup/item_3/id = 3
+popup/item_4/text = "Weakest"
+popup/item_4/id = 4
+
+[node name="Marker3D" type="Marker3D" parent="." index="6" unique_id=1340049457]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0.184, 5, 5)
+metadata/_edit_lock_ = true
+
+[node name="Camera3D" type="Camera3D" parent="Marker3D" index="0" unique_id=1017763946]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19)
+projection = 1
+size = 24.0
+far = 40.0
+metadata/_edit_lock_ = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Marker3D" index="1" unique_id=1808011919]
+transform = Transform3D(0.95105654, 0.108725056, -0.2892583, 0, 0.93605953, 0.35184166, 0.309017, -0.3346213, 0.89024556, 0, 0, 23)
+shadow_enabled = true
+shadow_bias = 0.04
+shadow_blur = 1.5
+metadata/_edit_lock_ = true
+
+[connection signal="item_selected" from="Control/OptionButton" to="." method="_on_option_button_item_selected"]
