@@ -20,8 +20,8 @@ func _physics_process(delta: float) -> void:
 	if in_range == true && fire_ready == true:
 		#Uncommenting this function call will cause a problem
 		#that needs to be debugged
-		#fire_projectile(aim_list[0])
-		pass
+		fire_projectile(aim_list[0])
+		
 
 func _on_range_detection_body_exited(body: Node3D) -> void:
 	super(body)
@@ -39,10 +39,11 @@ func _on_range_body_entered(body: Node3D) -> void:
 func fire_projectile(target) -> void:
 	print("WIZARD FIRING ATTACK")
 	var projectile = bullet_scene.instantiate()
-	projectile.position = position
+	projectile.position = Vector3(position.x, 1.0, position.z)
+	projectile.target = target.position
 	add_child(projectile)
 	fire_ready = false
 
 func _on_timer_timeout() -> void:
 	fire_ready = true
-	#print("Wizard ready to fire")
+	print("Wizard ready to fire")
