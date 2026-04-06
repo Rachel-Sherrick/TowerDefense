@@ -16,13 +16,10 @@ const WEAK = 4
 #####################
 
 ## data structures for tracking chracters within the range
-# need to add functions to empty array and map if there are no non
-# null elements
-# !! replace tracking_dict with a sorted array !!
-# var tracking_dict: Dictionary[Node3D, float] = {}
-# !! make sure this array only has up two elements, with the first representing
-# the last body to enter and the second representing the newest !!
-var tracking_array : Array[CharacterBody3D] = []
+## first (0) is the newest body to enter
+var tracking_array : Array[CharacterBody3D] 
+
+var currentTarget
 
 ######################
 ## Global Variables ##
@@ -45,6 +42,7 @@ var phys_framecount = 0
 ## Arbitrary definition for strength for targeting
 @export var strength: int = 0
 
+
 #########################
 ## Functions & Methods ##
 #########################
@@ -62,19 +60,21 @@ func set_phys_framecount(new_count: int) -> bool:
 func get_health() -> int:
 	return health_component.current_health
 
-## !! Change so that health	
+## !! Change so that health
+	
 func set_health(health_lost: int) -> bool:
 	if health_component.set_current_health(health_lost):
 		return true
 	return false
 	
+	
+##returns target_type
 func get_target_type() -> int:
 	return target_type
 
+## sets targest type bases on the int provided
 func set_target_type(type: int) -> bool:
-	if (type < 0 && type > 8):
-		## !! insert code to toggle how the sorted array sorts
-		## between distance and strength here !!
+	if (type < 0 || type >= 5):
 		return false
 	target_type = type
 	return true
@@ -82,56 +82,23 @@ func set_target_type(type: int) -> bool:
 func _ready() -> void:
 	pass
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	set_phys_framecount(get_phys_framecount() + 1)
 	## DEBUG LINE: print(get_phys_framecount())
 	
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = jump_velocity
-		
+	
 	move_and_slide()
 	
 	## updates body positions every 4 frames
 	if get_phys_framecount() % 4 == 0:
 		update_tracking_structures()
 
-## Returns a character from one of the arrays using the given targeting_type
-func target() -> Character:
-	match get_target_type():
-		FIRST:
-			return tracking_array.front()
-		LAST:
-			return tracking_array.back()
-		_:
-			return null
 
+##Use this to get the distance of a character
 func get_distance_char(body: Node3D) -> float:
 	return to_local(body.global_transform.origin).length()
 
-func remove_char_array(body: Node3D) -> void:
-	var index = tracking_array.find(body)
-	## this means that the body was not found
-	if index == -1:
-		print(body.name + "does not exist within the array")
-		return
-	tracking_array[index] = null
-	return 
 
-## clears the tracking data structures of elements
-## to prevent them from becoming too large
-func clear_tracking() -> bool:
-	## See healer.gd for old code
-	if !($RangeDetection.has_overlapping_bodies()):
-		return false
-	#tracking_dict.clear()
-	tracking_array.clear()
-	print(name + " cleared tracking list")
-	return true
 
 ## updates the structures the object tracks
 ## by rule of thumb characters do not tracks allies unless toggled
@@ -143,33 +110,31 @@ func update_tracking_structures() -> bool:
 	for body in obj_list:
 		## See healer.gd for old code
 		print(body.name + " distance from " + name + " is " + str(get_distance_char(body)))
-		#tracking_dict[body] = get_distance_char(body)
+	
 	return true
 	
 
 func _on_range_detection_body_exited(body: Node3D) -> void:
 	##See healer.gd for old code
-	#tracking_dict.erase(body)
-	#remove_char_array(body)
-	tracking_array.erase(body)
-	trackingArrayManagement()
+	
+	removeTrack(body)
 	print(name + " no longer tracking " + body.name)
 	print(tracking_array)
 	
 func _on_range_body_entered(body: Node3D) -> void:
 	## See healer.gd for old code
-	# tracking_dict[body] = get_distance_char(body)
 	#adds the body entering to the front of the array
-	tracking_array.push_front(body)
-	trackingArrayManagement()
-	print(name + " tracking " + body.name)
-	print("Body Entered!")
+	addTrack(body)
 	print(tracking_array) 
 
-##Making sure the array is only two long
-func trackingArrayManagement(): 
-	while (tracking_array.size() > 2): 
-		tracking_array.pop_back()
+
+func addTrack(body):
+		if !tracking_array.has(body): 
+			tracking_array.push_front(body)
+		
+func removeTrack(body): 
+	if tracking_array.has(body): 
+		tracking_array.erase(body)
 
 ##H.S added to get health to work properly
 @onready var health_component = $Health
