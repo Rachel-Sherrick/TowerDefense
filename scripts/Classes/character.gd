@@ -1,6 +1,13 @@
 extends CharacterBody3D
 class_name Character
 
+@onready var health = $Health
+@onready var potions = $Potions
+#### K = take damage <<< test for potions to actually appear to work.. 
+#### H = heal potion
+#### J = defense potion
+
+
 ###############
 ## Constants ##
 ###############
@@ -141,3 +148,16 @@ func removeTrack(body):
 
 func take_damage(amount: int) -> void:
 	health_component.take_damage(amount)
+
+
+
+func _input(event):
+	if event is InputEventKey and event.pressed:
+		if event.keycode == KEY_H:
+			potions.use_heal_potion(health)
+
+		if event.keycode == KEY_J:
+			potions.use_defense_potion(health)
+
+		if event.keycode == KEY_K:
+			health.take_damage(10)
