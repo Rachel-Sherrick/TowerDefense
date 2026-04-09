@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dc4uuaa405mkw" path="res://scripts/Classes/character.gd" id="1_k1sas"]
 [ext_resource type="Texture2D" uid="uid://nj37xla1vxmg" path="res://sprites/testbert.png" id="2_pjt0s"]
-[ext_resource type="Script" uid="uid://k3ho7ef46d6" path="res://scripts/animation_controller.gd" id="2_wa5vi"]
+[ext_resource type="Script" uid="uid://k3ho7ef46d6" path="res://animation_controller.gd" id="2_wa5vi"]
 [ext_resource type="Script" uid="uid://bnxn14t7crcv4" path="res://scripts/components/health.gd" id="4_wfnr8"]
 [ext_resource type="Script" uid="uid://b1p8o3gtto0bw" path="res://potions.gd" id="5_px5sl"]
 
@@ -71,7 +71,6 @@ metadata/_edit_lock_ = true
 [node name="RangeDetection" type="Area3D" parent="." unique_id=1602429880 groups=["Character"]]
 collision_layer = 6
 collision_mask = 6
-input_ray_pickable = false
 monitorable = false
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
@@ -132,4 +131,3 @@ script = ExtResource("5_px5sl")
 
 [connection signal="body_entered" from="RangeDetection" to="." method="_on_range_body_entered"]
 [connection signal="body_exited" from="RangeDetection" to="." method="_on_range_detection_body_exited"]
-[connection signal="died" from="Health" to="." method="_on_health_died"]

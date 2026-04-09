@@ -1,4 +1,3 @@
-class_name Health
 extends Node
 # Reusable Health Component
 # Adds health behavior to any Node parent.

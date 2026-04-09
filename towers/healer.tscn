@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://55wank83uw5h"]
 
-[ext_resource type="PackedScene" uid="uid://bmslpuj4gik5" path="res://Scenes/Classes/tower.tscn" id="1_5ly3l"]
-[ext_resource type="Script" uid="uid://s64mwjy1i7g6" path="res://scripts/healer.gd" id="2_org2g"]
+[ext_resource type="PackedScene" uid="uid://bmslpuj4gik5" path="res://tower.tscn" id="1_5ly3l"]
+[ext_resource type="Script" uid="uid://s64mwjy1i7g6" path="res://towers/healer.gd" id="2_org2g"]
 
 [node name="Tower" unique_id=254305490 instance=ExtResource("1_5ly3l")]
 script = ExtResource("2_org2g")

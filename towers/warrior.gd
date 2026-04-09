@@ -19,6 +19,8 @@ func _process(delta: float) -> void:
 	#if warrior_timer.is_stopped():
 		#print("TIMER NOT WORKING")
 	if swing_ready == true && $RangeDetection.has_overlapping_bodies():
+		##moved call to function to asynchronously wait for last attack
+		##to finish 
 		await attack_handler()
 	if !($RangeDetection.has_overlapping_bodies()):
 		animation_controller.play("idle")
@@ -153,14 +155,3 @@ func change_attack_direction(direction: int):
 			warrior_hurt_box.rotation.y = deg_to_rad(-90)
 			animation_controller.play("swing_west")
 			#animation_controller.play("swing")
-func target():
-	match get_target_type():
-		## targeting specfics could be handled by sub functions
-		##Warrier specific targeting goes here.
-		FIRST:
-			pass
-			
-		LAST:
-			pass
-		_:
-			return false	
