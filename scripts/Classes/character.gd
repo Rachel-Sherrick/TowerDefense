@@ -46,7 +46,7 @@ var phys_framecount = 0
 ## Only set range through RangeDetection's set_range
 @export var range_detection = 1
 ## Damage multiplier for when the character deals damage to another character
-@export var damage = 1
+@export var damage = 5
 ## The default targeting priority
 @export var target_type: int = FIRST
 ## Arbitrary definition for strength for targeting

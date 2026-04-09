@@ -7,7 +7,6 @@ class_name Warrior
 @onready var animation_controller: Node3D = $AnimationController
 
 
-
 #is the cooldown over
 var swing_ready : bool = false
 
@@ -65,7 +64,7 @@ func attack_alter_area(target: Enemy) -> void:
 func attack_damage(enemy: Enemy) -> void:
 	print(name, " attacked ", enemy.name)
 	## !! see comments in Character.gd !!
-	enemy.take_damage(1)
+	enemy.take_damage(damage)
 	print(enemy.name + " health: ", enemy.get_health())
 
 #reset timer and swing ready

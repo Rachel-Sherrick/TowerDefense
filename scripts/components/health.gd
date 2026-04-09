@@ -5,7 +5,7 @@ extends Node
 signal health_changed(current_health: int, max_health: int)
 signal died
 
-@export var max_health: int = 100
+@export var max_health: int = 20
 @export var defense: int = 0
 @export var destroy_parent_on_death: bool = true
 
@@ -14,6 +14,14 @@ var current_health: int
 
 func _ready() -> void:
 	current_health = max_health
+	print(get_parent().name, "spawned with health:", current_health)
+
+	var parent = get_parent()
+	if parent != null:
+		var bar = parent.get_node_or_null("HealthBar/MeshInstance3D")
+		if bar != null and bar.mesh != null:
+			bar.mesh = bar.mesh.duplicate()
+
 	emit_signal("health_changed", current_health, max_health)
 	_update_bar()
 
