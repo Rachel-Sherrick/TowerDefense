@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cspaxkbchu6l3"]
 
-[ext_resource type="PackedScene" uid="uid://bmslpuj4gik5" path="res://tower.tscn" id="1_xxhrx"]
+[ext_resource type="PackedScene" uid="uid://bmslpuj4gik5" path="res://Scenes/Classes/tower.tscn" id="1_xxhrx"]
 [ext_resource type="Texture2D" uid="uid://nj37xla1vxmg" path="res://sprites/testbert.png" id="2_34mad"]
 [ext_resource type="Script" uid="uid://biqa6ebeqjw2a" path="res://wizard.gd" id="2_xo1iy"]
 
@@ -18,6 +18,12 @@ animations = [{
 
 [node name="Wizard" unique_id=254305490 instance=ExtResource("1_xxhrx")]
 script = ExtResource("2_xo1iy")
+
+[node name="CharacterCollision" parent="." index="1" unique_id=492885942]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5634575, 0)
+
+[node name="RangeCollision" parent="RangeDetection" parent_id_path=PackedInt32Array(1602429880) index="1" unique_id=831990961]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4333496, 0)
 
 [node name="SpriteBody" parent="AnimationController" parent_id_path=PackedInt32Array(1020417921) index="0" unique_id=1996147602]
 sprite_frames = SubResource("SpriteFrames_34mad")

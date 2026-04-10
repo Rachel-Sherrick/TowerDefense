@@ -21,9 +21,10 @@ func movement ():
 	#self.position.z += lerp(variation, variation, .1)
 	##moves the enemy along the x axis across the screen
 	if self.position.x < 30: 
-		self.position.x += 0.1
+		self.position.x += speed
 	elif self.position.x >= 30: 
 		self.position.x = -30
+		velocity = Vector3(0,0,0)
 		##puts them on the left edge of the map, 
 		##off screen so they can go back to the right. 
 

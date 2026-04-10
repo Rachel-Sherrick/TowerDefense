@@ -2,7 +2,7 @@
 
 [ext_resource type="AudioStream" uid="uid://7vmjaaxleyae" path="res://songs/sneswip1.wav" id="1_kek77"]
 [ext_resource type="Script" uid="uid://buqk23l3b6tsp" path="res://main.gd" id="1_vivmo"]
-[ext_resource type="Script" uid="uid://cx5lcq6iqwfvi" path="res://scripts/audio_stream_player.gd" id="2_4c57u"]
+[ext_resource type="Script" path="res://scripts/audio_stream_player.gd" id="2_4c57u"]
 [ext_resource type="Script" uid="uid://cpi153lw0sggb" path="res://player.gd" id="3_dg77c"]
 [ext_resource type="Script" uid="uid://c8gmgykjml3m1" path="res://shop.gd" id="3_w48qg"]
 [ext_resource type="Texture2D" uid="uid://cog7l0t4nycxo" path="res://sprites/ShopRender2.png" id="3_ycdy4"]
@@ -228,7 +228,7 @@ metadata/_edit_lock_ = true
 [node name="Wizard" parent="." unique_id=254305490 instance=ExtResource("8_yhwuq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8440402, 0.09802455, 3.3031864)
 
-[node name="Character" parent="." unique_id=109752332 instance=ExtResource("9_032wp")]
+[node name="Ant" parent="." unique_id=109752332 instance=ExtResource("9_032wp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.33918, 0.3313707, 3.2989302)
 
 [connection signal="child_entered_tree" from="Battleground" to="Player" method="_on_battleground_child_entered_tree"]

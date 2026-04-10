@@ -56,7 +56,7 @@ func _on_range_detection_body_exited(body: Node3D) -> void:
 		if (body.get_groups() == get_groups()) && (!get_tracking_friends()):
 			return
 		#tracking_dict.erase(body)
-		remove_char_array(body)
+		#remove_char_array(body)
 		## Attempts to clear the tracking data structures
 		clear_tracking()
 		print(name + " no longer tracking " + body.name)
