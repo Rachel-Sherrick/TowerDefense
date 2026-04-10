@@ -13,14 +13,19 @@ var current_health: int
 
 
 func _ready() -> void:
+	var parent = get_parent()
+
+	if parent != null and (parent.name == "Tower" or parent.name == "Tower2"):
+		max_health = 10
+
 	current_health = max_health
 	print(get_parent().name, "spawned with health:", current_health)
 
-	var parent = get_parent()
 	if parent != null:
 		var bar = parent.get_node_or_null("HealthBar/MeshInstance3D")
 		if bar != null and bar.mesh != null:
 			bar.mesh = bar.mesh.duplicate()
+			bar.scale.x = 1.0
 
 	emit_signal("health_changed", current_health, max_health)
 	_update_bar()
@@ -44,7 +49,10 @@ func take_damage(amount: int) -> void:
 	if amount <= 0 or current_health <= 0:
 		return
 
-	var final_damage = max(amount - defense, 0)
+	var final_damage = amount - defense
+	if final_damage <= 0:
+		final_damage = 1
+
 	current_health -= final_damage
 	current_health = clamp(current_health, 0, max_health)
 
@@ -74,20 +82,23 @@ func _update_bar() -> void:
 		return
 
 	var bar = parent.get_node_or_null("HealthBar/MeshInstance3D")
-	if bar == null or bar.mesh == null:
+	if bar == null:
 		return
 
 	var percent := float(current_health) / float(max_health)
-
-	if bar.mesh is BoxMesh:
-		var box_mesh := bar.mesh as BoxMesh
-		box_mesh.size.x = percent
+	bar.scale.x = percent
 
 
 func _handle_death() -> void:
-	emit_signal("died")
-	print("Health reached zero — entity died")
-
 	var parent = get_parent()
+	var tree = get_tree()
+
+	if parent != null and (parent.name == "Tower" or parent.name == "Tower2"):
+		if tree != null:
+			tree.call_deferred("change_scene_to_file", "res://EndOfGameLose.tscn")
+		return
+
+	emit_signal("died")
+
 	if destroy_parent_on_death and parent:
 		parent.queue_free()
