@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cspaxkbchu6l3" path="res://wizard.tscn" id="8_yhwuq"]
 [ext_resource type="PackedScene" uid="uid://cmyw1wq2h0igv" path="res://Scenes/enemies/ant.tscn" id="9_032wp"]
 [ext_resource type="Texture2D" uid="uid://buh8w0f7d6bqm" path="res://sprites/towers/thimble/testthim.png" id="10_032wp"]
+[ext_resource type="Texture2D" uid="uid://dhn0tkx40kvo2" path="res://sprites/ShopPosterize1.jpg" id="10_57bla"]
 [ext_resource type="FontFile" uid="uid://xrhcnace7lij" path="res://fonts/Chicle-Regular.ttf" id="11_0miwv"]
 [ext_resource type="FontFile" uid="uid://cchfdyetdjd7q" path="res://fonts/DarumadropOne-Regular.ttf" id="12_0w7h6"]
 [ext_resource type="Script" uid="uid://cnflpnfv23xkc" path="res://game_manager.gd" id="13_84767"]
@@ -256,7 +257,7 @@ color = Color(1, 1, 1, 0)
 [node name="Sprite2D" type="Sprite2D" parent="ShopCanvas/ColorRect" unique_id=1252862250]
 position = Vector2(-2.4795532e-05, 0.5000315)
 scale = Vector2(0.71562505, 0.6731482)
-texture = ExtResource("3_ycdy4")
+texture = ExtResource("10_57bla")
 
 [node name="ShopSlots" type="Node2D" parent="ShopCanvas" unique_id=81603362]
 
