@@ -1,18 +1,17 @@
 [gd_scene format=3 uid="uid://cmjnhkpnq3l66"]
 
-[ext_resource type="Script" uid="uid://buqk23l3b6tsp" path="res://scripts/components/main.gd" id="1_k0ijm"]
-[ext_resource type="AudioStream" uid="uid://7vmjaaxleyae" path="res://songs/sneswip1.wav" id="2_nihij"]
-[ext_resource type="Script" uid="uid://cx5lcq6iqwfvi" path="res://scripts/audio_stream_player.gd" id="3_7ee23"]
-[ext_resource type="PackedScene" uid="uid://bmslpuj4gik5" path="res://Scenes/Classes/tower.tscn" id="4_n5un1"]
-[ext_resource type="Script" uid="uid://b1p8o3gtto0bw" path="res://potions.gd" id="5_yshvb"]
-[ext_resource type="PackedScene" uid="uid://cmyw1wq2h0igv" path="res://Scenes/enemies/ant.tscn" id="6_ko8af"]
-[ext_resource type="PackedScene" uid="uid://doxjo2c5tjq6e" path="res://Scenes/Classes/enemy.tscn" id="7_lmy0b"]
-[ext_resource type="PackedScene" uid="uid://tu18fp20hsnf" path="res://Scenes/towers/warrior.tscn" id="8_4igol"]
-[ext_resource type="PackedScene" uid="uid://saf6d5teewoh" path="res://Scenes/towerPlacement.tscn" id="9_rxcde"]
-[ext_resource type="PackedScene" uid="uid://bu6x0lnlcixer" path="res://EnvironmentGLBs/WoodTree1.glb" id="10_1qr20"]
-[ext_resource type="PackedScene" uid="uid://b1e585hvcp0gh" path="res://EnvironmentGLBs/WoodTree2.glb" id="11_petk7"]
-[ext_resource type="PackedScene" uid="uid://bumumn4opib2d" path="res://EnvironmentGLBs/WoodTree3.glb" id="12_fnqy4"]
-[ext_resource type="PackedScene" uid="uid://bh0iyhdkq376d" path="res://EnvironmentGLBs/WoodTree4.glb" id="13_a7x1o"]
+[ext_resource type="Script" uid="uid://buqk23l3b6tsp" path="res://main.gd" id="1_dg77c"]
+[ext_resource type="AudioStream" uid="uid://7vmjaaxleyae" path="res://songs/sneswip1.wav" id="1_kek77"]
+[ext_resource type="PackedScene" uid="uid://doxjo2c5tjq6e" path="res://enemy.tscn" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://cx5lcq6iqwfvi" path="res://audio_stream_player.gd" id="2_4c57u"]
+[ext_resource type="PackedScene" uid="uid://tu18fp20hsnf" path="res://towers/warrior.tscn" id="3_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://bmslpuj4gik5" path="res://tower.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://saf6d5teewoh" path="res://towerPlacement.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://bu6x0lnlcixer" path="res://EnvironmentGLBs/WoodTree1.glb" id="5_272bh"]
+[ext_resource type="PackedScene" uid="uid://b1e585hvcp0gh" path="res://EnvironmentGLBs/WoodTree2.glb" id="6_5vw27"]
+[ext_resource type="PackedScene" uid="uid://bumumn4opib2d" path="res://EnvironmentGLBs/WoodTree3.glb" id="6_272bh"]
+[ext_resource type="PackedScene" uid="uid://bh0iyhdkq376d" path="res://EnvironmentGLBs/WoodTree4.glb" id="6_kek77"]
+[ext_resource type="PackedScene" uid="uid://cmyw1wq2h0igv" path="res://ant.tscn" id="11_efxa6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xm2m"]
 albedo_color = Color(0.56590307, 0.45444906, 0.19438995, 1)
@@ -36,12 +35,12 @@ tonemap_mode = 2
 size = Vector3(20, 2, 20)
 
 [node name="Main" type="Node" unique_id=1776296673]
-script = ExtResource("1_k0ijm")
+script = ExtResource("1_dg77c")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=306243073]
-stream = ExtResource("2_nihij")
+stream = ExtResource("1_kek77")
 volume_db = -15.0
-script = ExtResource("3_7ee23")
+script = ExtResource("2_4c57u")
 
 [node name="Ground" type="StaticBody3D" parent="." unique_id=1885948079]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
@@ -76,7 +75,7 @@ metadata/_edit_lock_ = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1008975528]
 environment = SubResource("Environment_0xm2m")
 
-[node name="Tower" parent="." unique_id=766364614 instance=ExtResource("4_n5un1")]
+[node name="Tower" parent="." unique_id=766364614 instance=ExtResource("3_h2yge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.012677, 0, -2.3001575)
 axis_lock_linear_x = false
 axis_lock_linear_y = false
@@ -85,19 +84,16 @@ axis_lock_angular_x = false
 axis_lock_angular_y = false
 axis_lock_angular_z = false
 
-[node name="Potions2" type="Node" parent="Tower" unique_id=1139230113]
-script = ExtResource("5_yshvb")
-
-[node name="Character5" parent="." unique_id=254305490 instance=ExtResource("6_ko8af")]
+[node name="Character5" parent="." unique_id=254305490 instance=ExtResource("11_efxa6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7218356, 0, 0)
 
-[node name="Character" parent="." unique_id=1096929630 instance=ExtResource("7_lmy0b")]
+[node name="Character" parent="." unique_id=1096929630 instance=ExtResource("2_0xm2m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.788729, 0, 0)
 
-[node name="Character2" parent="." unique_id=972001919 instance=ExtResource("7_lmy0b")]
+[node name="Character2" parent="." unique_id=972001919 instance=ExtResource("2_0xm2m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.367853, 0, 0)
 
-[node name="Tower2" parent="." unique_id=1568776403 instance=ExtResource("4_n5un1")]
+[node name="Tower2" parent="." unique_id=1568776403 instance=ExtResource("3_h2yge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.921337, 0, 0)
 axis_lock_linear_x = false
 axis_lock_linear_y = false
@@ -106,16 +102,13 @@ axis_lock_angular_x = false
 axis_lock_angular_y = false
 axis_lock_angular_z = false
 
-[node name="Potions2" type="Node" parent="Tower2" unique_id=1574761044]
-script = ExtResource("5_yshvb")
-
-[node name="Character3" parent="." unique_id=691519270 instance=ExtResource("7_lmy0b")]
+[node name="Character3" parent="." unique_id=691519270 instance=ExtResource("2_0xm2m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.906646, 0, -3.317461)
 
-[node name="Character4" parent="." unique_id=830281426 instance=ExtResource("7_lmy0b")]
+[node name="Character4" parent="." unique_id=830281426 instance=ExtResource("2_0xm2m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.465977, 0, -3.3592243)
 
-[node name="Warrior" parent="." unique_id=198302004 instance=ExtResource("8_4igol")]
+[node name="Warrior" parent="." unique_id=198302004 instance=ExtResource("3_1bvp3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72329473, 0, 0)
 axis_lock_linear_x = false
 axis_lock_linear_y = false
@@ -129,33 +122,89 @@ axis_lock_angular_z = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MainField" unique_id=2063056620]
 shape = SubResource("BoxShape3D_h2yge")
 
-[node name="towerPlacement" parent="." unique_id=666569105 instance=ExtResource("9_rxcde")]
+[node name="towerPlacement" parent="." unique_id=666569105 instance=ExtResource("4_1bvp3")]
 
 [node name="Trees" type="Node" parent="." unique_id=1611541056]
 
-[node name="WoodTree12" parent="Trees" unique_id=669732448 instance=ExtResource("10_1qr20")]
+[node name="WoodTree12" parent="Trees" unique_id=669732448 instance=ExtResource("5_272bh")]
 transform = Transform3D(1.1325618, 0, -0.52896476, 0, 1.25, 0, 0.52896476, 0, 1.1325618, -9.510291, 5.6, -12.588)
 
-[node name="WoodTree13" parent="Trees" unique_id=783113124 instance=ExtResource("10_1qr20")]
+[node name="WoodTree13" parent="Trees" unique_id=783113124 instance=ExtResource("5_272bh")]
 transform = Transform3D(0.791304, 0, -0.96764565, 0, 1.25, 0, 0.96764565, 0, 0.791304, -9.510291, 5.6, 16.24421)
 
-[node name="WoodTree24" parent="Trees" unique_id=701856537 instance=ExtResource("11_petk7")]
+[node name="WoodTree24" parent="Trees" unique_id=701856537 instance=ExtResource("6_5vw27")]
 transform = Transform3D(1.2362182, 0, 0.185107, 0, 1.25, 0, -0.185107, 0, 1.2362182, 10.440073, 5.6, -10.953772)
 
-[node name="WoodTree25" parent="Trees" unique_id=1746127060 instance=ExtResource("11_petk7")]
+[node name="WoodTree25" parent="Trees" unique_id=1746127060 instance=ExtResource("6_5vw27")]
 transform = Transform3D(0.903347, 0, 0.8639814, 0, 1.2499999, 0, -0.8639814, 0, 0.903347, 10.440073, 5.6, 17.468739)
 
-[node name="WoodTree32" parent="Trees" unique_id=1746399989 instance=ExtResource("12_fnqy4")]
+[node name="WoodTree32" parent="Trees" unique_id=1746399989 instance=ExtResource("6_272bh")]
 transform = Transform3D(1.6403183, 0, -0.6098007, 0, 1.7499996, 0, 0.6098007, 0, 1.6403183, -16.86222, 8, -10.155826)
 
-[node name="WoodTree34" parent="Trees" unique_id=1609063541 instance=ExtResource("12_fnqy4")]
+[node name="WoodTree34" parent="Trees" unique_id=1609063541 instance=ExtResource("6_272bh")]
 transform = Transform3D(0.30036443, 0, 1.7240305, 0, 1.75, 0, -1.7240305, 0, 0.30036443, -16.86222, 8, 16.323635)
 
-[node name="WoodTree42" parent="Trees" unique_id=1940469332 instance=ExtResource("13_a7x1o")]
+[node name="WoodTree42" parent="Trees" unique_id=1940469332 instance=ExtResource("6_kek77")]
 transform = Transform3D(1.2730215, 0, 0.44935077, 0, 1.3499999, 0, -0.44935077, 0, 1.2730215, 18.913315, 6.1, -8.292487)
 
-[node name="WoodTree44" parent="Trees" unique_id=1470201086 instance=ExtResource("13_a7x1o")]
+[node name="WoodTree44" parent="Trees" unique_id=1470201086 instance=ExtResource("6_kek77")]
 transform = Transform3D(0.4705501, 0, -1.2653387, 0, 1.3499998, 0, 1.2653387, 0, 0.4705501, 18.913647, 6.1, 15.274525)
 
-[node name="Warrior2" parent="." unique_id=1210425893 instance=ExtResource("8_4igol")]
+[node name="Warrior2" parent="." unique_id=1210425893 instance=ExtResource("3_1bvp3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.253868, -0.02395606, -5.8090324)
+
+[node name="DeathScreen" type="CanvasLayer" parent="." unique_id=1636309919]
+process_mode = 2
+visible = false
+
+[node name="PanelRoot" type="Control" parent="DeathScreen" unique_id=1792964676]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="DeathScreen/PanelRoot" unique_id=1871185150]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.70000005)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DeathScreen/PanelRoot" unique_id=614136893]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 188.0
+offset_bottom = 73.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="DeathScreen/PanelRoot/VBoxContainer" unique_id=970738089]
+layout_mode = 2
+text = "YOU WERE DESTROYED :( !!!"
+
+[node name="RetryButton" type="Button" parent="DeathScreen/PanelRoot/VBoxContainer" unique_id=666756662]
+process_mode = 2
+layout_mode = 2
+text = "RETRY? :)"
+
+[node name="QuitButton" type="Button" parent="DeathScreen/PanelRoot/VBoxContainer" unique_id=1340607285]
+process_mode = 2
+layout_mode = 2
+text = "QUIT!!!!! :("
