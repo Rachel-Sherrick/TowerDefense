@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bmslpuj4gik5" path="res://tower.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://saf6d5teewoh" path="res://towerPlacement.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://bu6x0lnlcixer" path="res://EnvironmentGLBs/WoodTree1.glb" id="5_272bh"]
+[ext_resource type="Script" uid="uid://b1p8o3gtto0bw" path="res://potions.gd" id="5_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://b1e585hvcp0gh" path="res://EnvironmentGLBs/WoodTree2.glb" id="6_5vw27"]
 [ext_resource type="PackedScene" uid="uid://bumumn4opib2d" path="res://EnvironmentGLBs/WoodTree3.glb" id="6_272bh"]
 [ext_resource type="PackedScene" uid="uid://bh0iyhdkq376d" path="res://EnvironmentGLBs/WoodTree4.glb" id="6_kek77"]
@@ -84,6 +85,9 @@ axis_lock_angular_x = false
 axis_lock_angular_y = false
 axis_lock_angular_z = false
 
+[node name="Potions2" type="Node" parent="Tower" unique_id=1139230113]
+script = ExtResource("5_ycdy4")
+
 [node name="Character5" parent="." unique_id=254305490 instance=ExtResource("11_efxa6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7218356, 0, 0)
 
@@ -101,6 +105,9 @@ axis_lock_linear_z = false
 axis_lock_angular_x = false
 axis_lock_angular_y = false
 axis_lock_angular_z = false
+
+[node name="Potions2" type="Node" parent="Tower2" unique_id=1574761044]
+script = ExtResource("5_ycdy4")
 
 [node name="Character3" parent="." unique_id=691519270 instance=ExtResource("2_0xm2m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.906646, 0, -3.317461)

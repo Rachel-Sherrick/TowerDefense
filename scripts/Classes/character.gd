@@ -2,12 +2,12 @@ extends CharacterBody3D
 class_name Character
 
 @onready var health = $Health
-@onready var potions = $Potions
+@onready var potions = $Potions2
 @onready var health_component = $Health
 
-#### K = take damage <<< test for potions to actually appear to work..
+#### D = take damage <<< test for potions to actually appear to work..
 #### H = heal potion
-#### J = defense potion
+
 
 ###############
 ## Constants ##
@@ -135,14 +135,15 @@ func trackingArrayManagement():
 
 func take_damage(amount: int) -> void:
 	health_component.take_damage(amount)
+	
+	
+func heal(amount: int) -> void:
+	if health_component == null:
+		print("Heal failed: no health component")
+		return
 
-func _input(event):
-	if event is InputEventKey and event.pressed:
-		if event.keycode == KEY_H:
-			potions.use_heal_potion(health)
+	var before = health_component.current_health
+	health_component.heal(amount)
+	var after = health_component.current_health
 
-		if event.keycode == KEY_J:
-			potions.use_defense_potion(health)
-
-		if event.keycode == KEY_K:
-			health.take_damage(5)
+	print(name, " healed +", after - before, " | Current health: ", after)

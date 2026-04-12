@@ -5,7 +5,7 @@ extends Node
 signal health_changed(current_health: int, max_health: int)
 signal died
 
-@export var max_health: int = 20
+@export var max_health: int = 100
 @export var defense: int = 0
 @export var destroy_parent_on_death: bool = true
 
@@ -16,7 +16,7 @@ func _ready() -> void:
 	var parent = get_parent()
 
 	if parent != null and (parent.name == "Tower" or parent.name == "Tower2"):
-		max_health = 10
+		max_health = 50
 
 	current_health = max_health
 	print(get_parent().name, "spawned with health:", current_health)
