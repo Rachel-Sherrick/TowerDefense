@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://doxjo2c5tjq6e"]
+
+[ext_resource type="PackedScene" uid="uid://eou4mq5n6oh3" path="res://Scenes/Classes/character.tscn" id="1_7k104"]
+[ext_resource type="Script" uid="uid://dlboh3dd1qiim" path="res://scripts/Classes/enemy.gd" id="2_4gyqm"]
+[ext_resource type="Texture2D" uid="uid://nj37xla1vxmg" path="res://sprites/testbert.png" id="3_qi2p4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4gyqm"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qi2p4"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_qi2p4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Character" unique_id=254305490 groups=["Enemy"] instance=ExtResource("1_7k104")]
+collision_layer = 2
+script = ExtResource("2_4gyqm")
+metadata/_edit_group_ = true
+
+[node name="Body" parent="." index="0" unique_id=447693479]
+surface_material_override/0 = SubResource("StandardMaterial3D_4gyqm")
+metadata/_edit_lock_ = true
+
+[node name="RangeDetection" parent="." index="2" unique_id=1602429880 groups=["Enemy"]]
+collision_layer = 2
+collision_mask = 4
+
+[node name="SpriteBody" parent="AnimationController" parent_id_path=PackedInt32Array(1020417921) index="0" unique_id=1996147602]
+modulate = Color(0.9303277, 0.5836599, 0.5333295, 1)
+sprite_frames = SubResource("SpriteFrames_qi2p4")
