@@ -32,7 +32,7 @@ metadata/_edit_lock_ = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4548397, 0)
 
 [node name="RangeDetection" parent="." index="2" unique_id=1602429880]
-collision_layer = 2
+collision_layer = 0
 collision_mask = 4
 
 [node name="RangeCollision" parent="RangeDetection" index="1" unique_id=831990961 groups=["Enemy"]]
