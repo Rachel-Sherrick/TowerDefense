@@ -8,6 +8,7 @@
 
 [node name="Bullet" type="CharacterBody3D" unique_id=177859810]
 transform = Transform3D(-2.1855694e-08, -0.5, 0, 0.5, -2.1855694e-08, 0, 0, 0, 0.5, 0, 0, 0)
+collision_mask = 2
 motion_mode = 1
 script = ExtResource("1_v7oki")
 
