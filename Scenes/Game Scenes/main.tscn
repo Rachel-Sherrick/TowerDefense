@@ -254,8 +254,8 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ShopCanvas/ColorRect" unique_id=1252862250]
-position = Vector2(-2.4795532e-05, 0.5000315)
+[node name="Sprite2D" type="Sprite2D" parent="ShopCanvas" unique_id=1252862250]
+position = Vector2(683, 360.50003)
 scale = Vector2(0.71562505, 0.6731482)
 texture = ExtResource("10_57bla")
 
