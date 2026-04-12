@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://n3sq5ue6gb1g"]
 
-[ext_resource type="Script" uid="uid://x4t7jsds1x63" path="res://scene_manager.gd" id="1_s4vtk"]
+[ext_resource type="Script" path="res://scene_manager.gd" id="1_s4vtk"]
 [ext_resource type="FontFile" uid="uid://xrhcnace7lij" path="res://fonts/Chicle-Regular.ttf" id="2_d4clo"]
 [ext_resource type="FontFile" uid="uid://cchfdyetdjd7q" path="res://fonts/DarumadropOne-Regular.ttf" id="3_mqr7l"]
 
