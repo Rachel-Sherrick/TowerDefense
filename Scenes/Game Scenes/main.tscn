@@ -143,6 +143,62 @@ transform = Transform3D(1.2730215, 0, 0.44935077, 0, 1.3499999, 0, -0.44935077, 
 [node name="WoodTree44" parent="Battleground/Trees" unique_id=1470201086 instance=ExtResource("6_kek77")]
 transform = Transform3D(0.4705501, 0, -1.2653387, 0, 1.3499998, 0, 1.2653387, 0, 0.4705501, 18.913647, 6.1, 15.274525)
 
+[node name="DeathScreen" type="CanvasLayer" parent="Battleground" unique_id=1194717850]
+process_mode = 2
+visible = false
+
+[node name="PanelRoot" type="Control" parent="Battleground/DeathScreen" unique_id=1278374948]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Battleground/DeathScreen/PanelRoot" unique_id=1731966274]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.70000005)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Battleground/DeathScreen/PanelRoot" unique_id=1871296367]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 188.0
+offset_bottom = 73.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Battleground/DeathScreen/PanelRoot/VBoxContainer" unique_id=1563501605]
+layout_mode = 2
+text = "YOU WERE DESTROYED :( !!!"
+
+[node name="RetryButton" type="Button" parent="Battleground/DeathScreen/PanelRoot/VBoxContainer" unique_id=29513303]
+process_mode = 2
+layout_mode = 2
+text = "RETRY? :)"
+
+[node name="QuitButton" type="Button" parent="Battleground/DeathScreen/PanelRoot/VBoxContainer" unique_id=40259777]
+process_mode = 2
+layout_mode = 2
+text = "QUIT!!!!! :("
+
 [node name="Shop" type="Node3D" parent="." unique_id=685433725]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.1362834, -67.38351)
 script = ExtResource("3_w48qg")
