@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Node3D
 
 signal purchase(name: String, cost: float)
 
@@ -10,41 +10,38 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func _on_slot_1_input_event(camera: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_slot_1_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
 	if (
 		event.is_action_pressed("click") 
 	):
 		emit_signal("purchase", "warrior", 1)
 
-func _on_slot_2_input_event(camera: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_slot_2_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
 	if (
 		event.is_action_pressed("click") 
 	):
-		emit_signal("purchase", "wizard", 1)
+		emit_signal("purchase", "healer", 1)
 
-func _on_slot_3_input_event(camera: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_slot_3_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
 	if (
 		event.is_action_pressed("click") 
 	):
-		emit_signal("purchase", "archer", 1)
+		emit_signal("purchase", "heal_potion", 1)
 
-func _on_slot_4_input_event(camera: Node, event: InputEvent, shape_idx: int) -> void:
-	if (
-		event.is_action_pressed("click") 
-	):
-		emit_signal("purchase", "range_potion", 1)
-		#increases tower range
-
-func _on_slot_5_input_event(camera: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_slot_4_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
 	if (
 		event.is_action_pressed("click") 
 	):
 		emit_signal("purchase", "damage_potion", 1)
-		#increases tower damage points per hit
 
-func _on_slot_6_input_event(camera: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_slot_5_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
 	if (
 		event.is_action_pressed("click") 
 	):
-		emit_signal("purchase", "speed_potion", 1)
-		#increases tower rate of fire / lowers cooldown
+		emit_signal("purchase", "buff_potion", 1)
+
+func _on_slot_6_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
+	if (
+		event.is_action_pressed("click") 
+	):
+		emit_signal("purchase", "slow_potion", 1)
