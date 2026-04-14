@@ -1,11 +1,12 @@
 extends CharacterBody3D
 class_name Character
 
-@onready var health = $Health
+@onready var health_component = $Health
 @onready var potions = $Potions
 #### K = take damage <<< test for potions to actually appear to work.. 
 #### H = heal potion
 #### J = defense potion
+#### D = take damage <<< test for potions to actually appear to work..
 
 
 ###############
@@ -63,17 +64,14 @@ func set_phys_framecount(new_count: int) -> bool:
 		return false
 	phys_framecount = new_count
 	return true
-	
+
 func get_health() -> int:
 	return health_component.current_health
 
-## !! Change so that health
-	
 func set_health(health_lost: int) -> bool:
 	if health_component.set_current_health(health_lost):
 		return true
 	return false
-	
 	
 ##returns target_type
 func get_target_type() -> int:
@@ -87,7 +85,8 @@ func set_target_type(type: int) -> bool:
 	return true
 
 func _ready() -> void:
-	pass
+	if self is Warrior:
+		health_component.died.connect(get_tree().current_scene._on_player_died)
 
 func _physics_process(_delta: float) -> void:
 	set_phys_framecount(get_phys_framecount() + 1)
@@ -143,9 +142,6 @@ func removeTrack(body):
 	if tracking_array.has(body): 
 		tracking_array.erase(body)
 
-##H.S added to get health to work properly
-@onready var health_component = $Health
-
 func take_damage(amount: int) -> void:
 	health_component.take_damage(amount)
 
@@ -154,10 +150,20 @@ func take_damage(amount: int) -> void:
 func _input(event):
 	if event is InputEventKey and event.pressed:
 		if event.keycode == KEY_H:
-			potions.use_heal_potion(health)
-
+			potions.use_heal_potion(health_component)
 		if event.keycode == KEY_J:
-			potions.use_defense_potion(health)
+			potions.use_defense_potion(health_component)
 
 		if event.keycode == KEY_K:
-			health.take_damage(10)
+			health_component.take_damage(10)
+	
+func heal(amount: int) -> void:
+	if health_component == null:
+		print("Heal failed: no health component")
+		return
+
+	var before = health_component.current_health
+	health_component.heal(amount)
+	var after = health_component.current_health
+
+	print(name, " healed +", after - before, " | Current health: ", after)
