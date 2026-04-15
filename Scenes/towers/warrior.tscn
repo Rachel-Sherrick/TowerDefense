@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://tu18fp20hsnf"]
 
 [ext_resource type="PackedScene" uid="uid://bmslpuj4gik5" path="res://Scenes/Classes/tower.tscn" id="1_wfww2"]
-[ext_resource type="Script" uid="uid://cwgafh5f6iy56" path="res://scripts/warrior.gd" id="2_xumaq"]
-[ext_resource type="Script" uid="uid://xe4f7j5avtj" path="res://scripts/animation_controller_warrior.gd" id="3_6dc4p"]
+[ext_resource type="Script" path="res://scripts/warrior.gd" id="2_xumaq"]
+[ext_resource type="Script" path="res://scripts/animation_controller_warrior.gd" id="3_6dc4p"]
 [ext_resource type="Texture2D" uid="uid://nj37xla1vxmg" path="res://sprites/testbert.png" id="4_ipyla"]
 [ext_resource type="Texture2D" uid="uid://buh8w0f7d6bqm" path="res://sprites/towers/thimble/testthim.png" id="5_5mqsj"]
 [ext_resource type="Texture2D" uid="uid://oecfcqpbmuhg" path="res://sprites/towers/thimble/swing_east/frame0000.png" id="6_kqi5p"]

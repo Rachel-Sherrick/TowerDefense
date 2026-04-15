@@ -3,7 +3,7 @@
 [ext_resource type="AudioStream" uid="uid://7vmjaaxleyae" path="res://songs/sneswip1.wav" id="1_kek77"]
 [ext_resource type="Script" uid="uid://buqk23l3b6tsp" path="res://main.gd" id="1_vivmo"]
 [ext_resource type="Script" path="res://scripts/audio_stream_player.gd" id="2_4c57u"]
-[ext_resource type="Script" uid="uid://cpi153lw0sggb" path="res://player.gd" id="3_dg77c"]
+[ext_resource type="Script" path="res://player.gd" id="3_dg77c"]
 [ext_resource type="Script" uid="uid://c8gmgykjml3m1" path="res://shop.gd" id="3_w48qg"]
 [ext_resource type="Texture2D" uid="uid://cog7l0t4nycxo" path="res://sprites/ShopRender2.png" id="3_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://tu18fp20hsnf" path="res://Scenes/towers/warrior.tscn" id="5_0miwv"]
@@ -228,8 +228,11 @@ metadata/_edit_lock_ = true
 [node name="Wizard" parent="." unique_id=254305490 instance=ExtResource("8_yhwuq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8440402, 0.09802455, 3.3031864)
 
-[node name="Ant" parent="." unique_id=109752332 instance=ExtResource("9_032wp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.33918, 0.3313707, 3.2989302)
+[node name="Warrior" parent="." unique_id=1668682437 instance=ExtResource("5_0miwv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.047791, 0.0980255, 1.2388916)
+
+[node name="Ant" parent="." unique_id=998837196 instance=ExtResource("9_032wp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.808548, 0.3313707, 0.95825195)
 
 [connection signal="child_entered_tree" from="Battleground" to="Player" method="_on_battleground_child_entered_tree"]
 [connection signal="input_event" from="Battleground/PlaceableArea" to="Player" method="_place_tower"]
