@@ -38,7 +38,7 @@
 [ext_resource type="Texture2D" uid="uid://4dbagepchutc" path="res://sprites/towers/Wizard/Readying Attack/frame0012.png" id="36_rl7wp"]
 [ext_resource type="Texture2D" uid="uid://8gl105f5usbt" path="res://sprites/towers/Wizard/Readying Attack/frame0013.png" id="37_p3ar8"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_34mad"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_pk22g"]
 resource_local_to_scene = true
 animations = [{
 "frames": [{
@@ -180,10 +180,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5634575, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4333496, 0)
 
 [node name="SpriteBody" parent="AnimationController" parent_id_path=PackedInt32Array(1020417921) index="0" unique_id=1996147602]
-sprite_frames = SubResource("SpriteFrames_34mad")
-animation = &"firing attack"
-frame = 1
-frame_progress = 0.23646633
+sprite_frames = SubResource("SpriteFrames_pk22g")
+animation = &"idle"
+frame_progress = 0.0
 
 [node name="Timer" type="Timer" parent="." index="5" unique_id=776423761]
 

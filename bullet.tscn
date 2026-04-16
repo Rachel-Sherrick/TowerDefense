@@ -77,6 +77,7 @@ animations = [{
 
 [node name="Bullet" type="CharacterBody3D" unique_id=177859810]
 transform = Transform3D(-2.1855694e-08, -0.5, 0, 0.5, -2.1855694e-08, 0, 0, 0, 0.5, 0, 0, 0)
+collision_layer = 2
 collision_mask = 2
 motion_mode = 1
 script = ExtResource("1_v7oki")
@@ -93,7 +94,6 @@ autostart = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1553554883]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0234375, 0)
 shape = SubResource("CapsuleShape3D_v8qja")
-disabled = true
 
 [node name="Animation Controller" type="Node3D" parent="." unique_id=721849796]
 transform = Transform3D(-1.8545171e-07, 4.2426405, 4.2426405, -6, -2.6226832e-07, 0, 1.8545171e-07, -4.2426405, 4.2426405, 0, -0.0234375, 0)
