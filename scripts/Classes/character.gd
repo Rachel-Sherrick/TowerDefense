@@ -165,6 +165,3 @@ func heal(amount: int) -> void:
 	var after = health_component.current_health
 
 	print(name, " healed +", after - before, " | Current health: ", after)
-
-func take_damage(amount: int) -> void:
-	health_component.take_damage(amount)

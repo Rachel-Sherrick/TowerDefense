@@ -125,30 +125,6 @@ shape = SubResource("BoxShape3D_h2yge")
 
 [node name="Trees" type="Node3D" parent="Battleground" unique_id=1164932755]
 
-[node name="WoodTree12" parent="Battleground/Trees" unique_id=669732448 instance=ExtResource("5_272bh")]
-transform = Transform3D(1.1325618, 0, -0.52896476, 0, 1.25, 0, 0.52896476, 0, 1.1325618, -9.510291, 5.6, -12.588)
-
-[node name="WoodTree13" parent="Battleground/Trees" unique_id=783113124 instance=ExtResource("5_272bh")]
-transform = Transform3D(0.791304, 0, -0.96764565, 0, 1.25, 0, 0.96764565, 0, 0.791304, -9.502134, 5.6, 16.249178)
-
-[node name="WoodTree24" parent="Battleground/Trees" unique_id=701856537 instance=ExtResource("6_5vw27")]
-transform = Transform3D(1.2362182, 0, 0.185107, 0, 1.25, 0, -0.185107, 0, 1.2362182, 10.440073, 5.6, -10.953772)
-
-[node name="WoodTree25" parent="Battleground/Trees" unique_id=1746127060 instance=ExtResource("6_5vw27")]
-transform = Transform3D(0.903347, 0, 0.8639814, 0, 1.2499999, 0, -0.8639814, 0, 0.903347, 10.440073, 5.6, 17.468739)
-
-[node name="WoodTree32" parent="Battleground/Trees" unique_id=1746399989 instance=ExtResource("6_272bh")]
-transform = Transform3D(1.6403183, 0, -0.6098007, 0, 1.7499996, 0, 0.6098007, 0, 1.6403183, -16.86222, 8, -10.155826)
-
-[node name="WoodTree34" parent="Battleground/Trees" unique_id=1609063541 instance=ExtResource("6_272bh")]
-transform = Transform3D(0.30036443, 0, 1.7240305, 0, 1.75, 0, -1.7240305, 0, 0.30036443, -16.86222, 8, 16.323635)
-
-[node name="WoodTree42" parent="Battleground/Trees" unique_id=1940469332 instance=ExtResource("6_kek77")]
-transform = Transform3D(1.2730215, 0, 0.44935077, 0, 1.3499999, 0, -0.44935077, 0, 1.2730215, 18.913315, 6.1, -8.292487)
-
-[node name="WoodTree44" parent="Battleground/Trees" unique_id=1470201086 instance=ExtResource("6_kek77")]
-transform = Transform3D(0.4705501, 0, -1.2653387, 0, 1.3499998, 0, 1.2653387, 0, 0.4705501, 18.913647, 6.1, 15.274525)
-
 [node name="DeathScreen" type="CanvasLayer" parent="Battleground" unique_id=1194717850]
 process_mode = 2
 visible = false
@@ -207,7 +183,6 @@ text = "QUIT!!!!!"
 
 [node name="Shop" type="Node3D" parent="." unique_id=685433725]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.1362834, -67.38351)
-script = ExtResource("3_w48qg")
 
 [node name="ShopSlots" type="Node3D" parent="Shop" unique_id=2086348556]
 
