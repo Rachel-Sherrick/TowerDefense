@@ -18,7 +18,3 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		elif shop_cam.current:
 			battle_cam.make_current()
 		print("Camera swapped")
-
-###H.S NEEDS THIS TO STAY HERE
-func _on_player_died() -> void:
-	get_tree().change_scene_to_file("res://EndOfGameLose.tscn")
