@@ -1,18 +1,151 @@
 [gd_scene format=3 uid="uid://n3sq5ue6gb1g"]
 
 [ext_resource type="Script" uid="uid://x4t7jsds1x63" path="res://scene_manager.gd" id="1_s4vtk"]
+[ext_resource type="FontFile" uid="uid://xrhcnace7lij" path="res://fonts/Chicle-Regular.ttf" id="2_d4clo"]
+[ext_resource type="FontFile" uid="uid://cchfdyetdjd7q" path="res://fonts/DarumadropOne-Regular.ttf" id="3_mqr7l"]
 
 [node name="StartScreen" type="Node2D" unique_id=815437450]
-
-[node name="Button" type="Button" parent="." unique_id=1979632857]
-offset_left = 591.0
-offset_top = 266.0
-offset_right = 750.0
-offset_bottom = 362.0
-theme_override_font_sizes/font_size = 64
-text = "Start"
 
 [node name="SceneManager" type="Node" parent="." unique_id=890916445]
 script = ExtResource("1_s4vtk")
 
-[connection signal="pressed" from="Button" to="SceneManager" method="_on_button_pressed"]
+[node name="MainScreen" type="CanvasLayer" parent="." unique_id=2042955016]
+
+[node name="Title" type="Label" parent="MainScreen" unique_id=1335564781]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -327.5
+offset_top = 100.0
+offset_right = 327.5
+offset_bottom = 188.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.91918683, 0.5638567, 0.29408303, 1)
+theme_override_fonts/font = ExtResource("2_d4clo")
+theme_override_font_sizes/font_size = 72
+text = "Amothecary Adventures TD"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartButton" type="Button" parent="MainScreen" unique_id=1979632857]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -79.5
+offset_top = -110.0
+offset_right = 79.5
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.69270575, 0.3601159, 1, 1)
+theme_override_colors/font_hover_color = Color(0.34117648, 0.7411765, 0.36078432, 1)
+theme_override_fonts/font = ExtResource("3_mqr7l")
+theme_override_font_sizes/font_size = 64
+text = "Start"
+flat = true
+
+[node name="HowToPlayButton" type="Button" parent="MainScreen" unique_id=1585844480]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -79.5
+offset_top = 15.0
+offset_right = 79.5
+offset_bottom = 111.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.69411767, 0.36078432, 1, 1)
+theme_override_colors/font_hover_color = Color(0.34117648, 0.7411765, 0.36078432, 1)
+theme_override_fonts/font = ExtResource("3_mqr7l")
+theme_override_font_sizes/font_size = 64
+text = "How To Play"
+flat = true
+
+[node name="QuitButton" type="Button" parent="MainScreen" unique_id=954023080]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -79.5
+offset_top = 140.0
+offset_right = 79.5
+offset_bottom = 236.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.69411767, 0.36078432, 1, 1)
+theme_override_colors/font_hover_color = Color(0.34117648, 0.7411765, 0.36078432, 1)
+theme_override_fonts/font = ExtResource("3_mqr7l")
+theme_override_font_sizes/font_size = 64
+text = "Quit"
+flat = true
+
+[node name="HowToPlayScreen" type="CanvasLayer" parent="." unique_id=715647047]
+layer = 2
+
+[node name="ColorRect" type="ColorRect" parent="HowToPlayScreen" unique_id=580345196]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.19586161, 0.32232013, 0.09734965, 1)
+
+[node name="Label" type="Label" parent="HowToPlayScreen" unique_id=868482088]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -149.5
+offset_top = 50.0
+offset_right = 149.5
+offset_bottom = 138.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.69803923, 0.58431375, 0.8745098, 1)
+theme_override_fonts/font = ExtResource("2_d4clo")
+theme_override_font_sizes/font_size = 72
+text = "How To Play:"
+
+[node name="Label2" type="Label" parent="HowToPlayScreen" unique_id=772933493]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -206.0
+offset_top = -35.0
+offset_right = 206.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.9490196, 0.70980394, 0.5803922, 1)
+theme_override_fonts/font = ExtResource("3_mqr7l")
+theme_override_font_sizes/font_size = 48
+text = "--write stuff here--"
+
+[node name="BackButton" type="Button" parent="HowToPlayScreen" unique_id=400116296]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -62.5
+offset_top = -120.0
+offset_right = 62.5
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.69803923, 0.58431375, 0.8745098, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.70980394, 0.5803922, 1)
+theme_override_fonts/font = ExtResource("2_d4clo")
+theme_override_font_sizes/font_size = 72
+text = "Back"
+flat = true
+
+[connection signal="pressed" from="MainScreen/StartButton" to="SceneManager" method="_on_button_pressed"]
+[connection signal="pressed" from="MainScreen/HowToPlayButton" to="SceneManager" method="_on_how_to_play_button_pressed"]
+[connection signal="pressed" from="MainScreen/QuitButton" to="SceneManager" method="_on_quit_button_pressed"]
+[connection signal="pressed" from="HowToPlayScreen/BackButton" to="SceneManager" method="_on_back_button_pressed"]
