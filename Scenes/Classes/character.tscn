@@ -99,7 +99,6 @@ script = ExtResource("2_wa5vi")
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 layers = 4
 sorting_offset = 1.0
-shaded = true
 alpha_cut = 1
 render_priority = 1
 sprite_frames = SubResource("SpriteFrames_wa5vi")
