@@ -145,8 +145,6 @@ func removeTrack(body):
 func take_damage(amount: int) -> void:
 	health_component.take_damage(amount)
 
-
-
 func _input(event):
 	if event is InputEventKey and event.pressed:
 		if event.keycode == KEY_H:
@@ -167,3 +165,6 @@ func heal(amount: int) -> void:
 	var after = health_component.current_health
 
 	print(name, " healed +", after - before, " | Current health: ", after)
+
+func take_damage(amount: int) -> void:
+	health_component.take_damage(amount)
