@@ -164,11 +164,11 @@ environment = SubResource("Environment_0xm2m")
 [node name="Characters" type="Node3D" parent="Battleground" unique_id=765419014]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.012677, 0, -2.3001575)
 
-[node name="Wizard" parent="Battleground/Characters" unique_id=254305490 instance=ExtResource("8_yhwuq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1686373, 0.09802455, 5.603344)
-
 [node name="Character" parent="Battleground/Characters" unique_id=109752332 instance=ExtResource("9_032wp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.351856, 0.3313707, 5.5990877)
+
+[node name="Wizard" parent="Battleground/Characters" unique_id=254305490 instance=ExtResource("8_yhwuq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.032525)
 
 [node name="PlaceableArea" type="Area3D" parent="Battleground" unique_id=125249582]
 collision_layer = 8
@@ -249,6 +249,7 @@ script = ExtResource("13_84767")
 
 [node name="ShopCanvas" type="CanvasLayer" parent="GUI" unique_id=1615819721]
 layer = 2
+visible = false
 script = ExtResource("3_w48qg")
 
 [node name="ColorRect" type="ColorRect" parent="GUI/ShopCanvas" unique_id=804026196]

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cspaxkbchu6l3"]
 
-[ext_resource type="PackedScene" uid="uid://bmslpuj4gik5" path="res://tower.tscn" id="1_xxhrx"]
+[ext_resource type="PackedScene" uid="uid://bmslpuj4gik5" path="res://Scenes/Classes/tower.tscn" id="1_xxhrx"]
 [ext_resource type="Texture2D" uid="uid://nj37xla1vxmg" path="res://sprites/testbert.png" id="2_34mad"]
 [ext_resource type="Script" uid="uid://biqa6ebeqjw2a" path="res://wizard.gd" id="2_xo1iy"]
 
@@ -23,5 +23,8 @@ script = ExtResource("2_xo1iy")
 sprite_frames = SubResource("SpriteFrames_34mad")
 
 [node name="Timer" type="Timer" parent="." index="5" unique_id=776423761]
+
+[node name="HealthBar" parent="." index="7" unique_id=263389330]
+transform = Transform3D(1, 0, 0, 0, 0.7847764, 0.619779, 0, -0.619779, 0.7847764, 0, 2.725, 0)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
