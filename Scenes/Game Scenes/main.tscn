@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://buh8w0f7d6bqm" path="res://sprites/towers/thimble/testthim.png" id="10_032wp"]
 [ext_resource type="Texture2D" uid="uid://dhn0tkx40kvo2" path="res://sprites/ShopPosterize1.jpg" id="10_57bla"]
 [ext_resource type="FontFile" uid="uid://xrhcnace7lij" path="res://fonts/Chicle-Regular.ttf" id="11_0miwv"]
+[ext_resource type="PackedScene" uid="uid://cjienrf7jmnht" path="res://Scenes/towers/orb.tscn" id="11_me364"]
 [ext_resource type="FontFile" uid="uid://cchfdyetdjd7q" path="res://fonts/DarumadropOne-Regular.ttf" id="12_0w7h6"]
 [ext_resource type="Script" uid="uid://cnflpnfv23xkc" path="res://game_manager.gd" id="13_84767"]
 [ext_resource type="Texture2D" uid="uid://djsvlxd4stdyy" path="res://sprites/enemies/ant/idle/anttest.png" id="13_t6f6y"]
@@ -239,6 +240,9 @@ text = "RETRY?"
 process_mode = 2
 layout_mode = 2
 text = "QUIT!!!!!"
+
+[node name="Orb" parent="Battleground" unique_id=399436037 instance=ExtResource("11_me364")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 0)
 
 [node name="GUI" type="Control" parent="." unique_id=1775035197]
 layout_mode = 3

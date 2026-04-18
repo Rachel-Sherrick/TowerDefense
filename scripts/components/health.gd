@@ -94,7 +94,7 @@ func _handle_death() -> void:
 	var parent = get_parent()
 	var tree = get_tree()
 
-	if parent != null and (parent.name == "CentralTower"):
+	if parent.name is Orb:
 		if tree != null:
 			tree.call_deferred("change_scene_to_file", "res://EndOfGameLose.tscn")
 		return
