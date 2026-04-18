@@ -26,7 +26,6 @@ const WEAK = 4
 ## data structures for tracking chracters within the range
 ## first (0) is the newest body to enter
 var tracking_array : Array[CharacterBody3D] 
-
 var currentTarget
 
 ######################

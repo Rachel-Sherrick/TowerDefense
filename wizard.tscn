@@ -24,7 +24,4 @@ sprite_frames = SubResource("SpriteFrames_34mad")
 
 [node name="Timer" type="Timer" parent="." index="5" unique_id=776423761]
 
-[node name="HealthBar" parent="." index="7" unique_id=263389330]
-transform = Transform3D(1, 0, 0, 0, 0.7847764, 0.619779, 0, -0.619779, 0.7847764, 0, 2.725, 0)
-
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

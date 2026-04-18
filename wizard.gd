@@ -47,8 +47,13 @@ func _on_range_body_entered(body: Node3D) -> void:
 func fire_projectile(target: Enemy) -> void:
 	print("WIZARD FIRING ATTACK")
 	var projectile = bullet_scene.instantiate()
+	
+	## these prevent the bullet from flying off at odd angles or colliding into
+	## the ground
 	projectile.position = Vector3(projectile.position.x - 2, projectile.position.y + 1, projectile.position.z)
-	projectile.target = target.position
+	var target_glob_pos = Vector3(target.global_position.x, projectile.position.y, target.global_position.z)
+	
+	projectile.target = target_glob_pos
 	add_child(projectile)
 	fire_ready = false
 

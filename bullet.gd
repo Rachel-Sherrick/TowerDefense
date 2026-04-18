@@ -8,6 +8,7 @@ var target = Vector3(0,0,0)
 
 func _physics_process(delta: float) -> void:
 	
+	
 	var dir = global_position.direction_to(target)
 	velocity = dir * SPEED
 	
@@ -31,3 +32,7 @@ func check_target_hit(enemy) -> void:
 		enemy.take_damage(1)
 	queue_free()
 	#we need to add a queue free when the projectiles go off the screen
+
+## deletes the object if not on screen
+func _on_visible_on_screen_notifier_3d_screen_exited() -> void:
+	queue_free()
