@@ -4,6 +4,7 @@ extends Node
 # Adds health behavior to any Node parent.
 
 signal health_changed(current_health: int, max_health: int)
+signal took_damage(health_lost: int)
 signal died
 
 @export var max_health: int = 5
@@ -60,6 +61,7 @@ func take_damage(amount: int) -> void:
 	print(get_parent().name, "took damage. Current health:", current_health)
 
 	emit_signal("health_changed", current_health, max_health)
+	emit_signal("took_damage", final_damage)
 	_update_bar()
 
 	if current_health == 0:
