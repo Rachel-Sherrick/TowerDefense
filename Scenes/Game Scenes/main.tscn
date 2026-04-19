@@ -24,6 +24,12 @@
 [ext_resource type="Texture2D" uid="uid://dllbc8np46no8" path="res://sprites/potions/SpeedFrontPosterized.png" id="20_tvq8n"]
 [ext_resource type="Texture2D" uid="uid://sf0gpga81ulo" path="res://sprites/potions/RangeTopPosterized.png" id="23_biugc"]
 
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_biugc"]
+dof_blur_far_enabled = true
+dof_blur_far_distance = 100.0
+dof_blur_far_transition = 3.0
+dof_blur_amount = 0.04
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xm2m"]
 albedo_texture = ExtResource("6_hn62u")
 metallic = 1.0
@@ -118,6 +124,7 @@ metadata/_edit_lock_ = true
 
 [node name="Camera3D2" type="Camera3D" parent="Battleground/BattleCamera" unique_id=411834890]
 transform = Transform3D(1, 0, 0, 0, 0.9471713, -0.32072872, 0, 0.32072872, 0.9471713, 0, -23.773878, 74.62061)
+attributes = SubResource("CameraAttributesPractical_biugc")
 projection = 1
 current = true
 size = 24.0
