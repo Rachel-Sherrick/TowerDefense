@@ -86,6 +86,7 @@ flat = true
 
 [node name="HowToPlayScreen" type="CanvasLayer" parent="." unique_id=715647047]
 layer = 2
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="HowToPlayScreen" unique_id=580345196]
 anchors_preset = 15

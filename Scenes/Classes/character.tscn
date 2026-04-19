@@ -99,7 +99,6 @@ script = ExtResource("2_wa5vi")
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 layers = 4
 sorting_offset = 1.0
-shaded = true
 alpha_cut = 1
 render_priority = 1
 sprite_frames = SubResource("SpriteFrames_wa5vi")
@@ -108,10 +107,9 @@ metadata/_edit_lock_ = true
 
 [node name="Health" type="Node" parent="." unique_id=1530811456]
 script = ExtResource("4_wfnr8")
-max_health = 5
 
 [node name="HealthBar" type="Node3D" parent="." unique_id=263389330]
-transform = Transform3D(1, 0, 0, 0, 0.7847764, 0.619779, 0, -0.619779, 0.7847764, 0, 2.725, 0)
+transform = Transform3D(1, 0, 0, 0, 0.7847764, 0.619779, 0, -0.619779, 0.7847764, 0, 1.19684, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="HealthBar" unique_id=628147743]
 transform = Transform3D(1, 0, 0, 0, -0.99415094, 0.107999355, 0, -0.107999355, -0.99415094, 0, 2, -0.031)
@@ -119,16 +117,11 @@ cast_shadow = 0
 mesh = SubResource("BoxMesh_wfnr8")
 surface_material_override/0 = SubResource("StandardMaterial3D_px5sl")
 
-[node name="RayCast3D" type="RayCast3D" parent="." unique_id=208812573]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-target_position = Vector3(0, 0, 3)
-hit_from_inside = true
-debug_shape_custom_color = Color(1, 0, 0, 1)
-debug_shape_thickness = 5
-
 [node name="Potions" type="Node" parent="." unique_id=1579418923]
 script = ExtResource("5_px5sl")
 
 [connection signal="body_entered" from="RangeDetection" to="." method="_on_range_body_entered"]
 [connection signal="body_exited" from="RangeDetection" to="." method="_on_range_detection_body_exited"]
 [connection signal="died" from="Health" to="." method="_on_health_died"]
+[connection signal="health_changed" from="Health" to="AnimationController" method="_on_health_health_changed"]
+[connection signal="took_damage" from="Health" to="AnimationController" method="_on_health_took_damage"]

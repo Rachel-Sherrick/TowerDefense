@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cspaxkbchu6l3"]
 
-[ext_resource type="PackedScene" uid="uid://bmslpuj4gik5" path="res://tower.tscn" id="1_xxhrx"]
+[ext_resource type="PackedScene" uid="uid://bmslpuj4gik5" path="res://Scenes/Classes/tower.tscn" id="1_xxhrx"]
 [ext_resource type="Texture2D" uid="uid://nj37xla1vxmg" path="res://sprites/testbert.png" id="2_34mad"]
 [ext_resource type="Script" uid="uid://biqa6ebeqjw2a" path="res://wizard.gd" id="2_xo1iy"]
 

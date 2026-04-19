@@ -6,8 +6,6 @@ class_name Warrior
 @onready var warrior_timer: Timer = $WarriorTimer
 @onready var animation_controller: Node3D = $AnimationController
 
-
-
 #is the cooldown over
 var swing_ready : bool = false
 

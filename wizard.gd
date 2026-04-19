@@ -15,32 +15,45 @@ var fire_ready: bool = false
 func _ready() -> void:
 	timer.start()
 
+func _process(delta: float) -> void:
+	if fire_ready == true && $RangeDetection.has_overlapping_bodies():
+		#await attack_handler()
+		fire_projectile(target())
+	if !($RangeDetection.has_overlapping_bodies()):
+		#animation_controller.play("idle")
+		pass
+		
+		
+
 func _physics_process(delta: float) -> void:
 	super(delta)
-	if in_range == true && fire_ready == true:
-		#Uncommenting this function call will cause a problem
-		#that needs to be debugged
-		fire_projectile(aim_list[0])
-		
+	#if in_range == true && fire_ready == true:
+		##Uncommenting this function call will cause a problem
+		##that needs to be debugged
+		#fire_projectile(aim_list[0])
+		#
 
 func _on_range_detection_body_exited(body: Node3D) -> void:
 	super(body)
 	print("Enemy exited ", name, "'s range")
-	aim_list.erase(body)
 	in_range = false
 
 func _on_range_body_entered(body: Node3D) -> void:
 	super(body)
 	print("Enemy entered ", name, "'s range")
-	aim_list.append(body)
 	in_range = true
 	
 	
-func fire_projectile(target) -> void:
+func fire_projectile(target: Enemy) -> void:
 	print("WIZARD FIRING ATTACK")
 	var projectile = bullet_scene.instantiate()
-	projectile.position = Vector3(position.x, 1.0, position.z)
-	projectile.target = target.position
+	
+	## these prevent the bullet from flying off at odd angles or colliding into
+	## the ground
+	projectile.position = Vector3(projectile.position.x - 2, projectile.position.y + 1, projectile.position.z)
+	var target_glob_pos = Vector3(target.global_position.x, projectile.position.y, target.global_position.z)
+	
+	projectile.target = target_glob_pos
 	add_child(projectile)
 	fire_ready = false
 
