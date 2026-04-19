@@ -292,6 +292,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1366.0
 offset_bottom = 720.0
+mouse_filter = 1
 script = ExtResource("13_84767")
 
 [node name="ShopCanvas" type="CanvasLayer" parent="GUI" unique_id=1615819721]
@@ -1425,6 +1426,7 @@ icon_alignment = 1
 [connection signal="child_entered_tree" from="Battleground" to="Player" method="_on_battleground_child_entered_tree"]
 [connection signal="input_event" from="Battleground/PlaceableArea" to="Player" method="_place_tower"]
 [connection signal="input_event" from="Battleground/PlaceableArea" to="Battleground/PlaceableArea" method="_place_tower"]
+[connection signal="purchase" from="GUI/ShopCanvas" to="Player" method="_on_shop_purchase"]
 [connection signal="input_event" from="GUI/ShopCanvas/ShopSlots/Slot1" to="GUI/ShopCanvas" method="_on_slot_1_input_event"]
 [connection signal="input_event" from="GUI/ShopCanvas/ShopSlots/Slot2" to="GUI/ShopCanvas" method="_on_slot_2_input_event"]
 [connection signal="input_event" from="GUI/ShopCanvas/ShopSlots/Slot3" to="GUI/ShopCanvas" method="_on_slot_3_input_event"]
