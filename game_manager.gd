@@ -7,11 +7,11 @@ extends Node
 
 @onready var thimble_canvas: CanvasLayer = $"GuideCanvas/InfoCanvases/ThimbleCanvas"
 @onready var battery_canvas: CanvasLayer = $"GuideCanvas/InfoCanvases/BatteryCanvas"
-@onready var archer_canvas: CanvasLayer = $"GuideCanvas/InfoCanvases/ArcherCanvas"
 
 @onready var range_canvas: CanvasLayer = $"GuideCanvas/InfoCanvases/RangeCanvas"
 @onready var damage_canvas: CanvasLayer = $"GuideCanvas/InfoCanvases/DamageCanvas"
 @onready var speed_canvas: CanvasLayer = $"GuideCanvas/InfoCanvases/SpeedCanvas"
+@onready var health_canvas: CanvasLayer = $GuideCanvas/InfoCanvases/HealthCanvas
 
 @onready var purple_ant_canvas: CanvasLayer = $"GuideCanvas/InfoCanvases/PurpleAntCanvas"
 @onready var yellow_ant_canvas: CanvasLayer = $"GuideCanvas/InfoCanvases/YellowAntCanvas"
@@ -60,13 +60,13 @@ func _on_x_button_pressed() -> void:
 	info_canvases.hide()
 	thimble_canvas.hide()
 	battery_canvas.hide()
-	archer_canvas.hide()
 	range_canvas.hide()
 	damage_canvas.hide()
 	speed_canvas.hide()
 	purple_ant_canvas.hide()
 	yellow_ant_canvas.hide()
 	red_ant_canvas.hide()
+	health_canvas.hide()
 
 func _on_thimble_button_pressed() -> void:
 	info_canvases.show()
@@ -81,11 +81,6 @@ func _on_back_button_pressed() -> void:
 func _on_battery_button_pressed() -> void:
 	info_canvases.show()
 	battery_canvas.show()
-
-
-func _on_archer_button_pressed() -> void:
-	info_canvases.show()
-	archer_canvas.show()
 
 
 func _on_range_button_pressed() -> void:
@@ -122,3 +117,8 @@ func _on_shop_exit_button_pressed() -> void:
 	shop_canvas.hide()
 	$PauseButton.disabled = false
 	$ShopButton.disabled = false
+
+
+func _on_health_button_pressed() -> void:
+	info_canvases.show()
+	health_canvas.show()

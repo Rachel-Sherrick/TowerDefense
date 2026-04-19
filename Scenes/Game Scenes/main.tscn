@@ -5,7 +5,6 @@
 [ext_resource type="Script" uid="uid://cx5lcq6iqwfvi" path="res://scripts/audio_stream_player.gd" id="2_4c57u"]
 [ext_resource type="Script" uid="uid://cpi153lw0sggb" path="res://player.gd" id="3_dg77c"]
 [ext_resource type="Script" uid="uid://c8gmgykjml3m1" path="res://shop.gd" id="3_w48qg"]
-[ext_resource type="Texture2D" uid="uid://cog7l0t4nycxo" path="res://sprites/ShopRender2.png" id="3_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://tu18fp20hsnf" path="res://Scenes/towers/warrior.tscn" id="5_0miwv"]
 [ext_resource type="Texture2D" uid="uid://dxojowqqxxamn" path="res://EnvironmentGLBs/Seamless-Oak-Texture3.png" id="6_hn62u"]
 [ext_resource type="Texture2D" uid="uid://c286ok2fs05bo" path="res://EnvironmentGLBs/Rim.png" id="7_4yj7t"]
@@ -18,6 +17,18 @@
 [ext_resource type="FontFile" uid="uid://cchfdyetdjd7q" path="res://fonts/DarumadropOne-Regular.ttf" id="12_0w7h6"]
 [ext_resource type="Script" uid="uid://cnflpnfv23xkc" path="res://game_manager.gd" id="13_84767"]
 [ext_resource type="Texture2D" uid="uid://djsvlxd4stdyy" path="res://sprites/enemies/ant/idle/anttest.png" id="13_t6f6y"]
+[ext_resource type="Texture2D" uid="uid://d0xqq0gycm7vw" path="res://sprites/towers/battery/batterywizard.png" id="16_me364"]
+[ext_resource type="Texture2D" uid="uid://cxcgrt5b7njaf" path="res://sprites/potions/HealthFrontPosterized.png" id="17_ifosd"]
+[ext_resource type="Texture2D" uid="uid://bmgl6l8crr5hi" path="res://sprites/potions/RangeFrontPosterized.png" id="18_biugc"]
+[ext_resource type="Texture2D" uid="uid://dre2to8s2qtik" path="res://sprites/potions/DamageFrontPosterized.png" id="19_q80nm"]
+[ext_resource type="Texture2D" uid="uid://dllbc8np46no8" path="res://sprites/potions/SpeedFrontPosterized.png" id="20_tvq8n"]
+[ext_resource type="Texture2D" uid="uid://sf0gpga81ulo" path="res://sprites/potions/RangeTopPosterized.png" id="23_biugc"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_biugc"]
+dof_blur_far_enabled = true
+dof_blur_far_distance = 100.0
+dof_blur_far_transition = 3.0
+dof_blur_amount = 0.04
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xm2m"]
 albedo_texture = ExtResource("6_hn62u")
@@ -41,7 +52,7 @@ size = Vector3(95, 2, 60)
 
 [sub_resource type="Environment" id="Environment_0xm2m"]
 background_mode = 1
-background_color = Color(0.50703764, 0.86410844, 0.8627189, 1)
+background_color = Color(0.25246772, 0.17417556, 0.058864124, 1)
 sky = SubResource("Sky_ig7tw")
 ambient_light_color = Color(0.6001798, 0.9692821, 0.74341196, 1)
 tonemap_mode = 2
@@ -89,13 +100,13 @@ selected_item = "warrior"
 [node name="Battleground" type="Node3D" parent="." unique_id=1447681041]
 
 [node name="Shop" type="Node3D" parent="Battleground" unique_id=685433725]
-transform = Transform3D(8, 0, 0, 0, 2.833129, 0.9865999, 0, -0.9865999, 2.833129, 0.098, 0.17418003, -66.08353)
+transform = Transform3D(2.5, 0, 0, 0, 2.360941, 0.8221667, 0, -0.8221667, 2.360941, 0.098, -3.2781668, -76.0817)
 
 [node name="ShopBody" type="Sprite3D" parent="Battleground/Shop" unique_id=1266716294]
-transform = Transform3D(1, 0, 0, 0, 0.9999994, -4.172325e-07, 0, 4.172325e-07, 0.9999994, 0, 2.7743177, -1.2039437)
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999934, -5.066395e-07, 0, 5.066395e-07, 0.99999934, 0, -4.2656846, 13.437979)
 shaded = true
 alpha_cut = 1
-texture = ExtResource("3_ycdy4")
+texture = ExtResource("10_57bla")
 
 [node name="BattleCamera" type="Marker3D" parent="Battleground" unique_id=611099172]
 transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0.184, 5, 5)
@@ -103,12 +114,22 @@ metadata/_edit_lock_ = true
 
 [node name="Camera3D" type="Camera3D" parent="Battleground/BattleCamera" unique_id=1112084879]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19)
+visible = false
 projection = 1
 current = true
 size = 24.0
 near = 5.0
 far = 251.54
 metadata/_edit_lock_ = true
+
+[node name="Camera3D2" type="Camera3D" parent="Battleground/BattleCamera" unique_id=411834890]
+transform = Transform3D(1, 0, 0, 0, 0.9471713, -0.32072872, 0, 0.32072872, 0.9471713, 0, -23.773878, 74.62061)
+attributes = SubResource("CameraAttributesPractical_biugc")
+projection = 1
+current = true
+size = 24.0
+near = 5.0
+far = 251.54
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Battleground/BattleCamera" unique_id=584399821]
 transform = Transform3D(0.95105654, 0.108725056, -0.2892583, 0, 0.93605953, 0.35184166, 0.309017, -0.3346213, 0.89024556, 0, 0, 23)
@@ -121,6 +142,7 @@ metadata/_edit_lock_ = true
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Battleground/BattleCamera" unique_id=1670686775]
 transform = Transform3D(0.95105654, 0.10872505, -0.28925833, 0, 0.9360596, 0.3518417, 0.30901703, -0.33462128, 0.8902457, -31.13137, 0, 5.0000005)
+visible = false
 light_color = Color(1, 0.6703333, 0.13999999, 1)
 light_energy = 11.487
 light_specular = 1.65
@@ -129,14 +151,35 @@ spot_range = 74.711
 spot_angle = 80.0
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="Battleground/BattleCamera" unique_id=467411058]
-transform = Transform3D(0.98296505, 0.021176513, -0.18256864, 0.03339231, 0.9562307, 0.2907022, 0.1807338, -0.29184648, 0.9392342, 1.8472214, -3.3360014, 8.336002)
+transform = Transform3D(1, 0, 0, 0, 0.8182903, 0.5748053, 0, -0.5748053, 0.8182903, 0, 11.106783, 11.106783)
+light_color = Color(1, 0.7705864, 0.47898167, 1)
+light_energy = 10.612
+light_size = 0.05
+light_specular = 1.65
+shadow_enabled = true
+spot_range = 79.637
+spot_angle = 39.69
+spot_angle_attenuation = 1.6245042
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="Battleground/BattleCamera" unique_id=1709975343]
+transform = Transform3D(1, 0, 0, 0, 0.8182903, 0.5748053, 0, -0.5748053, 0.8182903, 0, 11.106783, 11.106783)
 light_color = Color(1, 0.6703333, 0.13999999, 1)
 light_energy = 10.612
 light_size = 0.05
 light_specular = 1.65
 shadow_enabled = true
 spot_range = 79.637
-spot_angle = 80.0
+spot_angle = 76.25
+spot_angle_attenuation = 1.6245042
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="Battleground/BattleCamera" unique_id=779640026]
+transform = Transform3D(0.9995274, -0.029300272, -0.00929936, 0.021149674, 0.8749939, -0.48367202, 0.02230862, 0.4832467, 0.8751999, 1.8472214, 11.738634, -26.266134)
+light_color = Color(0.9999998, 0.75879073, 0.448583, 1)
+light_energy = 12.0
+light_size = 0.05
+light_specular = 1.65
+spot_range = 79.637
+spot_angle = 73.44
 spot_angle_attenuation = 1.6245042
 
 [node name="Ground" type="StaticBody3D" parent="Battleground" unique_id=1885948079]
@@ -249,6 +292,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1366.0
 offset_bottom = 720.0
+mouse_filter = 1
 script = ExtResource("13_84767")
 
 [node name="ShopCanvas" type="CanvasLayer" parent="GUI" unique_id=1615819721]
@@ -279,6 +323,7 @@ position = Vector2(527, 312)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GUI/ShopCanvas/ShopSlots/Slot1" unique_id=472860760]
 scale = Vector2(5.5, 7.5)
 shape = SubResource("RectangleShape2D_yhwuq")
+debug_color = Color(0, 0.6, 0.69803923, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="GUI/ShopCanvas/ShopSlots/Slot1" unique_id=1744100962]
 scale = Vector2(0.45, 0.45)
@@ -296,7 +341,7 @@ offset_right = 31.5
 offset_bottom = -93.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 0.49019608, 1)
+theme_override_colors/font_color = Color(0.99607843, 0.84705883, 0.3882353, 1)
 theme_override_fonts/font = ExtResource("11_0miwv")
 theme_override_font_sizes/font_size = 30
 text = "Thimble"
@@ -309,6 +354,7 @@ position = Vector2(683, 312)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GUI/ShopCanvas/ShopSlots/Slot2" unique_id=210418393]
 scale = Vector2(5.5, 7.5)
 shape = SubResource("RectangleShape2D_yhwuq")
+debug_color = Color(0, 0.6, 0.69803923, 0)
 
 [node name="Label" type="Label" parent="GUI/ShopCanvas/ShopSlots/Slot2" unique_id=1477563222]
 anchors_preset = 8
@@ -322,12 +368,16 @@ offset_right = 29.0
 offset_bottom = -93.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 0.49019608, 1)
+theme_override_colors/font_color = Color(0.99607843, 0.84705883, 0.3882353, 1)
 theme_override_fonts/font = ExtResource("11_0miwv")
 theme_override_font_sizes/font_size = 30
 text = "Battery"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="GUI/ShopCanvas/ShopSlots/Slot2" unique_id=257331582]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("16_me364")
 
 [node name="Slot3" type="Area2D" parent="GUI/ShopCanvas/ShopSlots" unique_id=616214912]
 position = Vector2(840, 312)
@@ -335,6 +385,7 @@ position = Vector2(840, 312)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GUI/ShopCanvas/ShopSlots/Slot3" unique_id=161586366]
 scale = Vector2(5.5, 7.5)
 shape = SubResource("RectangleShape2D_yhwuq")
+debug_color = Color(0, 0.6, 0.69803923, 0)
 
 [node name="Label" type="Label" parent="GUI/ShopCanvas/ShopSlots/Slot3" unique_id=617703137]
 anchors_preset = 8
@@ -348,12 +399,16 @@ offset_right = 20.0
 offset_bottom = -93.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 0.49019608, 1)
+theme_override_colors/font_color = Color(0.99607843, 0.84705883, 0.3882353, 1)
 theme_override_fonts/font = ExtResource("11_0miwv")
 theme_override_font_sizes/font_size = 30
-text = "TBD"
+text = "Health"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="GUI/ShopCanvas/ShopSlots/Slot3" unique_id=1462346056]
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("17_ifosd")
 
 [node name="Slot4" type="Area2D" parent="GUI/ShopCanvas/ShopSlots" unique_id=1073384499]
 position = Vector2(527, 582)
@@ -361,6 +416,7 @@ position = Vector2(527, 582)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GUI/ShopCanvas/ShopSlots/Slot4" unique_id=1033818363]
 scale = Vector2(5.5, 7.5)
 shape = SubResource("RectangleShape2D_yhwuq")
+debug_color = Color(0, 0.6, 0.69803923, 0)
 
 [node name="Label" type="Label" parent="GUI/ShopCanvas/ShopSlots/Slot4" unique_id=1145628947]
 anchors_preset = 8
@@ -374,12 +430,16 @@ offset_right = 24.0
 offset_bottom = -93.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 0.49019608, 1)
+theme_override_colors/font_color = Color(0.99607843, 0.84705883, 0.3882353, 1)
 theme_override_fonts/font = ExtResource("11_0miwv")
 theme_override_font_sizes/font_size = 30
 text = "Range"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="GUI/ShopCanvas/ShopSlots/Slot4" unique_id=411590329]
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("18_biugc")
 
 [node name="Slot5" type="Area2D" parent="GUI/ShopCanvas/ShopSlots" unique_id=864297946]
 position = Vector2(683, 582)
@@ -387,6 +447,7 @@ position = Vector2(683, 582)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GUI/ShopCanvas/ShopSlots/Slot5" unique_id=1912676197]
 scale = Vector2(5.5, 7.5)
 shape = SubResource("RectangleShape2D_yhwuq")
+debug_color = Color(0, 0.6, 0.69803923, 0)
 
 [node name="Label" type="Label" parent="GUI/ShopCanvas/ShopSlots/Slot5" unique_id=1287964161]
 anchors_preset = 8
@@ -400,12 +461,17 @@ offset_right = 32.0
 offset_bottom = -93.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 0.49019608, 1)
+theme_override_colors/font_color = Color(0.99607843, 0.84705883, 0.3882353, 1)
 theme_override_fonts/font = ExtResource("11_0miwv")
 theme_override_font_sizes/font_size = 30
 text = "Damage"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="GUI/ShopCanvas/ShopSlots/Slot5" unique_id=1082330082]
+position = Vector2(-10, 0)
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("19_q80nm")
 
 [node name="Slot6" type="Area2D" parent="GUI/ShopCanvas/ShopSlots" unique_id=1446563503]
 position = Vector2(840, 582)
@@ -413,6 +479,7 @@ position = Vector2(840, 582)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GUI/ShopCanvas/ShopSlots/Slot6" unique_id=541820159]
 scale = Vector2(5.5, 7.5)
 shape = SubResource("RectangleShape2D_yhwuq")
+debug_color = Color(0, 0.6, 0.69803923, 0)
 
 [node name="Label" type="Label" parent="GUI/ShopCanvas/ShopSlots/Slot6" unique_id=876465135]
 anchors_preset = 8
@@ -426,18 +493,22 @@ offset_right = 24.0
 offset_bottom = -93.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 0.49019608, 1)
+theme_override_colors/font_color = Color(0.99607843, 0.84705883, 0.3882353, 1)
 theme_override_fonts/font = ExtResource("11_0miwv")
 theme_override_font_sizes/font_size = 30
 text = "Speed"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Sprite2D" type="Sprite2D" parent="GUI/ShopCanvas/ShopSlots/Slot6" unique_id=1356667994]
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("20_tvq8n")
+
 [node name="ShopExitButton" type="Button" parent="GUI/ShopCanvas" unique_id=958897747]
 offset_right = 129.0
 offset_bottom = 86.0
-theme_override_colors/font_color = Color(1, 1, 0.49019608, 1)
-theme_override_colors/font_hover_color = Color(0.3254902, 0.65882355, 0.9490196, 1)
+theme_override_colors/font_color = Color(0.99607843, 0.84705883, 0.3882353, 1)
+theme_override_colors/font_hover_color = Color(0.4392157, 0.8784314, 0.6, 1)
 theme_override_fonts/font = ExtResource("11_0miwv")
 theme_override_font_sizes/font_size = 64
 text = "Back"
@@ -450,8 +521,8 @@ anchor_bottom = 1.0
 offset_top = -86.0
 offset_right = 129.0
 grow_vertical = 0
-theme_override_colors/font_color = Color(1, 1, 0.49019608, 1)
-theme_override_colors/font_hover_color = Color(0.3254902, 0.65882355, 0.9490196, 1)
+theme_override_colors/font_color = Color(0.99607843, 0.84705883, 0.3882353, 1)
+theme_override_colors/font_hover_color = Color(0.4392157, 0.8784314, 0.6, 1)
 theme_override_fonts/font = ExtResource("11_0miwv")
 theme_override_font_sizes/font_size = 64
 text = "Guide"
@@ -468,7 +539,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.19607843, 0.32156864, 0.09803922, 1)
+color = Color(0, 0.21176471, 0.23137255, 1)
 
 [node name="InfoTitle" type="Label" parent="GUI/GuideCanvas" unique_id=911915064]
 anchors_preset = 5
@@ -479,7 +550,7 @@ offset_top = 20.0
 offset_right = 193.0
 offset_bottom = 98.0
 grow_horizontal = 2
-theme_override_colors/font_color = Color(0.8745098, 0.6156863, 0.29411766, 1)
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
 theme_override_fonts/font = ExtResource("11_0miwv")
 theme_override_font_sizes/font_size = 64
 text = "Information Guide"
@@ -495,7 +566,7 @@ offset_top = -185.0
 offset_right = 322.0
 offset_bottom = -107.0
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.8745098, 0.6156863, 0.29411766, 1)
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
 theme_override_fonts/font = ExtResource("11_0miwv")
 theme_override_font_sizes/font_size = 64
 text = "Towers"
@@ -507,8 +578,8 @@ layout_mode = 0
 offset_top = 100.0
 offset_right = 298.0
 offset_bottom = 167.0
-theme_override_colors/font_color = Color(0.69803923, 0.58431375, 0.8745098, 1)
-theme_override_colors/font_hover_color = Color(0.9490196, 0.70980394, 0.5803922, 1)
+theme_override_colors/font_color = Color(0.99607843, 0.84705883, 0.3882353, 1)
+theme_override_colors/font_hover_color = Color(0.4392157, 0.8784314, 0.6, 1)
 theme_override_fonts/font = ExtResource("12_0w7h6")
 theme_override_font_sizes/font_size = 40
 text = "Thimble Warrior"
@@ -519,23 +590,11 @@ layout_mode = 0
 offset_top = 200.0
 offset_right = 298.0
 offset_bottom = 267.0
-theme_override_colors/font_color = Color(0.69803923, 0.58431375, 0.8745098, 1)
-theme_override_colors/font_hover_color = Color(0.9490196, 0.70980394, 0.5803922, 1)
+theme_override_colors/font_color = Color(0.99607843, 0.84705883, 0.3882353, 1)
+theme_override_colors/font_hover_color = Color(0.4392157, 0.8784314, 0.6, 1)
 theme_override_fonts/font = ExtResource("12_0w7h6")
 theme_override_font_sizes/font_size = 40
 text = "Battery Wizard"
-flat = true
-
-[node name="ArcherButton" type="Button" parent="GUI/GuideCanvas/TowerLabel" unique_id=1544208090]
-layout_mode = 0
-offset_top = 300.0
-offset_right = 298.0
-offset_bottom = 367.0
-theme_override_colors/font_color = Color(0.69803923, 0.58431375, 0.8745098, 1)
-theme_override_colors/font_hover_color = Color(0.9490196, 0.70980394, 0.5803922, 1)
-theme_override_fonts/font = ExtResource("12_0w7h6")
-theme_override_font_sizes/font_size = 40
-text = "--- Archer"
 flat = true
 
 [node name="PotionsLabel" type="Label" parent="GUI/GuideCanvas" unique_id=298303263]
@@ -550,7 +609,7 @@ offset_right = 77.0
 offset_bottom = -107.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.8745098, 0.6156863, 0.29411766, 1)
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
 theme_override_fonts/font = ExtResource("11_0miwv")
 theme_override_font_sizes/font_size = 64
 text = "Potions"
@@ -562,8 +621,8 @@ layout_mode = 0
 offset_top = 100.0
 offset_right = 207.0
 offset_bottom = 167.0
-theme_override_colors/font_color = Color(0.69803923, 0.58431375, 0.8745098, 1)
-theme_override_colors/font_hover_color = Color(0.9490196, 0.70980394, 0.5803922, 1)
+theme_override_colors/font_color = Color(0.99607843, 0.84705883, 0.3882353, 1)
+theme_override_colors/font_hover_color = Color(0.4392157, 0.8784314, 0.6, 1)
 theme_override_fonts/font = ExtResource("12_0w7h6")
 theme_override_font_sizes/font_size = 40
 text = "Range Buff"
@@ -574,8 +633,8 @@ layout_mode = 0
 offset_top = 200.0
 offset_right = 240.0
 offset_bottom = 267.0
-theme_override_colors/font_color = Color(0.69803923, 0.58431375, 0.8745098, 1)
-theme_override_colors/font_hover_color = Color(0.9490196, 0.70980394, 0.5803922, 1)
+theme_override_colors/font_color = Color(0.99607843, 0.84705883, 0.3882353, 1)
+theme_override_colors/font_hover_color = Color(0.4392157, 0.8784314, 0.6, 1)
 theme_override_fonts/font = ExtResource("12_0w7h6")
 theme_override_font_sizes/font_size = 40
 text = "Damage Buff"
@@ -586,11 +645,23 @@ layout_mode = 0
 offset_top = 300.0
 offset_right = 240.0
 offset_bottom = 367.0
-theme_override_colors/font_color = Color(0.69803923, 0.58431375, 0.8745098, 1)
-theme_override_colors/font_hover_color = Color(0.9490196, 0.70980394, 0.5803922, 1)
+theme_override_colors/font_color = Color(0.99607843, 0.84705883, 0.3882353, 1)
+theme_override_colors/font_hover_color = Color(0.4392157, 0.8784314, 0.6, 1)
 theme_override_fonts/font = ExtResource("12_0w7h6")
 theme_override_font_sizes/font_size = 40
 text = "Speed Buff"
+flat = true
+
+[node name="HealthButton" type="Button" parent="GUI/GuideCanvas/PotionsLabel" unique_id=1218890794]
+layout_mode = 0
+offset_top = 400.0
+offset_right = 240.0
+offset_bottom = 467.0
+theme_override_colors/font_color = Color(0.99607843, 0.84705883, 0.3882353, 1)
+theme_override_colors/font_hover_color = Color(0.4392157, 0.8784314, 0.6, 1)
+theme_override_fonts/font = ExtResource("12_0w7h6")
+theme_override_font_sizes/font_size = 40
+text = "Health Buff"
 flat = true
 
 [node name="EnemiesLabel" type="Label" parent="GUI/GuideCanvas" unique_id=1489804121]
@@ -605,7 +676,7 @@ offset_right = -175.0
 offset_bottom = -107.0
 grow_horizontal = 0
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.8745098, 0.6156863, 0.29411766, 1)
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
 theme_override_fonts/font = ExtResource("11_0miwv")
 theme_override_font_sizes/font_size = 64
 text = "Enemies"
@@ -617,8 +688,8 @@ layout_mode = 0
 offset_top = 100.0
 offset_right = 195.0
 offset_bottom = 167.0
-theme_override_colors/font_color = Color(0.69803923, 0.58431375, 0.8745098, 1)
-theme_override_colors/font_hover_color = Color(0.9490196, 0.70980394, 0.5803922, 1)
+theme_override_colors/font_color = Color(0.99607843, 0.84705883, 0.3882353, 1)
+theme_override_colors/font_hover_color = Color(0.4392157, 0.8784314, 0.6, 1)
 theme_override_fonts/font = ExtResource("12_0w7h6")
 theme_override_font_sizes/font_size = 40
 text = "Purple Ant"
@@ -629,8 +700,8 @@ layout_mode = 0
 offset_top = 200.0
 offset_right = 201.0
 offset_bottom = 267.0
-theme_override_colors/font_color = Color(0.69803923, 0.58431375, 0.8745098, 1)
-theme_override_colors/font_hover_color = Color(0.9490196, 0.70980394, 0.5803922, 1)
+theme_override_colors/font_color = Color(0.99607843, 0.84705883, 0.3882353, 1)
+theme_override_colors/font_hover_color = Color(0.4392157, 0.8784314, 0.6, 1)
 theme_override_fonts/font = ExtResource("12_0w7h6")
 theme_override_font_sizes/font_size = 40
 text = "Yellow Ant"
@@ -641,8 +712,8 @@ layout_mode = 0
 offset_top = 300.0
 offset_right = 201.0
 offset_bottom = 367.0
-theme_override_colors/font_color = Color(0.69803923, 0.58431375, 0.8745098, 1)
-theme_override_colors/font_hover_color = Color(0.9490196, 0.70980394, 0.5803922, 1)
+theme_override_colors/font_color = Color(0.99607843, 0.84705883, 0.3882353, 1)
+theme_override_colors/font_hover_color = Color(0.4392157, 0.8784314, 0.6, 1)
 theme_override_fonts/font = ExtResource("12_0w7h6")
 theme_override_font_sizes/font_size = 40
 text = "Red Ant"
@@ -651,8 +722,8 @@ flat = true
 [node name="BackButton" type="Button" parent="GUI/GuideCanvas" unique_id=2084622460]
 offset_right = 112.0
 offset_bottom = 86.0
-theme_override_colors/font_color = Color(0.8392157, 0.26666668, 0.18431373, 1)
-theme_override_colors/font_hover_color = Color(0.6431373, 0.37254903, 0.9490196, 1)
+theme_override_colors/font_color = Color(0.99607843, 0.84705883, 0.3882353, 1)
+theme_override_colors/font_hover_color = Color(0.4392157, 0.8784314, 0.6, 1)
 theme_override_fonts/font = ExtResource("11_0miwv")
 theme_override_font_sizes/font_size = 64
 text = "Back"
@@ -684,7 +755,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(1, 0.78039217, 0.49803922, 1)
+color = Color(0, 0.21176471, 0.23137255, 1)
 
 [node name="Label" type="Label" parent="GUI/GuideCanvas/InfoCanvases/ThimbleCanvas" unique_id=1363612916]
 anchors_preset = 5
@@ -695,7 +766,7 @@ offset_top = 20.0
 offset_right = 195.0
 offset_bottom = 108.0
 grow_horizontal = 2
-theme_override_colors/font_color = Color(0.5294118, 0.09411765, 0.8862745, 1)
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
 theme_override_fonts/font = ExtResource("11_0miwv")
 theme_override_font_sizes/font_size = 72
 text = "Thimble Warrior"
@@ -718,7 +789,7 @@ offset_right = 628.0
 offset_bottom = 67.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.5294118, 0.09411765, 0.8862745, 1)
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
 theme_override_fonts/font = ExtResource("12_0w7h6")
 theme_override_font_sizes/font_size = 32
 text = "Description:
@@ -739,7 +810,7 @@ offset_right = 628.0
 offset_bottom = 392.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.5294118, 0.09411765, 0.8862745, 1)
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
 theme_override_fonts/font = ExtResource("12_0w7h6")
 theme_override_font_sizes/font_size = 32
 text = "Stats:
@@ -756,7 +827,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(1, 0.78039217, 0.49803922, 1)
+color = Color(0, 0.21176471, 0.23137255, 1)
 
 [node name="Label" type="Label" parent="GUI/GuideCanvas/InfoCanvases/BatteryCanvas" unique_id=1321434553]
 anchors_preset = 5
@@ -767,7 +838,7 @@ offset_top = 20.0
 offset_right = 195.0
 offset_bottom = 108.0
 grow_horizontal = 2
-theme_override_colors/font_color = Color(0.5294118, 0.09411765, 0.8862745, 1)
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
 theme_override_fonts/font = ExtResource("11_0miwv")
 theme_override_font_sizes/font_size = 72
 text = "Battery Wizard"
@@ -776,6 +847,8 @@ vertical_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="GUI/GuideCanvas/InfoCanvases/BatteryCanvas" unique_id=668550968]
 position = Vector2(250, 350)
+scale = Vector2(2, 2)
+texture = ExtResource("16_me364")
 
 [node name="Label2" type="Label" parent="GUI/GuideCanvas/InfoCanvases/BatteryCanvas" unique_id=2113309870]
 anchors_preset = 8
@@ -789,7 +862,7 @@ offset_right = 628.0
 offset_bottom = 67.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.5294118, 0.09411765, 0.8862745, 1)
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
 theme_override_fonts/font = ExtResource("12_0w7h6")
 theme_override_font_sizes/font_size = 32
 text = "Description:
@@ -810,26 +883,26 @@ offset_right = 628.0
 offset_bottom = 392.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.5294118, 0.09411765, 0.8862745, 1)
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
 theme_override_fonts/font = ExtResource("12_0w7h6")
 theme_override_font_sizes/font_size = 32
 text = "Stats:
 Damage: 2 DP per hit
 Fire rate: 1 fire per 3 seconds"
 
-[node name="ArcherCanvas" type="CanvasLayer" parent="GUI/GuideCanvas/InfoCanvases" unique_id=1000864721]
+[node name="HealthCanvas" type="CanvasLayer" parent="GUI/GuideCanvas/InfoCanvases" unique_id=1000864721]
 layer = 4
 visible = false
 
-[node name="ColorRect" type="ColorRect" parent="GUI/GuideCanvas/InfoCanvases/ArcherCanvas" unique_id=2106886810]
+[node name="ColorRect" type="ColorRect" parent="GUI/GuideCanvas/InfoCanvases/HealthCanvas" unique_id=2106886810]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(1, 0.78039217, 0.49803922, 1)
+color = Color(0, 0.21176471, 0.23137255, 1)
 
-[node name="Label" type="Label" parent="GUI/GuideCanvas/InfoCanvases/ArcherCanvas" unique_id=586759884]
+[node name="Label" type="Label" parent="GUI/GuideCanvas/InfoCanvases/HealthCanvas" unique_id=586759884]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -838,17 +911,19 @@ offset_top = 20.0
 offset_right = 195.0
 offset_bottom = 108.0
 grow_horizontal = 2
-theme_override_colors/font_color = Color(0.5294118, 0.09411765, 0.8862745, 1)
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
 theme_override_fonts/font = ExtResource("11_0miwv")
 theme_override_font_sizes/font_size = 72
-text = "--- Archer"
+text = "Health Potion"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="GUI/GuideCanvas/InfoCanvases/ArcherCanvas" unique_id=902094422]
+[node name="Sprite2D" type="Sprite2D" parent="GUI/GuideCanvas/InfoCanvases/HealthCanvas" unique_id=902094422]
 position = Vector2(250, 350)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("17_ifosd")
 
-[node name="Label2" type="Label" parent="GUI/GuideCanvas/InfoCanvases/ArcherCanvas" unique_id=1550111933]
+[node name="Label2" type="Label" parent="GUI/GuideCanvas/InfoCanvases/HealthCanvas" unique_id=1550111933]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -860,13 +935,13 @@ offset_right = 628.0
 offset_bottom = 67.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.5294118, 0.09411765, 0.8862745, 1)
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
 theme_override_fonts/font = ExtResource("12_0w7h6")
 theme_override_font_sizes/font_size = 32
 text = "Description:
 TBD"
 
-[node name="Label3" type="Label" parent="GUI/GuideCanvas/InfoCanvases/ArcherCanvas" unique_id=1378620539]
+[node name="Label3" type="Label" parent="GUI/GuideCanvas/InfoCanvases/HealthCanvas" unique_id=1378620539]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -878,12 +953,11 @@ offset_right = 628.0
 offset_bottom = 392.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.5294118, 0.09411765, 0.8862745, 1)
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
 theme_override_fonts/font = ExtResource("12_0w7h6")
 theme_override_font_sizes/font_size = 32
 text = "Stats:
-Damage: 1 DP per hit
-Fire rate: 1 fire per  second"
+"
 
 [node name="PurpleAntCanvas" type="CanvasLayer" parent="GUI/GuideCanvas/InfoCanvases" unique_id=1571464534]
 layer = 4
@@ -895,7 +969,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(1, 0.78039217, 0.49803922, 1)
+color = Color(0, 0.21176471, 0.23137255, 1)
 
 [node name="Label" type="Label" parent="GUI/GuideCanvas/InfoCanvases/PurpleAntCanvas" unique_id=828754076]
 anchors_preset = 5
@@ -906,7 +980,7 @@ offset_top = 20.0
 offset_right = 195.0
 offset_bottom = 108.0
 grow_horizontal = 2
-theme_override_colors/font_color = Color(0.5294118, 0.09411765, 0.8862745, 1)
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
 theme_override_fonts/font = ExtResource("11_0miwv")
 theme_override_font_sizes/font_size = 72
 text = "Purple Ant"
@@ -929,7 +1003,7 @@ offset_right = 628.0
 offset_bottom = 67.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.5294118, 0.09411765, 0.8862745, 1)
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
 theme_override_fonts/font = ExtResource("12_0w7h6")
 theme_override_font_sizes/font_size = 32
 text = "Description:
@@ -947,7 +1021,7 @@ offset_right = 628.0
 offset_bottom = 392.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.5294118, 0.09411765, 0.8862745, 1)
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
 theme_override_fonts/font = ExtResource("12_0w7h6")
 theme_override_font_sizes/font_size = 32
 text = "Stats:
@@ -963,7 +1037,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(1, 0.78039217, 0.49803922, 1)
+color = Color(0, 0.21176471, 0.23137255, 1)
 
 [node name="Label" type="Label" parent="GUI/GuideCanvas/InfoCanvases/YellowAntCanvas" unique_id=1500045337]
 anchors_preset = 5
@@ -974,7 +1048,7 @@ offset_top = 20.0
 offset_right = 195.0
 offset_bottom = 108.0
 grow_horizontal = 2
-theme_override_colors/font_color = Color(0.5294118, 0.09411765, 0.8862745, 1)
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
 theme_override_fonts/font = ExtResource("11_0miwv")
 theme_override_font_sizes/font_size = 72
 text = "Yellow Ant"
@@ -996,7 +1070,7 @@ offset_right = 628.0
 offset_bottom = 67.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.5294118, 0.09411765, 0.8862745, 1)
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
 theme_override_fonts/font = ExtResource("12_0w7h6")
 theme_override_font_sizes/font_size = 32
 text = "Description:
@@ -1014,7 +1088,7 @@ offset_right = 628.0
 offset_bottom = 392.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.5294118, 0.09411765, 0.8862745, 1)
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
 theme_override_fonts/font = ExtResource("12_0w7h6")
 theme_override_font_sizes/font_size = 32
 text = "Stats:
@@ -1030,7 +1104,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(1, 0.78039217, 0.49803922, 1)
+color = Color(0, 0.21176471, 0.23137255, 1)
 
 [node name="Label" type="Label" parent="GUI/GuideCanvas/InfoCanvases/RedAntCanvas" unique_id=1528683660]
 anchors_preset = 5
@@ -1041,7 +1115,7 @@ offset_top = 20.0
 offset_right = 195.0
 offset_bottom = 108.0
 grow_horizontal = 2
-theme_override_colors/font_color = Color(0.5294118, 0.09411765, 0.8862745, 1)
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
 theme_override_fonts/font = ExtResource("11_0miwv")
 theme_override_font_sizes/font_size = 72
 text = "Red Ant"
@@ -1063,7 +1137,7 @@ offset_right = 628.0
 offset_bottom = 67.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.5294118, 0.09411765, 0.8862745, 1)
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
 theme_override_fonts/font = ExtResource("12_0w7h6")
 theme_override_font_sizes/font_size = 32
 text = "Description:
@@ -1081,7 +1155,7 @@ offset_right = 628.0
 offset_bottom = 392.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.5294118, 0.09411765, 0.8862745, 1)
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
 theme_override_fonts/font = ExtResource("12_0w7h6")
 theme_override_font_sizes/font_size = 32
 text = "Stats:
@@ -1097,7 +1171,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(1, 0.78039217, 0.49803922, 1)
+color = Color(0, 0.21176471, 0.23137255, 1)
 
 [node name="Label" type="Label" parent="GUI/GuideCanvas/InfoCanvases/RangeCanvas" unique_id=574026423]
 anchors_preset = 5
@@ -1108,7 +1182,7 @@ offset_top = 20.0
 offset_right = 195.0
 offset_bottom = 108.0
 grow_horizontal = 2
-theme_override_colors/font_color = Color(0.5294118, 0.09411765, 0.8862745, 1)
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
 theme_override_fonts/font = ExtResource("11_0miwv")
 theme_override_font_sizes/font_size = 72
 text = "Range Buff Potion"
@@ -1117,6 +1191,13 @@ vertical_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="GUI/GuideCanvas/InfoCanvases/RangeCanvas" unique_id=124464260]
 position = Vector2(250, 350)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("18_biugc")
+
+[node name="Sprite2D2" type="Sprite2D" parent="GUI/GuideCanvas/InfoCanvases/RangeCanvas" unique_id=349230860]
+position = Vector2(750, 500)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("23_biugc")
 
 [node name="Label2" type="Label" parent="GUI/GuideCanvas/InfoCanvases/RangeCanvas" unique_id=1397337329]
 anchors_preset = 8
@@ -1130,7 +1211,7 @@ offset_right = 628.0
 offset_bottom = 67.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.5294118, 0.09411765, 0.8862745, 1)
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
 theme_override_fonts/font = ExtResource("12_0w7h6")
 theme_override_font_sizes/font_size = 32
 text = "Description:
@@ -1146,7 +1227,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(1, 0.78039217, 0.49803922, 1)
+color = Color(0, 0.21176471, 0.23137255, 1)
 
 [node name="Label" type="Label" parent="GUI/GuideCanvas/InfoCanvases/DamageCanvas" unique_id=762024580]
 anchors_preset = 5
@@ -1157,7 +1238,7 @@ offset_top = 20.0
 offset_right = 195.0
 offset_bottom = 108.0
 grow_horizontal = 2
-theme_override_colors/font_color = Color(0.5294118, 0.09411765, 0.8862745, 1)
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
 theme_override_fonts/font = ExtResource("11_0miwv")
 theme_override_font_sizes/font_size = 72
 text = "Damage Buff Potion"
@@ -1166,6 +1247,8 @@ vertical_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="GUI/GuideCanvas/InfoCanvases/DamageCanvas" unique_id=553490165]
 position = Vector2(250, 350)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("19_q80nm")
 
 [node name="Label2" type="Label" parent="GUI/GuideCanvas/InfoCanvases/DamageCanvas" unique_id=1158012176]
 anchors_preset = 8
@@ -1179,7 +1262,7 @@ offset_right = 628.0
 offset_bottom = 67.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.5294118, 0.09411765, 0.8862745, 1)
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
 theme_override_fonts/font = ExtResource("12_0w7h6")
 theme_override_font_sizes/font_size = 32
 text = "Description:
@@ -1195,7 +1278,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(1, 0.78039217, 0.49803922, 1)
+color = Color(0, 0.21176471, 0.23137255, 1)
 
 [node name="Label" type="Label" parent="GUI/GuideCanvas/InfoCanvases/SpeedCanvas" unique_id=994723270]
 anchors_preset = 5
@@ -1206,7 +1289,7 @@ offset_top = 20.0
 offset_right = 195.0
 offset_bottom = 108.0
 grow_horizontal = 2
-theme_override_colors/font_color = Color(0.5294118, 0.09411765, 0.8862745, 1)
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
 theme_override_fonts/font = ExtResource("11_0miwv")
 theme_override_font_sizes/font_size = 72
 text = "Speed Buff Potion"
@@ -1215,6 +1298,8 @@ vertical_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="GUI/GuideCanvas/InfoCanvases/SpeedCanvas" unique_id=1845010388]
 position = Vector2(250, 350)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("20_tvq8n")
 
 [node name="Label2" type="Label" parent="GUI/GuideCanvas/InfoCanvases/SpeedCanvas" unique_id=607830203]
 anchors_preset = 8
@@ -1228,7 +1313,7 @@ offset_right = 628.0
 offset_bottom = 67.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.5294118, 0.09411765, 0.8862745, 1)
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
 theme_override_fonts/font = ExtResource("12_0w7h6")
 theme_override_font_sizes/font_size = 32
 text = "Description:
@@ -1244,7 +1329,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.19607843, 0.32156864, 0.09803922, 0.39215687)
+color = Color(0, 0.21176471, 0.23137255, 0.39215687)
 
 [node name="Label" type="Label" parent="GUI/PauseCanvas" unique_id=743957223]
 anchors_preset = 8
@@ -1258,6 +1343,7 @@ offset_right = 157.5
 offset_bottom = -72.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
 theme_override_fonts/font = ExtResource("11_0miwv")
 theme_override_font_sizes/font_size = 72
 text = "Game Paused"
@@ -1274,8 +1360,8 @@ offset_right = 110.5
 offset_bottom = 51.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.9490196, 0.70980394, 0.5803922, 1)
-theme_override_colors/font_hover_color = Color(0.69803923, 0.58431375, 0.8745098, 1)
+theme_override_colors/font_color = Color(0.99607843, 0.84705883, 0.3882353, 1)
+theme_override_colors/font_hover_color = Color(0.4392157, 0.8784314, 0.6, 1)
 theme_override_fonts/font = ExtResource("12_0w7h6")
 theme_override_font_sizes/font_size = 64
 text = "Resume"
@@ -1293,8 +1379,8 @@ offset_right = 110.5
 offset_bottom = 142.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.9490196, 0.70980394, 0.5803922, 1)
-theme_override_colors/font_hover_color = Color(0.69803923, 0.58431375, 0.8745098, 1)
+theme_override_colors/font_color = Color(0.99607843, 0.84705883, 0.3882353, 1)
+theme_override_colors/font_hover_color = Color(0.4392157, 0.8784314, 0.6, 1)
 theme_override_fonts/font = ExtResource("12_0w7h6")
 theme_override_font_sizes/font_size = 64
 text = "Quit"
@@ -1302,12 +1388,20 @@ flat = true
 
 [node name="PauseButton" type="Button" parent="GUI" unique_id=912079800]
 layout_mode = 1
-offset_right = 109.0
-offset_bottom = 67.0
-theme_override_colors/font_color = Color(0.9490196, 0.70980394, 0.5803922, 1)
-theme_override_colors/font_hover_color = Color(0.69803923, 0.58431375, 0.8745098, 1)
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -131.0
+offset_top = -78.0
+offset_right = -2.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.4392157, 0.8784314, 0.6, 1)
+theme_override_colors/font_hover_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
 theme_override_fonts/font = ExtResource("12_0w7h6")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 48
 text = "Pause"
 flat = true
 icon_alignment = 1
@@ -1320,10 +1414,10 @@ anchor_bottom = 1.0
 offset_top = -67.0
 offset_right = 109.0
 grow_vertical = 0
-theme_override_colors/font_color = Color(0.9490196, 0.70980394, 0.5803922, 1)
-theme_override_colors/font_hover_color = Color(0.69803923, 0.58431375, 0.8745098, 1)
+theme_override_colors/font_color = Color(0.4392157, 0.8784314, 0.6, 1)
+theme_override_colors/font_hover_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
 theme_override_fonts/font = ExtResource("12_0w7h6")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 48
 text = "Shop"
 flat = true
 autowrap_trim_flags = 192
@@ -1343,10 +1437,10 @@ icon_alignment = 1
 [connection signal="pressed" from="GUI/ShopCanvas/GuideButton" to="GUI" method="_on_guide_button_pressed"]
 [connection signal="pressed" from="GUI/GuideCanvas/TowerLabel/ThimbleButton" to="GUI" method="_on_thimble_button_pressed"]
 [connection signal="pressed" from="GUI/GuideCanvas/TowerLabel/BatteryButton" to="GUI" method="_on_battery_button_pressed"]
-[connection signal="tree_exited" from="GUI/GuideCanvas/TowerLabel/ArcherButton" to="GUI" method="_on_archer_button_pressed"]
 [connection signal="pressed" from="GUI/GuideCanvas/PotionsLabel/RangeButton" to="GUI" method="_on_range_button_pressed"]
 [connection signal="pressed" from="GUI/GuideCanvas/PotionsLabel/DamageButton" to="GUI" method="_on_damage_button_pressed"]
 [connection signal="pressed" from="GUI/GuideCanvas/PotionsLabel/SpeedButton" to="GUI" method="_on_speed_button_pressed"]
+[connection signal="pressed" from="GUI/GuideCanvas/PotionsLabel/HealthButton" to="GUI" method="_on_health_button_pressed"]
 [connection signal="pressed" from="GUI/GuideCanvas/EnemiesLabel/PurpleButton" to="GUI" method="_on_purple_button_pressed"]
 [connection signal="pressed" from="GUI/GuideCanvas/EnemiesLabel/YellowButton" to="GUI" method="_on_yellow_button_pressed"]
 [connection signal="pressed" from="GUI/GuideCanvas/EnemiesLabel/RedButton" to="GUI" method="_on_red_button_pressed"]
