@@ -363,6 +363,7 @@ animation = &"swing"
 frame_progress = 0.82617325
 
 [node name="WarriorTimer" type="Timer" parent="." index="5" unique_id=1405007805]
+one_shot = true
 
 [node name="warrior_hurt_box" type="Area3D" parent="." index="6" unique_id=1392525411]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.75)

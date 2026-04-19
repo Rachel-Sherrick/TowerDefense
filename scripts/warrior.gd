@@ -43,7 +43,7 @@ func attack_handler() -> void:
 		var enemy_in_range = warrior_hurt_box.get_overlapping_bodies()
 		## targets an enemy; does not change target if there is no enemy returned
 		attack_alter_area(target())
-		show_hurt_box()
+		#show_hurt_box()
 		for enemy in enemy_in_range:
 			attack_damage(enemy)
 		##forces attacks to wait till animation is finished till a new one begins
