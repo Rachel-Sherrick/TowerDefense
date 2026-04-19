@@ -115,6 +115,8 @@ func _on_red_button_pressed() -> void:
 
 func _on_shop_exit_button_pressed() -> void:
 	shop_canvas.hide()
+	#for child in $ShopCanvas/ShopSlots.get_children():
+		#child.
 	$PauseButton.disabled = false
 	$ShopButton.disabled = false
 

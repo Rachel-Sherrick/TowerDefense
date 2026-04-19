@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://tu18fp20hsnf" path="res://Scenes/towers/warrior.tscn" id="5_0miwv"]
 [ext_resource type="Texture2D" uid="uid://dxojowqqxxamn" path="res://EnvironmentGLBs/Seamless-Oak-Texture3.png" id="6_hn62u"]
 [ext_resource type="Texture2D" uid="uid://c286ok2fs05bo" path="res://EnvironmentGLBs/Rim.png" id="7_4yj7t"]
+[ext_resource type="CameraAttributesPractical" uid="uid://b4wnelwhnjghp" path="res://new_camera_attributes_practical.tres" id="7_q80nm"]
 [ext_resource type="PackedScene" uid="uid://cspaxkbchu6l3" path="res://wizard.tscn" id="8_yhwuq"]
 [ext_resource type="PackedScene" uid="uid://cmyw1wq2h0igv" path="res://Scenes/enemies/ant.tscn" id="9_032wp"]
 [ext_resource type="Texture2D" uid="uid://buh8w0f7d6bqm" path="res://sprites/towers/thimble/testthim.png" id="10_032wp"]
@@ -23,12 +24,6 @@
 [ext_resource type="Texture2D" uid="uid://dre2to8s2qtik" path="res://sprites/potions/DamageFrontPosterized.png" id="19_q80nm"]
 [ext_resource type="Texture2D" uid="uid://dllbc8np46no8" path="res://sprites/potions/SpeedFrontPosterized.png" id="20_tvq8n"]
 [ext_resource type="Texture2D" uid="uid://sf0gpga81ulo" path="res://sprites/potions/RangeTopPosterized.png" id="23_biugc"]
-
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_biugc"]
-dof_blur_far_enabled = true
-dof_blur_far_distance = 100.0
-dof_blur_far_transition = 3.0
-dof_blur_amount = 0.04
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xm2m"]
 albedo_texture = ExtResource("6_hn62u")
@@ -113,18 +108,18 @@ transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70
 metadata/_edit_lock_ = true
 
 [node name="Camera3D" type="Camera3D" parent="Battleground/BattleCamera" unique_id=1112084879]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 0.9471711, -0.3207287, 0, 0.3207287, 0.9471711, 0, -23.773878, 74.62061)
+attributes = ExtResource("7_q80nm")
 projection = 1
 current = true
 size = 24.0
 near = 5.0
 far = 251.54
-metadata/_edit_lock_ = true
 
 [node name="Camera3D2" type="Camera3D" parent="Battleground/BattleCamera" unique_id=411834890]
 transform = Transform3D(1, 0, 0, 0, 0.9471713, -0.32072872, 0, 0.32072872, 0.9471713, 0, -23.773878, 74.62061)
-attributes = SubResource("CameraAttributesPractical_biugc")
+visible = false
+attributes = ExtResource("7_q80nm")
 projection = 1
 current = true
 size = 24.0
@@ -1424,7 +1419,6 @@ autowrap_trim_flags = 192
 icon_alignment = 1
 
 [connection signal="child_entered_tree" from="Battleground" to="Player" method="_on_battleground_child_entered_tree"]
-[connection signal="input_event" from="Battleground/PlaceableArea" to="Player" method="_place_tower"]
 [connection signal="input_event" from="Battleground/PlaceableArea" to="Battleground/PlaceableArea" method="_place_tower"]
 [connection signal="purchase" from="GUI/ShopCanvas" to="Player" method="_on_shop_purchase"]
 [connection signal="input_event" from="GUI/ShopCanvas/ShopSlots/Slot1" to="GUI/ShopCanvas" method="_on_slot_1_input_event"]
