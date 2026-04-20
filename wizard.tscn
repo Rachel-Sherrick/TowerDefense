@@ -50,7 +50,7 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 0.5,
 "texture": ExtResource("4_pk22g")
 }, {
 "duration": 1.0,
@@ -123,7 +123,7 @@ animations = [{
 "speed": 24.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 0.5,
 "texture": ExtResource("24_cw4cf")
 }, {
 "duration": 1.0,
@@ -183,10 +183,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4333496, 0)
 modulate = Color(1, 1, 1, 1)
 sprite_frames = SubResource("SpriteFrames_pk22g")
 animation = &"readying attack"
-frame_progress = 0.35380813
+frame_progress = 0.0
 
 [node name="Timer" type="Timer" parent="." index="5" unique_id=776423761]
 
-[connection signal="firing" from="." to="AnimationController/SpriteBody" method="_on_wizard_firing"]
+[connection signal="firing" from="." to="AnimationController" method="_on_wizard_firing"]
 [connection signal="animation_finished" from="AnimationController/SpriteBody" to="AnimationController" method="_on_sprite_body_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -47,6 +47,7 @@ func _on_range_body_entered(body: Node3D) -> void:
 	
 func fire_projectile(target: Enemy) -> void:
 	print("WIZARD FIRING ATTACK")
+	emit_signal("firing")
 	var projectile = bullet_scene.instantiate()
 	var target_glob_pos = Vector3(-1, 0, 0)
 	
@@ -60,6 +61,7 @@ func fire_projectile(target: Enemy) -> void:
 		
 	projectile.target = target_glob_pos
 	add_child(projectile)
+	
 	fire_ready = false
 
 func _on_timer_timeout() -> void:

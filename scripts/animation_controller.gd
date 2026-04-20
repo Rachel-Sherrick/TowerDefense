@@ -17,7 +17,9 @@ func _on_wizard_firing():
 
 
 func _on_sprite_body_animation_finished():
-	true
+	sprite.stop()
+	emit_signal("animation_finished")
+	
 func _on_health_took_damage(health_lost: int) -> void:
 	var og_color = $SpriteBody.modulate
 	$SpriteBody.modulate = Color(0.943, 0.389, 0.348, 1.0)
