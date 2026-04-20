@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cmyw1wq2h0igv"]
 
 [ext_resource type="PackedScene" uid="uid://doxjo2c5tjq6e" path="res://Scenes/Classes/enemy.tscn" id="1_5tacl"]
+[ext_resource type="Script" uid="uid://cu54e3jax8s4g" path="res://Scenes/enemies/animation_controller.gd" id="2_fcl87"]
 [ext_resource type="Texture2D" uid="uid://cy4olopey5qye" path="res://sprites/enemies/ant/attack/frame0000.png" id="2_kvl2v"]
 [ext_resource type="Texture2D" uid="uid://nj37xla1vxmg" path="res://sprites/testbert.png" id="2_q4ieg"]
 [ext_resource type="Texture2D" uid="uid://ba020ghdrflc1" path="res://sprites/enemies/ant/attack/frame0001.png" id="3_yu62i"]
@@ -35,7 +36,7 @@
 [ext_resource type="Texture2D" uid="uid://cyky1ih3xjuo3" path="res://sprites/enemies/ant/walk/frame0014.png" id="18_kvl2v"]
 [ext_resource type="Texture2D" uid="uid://bk5qjveh8qksv" path="res://sprites/enemies/ant/walk/frame0015.png" id="19_yu62i"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_cqwif"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_anuxv"]
 resource_local_to_scene = true
 animations = [{
 "frames": [{
@@ -176,13 +177,14 @@ transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.23
 [node name="RangeDetection" parent="." index="2" unique_id=1602429880 groups=["Enemy"]]
 
 [node name="AnimationController" parent="." index="3" unique_id=1020417921 groups=["Enemy"]]
+script = ExtResource("2_fcl87")
 
 [node name="SpriteBody" parent="AnimationController" index="0" unique_id=1996147602]
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, -0.3, 0)
 modulate = Color(1, 1, 1, 1)
-sprite_frames = SubResource("SpriteFrames_cqwif")
+sprite_frames = SubResource("SpriteFrames_anuxv")
 animation = &"attack"
-frame_progress = 0.0
+frame_progress = 0.49370986
 
 [node name="RayCast3D" type="RayCast3D" parent="." index="6" unique_id=208812573]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -190,3 +192,6 @@ target_position = Vector3(0, 0, 3)
 hit_from_inside = true
 debug_shape_custom_color = Color(1, 0, 0, 1)
 debug_shape_thickness = 5
+
+[connection signal="body_entered" from="RangeDetection" to="AnimationController" method="_on_range_detection_body_entered"]
+[connection signal="body_exited" from="RangeDetection" to="AnimationController" method="_on_range_detection_body_exited"]
