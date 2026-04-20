@@ -45,8 +45,10 @@ sprite_frames = SubResource("SpriteFrames_g54jp")
 frame_progress = 0.63789123
 
 [node name="Control" type="Control" parent="." index="5" unique_id=356163926]
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 3
 anchors_preset = 0
+mouse_filter = 1
 script = ExtResource("3_g54jp")
 
 [node name="OptionButton" type="OptionButton" parent="Control" index="0" unique_id=766563876]
@@ -55,6 +57,8 @@ offset_left = -54.0
 offset_top = -16.0
 offset_right = 54.0
 offset_bottom = 15.0
+mouse_filter = 1
+alignment = 1
 item_count = 5
 popup/item_0/text = "First"
 popup/item_0/id = 0

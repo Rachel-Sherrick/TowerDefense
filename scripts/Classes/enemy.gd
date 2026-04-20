@@ -35,3 +35,17 @@ func attacked():
 	if (tracking_array[0] != null): 
 		self.take_damage(1)
 	
+# Damages the player towers when the enemy reaches the end
+func attackingTowers() -> void:
+	var scene = get_tree().current_scene
+	if scene == null:
+		return
+
+	var tower_1 = scene.get_node_or_null("Tower")
+	var tower_2 = scene.get_node_or_null("Tower2")
+
+	if tower_1 != null:
+		tower_1.take_damage(2)
+
+	if tower_2 != null:
+		tower_2.take_damage(2)

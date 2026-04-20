@@ -35,7 +35,7 @@ func _on_wave_cleared() -> void:
 	money *= interest
 
 func _place_tower(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
-	if event.is_action_pressed("click"):
+	if event.is_action_pressed("right_click"):
 		if (
 			inventory_dict.get(selected_item) == null
 			or inventory_dict.get(selected_item) < 1

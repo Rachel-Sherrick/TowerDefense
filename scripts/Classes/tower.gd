@@ -1,7 +1,6 @@
 extends Character
 class_name Tower
 
-
 func _process(delta: float) -> void:
 	currentTarget = target()
 
@@ -30,6 +29,7 @@ func target():
 				return null
 			WEAK: 
 				return null
+				
 ## finds the closest enemy to the tower by looping through the tracking array and comparing distances
 func findClosest(): 
 	var closestEnemy = findFirst()

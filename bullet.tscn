@@ -77,8 +77,8 @@ animations = [{
 
 [node name="Bullet" type="CharacterBody3D" unique_id=177859810]
 transform = Transform3D(-2.1855694e-08, -0.5, 0, 0.5, -2.1855694e-08, 0, 0, 0, 0.5, 0, 0, 0)
-collision_layer = 2
-collision_mask = 2
+collision_layer = 3
+collision_mask = 3
 motion_mode = 1
 script = ExtResource("1_v7oki")
 
@@ -86,22 +86,9 @@ script = ExtResource("1_v7oki")
 visible = false
 mesh = SubResource("CapsuleMesh_cegan")
 
-[node name="Timer" type="Timer" parent="." unique_id=1961355293]
-process_callback = 0
-one_shot = true
-autostart = true
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=79341429]
+shape = SubResource("CapsuleShape3D_82xsv")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1553554883]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0234375, 0)
-shape = SubResource("CapsuleShape3D_v8qja")
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=302503794]
 
-[node name="Animation Controller" type="Node3D" parent="." unique_id=721849796]
-transform = Transform3D(-1.8545171e-07, 4.2426405, 4.2426405, -6, -2.6226832e-07, 0, 1.8545171e-07, -4.2426405, 4.2426405, 0, -0.0234375, 0)
-
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Animation Controller" unique_id=1859617270]
-sprite_frames = SubResource("SpriteFrames_51pxt")
-animation = &"impact"
-frame = 5
-frame_progress = 0.5375152
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]
