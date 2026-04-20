@@ -110,7 +110,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("23_luwpg")
 }],
-"loop": true,
+"loop": false,
 "name": &"firing attack",
 "speed": 24.0
 }, {
@@ -118,7 +118,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("24_cw4cf")
 }],
-"loop": true,
+"loop": false,
 "name": &"idle",
 "speed": 24.0
 }, {
@@ -183,7 +183,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4333496, 0)
 sprite_frames = SubResource("SpriteFrames_pk22g")
 animation = &"idle"
 frame_progress = 0.0
+speed_scale = 2.0
 
 [node name="Timer" type="Timer" parent="." index="5" unique_id=776423761]
 
+[connection signal="firing" from="." to="AnimationController/SpriteBody" method="_on_wizard_firing"]
+[connection signal="animation_finished" from="AnimationController/SpriteBody" to="AnimationController" method="_on_sprite_body_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
