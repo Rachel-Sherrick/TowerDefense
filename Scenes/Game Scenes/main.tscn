@@ -1562,4 +1562,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 0)
 [connection signal="pressed" from="Player/GUI/ShopButton" to="Player/GUI" method="_on_shop_button_pressed"]
 [connection signal="pressed" from="Player/GUI/InventoryBar/OpenCloseButton" to="Player/GUI" method="_on_open_close_button_pressed"]
 [connection signal="child_entered_tree" from="Battleground" to="Player" method="_on_battleground_child_entered_tree"]
-[connection signal="input_event" from="Battleground/PlaceableArea" to="Battleground/PlaceableArea" method="_place_tower"]
+[connection signal="input_event" from="Battleground/PlaceableArea" to="Player" method="_place_tower"]

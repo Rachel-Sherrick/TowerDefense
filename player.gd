@@ -60,7 +60,7 @@ func _on_shop_purchase(item_name: String, cost: float) -> void:
 		print(name, " went out of money")
 		return
 	_alter_money(-cost)
-	if (inventory_dict.get(selected_item) == null):
+	if (inventory_dict.get(item_name) == null):
 		inventory_dict[item_name] = 1
 	else:
 		inventory_dict[item_name] += 1
