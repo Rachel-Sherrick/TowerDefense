@@ -8,6 +8,8 @@ signal tower_placed(tower: Tower)
 @export var money: float
 ##the rate of intrest earned for clearing a wave
 @export var interest: float
+##the UI label that shows amount of money
+@onready var coins_label: Label = $GUI/CoinsLabel
 
 ##the selected inventory item
 @export_enum("warrior", "buff_potion", "damage_potion") var selected_item: String
@@ -17,7 +19,7 @@ var inventory_dict: Dictionary[String, int]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	coins_label.text = ("Coins: " + str(money))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -25,14 +27,18 @@ func _process(delta: float) -> void:
 
 func _on_battleground_child_entered_tree(node) -> void:
 	if node is Enemy:
-		node.connect("died", _alter_money)
+		#eventually create variables for different amount of
+		#money earned after killing different enemies?
+		node.connect("died", _alter_money(1.0))
 
 func _alter_money(value: float):
 	money += value
+	coins_label.text = ("Coins: " + str(money))
 
 ## needs to be linked with a signal on a wave clear
 func _on_wave_cleared() -> void:
 	money *= interest
+	coins_label.text = ("Coins: " + str(money))
 
 func _place_tower(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
 	if event.is_action_pressed("right_click"):
