@@ -45,6 +45,7 @@ func _on_play_button_pressed() -> void:
 
 func _on_shop_button_pressed() -> void:
 	shop_canvas.show()
+	$"../../Battleground/PlaceableArea".input_ray_pickable = false
 	$PauseButton.disabled = true
 	$ShopButton.disabled = true
 	#pause game???
@@ -119,6 +120,7 @@ func _on_shop_exit_button_pressed() -> void:
 		#child.
 	$PauseButton.disabled = false
 	$ShopButton.disabled = false
+	$"../../Battleground/PlaceableArea".input_ray_pickable = true
 
 
 func _on_health_button_pressed() -> void:

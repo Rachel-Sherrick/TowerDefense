@@ -6,11 +6,14 @@ class_name Warrior
 @onready var warrior_timer: Timer = $WarriorTimer
 @onready var animation_controller: Node3D = $AnimationController
 
+signal attack_complete()
+
 #is the cooldown over
 var swing_ready : bool = false
 
 func _ready() -> void:
 	#on load the hurt box is not visible. the mesh instance is just a visual for the hurt box
+	animation_controller.play("idle")
 	warrior_hurt_box.hide()
 	warrior_timer.start()
 
@@ -18,12 +21,15 @@ func _process(delta: float) -> void:
 	#if warrior_timer.is_stopped():
 		#print("TIMER NOT WORKING")
 	if swing_ready == true && $RangeDetection.has_overlapping_bodies():
-		await attack_handler()
-	if !($RangeDetection.has_overlapping_bodies()):
-		animation_controller.play("idle")
+		##prevents animations from getting overwritten
+		if animation_controller.get_animation() == "idle":  
+			attack_handler()
+	#if !($RangeDetection.has_overlapping_bodies()):
+		#animation_controller.play("idle")
 
 func _physics_process(delta: float) -> void:
 	super(delta)
+	
 
 func _on_range_detection_body_exited(body: Node3D) -> void:
 	super(body)
@@ -39,15 +45,19 @@ func _on_timer_timeout():
 
 ##handles the attacking of enemies
 func attack_handler() -> void:
-		reset_cooldown()
-		var enemy_in_range = warrior_hurt_box.get_overlapping_bodies()
-		## targets an enemy; does not change target if there is no enemy returned
-		attack_alter_area(target())
-		show_hurt_box()
-		for enemy in enemy_in_range:
-			attack_damage(enemy)
-		##forces attacks to wait till animation is finished till a new one begins
-		await animation_controller.animation_finished
+	swing_ready = false
+	## targets an enemy; does not change target if there is no enemy returned
+	attack_alter_area(target())
+	var enemy_in_range = warrior_hurt_box.get_overlapping_bodies()
+	#show_hurt_box()
+	for enemy in enemy_in_range:
+		attack_damage(enemy)
+	print("Attack complete")
+	##forces attacks to wait till animation is finished till a new one begins
+	await animation_controller.animation_finished
+	reset_cooldown()
+	emit_signal("attack_complete")
+	
 
 ## Handles the animation and the oritentation of an attack
 func attack_alter_area(target: Enemy) -> void:
@@ -67,7 +77,7 @@ func attack_damage(enemy: Enemy) -> void:
 #reset timer and swing ready
 func reset_cooldown() -> void:
 	warrior_timer.start()
-	swing_ready = false
+	animation_controller.play("idle")
 	print(name + "'s attack on cooldown")
 
 #show hurt box for 1 second when the warrior swings

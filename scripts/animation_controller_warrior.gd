@@ -48,6 +48,9 @@ func play(animation: String) -> bool:
 	$SpriteBody.play(animation)
 	return true
 
+func get_animation() -> String:
+	return $SpriteBody.animation
+
 ## stops and resets all animations
 func stop() -> bool:
 	$SpriteBody.stop()
@@ -56,7 +59,6 @@ func stop() -> bool:
 
 func _on_sprite_body_animation_changed() -> void:
 	animation_align()
-
 
 func _on_sprite_body_animation_finished() -> void:
 	print("Animation finished")
