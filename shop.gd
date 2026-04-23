@@ -26,7 +26,7 @@ func _on_slot_3_input_event(camera: Node, event: InputEvent, shape_idx: int) -> 
 	if (
 		event.is_action_pressed("click") 
 	):
-		emit_signal("purchase", "archer", 1)
+		emit_signal("purchase", "health_potion", 1)
 
 func _on_slot_4_input_event(camera: Node, event: InputEvent, shape_idx: int) -> void:
 	if (

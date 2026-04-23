@@ -17,9 +17,11 @@ extends Node
 @onready var yellow_ant_canvas: CanvasLayer = $"GuideCanvas/InfoCanvases/YellowAntCanvas"
 @onready var red_ant_canvas: CanvasLayer = $"GuideCanvas/InfoCanvases/RedAntCanvas"
 
+@onready var inventory_bar: ColorRect = $InventoryBar
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -116,6 +118,8 @@ func _on_red_button_pressed() -> void:
 
 func _on_shop_exit_button_pressed() -> void:
 	shop_canvas.hide()
+	#for child in $ShopCanvas/ShopSlots.get_children():
+		#child.
 	$PauseButton.disabled = false
 	$ShopButton.disabled = false
 	$"../../Battleground/PlaceableArea".input_ray_pickable = true
@@ -124,3 +128,13 @@ func _on_shop_exit_button_pressed() -> void:
 func _on_health_button_pressed() -> void:
 	info_canvases.show()
 	health_canvas.show()
+
+
+func _on_open_close_button_pressed() -> void:
+	if inventory_bar.position.y == 0.0:
+		print("close inventory")
+		inventory_bar.position = Vector2(524.0, -100.0)
+	else:
+		print("open inventory")
+		print(inventory_bar.position)
+		inventory_bar.position = Vector2(524.0, 0.0)
