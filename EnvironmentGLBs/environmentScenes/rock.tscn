@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://ci8t8gv05yqg0"]
+
+[ext_resource type="PackedScene" uid="uid://dfr2i3h1hgvs1" path="res://EnvironmentGLBs/rockPosterized.glb" id="1_lt788"]
+
+[node name="rockPosterized" unique_id=1085555523 instance=ExtResource("1_lt788")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
