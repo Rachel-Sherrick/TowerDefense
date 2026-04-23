@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://dre2to8s2qtik" path="res://sprites/potions/DamageFrontPosterized.png" id="19_q80nm"]
 [ext_resource type="Texture2D" uid="uid://dllbc8np46no8" path="res://sprites/potions/SpeedFrontPosterized.png" id="20_tvq8n"]
 [ext_resource type="Texture2D" uid="uid://sf0gpga81ulo" path="res://sprites/potions/RangeTopPosterized.png" id="23_biugc"]
+[ext_resource type="Script" uid="uid://dwl5j2bpgr7mr" path="res://Scenes/Game Scenes/enemy_spawner.gd" id="23_q80nm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yhwuq"]
 
@@ -1344,9 +1345,6 @@ environment = SubResource("Environment_0xm2m")
 [node name="Characters" type="Node3D" parent="Battleground" unique_id=765419014]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.012677, 0, -2.3001575)
 
-[node name="Character" parent="Battleground/Characters" unique_id=109752332 instance=ExtResource("9_032wp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.351856, 0.3313707, 5.5990877)
-
 [node name="Wizard" parent="Battleground/Characters" unique_id=254305490 instance=ExtResource("8_yhwuq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.032525)
 
@@ -1422,6 +1420,15 @@ text = "QUIT!!!!!"
 
 [node name="Orb" parent="Battleground" unique_id=399436037 instance=ExtResource("11_me364")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 0)
+
+[node name="EnemySpawner" type="Node3D" parent="." unique_id=1336024822 node_paths=PackedStringArray("spawn_point")]
+script = ExtResource("23_q80nm")
+enemy_scene = ExtResource("9_032wp")
+spawn_point = NodePath("../EnemySpawnPoint")
+spawn_interval = 5.0
+
+[node name="EnemySpawnPoint" type="Node3D" parent="." unique_id=307491391]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 1, 0)
 
 [connection signal="purchase" from="Player/GUI/ShopCanvas" to="Player" method="_on_shop_purchase"]
 [connection signal="input_event" from="Player/GUI/ShopCanvas/ShopSlots/Slot1" to="Player/GUI/ShopCanvas" method="_on_slot_1_input_event"]
