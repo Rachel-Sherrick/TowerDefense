@@ -51,7 +51,7 @@ func attack_handler() -> void:
 	var enemy_in_range = warrior_hurt_box.get_overlapping_bodies()
 	#show_hurt_box()
 	for enemy in enemy_in_range:
-		attack_damage(enemy)
+		attack_damage_to_enemy(enemy)
 	print("Attack complete")
 	##forces attacks to wait till animation is finished till a new one begins
 	await animation_controller.animation_finished
@@ -68,7 +68,7 @@ func attack_alter_area(target: Enemy) -> void:
 	change_attack_direction(cardinal)
 
 #dealing warrior sword swing damage to enemies
-func attack_damage(enemy: Enemy) -> void:
+func attack_damage_to_enemy(enemy: Enemy) -> void:
 	print(name, " attacked ", enemy.name)
 	## !! see comments in Character.gd !!
 	enemy.take_damage(1)

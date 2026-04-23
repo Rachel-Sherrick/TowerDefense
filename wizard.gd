@@ -13,6 +13,7 @@ var fire_ready: bool = false
 @onready var timer: Timer = $Timer
 
 func _ready() -> void:
+	timer.wait_time = attack_interval
 	timer.start()
 
 func _process(delta: float) -> void:
@@ -46,7 +47,7 @@ func _on_range_body_entered(body: Node3D) -> void:
 	
 func fire_projectile(target: Enemy) -> void:
 	print("WIZARD FIRING ATTACK")
-	var projectile = bullet_scene.instantiate()
+	var projectile: Bullet = bullet_scene.instantiate()
 	var target_glob_pos = Vector3(-1, 0, 0)
 	
 	## these prevent the bullet from flying off at odd angles or colliding into
@@ -58,6 +59,7 @@ func fire_projectile(target: Enemy) -> void:
 		target_glob_pos = Vector3(target.global_position.x, projectile.position.y, target.global_position.z)
 		
 	projectile.target = target_glob_pos
+	projectile.attack_damage = attack_damage
 	add_child(projectile)
 	fire_ready = false
 

@@ -335,6 +335,7 @@ size = Vector3(5, 1, 3.5)
 
 [node name="Warrior" unique_id=254305490 instance=ExtResource("1_wfww2")]
 script = ExtResource("2_xumaq")
+attack_damage = 1
 
 [node name="Body" parent="." index="0" unique_id=447693479]
 surface_material_override/0 = SubResource("StandardMaterial3D_yvydg")
