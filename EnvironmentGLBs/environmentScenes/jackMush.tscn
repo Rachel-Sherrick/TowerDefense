@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cf253tkxihwse"]
+
+[ext_resource type="PackedScene" uid="uid://gbweq7qx68lx" path="res://EnvironmentGLBs/JackMushPosterized.glb" id="1_8s5rs"]
+
+[node name="JackMushPosterized" unique_id=581041537 instance=ExtResource("1_8s5rs")]
+
+[node name="Sphere_002" parent="." index="0" unique_id=1349764157]
+transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 0, -0.1, 0)

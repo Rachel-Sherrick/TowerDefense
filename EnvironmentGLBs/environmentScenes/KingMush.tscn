@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://qwcib3hg8bwk"]
+
+[ext_resource type="PackedScene" uid="uid://du3f6ur23w2rx" path="res://EnvironmentGLBs/KingMushPosterized.glb" id="1_6yceg"]
+
+[node name="KingMushPosterized" unique_id=320133709 instance=ExtResource("1_6yceg")]
+
+[node name="Circle_003" parent="." index="0" unique_id=271734682]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)

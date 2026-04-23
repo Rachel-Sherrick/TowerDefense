@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://tu18fp20hsnf" path="res://Scenes/towers/warrior.tscn" id="5_0miwv"]
 [ext_resource type="Texture2D" uid="uid://dxojowqqxxamn" path="res://EnvironmentGLBs/Seamless-Oak-Texture3.png" id="6_hn62u"]
 [ext_resource type="Texture2D" uid="uid://c286ok2fs05bo" path="res://EnvironmentGLBs/Rim.png" id="7_4yj7t"]
+[ext_resource type="CameraAttributesPractical" uid="uid://b4wnelwhnjghp" path="res://new_camera_attributes_practical.tres" id="7_q80nm"]
 [ext_resource type="PackedScene" uid="uid://cspaxkbchu6l3" path="res://wizard.tscn" id="8_yhwuq"]
 [ext_resource type="PackedScene" uid="uid://cmyw1wq2h0igv" path="res://Scenes/enemies/ant.tscn" id="9_032wp"]
 [ext_resource type="Texture2D" uid="uid://buh8w0f7d6bqm" path="res://sprites/towers/thimble/testthim.png" id="10_032wp"]
@@ -21,16 +22,18 @@
 [ext_resource type="Texture2D" uid="uid://cxcgrt5b7njaf" path="res://sprites/potions/HealthFrontPosterized.png" id="17_ifosd"]
 [ext_resource type="Texture2D" uid="uid://bmgl6l8crr5hi" path="res://sprites/potions/RangeFrontPosterized.png" id="18_biugc"]
 [ext_resource type="Texture2D" uid="uid://dre2to8s2qtik" path="res://sprites/potions/DamageFrontPosterized.png" id="19_q80nm"]
+[ext_resource type="PackedScene" uid="uid://blqact6xyog7f" path="res://EnvironmentGLBs/environmentScenes/tree2.tscn" id="19_wolj3"]
 [ext_resource type="Texture2D" uid="uid://dllbc8np46no8" path="res://sprites/potions/SpeedFrontPosterized.png" id="20_tvq8n"]
 [ext_resource type="Texture2D" uid="uid://sf0gpga81ulo" path="res://sprites/potions/RangeTopPosterized.png" id="23_biugc"]
+[ext_resource type="PackedScene" uid="uid://c0su5xed22cwb" path="res://EnvironmentGLBs/environmentScenes/tree3.tscn" id="26_wolj3"]
+[ext_resource type="PackedScene" uid="uid://dvkrhrg0xhe2l" path="res://EnvironmentGLBs/environmentScenes/tree1.tscn" id="27_aobh2"]
+[ext_resource type="PackedScene" uid="uid://cf253tkxihwse" path="res://EnvironmentGLBs/environmentScenes/jackMush.tscn" id="28_54h8o"]
+[ext_resource type="PackedScene" uid="uid://ci8t8gv05yqg0" path="res://EnvironmentGLBs/environmentScenes/rock.tscn" id="28_ia0fb"]
+[ext_resource type="PackedScene" uid="uid://qwcib3hg8bwk" path="res://EnvironmentGLBs/environmentScenes/KingMush.tscn" id="31_30g23"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yhwuq"]
 
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_biugc"]
-dof_blur_far_enabled = true
-dof_blur_far_distance = 100.0
-dof_blur_far_transition = 3.0
-dof_blur_amount = 0.04
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q80nm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xm2m"]
 albedo_texture = ExtResource("6_hn62u")
@@ -73,7 +76,7 @@ volumetric_fog_ambient_inject = 0.4
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w48qg"]
 transparency = 1
-albedo_color = Color(0.57, 0.54605997, 0.4902, 0.49803922)
+albedo_color = Color(0.5686275, 0.54509807, 0.49019608, 0)
 
 [sub_resource type="BoxMesh" id="BoxMesh_vivmo"]
 material = SubResource("StandardMaterial3D_w48qg")
@@ -1233,6 +1236,130 @@ flat = true
 autowrap_trim_flags = 192
 icon_alignment = 1
 
+[node name="CoinsLabel" type="Label" parent="Player/GUI" unique_id=1595139303]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -176.0
+offset_right = -12.0
+offset_bottom = 70.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0.4392157, 0.8784314, 0.6, 1)
+theme_override_fonts/font = ExtResource("12_0w7h6")
+theme_override_font_sizes/font_size = 48
+text = "Coins: 0"
+
+[node name="InventoryBar" type="ColorRect" parent="Player/GUI" unique_id=64472063]
+layout_mode = 0
+offset_left = 524.0
+offset_top = -100.0
+offset_right = 844.0
+color = Color(0.70980394, 0.90588236, 0.8666667, 0.78431374)
+
+[node name="OpenCloseButton" type="Button" parent="Player/GUI/InventoryBar" unique_id=1421272251]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -25.0
+offset_right = 6.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2, 2)
+theme_override_colors/font_color = Color(0.4392157, 0.8784314, 0.6, 1)
+theme_override_colors/font_hover_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
+theme_override_fonts/font = ExtResource("12_0w7h6")
+theme_override_font_sizes/font_size = 18
+text = "Inventory"
+flat = true
+
+[node name="WarriorBox" type="ColorRect" parent="Player/GUI/InventoryBar" unique_id=915752473]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 60.0
+offset_top = -40.0
+offset_right = 100.0
+grow_vertical = 2
+scale = Vector2(2, 2)
+color = Color(0.99607843, 0.84705883, 0.3882353, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/GUI/InventoryBar/WarriorBox" unique_id=1952044322]
+position = Vector2(20, 20)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("10_032wp")
+
+[node name="WarriorCount" type="Label" parent="Player/GUI/InventoryBar/WarriorBox" unique_id=1472085798]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -35.0
+offset_top = -15.0
+offset_right = 5.0
+offset_bottom = 8.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0.21176471, 0.23137255, 1)
+theme_override_fonts/font = ExtResource("12_0w7h6")
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="WarriorSelect" type="Area2D" parent="Player/GUI/InventoryBar/WarriorBox" unique_id=806784879]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/GUI/InventoryBar/WarriorBox/WarriorSelect" unique_id=8178388]
+position = Vector2(20, 20)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_q80nm")
+debug_color = Color(0, 0.6, 0.7019608, 0)
+
+[node name="WizardBox" type="ColorRect" parent="Player/GUI/InventoryBar" unique_id=228488003]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -140.0
+offset_top = -40.0
+offset_right = -100.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(2, 2)
+color = Color(0.99607843, 0.84705883, 0.3882353, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/GUI/InventoryBar/WizardBox" unique_id=895037726]
+position = Vector2(20, 20)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("16_me364")
+
+[node name="WizardCount" type="Label" parent="Player/GUI/InventoryBar/WizardBox" unique_id=1073270355]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -35.0
+offset_top = -15.0
+offset_right = 5.0
+offset_bottom = 8.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0.21176471, 0.23137255, 1)
+theme_override_fonts/font = ExtResource("12_0w7h6")
+text = "0"
+horizontal_alignment = 2
+
 [node name="Battleground" type="Node3D" parent="." unique_id=1447681041]
 
 [node name="Shop" type="Node3D" parent="Battleground" unique_id=685433725]
@@ -1249,18 +1376,18 @@ transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70
 metadata/_edit_lock_ = true
 
 [node name="Camera3D" type="Camera3D" parent="Battleground/BattleCamera" unique_id=1112084879]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 0.9471711, -0.3207287, 0, 0.3207287, 0.9471711, 0, -23.773878, 74.62061)
+attributes = ExtResource("7_q80nm")
 projection = 1
 current = true
 size = 24.0
 near = 5.0
 far = 251.54
-metadata/_edit_lock_ = true
 
 [node name="Camera3D2" type="Camera3D" parent="Battleground/BattleCamera" unique_id=411834890]
 transform = Transform3D(1, 0, 0, 0, 0.9471713, -0.32072872, 0, 0.32072872, 0.9471713, 0, -23.773878, 74.62061)
-attributes = SubResource("CameraAttributesPractical_biugc")
+visible = false
+attributes = ExtResource("7_q80nm")
 projection = 1
 current = true
 size = 24.0
@@ -1271,7 +1398,6 @@ far = 251.54
 transform = Transform3D(0.95105654, 0.108725056, -0.2892583, 0, 0.93605953, 0.35184166, 0.309017, -0.3346213, 0.89024556, 0, 0, 23)
 light_color = Color(0.7254902, 1, 1, 1)
 light_energy = 0.193
-shadow_enabled = true
 shadow_bias = 0.04
 shadow_blur = 1.5
 metadata/_edit_lock_ = true
@@ -1292,7 +1418,6 @@ light_color = Color(1, 0.7705864, 0.47898167, 1)
 light_energy = 10.612
 light_size = 0.05
 light_specular = 1.65
-shadow_enabled = true
 spot_range = 79.637
 spot_angle = 39.69
 spot_angle_attenuation = 1.6245042
@@ -1330,6 +1455,7 @@ metadata/_edit_lock_ = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Battleground/Ground" unique_id=1595735021]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.230896, 0, 0)
 shape = SubResource("BoxShape3D_7dm0k")
+debug_color = Color(0, 0.6, 0.7019608, 0)
 metadata/_edit_lock_ = true
 
 [node name="Sprite3D" type="Sprite3D" parent="Battleground/Ground" unique_id=1260229614]
@@ -1361,6 +1487,7 @@ metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Battleground/PlaceableArea" unique_id=2063056620]
 shape = SubResource("BoxShape3D_h2yge")
+debug_color = Color(0, 0.6, 0.7019608, 0)
 
 [node name="Props" type="Node3D" parent="Battleground" unique_id=1164932755]
 
@@ -1423,6 +1550,81 @@ text = "QUIT!!!!!"
 [node name="Orb" parent="Battleground" unique_id=399436037 instance=ExtResource("11_me364")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 0)
 
+[node name="Environment" type="Node3D" parent="." unique_id=1064133283]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.409234)
+
+[node name="trees" type="Node3D" parent="Environment" unique_id=428416987]
+
+[node name="tree1Posterized" parent="Environment/trees" unique_id=682523987 instance=ExtResource("27_aobh2")]
+transform = Transform3D(0.5591618, 0, -0.5721347, 0, 0.8, 0, 0.5721347, 0, 0.5591618, -20.672655, 3.6148682, -8.894728)
+
+[node name="tree2Posterized" parent="Environment/trees" unique_id=772968056 instance=ExtResource("19_wolj3")]
+transform = Transform3D(0.7304155, 0, 0.32633296, 0, 0.8, 0, -0.32633296, 0, 0.7304155, 21.7521, 3.6378875, -9.677833)
+
+[node name="tree3Posterized" parent="Environment/trees" unique_id=1548448643 instance=ExtResource("26_wolj3")]
+transform = Transform3D(0.43242726, 0, -0.67305773, 0, 0.8, 0, 0.67305773, 0, 0.43242726, 5.9222717, 3.6253085, -12.328614)
+
+[node name="tree2Posterized2" parent="Environment/trees" unique_id=957997568 instance=ExtResource("19_wolj3")]
+transform = Transform3D(0.7534819, 0, -0.2688216, 0, 0.8, 0, 0.2688216, 0, 0.7534819, -18.159067, 3.6378875, -10.460803)
+
+[node name="tree1Posterized2" parent="Environment/trees" unique_id=1193977988 instance=ExtResource("27_aobh2")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -16.481455, 3.6148682, -13.191803)
+
+[node name="tree3Posterized2" parent="Environment/trees" unique_id=915705683 instance=ExtResource("26_wolj3")]
+transform = Transform3D(0.27484906, 0, 0.7513042, 0, 0.8, 0, -0.7513042, 0, 0.27484906, -13.453262, 3.6253104, -11.260515)
+
+[node name="tree1Posterized3" parent="Environment/trees" unique_id=1317504468 instance=ExtResource("27_aobh2")]
+transform = Transform3D(0.5100145, 0, 0.61634827, 0, 0.8, 0, -0.61634827, 0, 0.5100145, -7.303142, 3.6148682, -11.614123)
+
+[node name="tree2Posterized3" parent="Environment/trees" unique_id=1715822286 instance=ExtResource("19_wolj3")]
+transform = Transform3D(0.75803196, 0, -0.25570995, 0, 0.79999995, 0, 0.25570995, 0, 0.75803196, -0.017717838, 3.6378875, -12.470705)
+
+[node name="tree2Posterized4" parent="Environment/trees" unique_id=485823365 instance=ExtResource("19_wolj3")]
+transform = Transform3D(-0.442876, 0, -0.6662289, 0, 0.8, 0, 0.6662289, 0, -0.442876, 11.258421, 3.6378875, -10.617927)
+
+[node name="tree1Posterized4" parent="Environment/trees" unique_id=1862209460 instance=ExtResource("27_aobh2")]
+transform = Transform3D(0.76541024, 0, -0.23269534, 0, 0.8, 0, 0.23269534, 0, 0.76541024, 19.525248, 3.6148682, -11.379046)
+
+[node name="tree3Posterized3" parent="Environment/trees" unique_id=665979122 instance=ExtResource("26_wolj3")]
+transform = Transform3D(-0.37913537, 0, -0.70445466, 0, 0.79999995, 0, 0.70445466, 0, -0.37913537, 17.755127, 3.6253104, -9.362063)
+
+[node name="tree3Posterized4" parent="Environment/trees" unique_id=64430834 instance=ExtResource("26_wolj3")]
+transform = Transform3D(0.7029471, 0, 0.38192332, 0, 0.8, 0, -0.38192332, 0, 0.7029471, -2.3997552, 3.6253104, -10.643226)
+
+[node name="mushrooms" type="Node3D" parent="Environment" unique_id=614979665]
+
+[node name="KingMushPosterized" parent="Environment/mushrooms" unique_id=320133709 instance=ExtResource("31_30g23")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.456868, -4.7683716e-07, -9.86937)
+
+[node name="JackMushPosterized" parent="Environment/mushrooms" unique_id=581041537 instance=ExtResource("28_54h8o")]
+transform = Transform3D(-0.017504795, 0, -0.99984676, 0, 1, 0, 0.99984676, 0, -0.017504795, 4.9542046, 0.06058857, -13.236093)
+
+[node name="JackMushPosterized2" parent="Environment/mushrooms" unique_id=328634742 instance=ExtResource("28_54h8o")]
+transform = Transform3D(-0.83739454, 0, 0.5465989, 0, 1, 0, -0.5465989, 0, -0.83739454, 7.0858936, 0.06058857, -9.317312)
+
+[node name="KingMushPosterized2" parent="Environment/mushrooms" unique_id=1868139818 instance=ExtResource("31_30g23")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2692313, 0, -12.826311)
+
+[node name="KingMushPosterized3" parent="Environment/mushrooms" unique_id=2105874683 instance=ExtResource("31_30g23")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.335497, 0, -8.778921)
+
+[node name="JackMushPosterized3" parent="Environment/mushrooms" unique_id=1913596098 instance=ExtResource("28_54h8o")]
+transform = Transform3D(0.7021406, 0, -0.71203834, 0, 1, 0, 0.71203834, 0, 0.7021406, -19.130205, 0.06058857, -11.503359)
+
+[node name="rocks" type="Node3D" parent="Environment" unique_id=531251791]
+
+[node name="rockPosterized" parent="Environment/rocks" unique_id=1085555523 instance=ExtResource("28_ia0fb")]
+transform = Transform3D(0.6204891, 0, -0.45654413, 0, 0.6980562, 0, 0.31980583, 0, 0.88578945, -16.080353, 0.24497971, -10.695463)
+
+[node name="rockPosterized2" parent="Environment/rocks" unique_id=974711316 instance=ExtResource("28_ia0fb")]
+transform = Transform3D(-0.08838063, 0, -0.42539027, 0, 0.4344744, 0, 0.42539027, 0, -0.08838063, -0.92323136, 0.07341549, -10.688224)
+
+[node name="rockPosterized3" parent="Environment/rocks" unique_id=1015751809 instance=ExtResource("28_ia0fb")]
+transform = Transform3D(0.74943405, 0, 0.29832062, 0, 0.77904975, 0, -0.21276085, 0, 1.0508119, 0.2712084, 0.15465602, -10.411734)
+
+[node name="rockPosterized4" parent="Environment/rocks" unique_id=1161958080 instance=ExtResource("28_ia0fb")]
+transform = Transform3D(0.7974231, -0.28288087, 0.244441, 0, 0.83427334, 0.3379092, -0.45460242, -0.49620456, 0.42877677, 16.284225, 0.19741616, -10.748842)
+
 [connection signal="purchase" from="Player/GUI/ShopCanvas" to="Player" method="_on_shop_purchase"]
 [connection signal="input_event" from="Player/GUI/ShopCanvas/ShopSlots/Slot1" to="Player/GUI/ShopCanvas" method="_on_slot_1_input_event"]
 [connection signal="input_event" from="Player/GUI/ShopCanvas/ShopSlots/Slot2" to="Player/GUI/ShopCanvas" method="_on_slot_2_input_event"]
@@ -1447,6 +1649,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 0)
 [connection signal="pressed" from="Player/GUI/PauseCanvas/QuitButton" to="Player/GUI" method="_on_quit_button_pressed"]
 [connection signal="pressed" from="Player/GUI/PauseButton" to="Player/GUI" method="_on_pause_button_pressed"]
 [connection signal="pressed" from="Player/GUI/ShopButton" to="Player/GUI" method="_on_shop_button_pressed"]
+[connection signal="pressed" from="Player/GUI/InventoryBar/OpenCloseButton" to="Player/GUI" method="_on_open_close_button_pressed"]
 [connection signal="child_entered_tree" from="Battleground" to="Player" method="_on_battleground_child_entered_tree"]
 [connection signal="input_event" from="Battleground/PlaceableArea" to="Player" method="_place_tower"]
-[connection signal="input_event" from="Battleground/PlaceableArea" to="Battleground/PlaceableArea" method="_place_tower"]

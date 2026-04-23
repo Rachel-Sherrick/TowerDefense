@@ -8,6 +8,13 @@ signal tower_placed(tower: Tower)
 @export var money: float
 ##the rate of intrest earned for clearing a wave
 @export var interest: float
+##the UI label that shows amount of money
+@onready var coins_label: Label = $GUI/CoinsLabel
+
+@onready var warrior_count: Label = $GUI/InventoryBar/WarriorBox/WarriorCount
+var warrior_num: int = 0
+@onready var wizard_count: Label = $GUI/InventoryBar/WizardBox/WizardCount
+var wizard_num: int = 0
 
 ##the selected inventory item
 @export_enum("warrior", "buff_potion", "damage_potion") var selected_item: String
@@ -17,7 +24,9 @@ var inventory_dict: Dictionary[String, int]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	coins_label.text = ("Coins: " + str(money))
+	warrior_count.text = (str(warrior_num))
+	wizard_count.text = (str(wizard_num))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -25,14 +34,18 @@ func _process(delta: float) -> void:
 
 func _on_battleground_child_entered_tree(node) -> void:
 	if node is Enemy:
-		node.connect("died", _alter_money)
+		#eventually create variables for different amount of
+		#money earned after killing different enemies?
+		node.connect("died", _alter_money(1.0))
 
 func _alter_money(value: float):
 	money += value
+	coins_label.text = ("Coins: " + str(money))
 
 ## needs to be linked with a signal on a wave clear
 func _on_wave_cleared() -> void:
 	money *= interest
+	coins_label.text = ("Coins: " + str(money))
 
 func _place_tower(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
 	if event.is_action_pressed("right_click"):
@@ -42,7 +55,13 @@ func _place_tower(camera: Node, event: InputEvent, event_position: Vector3, norm
 		):
 			print("No bought ", selected_item)
 			return
+			
+		## updates the inventory gui
 		inventory_dict[selected_item] -= 1
+		warrior_count.text = (str(warrior_num))
+		wizard_count.text = (str(wizard_num))
+		
+		## spawns the selected tower
 		var tower: Tower = tower_scene.instantiate()
 		get_parent().get_node("Battleground").get_node("Characters").add_child(tower)
 		tower.global_position = Vector3(event_position.x, 0, event_position.z)
@@ -54,9 +73,21 @@ func _on_shop_purchase(item_name: String, cost: float) -> void:
 		print(name, " went out of money")
 		return
 	_alter_money(-cost)
-	if (inventory_dict.get(selected_item) == null):
+	if (inventory_dict.get(item_name) == null):
 		inventory_dict[item_name] = 1
+		if item_name == "warrior":
+			warrior_num = inventory_dict[item_name]
+			warrior_count.text = (str(warrior_num))
+		elif item_name == "wizard":
+			wizard_num = inventory_dict[item_name]
+			wizard_count.text = (str(wizard_num))
 	else:
 		inventory_dict[item_name] += 1
+		if item_name == "warrior":
+			warrior_num = inventory_dict[item_name]
+			warrior_count.text = (str(warrior_num))
+		elif item_name == "wizard":
+			wizard_num = inventory_dict[item_name]
+			wizard_count.text = (str(wizard_num))
 	print(item_name, " bought")
 	print(inventory_dict)
