@@ -55,7 +55,13 @@ func _place_tower(camera: Node, event: InputEvent, event_position: Vector3, norm
 		):
 			print("No bought ", selected_item)
 			return
+			
+		## updates the inventory gui
 		inventory_dict[selected_item] -= 1
+		warrior_count.text = (str(warrior_num))
+		wizard_count.text = (str(wizard_num))
+		
+		## spawns the selected tower
 		var tower: Tower = tower_scene.instantiate()
 		get_parent().get_node("Battleground").get_node("Characters").add_child(tower)
 		tower.global_position = Vector3(event_position.x, 0, event_position.z)

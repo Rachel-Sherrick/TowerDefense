@@ -1550,9 +1550,10 @@ text = "QUIT!!!!!"
 [node name="Orb" parent="Battleground" unique_id=399436037 instance=ExtResource("11_me364")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 0)
 
-[node name="Environment" type="Node" parent="." unique_id=1803665374]
+[node name="Environment" type="Node3D" parent="." unique_id=1064133283]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.409234)
 
-[node name="trees" type="Node" parent="Environment" unique_id=400011981]
+[node name="trees" type="Node3D" parent="Environment" unique_id=428416987]
 
 [node name="tree1Posterized" parent="Environment/trees" unique_id=682523987 instance=ExtResource("27_aobh2")]
 transform = Transform3D(0.5591618, 0, -0.5721347, 0, 0.8, 0, 0.5721347, 0, 0.5591618, -20.672655, 3.6148682, -8.894728)
@@ -1573,13 +1574,13 @@ transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -16.481455, 3.6148682, 
 transform = Transform3D(0.27484906, 0, 0.7513042, 0, 0.8, 0, -0.7513042, 0, 0.27484906, -13.453262, 3.6253104, -11.260515)
 
 [node name="tree1Posterized3" parent="Environment/trees" unique_id=1317504468 instance=ExtResource("27_aobh2")]
-transform = Transform3D(0.5100145, 0, 0.61634827, 0, 0.8, 0, -0.61634827, 0, 0.5100145, 2.9628463, 3.6148682, -11.614124)
+transform = Transform3D(0.5100145, 0, 0.61634827, 0, 0.8, 0, -0.61634827, 0, 0.5100145, -7.303142, 3.6148682, -11.614123)
 
 [node name="tree2Posterized3" parent="Environment/trees" unique_id=1715822286 instance=ExtResource("19_wolj3")]
 transform = Transform3D(0.75803196, 0, -0.25570995, 0, 0.79999995, 0, 0.25570995, 0, 0.75803196, -0.017717838, 3.6378875, -12.470705)
 
 [node name="tree2Posterized4" parent="Environment/trees" unique_id=485823365 instance=ExtResource("19_wolj3")]
-transform = Transform3D(-0.442876, 0, -0.6662289, 0, 0.8, 0, 0.6662289, 0, -0.442876, 7.9063993, 3.6378875, -10.617927)
+transform = Transform3D(-0.442876, 0, -0.6662289, 0, 0.8, 0, 0.6662289, 0, -0.442876, 11.258421, 3.6378875, -10.617927)
 
 [node name="tree1Posterized4" parent="Environment/trees" unique_id=1862209460 instance=ExtResource("27_aobh2")]
 transform = Transform3D(0.76541024, 0, -0.23269534, 0, 0.8, 0, 0.23269534, 0, 0.76541024, 19.525248, 3.6148682, -11.379046)
@@ -1590,7 +1591,7 @@ transform = Transform3D(-0.37913537, 0, -0.70445466, 0, 0.79999995, 0, 0.7044546
 [node name="tree3Posterized4" parent="Environment/trees" unique_id=64430834 instance=ExtResource("26_wolj3")]
 transform = Transform3D(0.7029471, 0, 0.38192332, 0, 0.8, 0, -0.38192332, 0, 0.7029471, -2.3997552, 3.6253104, -10.643226)
 
-[node name="mushrooms" type="Node" parent="Environment" unique_id=792698295]
+[node name="mushrooms" type="Node3D" parent="Environment" unique_id=614979665]
 
 [node name="KingMushPosterized" parent="Environment/mushrooms" unique_id=320133709 instance=ExtResource("31_30g23")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.456868, -4.7683716e-07, -9.86937)
@@ -1610,7 +1611,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.335497, 0, -8.778921)
 [node name="JackMushPosterized3" parent="Environment/mushrooms" unique_id=1913596098 instance=ExtResource("28_54h8o")]
 transform = Transform3D(0.7021406, 0, -0.71203834, 0, 1, 0, 0.71203834, 0, 0.7021406, -19.130205, 0.06058857, -11.503359)
 
-[node name="rocks" type="Node" parent="Environment" unique_id=2038477133]
+[node name="rocks" type="Node3D" parent="Environment" unique_id=531251791]
 
 [node name="rockPosterized" parent="Environment/rocks" unique_id=1085555523 instance=ExtResource("28_ia0fb")]
 transform = Transform3D(0.6204891, 0, -0.45654413, 0, 0.6980562, 0, 0.31980583, 0, 0.88578945, -16.080353, 0.24497971, -10.695463)
