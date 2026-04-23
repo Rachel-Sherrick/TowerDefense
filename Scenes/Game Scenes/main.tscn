@@ -27,6 +27,8 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yhwuq"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q80nm"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xm2m"]
 albedo_texture = ExtResource("6_hn62u")
 metallic = 1.0
@@ -1307,6 +1309,14 @@ theme_override_fonts/font = ExtResource("12_0w7h6")
 text = "0"
 horizontal_alignment = 2
 vertical_alignment = 1
+
+[node name="WarriorSelect" type="Area2D" parent="Player/GUI/InventoryBar/WarriorBox" unique_id=806784879]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/GUI/InventoryBar/WarriorBox/WarriorSelect" unique_id=8178388]
+position = Vector2(20, 20)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_q80nm")
+debug_color = Color(0, 0.6, 0.7019608, 0)
 
 [node name="WizardBox" type="ColorRect" parent="Player/GUI/InventoryBar" unique_id=228488003]
 layout_mode = 1

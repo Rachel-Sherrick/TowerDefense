@@ -11,6 +11,11 @@ signal tower_placed(tower: Tower)
 ##the UI label that shows amount of money
 @onready var coins_label: Label = $GUI/CoinsLabel
 
+@onready var warrior_count: Label = $GUI/InventoryBar/WarriorBox/WarriorCount
+var warrior_num: int = 0
+@onready var wizard_count: Label = $GUI/InventoryBar/WizardBox/WizardCount
+var wizard_num: int = 0
+
 ##the selected inventory item
 @export_enum("warrior", "buff_potion", "damage_potion") var selected_item: String
 
@@ -20,6 +25,8 @@ var inventory_dict: Dictionary[String, int]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	coins_label.text = ("Coins: " + str(money))
+	warrior_count.text = (str(warrior_num))
+	wizard_count.text = (str(wizard_num))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -62,7 +69,19 @@ func _on_shop_purchase(item_name: String, cost: float) -> void:
 	_alter_money(-cost)
 	if (inventory_dict.get(item_name) == null):
 		inventory_dict[item_name] = 1
+		if item_name == "warrior":
+			warrior_num = inventory_dict[item_name]
+			warrior_count.text = (str(warrior_num))
+		elif item_name == "wizard":
+			wizard_num = inventory_dict[item_name]
+			wizard_count.text = (str(wizard_num))
 	else:
 		inventory_dict[item_name] += 1
+		if item_name == "warrior":
+			warrior_num = inventory_dict[item_name]
+			warrior_count.text = (str(warrior_num))
+		elif item_name == "wizard":
+			wizard_num = inventory_dict[item_name]
+			wizard_count.text = (str(wizard_num))
 	print(item_name, " bought")
 	print(inventory_dict)

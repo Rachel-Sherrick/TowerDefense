@@ -19,7 +19,6 @@ extends Node
 
 @onready var inventory_bar: ColorRect = $InventoryBar
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
@@ -132,10 +131,10 @@ func _on_health_button_pressed() -> void:
 
 
 func _on_open_close_button_pressed() -> void:
-	if inventory_bar.position.y == -100.0:
-		print("open inventory")
-		print(inventory_bar.position)
-		inventory_bar.position = Vector2(524.0, 0.0)
 	if inventory_bar.position.y == 0.0:
 		print("close inventory")
 		inventory_bar.position = Vector2(524.0, -100.0)
+	else:
+		print("open inventory")
+		print(inventory_bar.position)
+		inventory_bar.position = Vector2(524.0, 0.0)
