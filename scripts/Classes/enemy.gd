@@ -1,50 +1,50 @@
 extends Character
 class_name Enemy
 
+@export var target_name: String = "Orb"
+@export var attack_range: float = 2.0
+@export var attack_damage: int = 2
+@export var attack_interval: float = 1.0
+
+var target_tower: Node3D = null
+var _attack_timer: float = 0.0
+
 func _ready() -> void:
-	pass
+	super()
+	_find_target()
 
 func _physics_process(delta: float) -> void:
+	if target_tower == null or !is_instance_valid(target_tower):
+		_find_target()
+
+	_move_or_attack(delta)
 	super(delta)
-	movement()
 
-func _on_range_detection_body_exited(body: Node3D) -> void:
-	super(body)
-
-func _on_range_body_entered(body: Node3D) -> void:
-	super(body)
-	
-#Moves the enemy
-#Uses randf range to create 'organic' movement on the z axis, needs more smoothing
-func movement ():
-	var variation = randf_range(.5, -.5)
-	#self.position.z += lerp(variation, variation, .1)
-	##moves the enemy along the x axis across the screen
-	if self.position.x < 30: 
-		self.position.x += 0.1
-	elif self.position.x >= 30: 
-		self.position.x = -30
-		##puts them on the left edge of the map, 
-		##off screen so they can go back to the right. 
-
-#If towers in radius, take damage. 
-#the index needs to be changed so player can toggle first, last, etc. 
-#This is really just to get the bugs to stop. Needs replaced so they attack others, not just themselves. 
-func attacked(): 
-	if (tracking_array[0] != null): 
-		self.take_damage(1)
-	
-# Damages the player towers when the enemy reaches the end
-func attackingTowers() -> void:
-	var scene = get_tree().current_scene
+func _find_target() -> void:
+	var scene := get_tree().current_scene
 	if scene == null:
+		target_tower = null
 		return
 
-	var tower_1 = scene.get_node_or_null("Tower")
-	var tower_2 = scene.get_node_or_null("Tower2")
+	target_tower = scene.find_child(target_name, true, false) as Node3D
 
-	if tower_1 != null:
-		tower_1.take_damage(2)
+func _move_or_attack(delta: float) -> void:
+	if target_tower == null:
+		velocity = Vector3.ZERO
+		return
 
-	if tower_2 != null:
-		tower_2.take_damage(2)
+	var dist := global_position.distance_to(target_tower.global_position)
+
+	if dist <= attack_range:
+		velocity = Vector3.ZERO
+		_attack_timer -= delta
+		if _attack_timer <= 0.0:
+			if target_tower.has_method("take_damage"):
+				target_tower.take_damage(attack_damage)
+			_attack_timer = attack_interval
+	else:
+		_attack_timer = 0.0
+		var dir := (target_tower.global_position - global_position).normalized()
+		velocity.x = dir.x * speed
+		velocity.z = dir.z * speed
+		velocity.y = 0.0
