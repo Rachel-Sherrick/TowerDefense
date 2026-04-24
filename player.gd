@@ -17,7 +17,7 @@ var warrior_num: int = 0
 var wizard_num: int = 0
 
 ##the selected inventory item
-@export_enum("warrior", "buff_potion", "damage_potion") var selected_item: String
+@export_enum("warrior", "wizard") var selected_item: String
 
 ##the inventory of potions and bought player towers
 var inventory_dict: Dictionary[String, int]
@@ -58,8 +58,13 @@ func _place_tower(camera: Node, event: InputEvent, event_position: Vector3, norm
 			
 		## updates the inventory gui
 		inventory_dict[selected_item] -= 1
-		warrior_count.text = (str(warrior_num))
-		wizard_count.text = (str(wizard_num))
+		
+		##updates the text
+		##should be moved to its own function
+		if (inventory_dict.get("warrior") != null):
+			warrior_count.text = (str(inventory_dict["warrior"]))
+		if (inventory_dict.get("wizard") != null):
+			wizard_count.text = (str(inventory_dict["wizard"]))
 		
 		## spawns the selected tower
 		var tower: Tower = tower_scene.instantiate()

@@ -18,17 +18,14 @@ func _ready() -> void:
 	warrior_timer.start()
 
 func _process(delta: float) -> void:
-	#if warrior_timer.is_stopped():
-		#print("TIMER NOT WORKING")
-	if swing_ready == true && $RangeDetection.has_overlapping_bodies():
-		##prevents animations from getting overwritten
-		if animation_controller.get_animation() == "idle":  
-			attack_handler()
-	#if !($RangeDetection.has_overlapping_bodies()):
-		#animation_controller.play("idle")
+	super(delta)
 
 func _physics_process(delta: float) -> void:
 	super(delta)
+	if ($RangeDetection.has_overlapping_bodies()) and (swing_ready == true):
+		##prevents animations from getting overwritten
+		if animation_controller.get_animation() == "idle":
+			attack_handler()
 	
 
 func _on_range_detection_body_exited(body: Node3D) -> void:
@@ -47,12 +44,22 @@ func _on_timer_timeout():
 func attack_handler() -> void:
 	swing_ready = false
 	## targets an enemy; does not change target if there is no enemy returned
-	attack_alter_area(target())
-	var enemy_in_range = warrior_hurt_box.get_overlapping_bodies()
+	
+	var cardinal = attack_alter_area(target())
+	change_attack_direction(cardinal)
+	
+	var enemies = warrior_hurt_box.get_overlapping_bodies()
+	print("In range: ", enemies)  
 	#show_hurt_box()
-	for enemy in enemy_in_range:
-		attack_damage_to_enemy(enemy)
+	
+	##makes sure at least one enemy is hit even if the hitbox fucks up
+	if enemies.is_empty():
+		attack_damage_to_enemy(target())
+	else:
+		for enemy in enemies:
+			attack_damage_to_enemy(enemy)
 	print("Attack complete")
+	
 	##forces attacks to wait till animation is finished till a new one begins
 	await animation_controller.animation_finished
 	reset_cooldown()
@@ -60,12 +67,11 @@ func attack_handler() -> void:
 	
 
 ## Handles the animation and the oritentation of an attack
-func attack_alter_area(target: Enemy) -> void:
+func attack_alter_area(target: Enemy) -> int:
 	if target == null:
-		return
+		return 2
 	var dir = get_direction_to_enemy(target)
-	var cardinal = get_cardinal_direction(dir)
-	change_attack_direction(cardinal)
+	return get_cardinal_direction(dir)
 
 #dealing warrior sword swing damage to enemies
 func attack_damage_to_enemy(enemy: Enemy) -> void:
@@ -135,30 +141,30 @@ func get_cardinal_direction(dir: Vector3) -> int:
 	#if the absolute value of x is greater than z then its east to west
 	if abs(dir.x) > abs(dir.z):
 		if dir.x > 0:
+			warrior_hurt_box.rotation.y = deg_to_rad(90)
 			return Direction.EAST
 		else:
+			warrior_hurt_box.rotation.y = deg_to_rad(-90)
 			return Direction.WEST
 	else:
 		if dir.z > 0:
+			warrior_hurt_box.rotation.y = deg_to_rad(0)
 			return Direction.SOUTH
 		else:
+			warrior_hurt_box.rotation.y = deg_to_rad(180)
 			return Direction.NORTH
 			
 func change_attack_direction(direction: int):
 	match direction:
 		Direction.NORTH:
-			warrior_hurt_box.rotation.y = deg_to_rad(180)
 			animation_controller.play("swing_north")
 			#animation_controller.play("swing")
 		Direction.SOUTH:
-			warrior_hurt_box.rotation.y = deg_to_rad(0)
 			animation_controller.play("swing_south")
 			#animation_controller.play("swing")
 		Direction.EAST:
-			warrior_hurt_box.rotation.y = deg_to_rad(90)
 			animation_controller.play("swing_east")
 			#animation_controller.play("swing")
 		Direction.WEST:
-			warrior_hurt_box.rotation.y = deg_to_rad(-90)
 			animation_controller.play("swing_west")
 			#animation_controller.play("swing")

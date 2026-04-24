@@ -24,13 +24,17 @@ func _on_timer_timeout():
 ##handles the attacks
 func attack_handler() -> void:
 	super()
-	if attack_ready == true && $RangeDetection.has_overlapping_bodies():
+	if (attack_ready == true) and ($RangeDetection.has_overlapping_bodies()):
 		##prevents animations from getting overwritten
 		if (animation_controller.get_animation() == "walk" or 
 			animation_controller.get_animation() == "idle"): 
 			attack_ready = false
+			
+			## plays the animation and only deals damage when
+			## the attack's wind up is finished
 			attack_play_animation()
 			await animation_controller.hurt_frame_triggered
+			
 			## targets an enemy; does not change target if there is no enemy returned
 			var enemy_in_range = hurt_box.get_overlapping_bodies()
 			#show_hurt_box()

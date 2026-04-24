@@ -35,6 +35,4 @@ func _on_sprite_body_animation_finished() -> void:
 
 
 func _on_sprite_body_frame_changed() -> void:
-	if $SpriteBody.frame == 12:
-		emit_signal("hurt_frame_triggered")
 	pass # Replace with function body.

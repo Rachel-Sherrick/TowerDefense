@@ -37,6 +37,9 @@
 [ext_resource type="Texture2D" uid="uid://cyky1ih3xjuo3" path="res://sprites/enemies/ant/walk/frame0014.png" id="18_kvl2v"]
 [ext_resource type="Texture2D" uid="uid://bk5qjveh8qksv" path="res://sprites/enemies/ant/walk/frame0015.png" id="19_yu62i"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_pas25"]
+size = Vector3(3.25, 1, 1.25)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_cqwif"]
 resource_local_to_scene = true
 animations = [{
@@ -181,13 +184,15 @@ script = ExtResource("2_fcl87")
 final_target_name = "Orb"
 target_name = "Orb"
 attack_range = 2.0
-attack_damage = 2
+speed = 2.5
+attack_damage = 1
 
 [node name="Body" parent="." index="0" unique_id=447693479]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="CharacterCollision" parent="." index="1" unique_id=492885942]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_pas25")
 
 [node name="AnimationController" parent="." index="3" unique_id=1020417921]
 script = ExtResource("3_anuxv")
@@ -196,9 +201,8 @@ script = ExtResource("3_anuxv")
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, -0.3, 0)
 modulate = Color(1, 1, 1, 1)
 sprite_frames = SubResource("SpriteFrames_cqwif")
-animation = &"attack"
-frame = 15
-frame_progress = 1.0
+animation = &"walk"
+frame_progress = 0.0
 
 [node name="AntTimer" type="Timer" parent="." index="7" unique_id=1313310677]
 one_shot = true

@@ -6,6 +6,7 @@ extends Node
 signal health_changed(current_health: int, max_health: int)
 signal took_damage(health_lost: int)
 signal died
+signal orb_destroyed()
 
 @export var max_health: int = 5
 @export var defense: int = 0
@@ -95,11 +96,6 @@ func _update_bar() -> void:
 func _handle_death() -> void:
 	var parent = get_parent()
 	var tree = get_tree()
-
-	if parent.name is Orb:
-		if tree != null:
-			tree.call_deferred("change_scene_to_file", "res://EndOfGameLose.tscn")
-		return
 
 	emit_signal("died")
 

@@ -52,6 +52,8 @@ var phys_framecount = 0
 @export var attack_damage: int = 0
 ## How much time between attacks
 @export var attack_interval: float = 1.0
+## The cost of this character or the money earned from their death
+@export var value: float = 1.0
 
 
 #########################

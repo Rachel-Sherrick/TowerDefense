@@ -97,3 +97,6 @@ sprite_frames = SubResource("SpriteFrames_461qj")
 animation = &"idle"
 autoplay = "idle"
 frame_progress = 0.6260335
+
+[node name="Control" parent="." index="5" unique_id=356163926]
+visible = false
