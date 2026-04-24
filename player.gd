@@ -19,8 +19,6 @@ var wizard_num: int = 0
 
 @onready var warrior_box: ColorRect = $GUI/InventoryBar/WarriorBox
 @onready var wizard_box: ColorRect = $GUI/InventoryBar/WizardBox
-#var warrior_selected: bool = false
-#var wizard_selected: bool = false
 
 ##the selected inventory item
 @export_enum("warrior", "wizard") var selected_item: String
