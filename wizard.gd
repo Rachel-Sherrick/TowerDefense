@@ -2,9 +2,10 @@ extends Tower
 class_name Wizard
 
 #maybe this can be used for targeting? idk
-var aim_list = []
+
 var bullet_scene = preload("res://bullet.tscn")
 
+signal firing
 #tests if enemies are within the range detection
 var in_range: bool = false
 
@@ -47,7 +48,8 @@ func _on_range_body_entered(body: Node3D) -> void:
 	
 func fire_projectile(target: Enemy) -> void:
 	print("WIZARD FIRING ATTACK")
-	var projectile: Bullet = bullet_scene.instantiate()
+	emit_signal("firing")
+	var projectile = bullet_scene.instantiate()
 	var target_glob_pos = Vector3(-1, 0, 0)
 	
 	## these prevent the bullet from flying off at odd angles or colliding into
@@ -61,6 +63,7 @@ func fire_projectile(target: Enemy) -> void:
 	projectile.target = target_glob_pos
 	projectile.attack_damage = attack_damage
 	add_child(projectile)
+	
 	fire_ready = false
 
 func _on_timer_timeout() -> void:

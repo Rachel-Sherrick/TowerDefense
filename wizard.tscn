@@ -3,8 +3,42 @@
 [ext_resource type="PackedScene" uid="uid://bmslpuj4gik5" path="res://Scenes/Classes/tower.tscn" id="1_xxhrx"]
 [ext_resource type="Texture2D" uid="uid://nj37xla1vxmg" path="res://sprites/testbert.png" id="2_34mad"]
 [ext_resource type="Script" uid="uid://biqa6ebeqjw2a" path="res://wizard.gd" id="2_xo1iy"]
+[ext_resource type="Texture2D" uid="uid://b2m8nuc7khpnw" path="res://sprites/towers/Wizard/Firing Attack/frame0000.png" id="4_pk22g"]
+[ext_resource type="Texture2D" uid="uid://bx54d3s2mcs8m" path="res://sprites/towers/Wizard/Firing Attack/frame0001.png" id="5_g70ix"]
+[ext_resource type="Texture2D" uid="uid://dariv8o0iawug" path="res://sprites/towers/Wizard/Firing Attack/frame0002.png" id="6_w0xdw"]
+[ext_resource type="Texture2D" uid="uid://hc83rhpl3swn" path="res://sprites/towers/Wizard/Firing Attack/frame0003.png" id="7_3a3hw"]
+[ext_resource type="Texture2D" uid="uid://bcgrtn3ugsewn" path="res://sprites/towers/Wizard/Firing Attack/frame0004.png" id="8_8xs8r"]
+[ext_resource type="Texture2D" uid="uid://bkkiraosuw6px" path="res://sprites/towers/Wizard/Firing Attack/frame0005.png" id="9_3tc3f"]
+[ext_resource type="Texture2D" uid="uid://b25sr2ya6yoh7" path="res://sprites/towers/Wizard/Firing Attack/frame0006.png" id="10_6b177"]
+[ext_resource type="Texture2D" uid="uid://bkjfw5hrm4rb3" path="res://sprites/towers/Wizard/Firing Attack/frame0007.png" id="11_ssviq"]
+[ext_resource type="Texture2D" uid="uid://4aa6pvb6qirw" path="res://sprites/towers/Wizard/Firing Attack/frame0008.png" id="12_f2udi"]
+[ext_resource type="Texture2D" uid="uid://e8qvmgbk5hru" path="res://sprites/towers/Wizard/Firing Attack/frame0009.png" id="13_gpnxk"]
+[ext_resource type="Texture2D" uid="uid://bfrfmmyhb6ead" path="res://sprites/towers/Wizard/Firing Attack/frame0010.png" id="14_o0mbe"]
+[ext_resource type="Texture2D" uid="uid://basihurkjiekg" path="res://sprites/towers/Wizard/Firing Attack/frame0011.png" id="15_c6nnt"]
+[ext_resource type="Texture2D" uid="uid://c1meeb4fn3vss" path="res://sprites/towers/Wizard/Firing Attack/frame0012.png" id="16_famdp"]
+[ext_resource type="Texture2D" uid="uid://dgopp6f1y1v71" path="res://sprites/towers/Wizard/Firing Attack/frame0013.png" id="17_mtmvj"]
+[ext_resource type="Texture2D" uid="uid://cbccy3t4mchr2" path="res://sprites/towers/Wizard/Firing Attack/frame0014.png" id="18_kfrck"]
+[ext_resource type="Texture2D" uid="uid://c7seatl22af7j" path="res://sprites/towers/Wizard/Firing Attack/frame0015.png" id="19_srjyc"]
+[ext_resource type="Texture2D" uid="uid://dfejffaukx8ar" path="res://sprites/towers/Wizard/Firing Attack/frame0016.png" id="20_r83fs"]
+[ext_resource type="Texture2D" uid="uid://b3st411s4jgxe" path="res://sprites/towers/Wizard/Firing Attack/frame0017.png" id="21_ri5p6"]
+[ext_resource type="Texture2D" uid="uid://cuwvr2qr835ur" path="res://sprites/towers/Wizard/Firing Attack/frame0018.png" id="22_bd5fm"]
+[ext_resource type="Texture2D" uid="uid://db575bexyxii1" path="res://sprites/towers/Wizard/Firing Attack/frame0019.png" id="23_luwpg"]
+[ext_resource type="Texture2D" uid="uid://bjw0ajkcb32ms" path="res://sprites/towers/Wizard/Readying Attack/frame0000.png" id="24_cw4cf"]
+[ext_resource type="Texture2D" uid="uid://c4kuxdrk4recf" path="res://sprites/towers/Wizard/Readying Attack/frame0001.png" id="25_rtfaq"]
+[ext_resource type="Texture2D" uid="uid://c4t8r75rk8o8y" path="res://sprites/towers/Wizard/Readying Attack/frame0002.png" id="26_hacn8"]
+[ext_resource type="Texture2D" uid="uid://shwxrq5hdrbn" path="res://sprites/towers/Wizard/Readying Attack/frame0003.png" id="27_me7ea"]
+[ext_resource type="Texture2D" uid="uid://ck41k7nuydcq" path="res://sprites/towers/Wizard/Readying Attack/frame0004.png" id="28_2df6l"]
+[ext_resource type="Texture2D" uid="uid://8c3os7a8myom" path="res://sprites/towers/Wizard/Readying Attack/frame0005.png" id="29_rf0f0"]
+[ext_resource type="Texture2D" uid="uid://vacthnmtrico" path="res://sprites/towers/Wizard/Readying Attack/frame0006.png" id="30_nxpgl"]
+[ext_resource type="Texture2D" uid="uid://dkw2m153e8q5l" path="res://sprites/towers/Wizard/Readying Attack/frame0007.png" id="31_eyvls"]
+[ext_resource type="Texture2D" uid="uid://bt1q1vk58wopq" path="res://sprites/towers/Wizard/Readying Attack/frame0008.png" id="32_5b2g6"]
+[ext_resource type="Texture2D" uid="uid://c62oey67ohl8y" path="res://sprites/towers/Wizard/Readying Attack/frame0009.png" id="33_m7pnu"]
+[ext_resource type="Texture2D" uid="uid://dp4ff2wkyo84r" path="res://sprites/towers/Wizard/Readying Attack/frame0010.png" id="34_frow7"]
+[ext_resource type="Texture2D" uid="uid://djhfifqkevnaw" path="res://sprites/towers/Wizard/Readying Attack/frame0011.png" id="35_pjayq"]
+[ext_resource type="Texture2D" uid="uid://4dbagepchutc" path="res://sprites/towers/Wizard/Readying Attack/frame0012.png" id="36_rl7wp"]
+[ext_resource type="Texture2D" uid="uid://8gl105f5usbt" path="res://sprites/towers/Wizard/Readying Attack/frame0013.png" id="37_p3ar8"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_34mad"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_pk22g"]
 resource_local_to_scene = true
 animations = [{
 "frames": [{
@@ -14,15 +48,146 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 0.5,
+"texture": ExtResource("4_pk22g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_g70ix")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_w0xdw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_3a3hw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_8xs8r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_3tc3f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_6b177")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ssviq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_f2udi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_gpnxk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_o0mbe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_c6nnt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_famdp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_mtmvj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_kfrck")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_srjyc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_r83fs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_ri5p6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_bd5fm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_luwpg")
+}],
+"loop": false,
+"name": &"firing attack",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("24_cw4cf")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 0.5,
+"texture": ExtResource("24_cw4cf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_rtfaq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_hacn8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_me7ea")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_2df6l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_rf0f0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_nxpgl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_eyvls")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_5b2g6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_m7pnu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_frow7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_pjayq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_rl7wp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_p3ar8")
+}],
+"loop": false,
+"name": &"readying attack",
+"speed": 24.0
 }]
 
 [node name="Wizard" unique_id=254305490 instance=ExtResource("1_xxhrx")]
 script = ExtResource("2_xo1iy")
 attack_damage = 1
 
+[node name="CharacterCollision" parent="." index="1" unique_id=492885942]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5634575, 0)
+
+[node name="RangeCollision" parent="RangeDetection" parent_id_path=PackedInt32Array(1602429880) index="1" unique_id=831990961]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4333496, 0)
+
 [node name="SpriteBody" parent="AnimationController" parent_id_path=PackedInt32Array(1020417921) index="0" unique_id=1996147602]
-sprite_frames = SubResource("SpriteFrames_34mad")
+modulate = Color(1, 1, 1, 1)
+sprite_frames = SubResource("SpriteFrames_pk22g")
+animation = &"readying attack"
+frame_progress = 0.0
 
 [node name="Timer" type="Timer" parent="." index="5" unique_id=776423761]
 
+[connection signal="firing" from="." to="AnimationController" method="_on_wizard_firing"]
+[connection signal="animation_finished" from="AnimationController/SpriteBody" to="AnimationController" method="_on_sprite_body_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

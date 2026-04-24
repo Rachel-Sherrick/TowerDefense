@@ -7,12 +7,14 @@ const SPEED = 50.0
 #projectile to go towards the enemy
 var target = Vector3(0,0,0)
 var attack_damage: int = 1
+@onready var timer: Timer = $Timer 
 
 func _physics_process(delta: float) -> void:
 	var dir = global_position.direction_to(target)
 	velocity = dir * SPEED
 	
 	var collision_info = move_and_collide(velocity * delta, true)
+	
 	if collision_info:
 		print("wizard hit ",collision_info.get_collider())
 		check_target_hit(collision_info.get_collider())

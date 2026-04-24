@@ -14,9 +14,11 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if enemy_scene == null or spawn_point == null:
+		print("Spawn point null")
 		return
 
 	if _count >= max_enemies:
+		print("Count too big")
 		return
 
 	_timer += delta

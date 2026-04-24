@@ -2,16 +2,25 @@ extends Node3D
 class_name AnimationController
 
 signal animation_finished()
+@onready var sprite = $SpriteBody
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
 	pass
 
+
+func _on_wizard_firing():
+	sprite.play("readying attack")
+	await sprite.animation_finished
+	sprite.play("firing attack")
+	await sprite.animation_finished
+	sprite.play_backwards("readying attack")
+
+
+func _on_sprite_body_animation_finished():
+	sprite.stop()
+	emit_signal("animation_finished")
+	
 func _on_health_took_damage(health_lost: int) -> void:
 	var og_color = $SpriteBody.modulate
 	$SpriteBody.modulate = Color(0.943, 0.389, 0.348, 1.0)

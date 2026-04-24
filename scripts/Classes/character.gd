@@ -36,7 +36,7 @@ var currentTarget
 ## frame trackers
 var phys_framecount = 0
 ## Movement speed multiplier for the character 
-@export var speed = 5.0
+@export var speed: float = 5.0
 ## Veloicty for when / if the chracter jumps
 @export var jump_velocity = 4.5
 ## Range multiplier for the character's range
@@ -120,8 +120,8 @@ func update_tracking_structures() -> bool:
 	## the distance / strength array using the Array's built-in sort_custom()!!
 	for body in obj_list:
 		## See healer.gd for old code
-		print(body.name + " distance from " + name + " is " + str(get_distance_char(body)))
-	
+		#print(body.name + " distance from " + name + " is " + str(get_distance_char(body)))
+		pass
 	return true
 	
 
