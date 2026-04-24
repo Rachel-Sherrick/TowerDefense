@@ -36,6 +36,8 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q80nm"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_30g23"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xm2m"]
 albedo_texture = ExtResource("6_hn62u")
 metallic = 1.0
@@ -96,7 +98,8 @@ script = ExtResource("2_4c57u")
 
 [node name="Player" type="Node" parent="." unique_id=955624252]
 script = ExtResource("3_dg77c")
-tower_scene = ExtResource("5_0miwv")
+warrior_scene = ExtResource("5_0miwv")
+wizard_scene = ExtResource("8_yhwuq")
 money = 5.0
 interest = 1.2
 selected_item = "warrior"
@@ -1256,6 +1259,7 @@ layout_mode = 0
 offset_left = 524.0
 offset_top = -100.0
 offset_right = 844.0
+mouse_filter = 2
 color = Color(0.70980394, 0.90588236, 0.8666667, 0.78431374)
 
 [node name="OpenCloseButton" type="Button" parent="Player/GUI/InventoryBar" unique_id=1421272251]
@@ -1289,7 +1293,16 @@ offset_top = -40.0
 offset_right = 100.0
 grow_vertical = 2
 scale = Vector2(2, 2)
+mouse_filter = 2
 color = Color(0.99607843, 0.84705883, 0.3882353, 1)
+
+[node name="WarriorSelect" type="Area2D" parent="Player/GUI/InventoryBar/WarriorBox" unique_id=806784879]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/GUI/InventoryBar/WarriorBox/WarriorSelect" unique_id=8178388]
+position = Vector2(20, 20)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_q80nm")
+debug_color = Color(0, 0.6, 0.7019608, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Player/GUI/InventoryBar/WarriorBox" unique_id=1952044322]
 position = Vector2(20, 20)
@@ -1315,14 +1328,6 @@ text = "0"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="WarriorSelect" type="Area2D" parent="Player/GUI/InventoryBar/WarriorBox" unique_id=806784879]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/GUI/InventoryBar/WarriorBox/WarriorSelect" unique_id=8178388]
-position = Vector2(20, 20)
-scale = Vector2(2, 2)
-shape = SubResource("RectangleShape2D_q80nm")
-debug_color = Color(0, 0.6, 0.7019608, 0)
-
 [node name="WizardBox" type="ColorRect" parent="Player/GUI/InventoryBar" unique_id=228488003]
 layout_mode = 1
 anchors_preset = 6
@@ -1336,7 +1341,16 @@ offset_right = -100.0
 grow_horizontal = 0
 grow_vertical = 2
 scale = Vector2(2, 2)
+mouse_filter = 2
 color = Color(0.99607843, 0.84705883, 0.3882353, 1)
+
+[node name="WizardSelect" type="Area2D" parent="Player/GUI/InventoryBar/WizardBox" unique_id=590741819]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/GUI/InventoryBar/WizardBox/WizardSelect" unique_id=1016601080]
+position = Vector2(20, 20)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_30g23")
+debug_color = Color(0, 0.6, 0.7019608, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Player/GUI/InventoryBar/WizardBox" unique_id=895037726]
 position = Vector2(20, 20)
@@ -1657,5 +1671,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 0)
 [connection signal="pressed" from="Player/GUI/PauseButton" to="Player/GUI" method="_on_pause_button_pressed"]
 [connection signal="pressed" from="Player/GUI/ShopButton" to="Player/GUI" method="_on_shop_button_pressed"]
 [connection signal="pressed" from="Player/GUI/InventoryBar/OpenCloseButton" to="Player/GUI" method="_on_open_close_button_pressed"]
+[connection signal="input_event" from="Player/GUI/InventoryBar/WarriorBox/WarriorSelect" to="Player" method="_on_warrior_select_input_event"]
+[connection signal="input_event" from="Player/GUI/InventoryBar/WizardBox/WizardSelect" to="Player" method="_on_wizard_select_input_event"]
 [connection signal="child_entered_tree" from="Battleground" to="Player" method="_on_battleground_child_entered_tree"]
 [connection signal="input_event" from="Battleground/PlaceableArea" to="Player" method="_place_tower"]
