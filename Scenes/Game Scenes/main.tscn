@@ -25,12 +25,12 @@
 [ext_resource type="PackedScene" uid="uid://blqact6xyog7f" path="res://EnvironmentGLBs/environmentScenes/tree2.tscn" id="19_wolj3"]
 [ext_resource type="Texture2D" uid="uid://dllbc8np46no8" path="res://sprites/potions/SpeedFrontPosterized.png" id="20_tvq8n"]
 [ext_resource type="Texture2D" uid="uid://sf0gpga81ulo" path="res://sprites/potions/RangeTopPosterized.png" id="23_biugc"]
+[ext_resource type="Script" uid="uid://biq4srx5lcvcm" path="res://Scenes/Game Scenes/enemy_spawner.gd" id="23_q80nm"]
 [ext_resource type="PackedScene" uid="uid://c0su5xed22cwb" path="res://EnvironmentGLBs/environmentScenes/tree3.tscn" id="26_wolj3"]
 [ext_resource type="PackedScene" uid="uid://dvkrhrg0xhe2l" path="res://EnvironmentGLBs/environmentScenes/tree1.tscn" id="27_aobh2"]
 [ext_resource type="PackedScene" uid="uid://cf253tkxihwse" path="res://EnvironmentGLBs/environmentScenes/jackMush.tscn" id="28_54h8o"]
 [ext_resource type="PackedScene" uid="uid://ci8t8gv05yqg0" path="res://EnvironmentGLBs/environmentScenes/rock.tscn" id="28_ia0fb"]
 [ext_resource type="PackedScene" uid="uid://qwcib3hg8bwk" path="res://EnvironmentGLBs/environmentScenes/KingMush.tscn" id="31_30g23"]
-[ext_resource type="Script" uid="uid://dwl5j2bpgr7mr" path="res://Scenes/Game Scenes/enemy_spawner.gd" id="23_q80nm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yhwuq"]
 
@@ -1622,14 +1622,15 @@ transform = Transform3D(0.74943405, 0, 0.29832062, 0, 0.77904975, 0, -0.21276085
 
 [node name="rockPosterized4" parent="Environment/rocks" unique_id=1161958080 instance=ExtResource("28_ia0fb")]
 transform = Transform3D(0.7974231, -0.28288087, 0.244441, 0, 0.83427334, 0.3379092, -0.45460242, -0.49620456, 0.42877677, 16.284225, 0.19741616, -10.748842)
+
 [node name="EnemySpawner" type="Node3D" parent="." unique_id=1336024822 node_paths=PackedStringArray("spawn_point")]
 script = ExtResource("23_q80nm")
 enemy_scene = ExtResource("9_032wp")
-spawn_point = NodePath("../EnemySpawnPoint")
+spawn_point = NodePath("EnemySpawnPoint")
 spawn_interval = 5.0
 
-[node name="EnemySpawnPoint" type="Node3D" parent="." unique_id=307491391]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 1, 0)
+[node name="EnemySpawnPoint" type="Marker3D" parent="EnemySpawner" unique_id=1467880243]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 0)
 
 [connection signal="purchase" from="Player/GUI/ShopCanvas" to="Player" method="_on_shop_purchase"]
 [connection signal="input_event" from="Player/GUI/ShopCanvas/ShopSlots/Slot1" to="Player/GUI/ShopCanvas" method="_on_slot_1_input_event"]

@@ -325,16 +325,19 @@ animations = [{
 }]
 
 [sub_resource type="BoxMesh" id="BoxMesh_4wr01"]
+size = Vector3(5, 1, 4.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6csb2"]
 transparency = 1
 albedo_color = Color(0.8745098, 0, 0.19215687, 0.14509805)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3a2cj"]
-size = Vector3(5, 1, 3.5)
+margin = 0.08
+size = Vector3(5, 1, 4)
 
 [node name="Warrior" unique_id=254305490 instance=ExtResource("1_wfww2")]
 script = ExtResource("2_xumaq")
+attack_damage = 1
 
 [node name="Body" parent="." index="0" unique_id=447693479]
 surface_material_override/0 = SubResource("StandardMaterial3D_yvydg")
@@ -352,7 +355,7 @@ script = ExtResource("3_6dc4p")
 modulate = Color(1, 1, 1, 1)
 shaded = true
 sprite_frames = SubResource("SpriteFrames_wfww2")
-animation = &"swing_west"
+animation = &"swing_east"
 frame_progress = 0.0
 
 [node name="SpriteSword" type="AnimatedSprite3D" parent="AnimationController" index="1" unique_id=228143765]
@@ -366,19 +369,20 @@ frame_progress = 0.82617325
 one_shot = true
 
 [node name="warrior_hurt_box" type="Area3D" parent="." index="6" unique_id=1392525411]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.75)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
 collision_layer = 0
 collision_mask = 2
 
 [node name="hurt_box_mesh" type="MeshInstance3D" parent="warrior_hurt_box" index="0" unique_id=1680302769]
-transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 3.5, 0, 1.002, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1)
 mesh = SubResource("BoxMesh_4wr01")
 surface_material_override/0 = SubResource("StandardMaterial3D_6csb2")
 
 [node name="hurt_box_collision" type="CollisionShape3D" parent="warrior_hurt_box" index="1" unique_id=122771932]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1.25)
 shape = SubResource("BoxShape3D_3a2cj")
 
 [connection signal="animation_changed" from="AnimationController/SpriteBody" to="AnimationController" method="_on_sprite_body_animation_changed"]
 [connection signal="animation_finished" from="AnimationController/SpriteBody" to="AnimationController" method="_on_sprite_body_animation_finished"]
+[connection signal="sprite_frames_changed" from="AnimationController/SpriteBody" to="AnimationController" method="_on_sprite_body_frame_changed"]
 [connection signal="timeout" from="WarriorTimer" to="." method="_on_timer_timeout"]

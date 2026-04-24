@@ -48,6 +48,12 @@ var phys_framecount = 0
 @export var target_type: int = FIRST
 ## Arbitrary definition for strength for targeting
 @export var strength: int = 0
+## How much damage a character deals when they attack
+@export var attack_damage: int = 0
+## How much time between attacks
+@export var attack_interval: float = 1.0
+## The cost of this character or the money earned from their death
+@export var value: float = 1.0
 
 
 #########################

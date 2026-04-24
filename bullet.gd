@@ -1,14 +1,14 @@
 extends CharacterBody3D
+class_name Bullet
 
 const SPEED = 50.0
 
 #this variable needs to be changed I think in order for the
 #projectile to go towards the enemy
 var target = Vector3(0,0,0)
+var attack_damage: int = 1
 
 func _physics_process(delta: float) -> void:
-	
-	
 	var dir = global_position.direction_to(target)
 	velocity = dir * SPEED
 	
@@ -29,7 +29,7 @@ func check_target_hit(enemy) -> void:
 	#maybe if we change all the enemies' CharacterCollision shape to EnemyCollsion and then check if the name matches?
 	#also needs to be changed so that the enemies take multiple hits and player gets coins with each hit
 	if enemy is Enemy:
-		enemy.take_damage(1)
+		enemy.take_damage(attack_damage)
 	queue_free()
 	#we need to add a queue free when the projectiles go off the screen
 

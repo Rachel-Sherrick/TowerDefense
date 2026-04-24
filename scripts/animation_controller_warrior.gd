@@ -1,5 +1,6 @@
 extends AnimationController
-signal animation_finished()
+signal hurt_frame_triggered()
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	play("idle")
@@ -65,3 +66,8 @@ func _on_sprite_body_animation_finished() -> void:
 	stop()
 	$SpriteSword.hide()
 	emit_signal("animation_finished")
+
+func _on_sprite_body_frame_changed() -> void:
+	if  ($SpriteBody.frame == 3):
+		emit_signal("hurt_frame_triggered")
+	pass # Replace with function body.

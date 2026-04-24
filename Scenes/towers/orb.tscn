@@ -21,7 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://dyqhu5o3dqcux" path="res://sprites/towers/orb/Idle/frame0015.png" id="19_812iv"]
 [ext_resource type="Texture2D" uid="uid://03tjxvm72o0n" path="res://sprites/towers/orb/Idle/frame0016.png" id="20_0ajdm"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_02omk"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_461qj"]
 resource_local_to_scene = true
 animations = [{
 "frames": [{
@@ -93,7 +93,10 @@ animations = [{
 script = ExtResource("2_lpxna")
 
 [node name="SpriteBody" parent="AnimationController" parent_id_path=PackedInt32Array(1020417921) index="0" unique_id=1996147602]
-sprite_frames = SubResource("SpriteFrames_02omk")
+sprite_frames = SubResource("SpriteFrames_461qj")
 animation = &"idle"
 autoplay = "idle"
 frame_progress = 0.6260335
+
+[node name="Control" parent="." index="5" unique_id=356163926]
+visible = false
