@@ -49,9 +49,6 @@ func play(animation: String) -> bool:
 	$SpriteBody.play(animation)
 	return true
 
-func get_animation() -> String:
-	return $SpriteBody.animation
-
 ## stops and resets all animations
 func stop() -> bool:
 	$SpriteBody.stop()

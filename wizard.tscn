@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bmslpuj4gik5" path="res://Scenes/Classes/tower.tscn" id="1_xxhrx"]
 [ext_resource type="Texture2D" uid="uid://nj37xla1vxmg" path="res://sprites/testbert.png" id="2_34mad"]
 [ext_resource type="Script" uid="uid://biqa6ebeqjw2a" path="res://wizard.gd" id="2_xo1iy"]
+[ext_resource type="Script" uid="uid://ckr0c1jc1mv5j" path="res://animation_controller_wizard.gd" id="3_g70ix"]
 [ext_resource type="Texture2D" uid="uid://b2m8nuc7khpnw" path="res://sprites/towers/Wizard/Firing Attack/frame0000.png" id="4_pk22g"]
 [ext_resource type="Texture2D" uid="uid://bx54d3s2mcs8m" path="res://sprites/towers/Wizard/Firing Attack/frame0001.png" id="5_g70ix"]
 [ext_resource type="Texture2D" uid="uid://dariv8o0iawug" path="res://sprites/towers/Wizard/Firing Attack/frame0002.png" id="6_w0xdw"]
@@ -38,7 +39,7 @@
 [ext_resource type="Texture2D" uid="uid://4dbagepchutc" path="res://sprites/towers/Wizard/Readying Attack/frame0012.png" id="36_rl7wp"]
 [ext_resource type="Texture2D" uid="uid://8gl105f5usbt" path="res://sprites/towers/Wizard/Readying Attack/frame0013.png" id="37_p3ar8"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_pk22g"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_w0xdw"]
 resource_local_to_scene = true
 animations = [{
 "frames": [{
@@ -50,7 +51,7 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 0.5,
+"duration": 1.0,
 "texture": ExtResource("4_pk22g")
 }, {
 "duration": 1.0,
@@ -177,17 +178,20 @@ attack_damage = 1
 [node name="CharacterCollision" parent="." index="1" unique_id=492885942]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5634575, 0)
 
-[node name="RangeCollision" parent="RangeDetection" parent_id_path=PackedInt32Array(1602429880) index="1" unique_id=831990961]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4333496, 0)
+[node name="AnimationController" parent="." index="3" unique_id=1020417921]
+script = ExtResource("3_g70ix")
 
-[node name="SpriteBody" parent="AnimationController" parent_id_path=PackedInt32Array(1020417921) index="0" unique_id=1996147602]
+[node name="SpriteBody" parent="AnimationController" index="0" unique_id=1996147602]
 modulate = Color(1, 1, 1, 1)
-sprite_frames = SubResource("SpriteFrames_pk22g")
-animation = &"readying attack"
+sprite_frames = SubResource("SpriteFrames_w0xdw")
+animation = &"firing attack"
 frame_progress = 0.0
 
 [node name="Timer" type="Timer" parent="." index="5" unique_id=776423761]
+one_shot = true
 
-[connection signal="firing" from="." to="AnimationController" method="_on_wizard_firing"]
+[connection signal="firing" from="." to="AnimationController" method="_on_attack_firing"]
+[connection signal="readying" from="." to="AnimationController" method="_on_wizard_readying"]
 [connection signal="animation_finished" from="AnimationController/SpriteBody" to="AnimationController" method="_on_sprite_body_animation_finished"]
+[connection signal="frame_changed" from="AnimationController/SpriteBody" to="AnimationController" method="_on_sprite_body_frame_changed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

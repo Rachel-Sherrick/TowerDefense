@@ -74,8 +74,6 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yvydg"]
 albedo_color = Color(1, 0.80784315, 0, 1)
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k1sas"]
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_wfww2"]
 resource_local_to_scene = true
 animations = [{
@@ -341,12 +339,6 @@ attack_damage = 1
 
 [node name="Body" parent="." index="0" unique_id=447693479]
 surface_material_override/0 = SubResource("StandardMaterial3D_yvydg")
-
-[node name="CharacterCollision" parent="." index="1" unique_id=492885942]
-shape = SubResource("CapsuleShape3D_k1sas")
-
-[node name="RangeCollision" parent="RangeDetection" parent_id_path=PackedInt32Array(1602429880) index="1" unique_id=831990961]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5098562, 0)
 
 [node name="AnimationController" parent="." index="3" unique_id=1020417921]
 script = ExtResource("3_6dc4p")

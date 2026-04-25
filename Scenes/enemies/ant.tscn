@@ -37,10 +37,10 @@
 [ext_resource type="Texture2D" uid="uid://cyky1ih3xjuo3" path="res://sprites/enemies/ant/walk/frame0014.png" id="18_kvl2v"]
 [ext_resource type="Texture2D" uid="uid://bk5qjveh8qksv" path="res://sprites/enemies/ant/walk/frame0015.png" id="19_yu62i"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_pas25"]
-size = Vector3(3.25, 1, 1.25)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_anuxv"]
+margin = 0.01
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_pas25"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_anuxv"]
 resource_local_to_scene = true
 animations = [{
 "frames": [{
@@ -181,18 +181,19 @@ size = Vector3(2, 1, 3.5)
 
 [node name="Ant" unique_id=254305490 instance=ExtResource("1_5tacl")]
 script = ExtResource("2_anuxv")
-final_target_name = "Orb"
-target_name = "Orb"
-attack_range = 2.0
 speed = 2.5
+attack_damage = 1
 
 [node name="Body" parent="." index="0" unique_id=447693479]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 1, 0)
 layers = 1
 
 [node name="CharacterCollision" parent="." index="1" unique_id=492885942]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-shape = SubResource("BoxShape3D_pas25")
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CapsuleShape3D_anuxv")
+
+[node name="DiameterCheckMesh" parent="RangeDetection" parent_id_path=PackedInt32Array(1602429880) index="2" unique_id=2108971858]
+visible = false
 
 [node name="AnimationController" parent="." index="3" unique_id=1020417921]
 script = ExtResource("3_anuxv")
@@ -200,8 +201,8 @@ script = ExtResource("3_anuxv")
 [node name="SpriteBody" parent="AnimationController" index="0" unique_id=1996147602]
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, -0.3, 0)
 modulate = Color(1, 1, 1, 1)
-sprite_frames = SubResource("SpriteFrames_pas25")
-animation = &"walk"
+sprite_frames = SubResource("SpriteFrames_anuxv")
+animation = &"attack"
 frame_progress = 0.0
 
 [node name="AntTimer" type="Timer" parent="." index="7" unique_id=1313310677]
@@ -210,7 +211,8 @@ one_shot = true
 [node name="AntHurtBox" type="Area3D" parent="." index="8" unique_id=649490344]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1, 0, 0)
 collision_layer = 0
-collision_mask = 2
+collision_mask = 4
+monitorable = false
 
 [node name="AntHurtMesh" type="MeshInstance3D" parent="AntHurtBox" index="0" unique_id=1295453681]
 transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 3.5, 0, 1.002, 1)

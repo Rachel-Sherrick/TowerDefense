@@ -2,20 +2,18 @@ extends Node3D
 class_name AnimationController
 
 signal animation_finished()
-@onready var sprite = $SpriteBody
+@onready var sprite: AnimatedSprite3D = $SpriteBody
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
 
+func get_animation() -> String:
+	return $SpriteBody.animation
 
-func _on_wizard_firing():
-	sprite.play("readying attack")
-	await sprite.animation_finished
-	sprite.play("firing attack")
-	await sprite.animation_finished
-	sprite.play_backwards("readying attack")
-
+func play(animation: String) -> bool:
+	$SpriteBody.play(animation)
+	return true
 
 func _on_sprite_body_animation_finished():
 	sprite.stop()

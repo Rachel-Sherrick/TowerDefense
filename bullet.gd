@@ -1,25 +1,29 @@
 extends CharacterBody3D
 class_name Bullet
 
-const SPEED = 50.0
+const SPEED = 60.0
 
 #this variable needs to be changed I think in order for the
 #projectile to go towards the enemy
 var target = Vector3(0,0,0)
 var attack_damage: int = 1
-@onready var timer: Timer = $Timer 
+
+func _ready() -> void:
+	$AnimatedSprite3D.play("travel")
 
 func _physics_process(delta: float) -> void:
-	var dir = global_position.direction_to(target)
+	var dir: Vector3 = global_position.direction_to(target)
+	$AnimatedSprite3D.rotation.z = (dir.z + -90.0)
 	velocity = dir * SPEED
 	
-	var collision_info = move_and_collide(velocity * delta, true)
+	var collision_info = move_and_collide(velocity * delta, false, 0.5, true)
 	
 	if collision_info:
 		print("wizard hit ",collision_info.get_collider())
 		check_target_hit(collision_info.get_collider())
-		
-	move_and_slide()
+	
+	## removed so collisions are only handled with one call
+	#move_and_slide()
 	
 	##deletes object if stuck in ground
 	if global_position.y <= 0.5:
@@ -32,9 +36,15 @@ func check_target_hit(enemy) -> void:
 	#also needs to be changed so that the enemies take multiple hits and player gets coins with each hit
 	if enemy is Enemy:
 		enemy.take_damage(attack_damage)
-	queue_free()
+	terminate()
 	#we need to add a queue free when the projectiles go off the screen
+
+func terminate() -> void:
+	set_physics_process(false)
+	$AnimatedSprite3D.play("impact")
+	await $AnimatedSprite3D.animation_finished
+	queue_free()
 
 ## deletes the object if not on screen
 func _on_visible_on_screen_notifier_3d_screen_exited() -> void:
-	queue_free()
+	terminate()
