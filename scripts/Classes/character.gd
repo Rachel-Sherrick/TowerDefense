@@ -1,6 +1,8 @@
 extends CharacterBody3D
 class_name Character
 
+signal died(value: float)
+
 @onready var health_component = $Health
 @onready var potions = $Potions
 #### K = take damage <<< test for potions to actually appear to work.. 
@@ -170,3 +172,7 @@ func heal(amount: int) -> void:
 	var after = health_component.current_health
 
 	print(name, " healed +", after - before, " | Current health: ", after)
+
+
+func _on_health_died() -> void:
+	emit_signal("died", value)

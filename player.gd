@@ -10,7 +10,7 @@ signal tower_placed(tower: Tower)
 ##the rate of intrest earned for clearing a wave
 @export var interest: float
 ##the UI label that shows amount of money
-@onready var coins_label: Label = $GUI/CoinsLabel
+@onready var coins_label: Label = $GUI/CoinCanvas/CoinsLabel
 
 @onready var warrior_count: Label = $GUI/InventoryBar/WarriorBox/WarriorCount
 var warrior_num: int = 0
@@ -37,10 +37,11 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_battleground_child_entered_tree(node) -> void:
+	print(node, " connected to player")
 	if node is Enemy:
 		#eventually create variables for different amount of
 		#money earned after killing different enemies?
-		node.connect("died", _alter_money(1.0))
+		node.connect("died", _alter_money, CONNECT_ONE_SHOT)
 
 func _alter_money(value: float):
 	money += value

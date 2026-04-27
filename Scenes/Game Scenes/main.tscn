@@ -1305,7 +1305,7 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -67.0
+offset_top = -78.0
 offset_right = 109.0
 grow_vertical = 0
 theme_override_colors/font_color = Color(0.4392157, 0.8784314, 0.6, 1)
@@ -1317,8 +1317,10 @@ flat = true
 autowrap_trim_flags = 192
 icon_alignment = 1
 
-[node name="CoinsLabel" type="Label" parent="Player/GUI" unique_id=1595139303]
-layout_mode = 1
+[node name="CoinCanvas" type="CanvasLayer" parent="Player/GUI" unique_id=248554406]
+layer = 2
+
+[node name="CoinsLabel" type="Label" parent="Player/GUI/CoinCanvas" unique_id=1595139303]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -1750,7 +1752,9 @@ autostart = true
 
 [connection signal="purchase" from="Player/GUI/ShopCanvas" to="Player" method="_on_shop_purchase"]
 [connection signal="input_event" from="Player/GUI/ShopCanvas/ShopSlots/Slot1" to="Player/GUI/ShopCanvas" method="_on_slot_1_input_event"]
+[connection signal="mouse_entered" from="Player/GUI/ShopCanvas/ShopSlots/Slot1" to="Player/GUI/ShopCanvas" method="_on_slot_1_mouse_entered"]
 [connection signal="input_event" from="Player/GUI/ShopCanvas/ShopSlots/Slot2" to="Player/GUI/ShopCanvas" method="_on_slot_2_input_event"]
+[connection signal="mouse_entered" from="Player/GUI/ShopCanvas/ShopSlots/Slot2" to="Player/GUI/ShopCanvas" method="_on_slot_2_mouse_entered"]
 [connection signal="input_event" from="Player/GUI/ShopCanvas/ShopSlots/Slot3" to="Player/GUI/ShopCanvas" method="_on_slot_3_input_event"]
 [connection signal="input_event" from="Player/GUI/ShopCanvas/ShopSlots/Slot4" to="Player/GUI/ShopCanvas" method="_on_slot_4_input_event"]
 [connection signal="input_event" from="Player/GUI/ShopCanvas/ShopSlots/Slot5" to="Player/GUI/ShopCanvas" method="_on_slot_5_input_event"]
@@ -1775,6 +1779,6 @@ autostart = true
 [connection signal="pressed" from="Player/GUI/InventoryBar/OpenCloseButton" to="Player/GUI" method="_on_open_close_button_pressed"]
 [connection signal="input_event" from="Player/GUI/InventoryBar/WarriorBox/WarriorSelect" to="Player" method="_on_warrior_select_input_event"]
 [connection signal="input_event" from="Player/GUI/InventoryBar/WizardBox/WizardSelect" to="Player" method="_on_wizard_select_input_event"]
-[connection signal="child_entered_tree" from="Battleground" to="Player" method="_on_battleground_child_entered_tree"]
+[connection signal="child_entered_tree" from="Battleground/Characters" to="Player" method="_on_battleground_child_entered_tree"]
 [connection signal="input_event" from="Battleground/PlaceableArea" to="Player" method="_place_tower"]
 [connection signal="timeout" from="EnemySpawner/SpawnTimer" to="EnemySpawner" method="_on_spawn_timer_timeout"]
