@@ -199,13 +199,15 @@ mesh = SubResource("BoxMesh_w0xdw")
 shape = SubResource("BoxShape3D_3a3hw")
 
 [node name="DiameterCheckMesh" parent="RangeDetection" index="2" unique_id=2108971858]
-visible = false
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 5, 0.1, 0)
 
 [node name="AnimationController" parent="." index="3" unique_id=1020417921]
 script = ExtResource("3_g70ix")
 
 [node name="SpriteBody" parent="AnimationController" index="0" unique_id=1996147602]
+offset = Vector2(0, 42)
 modulate = Color(1, 1, 1, 1)
+pixel_size = 0.012
 sprite_frames = SubResource("SpriteFrames_g70ix")
 animation = &"firing attack"
 frame_progress = 0.0

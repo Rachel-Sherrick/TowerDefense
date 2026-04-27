@@ -192,14 +192,12 @@ layers = 1
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("CapsuleShape3D_anuxv")
 
-[node name="DiameterCheckMesh" parent="RangeDetection" parent_id_path=PackedInt32Array(1602429880) index="2" unique_id=2108971858]
-visible = false
-
 [node name="AnimationController" parent="." index="3" unique_id=1020417921]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0.8, -0.7)
 script = ExtResource("3_anuxv")
 
 [node name="SpriteBody" parent="AnimationController" index="0" unique_id=1996147602]
-transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, -0.3, 0)
+offset = Vector2(0, 0)
 modulate = Color(1, 1, 1, 1)
 sprite_frames = SubResource("SpriteFrames_anuxv")
 animation = &"attack"

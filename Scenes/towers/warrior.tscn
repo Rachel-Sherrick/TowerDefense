@@ -341,11 +341,12 @@ attack_damage = 1
 surface_material_override/0 = SubResource("StandardMaterial3D_yvydg")
 
 [node name="AnimationController" parent="." index="3" unique_id=1020417921]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0.8, -0.9)
 script = ExtResource("3_6dc4p")
 
 [node name="SpriteBody" parent="AnimationController" index="0" unique_id=1996147602]
+offset = Vector2(0, 24)
 modulate = Color(1, 1, 1, 1)
-shaded = true
 sprite_frames = SubResource("SpriteFrames_wfww2")
 animation = &"swing_east"
 frame_progress = 0.0
