@@ -334,11 +334,18 @@ margin = 0.08
 size = Vector3(5, 1, 4)
 
 [node name="Warrior" unique_id=254305490 instance=ExtResource("1_wfww2")]
+collision_priority = 2.0
 script = ExtResource("2_xumaq")
 attack_damage = 1
 
 [node name="Body" parent="." index="0" unique_id=447693479]
 surface_material_override/0 = SubResource("StandardMaterial3D_yvydg")
+
+[node name="RangeMesh" parent="RangeDetection" parent_id_path=PackedInt32Array(1602429880) index="0" unique_id=371440239]
+visible = true
+
+[node name="DiameterCheckMesh" parent="RangeDetection" parent_id_path=PackedInt32Array(1602429880) index="2" unique_id=2108971858]
+visible = true
 
 [node name="AnimationController" parent="." index="3" unique_id=1020417921]
 transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0.8, -0.9)

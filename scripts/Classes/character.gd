@@ -92,8 +92,7 @@ func set_target_type(type: int) -> bool:
 	return true
 
 func _ready() -> void:
-	if self is Warrior:
-		health_component.died.connect(get_tree().current_scene._on_player_died)
+	pass
 
 func _physics_process(_delta: float) -> void:
 	set_phys_framecount(get_phys_framecount() + 1)
@@ -117,12 +116,16 @@ func get_distance_char(body: Node3D) -> float:
 ## by rule of thumb characters do not tracks allies unless toggled
 func update_tracking_structures() -> bool:
 	## updates the position for all colliding bodies
-	var obj_list = $RangeDetection.get_overlapping_bodies()
+	var obj_list: Array = $RangeDetection.get_overlapping_bodies()
 	## !! remove the for loop below and replace with a call to sort
 	## the distance / strength array using the Array's built-in sort_custom()!!
+	
+	## add later
+	#if obj_list.is_empty():
+		#tracking_array.clear()
+		#return false
+		
 	for body in obj_list:
-		## See healer.gd for old code
-		#print(body.name + " distance from " + name + " is " + str(get_distance_char(body)))
 		pass
 	return true
 	
