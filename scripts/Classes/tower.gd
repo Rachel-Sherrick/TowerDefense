@@ -39,7 +39,7 @@ func findClosest():
 				closestEnemy = item
 	return closestEnemy
 ##finds the first enemy to enter the array 
-func findFirst(): 
+func findFirst() -> Character: 
 	var firstEnemy
 	if !tracking_array.is_empty(): 
 		firstEnemy = tracking_array[0]

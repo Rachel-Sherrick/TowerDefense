@@ -17,6 +17,7 @@ func _physics_process(delta: float) -> void:
 		
 	_move_or_attack(delta)
 	super(delta)
+	_find_target()
 
 ## finds its target by name
 func _find_target() -> void:
@@ -26,11 +27,17 @@ func _find_target() -> void:
 		return
 		
 	## finds the target's location
-	target_tower = scene.find_child(target_name, true, false) as Node3D
+	if findFirst() != null:
+		pass
+		#target_tower = findFirst()
+	else:
+		target_tower = scene.find_child(final_target_name, true, false) as Tower
+		
+	#target_tower = scene.find_child(target_name, true, false) as Node3D
 	
 	##Tries to find its final target if there are no other targets
-	if target_tower == null:
-		target_tower = scene.find_child(final_target_name, true, false) as Node3D
+	#if target_tower == null:
+		#target_tower = scene.find_child(final_target_name, true, false) as Node3D
 
 func _move_or_attack(delta: float) -> void:
 	if target_tower == null:
@@ -38,7 +45,6 @@ func _move_or_attack(delta: float) -> void:
 		return
 		
 	var dist := global_position.distance_to(target_tower.global_position)
-	print(dist, " FROM TARGET")
 
 	##removed due to collision errors
 	#if dist <= attack_range or 
@@ -62,3 +68,9 @@ func _move_or_attack(delta: float) -> void:
 ## to be overwritten by subclasses; handles the attacking of creatures
 func attack_handler() -> void:
 	pass
+	
+func findFirst() -> Character: 
+	var firstEnemy = null
+	if !tracking_array.is_empty(): 
+		firstEnemy = tracking_array[0]
+	return firstEnemy

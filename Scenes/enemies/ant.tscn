@@ -40,6 +40,10 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_anuxv"]
 margin = 0.005
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_pas25"]
+margin = 0.0
+size = Vector3(2, 1, 4)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_anuxv"]
 resource_local_to_scene = true
 animations = [{
@@ -177,7 +181,7 @@ transparency = 1
 albedo_color = Color(0.8745098, 0, 0.19215687, 0.14509805)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_anuxv"]
-size = Vector3(2, 1, 3.5)
+size = Vector3(5, 1, 2)
 
 [node name="Ant" unique_id=254305490 instance=ExtResource("1_5tacl")]
 script = ExtResource("2_anuxv")
@@ -191,6 +195,16 @@ layers = 1
 [node name="CharacterCollision" parent="." index="1" unique_id=492885942]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("CapsuleShape3D_anuxv")
+
+[node name="RangeDetection" parent="." index="2" unique_id=1602429880]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="RangeMesh" parent="RangeDetection" index="0" unique_id=371440239]
+visible = true
+
+[node name="RangeCollision" parent="RangeDetection" index="1" unique_id=831990961]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_pas25")
 
 [node name="AnimationController" parent="." index="3" unique_id=1020417921]
 transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0.8, -0.7)
@@ -207,19 +221,18 @@ frame_progress = 0.0
 one_shot = true
 
 [node name="AntHurtBox" type="Area3D" parent="." index="8" unique_id=649490344]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1, 0, 0)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1, 0.5, 0)
 collision_layer = 0
 collision_mask = 4
 monitorable = false
 
 [node name="AntHurtMesh" type="MeshInstance3D" parent="AntHurtBox" index="0" unique_id=1295453681]
-transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 3.5, 0, 1.002, 1)
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 3.5, 0, 0, 0)
 visible = false
 mesh = SubResource("BoxMesh_cqwif")
 surface_material_override/0 = SubResource("StandardMaterial3D_fcl87")
 
 [node name="AntHurtCollision" type="CollisionShape3D" parent="AntHurtBox" index="1" unique_id=1999800655]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1)
 shape = SubResource("BoxShape3D_anuxv")
 
 [connection signal="animation_changed" from="AnimationController/SpriteBody" to="AnimationController" method="_on_sprite_body_animation_changed"]
