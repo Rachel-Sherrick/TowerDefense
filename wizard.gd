@@ -18,6 +18,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if fire_ready == true && $RangeDetection.has_overlapping_bodies():
+		print("Enemy detcted")
 		#await attack_handler()
 		if $AnimationController.get_animation() == "idle":
 			fire_projectile(target())

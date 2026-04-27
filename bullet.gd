@@ -16,7 +16,7 @@ func _physics_process(delta: float) -> void:
 	$AnimatedSprite3D.rotation.z = (dir.z + -90.0)
 	velocity = dir * SPEED
 	
-	var collision_info = move_and_collide(velocity * delta, false, 0.5, true)
+	var collision_info = move_and_collide(velocity * delta, false, 1, true)
 	
 	if collision_info:
 		print("wizard hit ",collision_info.get_collider())
@@ -48,3 +48,8 @@ func terminate() -> void:
 ## deletes the object if not on screen
 func _on_visible_on_screen_notifier_3d_screen_exited() -> void:
 	terminate()
+
+## prevents the bullet from sticking around too long if it didnt hit anything
+func _on_death_timer_timeout() -> void:
+	terminate()
+	

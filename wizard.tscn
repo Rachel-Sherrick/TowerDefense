@@ -39,6 +39,17 @@
 [ext_resource type="Texture2D" uid="uid://4dbagepchutc" path="res://sprites/towers/Wizard/Readying Attack/frame0012.png" id="36_rl7wp"]
 [ext_resource type="Texture2D" uid="uid://8gl105f5usbt" path="res://sprites/towers/Wizard/Readying Attack/frame0013.png" id="37_p3ar8"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g70ix"]
+transparency = 1
+albedo_color = Color(0, 0, 0, 0.33333334)
+
+[sub_resource type="BoxMesh" id="BoxMesh_w0xdw"]
+material = SubResource("StandardMaterial3D_g70ix")
+size = Vector3(10, 0.1, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3a3hw"]
+size = Vector3(10, 1, 10)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_g70ix"]
 resource_local_to_scene = true
 animations = [{
@@ -177,6 +188,18 @@ attack_damage = 1
 
 [node name="CharacterCollision" parent="." index="1" unique_id=492885942]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5634575, 0)
+
+[node name="RangeDetection" parent="." index="2" unique_id=1602429880]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
+
+[node name="RangeMesh" parent="RangeDetection" index="0" unique_id=371440239]
+mesh = SubResource("BoxMesh_w0xdw")
+
+[node name="RangeCollision" parent="RangeDetection" index="1" unique_id=831990961]
+shape = SubResource("BoxShape3D_3a3hw")
+
+[node name="DiameterCheckMesh" parent="RangeDetection" index="2" unique_id=2108971858]
+visible = false
 
 [node name="AnimationController" parent="." index="3" unique_id=1020417921]
 script = ExtResource("3_g70ix")

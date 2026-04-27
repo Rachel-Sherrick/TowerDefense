@@ -122,6 +122,7 @@ script = ExtResource("5_px5sl")
 
 [connection signal="body_entered" from="RangeDetection" to="." method="_on_range_body_entered"]
 [connection signal="body_exited" from="RangeDetection" to="." method="_on_range_detection_body_exited"]
+[connection signal="animation_looped" from="AnimationController/SpriteBody" to="AnimationController" method="_on_sprite_body_animation_looped"]
 [connection signal="died" from="Health" to="." method="_on_health_died"]
 [connection signal="health_changed" from="Health" to="AnimationController" method="_on_health_health_changed"]
 [connection signal="took_damage" from="Health" to="AnimationController" method="_on_health_took_damage"]
