@@ -4,6 +4,7 @@ extends Node3D
 @export var spawn_point: Node3D
 @export var spawn_interval: float = 4.0   # longer delay after first
 @export var max_enemies: int = 10
+@onready var final_target = get_tree().current_scene.get_node("Battleground/Orb")
 
 var _timer: float = 0.0
 var _count: int = 0
@@ -18,7 +19,7 @@ func _process(delta: float) -> void:
 
 func spawn_enemy() -> void:
 	var enemy: Enemy = enemy_scene.instantiate()
-	enemy.final_target = $"../Battleground/Orb"
+	enemy.final_target = final_target
 	var parent = get_tree().current_scene.get_node("Battleground/Characters")
 	parent.add_child(enemy)
 	spawn_point.position.z = randi_range(-12, 12)

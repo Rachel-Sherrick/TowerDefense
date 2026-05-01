@@ -98,7 +98,7 @@ func _physics_process(delta: float) -> void:
 	set_phys_framecount(get_phys_framecount() + 1)
 	## DEBUG LINE: print(get_phys_framecount())
 	
-	move_and_collide(velocity * delta)
+	move_and_slide()
 	
 	## updates body positions every 4 frames
 	if get_phys_framecount() % 4 == 0:
@@ -139,6 +139,7 @@ func _on_range_detection_body_entered(body: Node3D) -> void:
 	## See healer.gd for old code
 	#adds the body entering to the front of the array
 	addTrack(body)
+	print(name + " is tracking " + body.name)
 	print(tracking_array) 
 
 

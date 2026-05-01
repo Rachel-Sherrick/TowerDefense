@@ -74,9 +74,7 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yvydg"]
 albedo_color = Color(1, 0.80784315, 0, 1)
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wfww2"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_xumaq"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_wfww2"]
 resource_local_to_scene = true
 animations = [{
 "frames": [{
@@ -342,10 +340,6 @@ attack_damage = 1
 [node name="Body" parent="." index="0" unique_id=447693479]
 surface_material_override/0 = SubResource("StandardMaterial3D_yvydg")
 
-[node name="CharacterCollision" parent="." index="1" unique_id=492885942]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 1.5, -1.5)
-shape = SubResource("CapsuleShape3D_wfww2")
-
 [node name="RangeMesh" parent="RangeDetection" parent_id_path=PackedInt32Array(1602429880) index="0" unique_id=371440239]
 visible = true
 
@@ -359,7 +353,7 @@ script = ExtResource("3_6dc4p")
 [node name="SpriteBody" parent="AnimationController" index="0" unique_id=1996147602]
 offset = Vector2(0, 24)
 modulate = Color(1, 1, 1, 1)
-sprite_frames = SubResource("SpriteFrames_xumaq")
+sprite_frames = SubResource("SpriteFrames_wfww2")
 animation = &"swing_east"
 frame_progress = 0.0
 

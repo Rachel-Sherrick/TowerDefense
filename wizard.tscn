@@ -39,8 +39,6 @@
 [ext_resource type="Texture2D" uid="uid://4dbagepchutc" path="res://sprites/towers/Wizard/Readying Attack/frame0012.png" id="36_rl7wp"]
 [ext_resource type="Texture2D" uid="uid://8gl105f5usbt" path="res://sprites/towers/Wizard/Readying Attack/frame0013.png" id="37_p3ar8"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g70ix"]
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g70ix"]
 transparency = 1
 albedo_color = Color(0, 0, 0, 0.33333334)
@@ -52,7 +50,7 @@ size = Vector3(10, 0.1, 10)
 [sub_resource type="BoxShape3D" id="BoxShape3D_3a3hw"]
 size = Vector3(10, 1, 10)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_w0xdw"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_g70ix"]
 resource_local_to_scene = true
 animations = [{
 "frames": [{
@@ -188,10 +186,6 @@ animations = [{
 script = ExtResource("2_xo1iy")
 attack_damage = 1
 
-[node name="CharacterCollision" parent="." index="1" unique_id=492885942]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -0.25, 1.5, -0.5)
-shape = SubResource("CapsuleShape3D_g70ix")
-
 [node name="RangeDetection" parent="." index="2" unique_id=1602429880]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
 
@@ -211,7 +205,7 @@ script = ExtResource("3_g70ix")
 offset = Vector2(0, 42)
 modulate = Color(1, 1, 1, 1)
 pixel_size = 0.012
-sprite_frames = SubResource("SpriteFrames_w0xdw")
+sprite_frames = SubResource("SpriteFrames_g70ix")
 animation = &"firing attack"
 frame_progress = 0.0
 

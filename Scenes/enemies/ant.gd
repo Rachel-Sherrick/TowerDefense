@@ -22,6 +22,7 @@ func _on_timer_timeout():
 func attack_handler() -> void:
 	if (attack_ready == true):
 		##prevents animations from getting overwritten
+		print("Attack is busy waiting")
 		if (animation_controller.get_animation() == "walk" or animation_controller.get_animation() == "idle"): 
 			attack_ready = false
 			## plays the animation and only deals damage when
@@ -38,9 +39,10 @@ func attack_handler() -> void:
 				attack_damage_to_enemy(enemy)
 			print("Ant's attack complete")
 			
-			reset_cooldown()
+			
 			##forces attacks to wait till animation is finished till a new one begins
 			await animation_controller.animation_finished
+			reset_cooldown()
 
 func attack_play_animation() -> void:
 	print("Ant is now attacking")
@@ -55,5 +57,8 @@ func attack_damage_to_enemy(enemy: Character) -> void:
 	
 func reset_cooldown() -> void:
 	attack_interval_timer.start()
-	animation_controller.play("idle")
+	if velocity == Vector3.ZERO:
+		animation_controller.play("idle")
+	else:
+		animation_controller.play("walk")
 	print(name + "'s attack on cooldown")

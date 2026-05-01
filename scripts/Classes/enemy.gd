@@ -39,9 +39,8 @@ func move_or_attack(delta: float) -> void:
 	else:
 		#print("ANT KEPT MOVING")
 		var dir := global_position.direction_to(target_tower.global_position)
-		velocity.x = dir.x * speed
-		velocity.z = dir.z * speed
-		velocity.y = 0.0
+		print("The direction is", dir)
+		velocity = dir * speed
 
 ## to be overwritten by subclasses; handles the attacking of creatures
 func attack_handler() -> void:

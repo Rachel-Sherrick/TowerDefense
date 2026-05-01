@@ -186,19 +186,28 @@ size = Vector3(5, 1, 2)
 [node name="Ant" unique_id=254305490 instance=ExtResource("1_5tacl")]
 collision_priority = 3.0
 script = ExtResource("2_anuxv")
+final_target_name = null
+attack_range = null
 speed = 2.5
+jump_velocity = null
+range_detection = null
+damage_multiplier = null
+target_type = null
+strength = null
 attack_damage = 1
+attack_interval = null
+value = null
 
 [node name="Body" parent="." index="0" unique_id=447693479]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 1, 0)
 layers = 1
 
 [node name="CharacterCollision" parent="." index="1" unique_id=492885942]
-transform = Transform3D(-6.556708e-08, -1.5, 0, 1.5, -6.556708e-08, 0, 0, 0, 1.5, 0, 0.5, -0.5)
 shape = SubResource("CapsuleShape3D_anuxv")
 
 [node name="RangeDetection" parent="." index="2" unique_id=1602429880]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+collision_layer = 2
 
 [node name="RangeMesh" parent="RangeDetection" index="0" unique_id=371440239]
 visible = true
@@ -215,7 +224,7 @@ script = ExtResource("3_anuxv")
 offset = Vector2(0, 0)
 modulate = Color(1, 1, 1, 1)
 sprite_frames = SubResource("SpriteFrames_anuxv")
-animation = &"attack"
+animation = &"walk"
 frame_progress = 0.0
 
 [node name="AntTimer" type="Timer" parent="." index="7" unique_id=1313310677]

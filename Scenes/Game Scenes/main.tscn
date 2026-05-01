@@ -1584,7 +1584,6 @@ texture = ExtResource("7_4yj7t")
 environment = SubResource("Environment_0xm2m")
 
 [node name="Characters" type="Node3D" parent="Battleground" unique_id=765419014]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.012677, 0, -2.3001575)
 
 [node name="PlaceableArea" type="Area3D" parent="Battleground" unique_id=125249582]
 collision_layer = 8

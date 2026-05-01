@@ -21,6 +21,7 @@ animations = [{
 
 [node name="Enemy" unique_id=254305490 groups=["Enemy"] instance=ExtResource("1_7k104")]
 collision_layer = 2
+safe_margin = 0.05
 script = ExtResource("2_4gyqm")
 final_target_name = "Orb"
 attack_range = 3.0
@@ -31,7 +32,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_4gyqm")
 metadata/_edit_lock_ = true
 
 [node name="CharacterCollision" parent="." index="1" unique_id=492885942 groups=["Character", "Enemy"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4548397, 0)
 
 [node name="RangeDetection" parent="." index="2" unique_id=1602429880]
 collision_layer = 0
