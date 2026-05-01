@@ -1529,6 +1529,7 @@ spot_angle = 80.0
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="Battleground/BattleCamera" unique_id=467411058]
 transform = Transform3D(1, 0, 0, 0, 0.8182903, 0.5748053, 0, -0.5748053, 0.8182903, 0, 11.106783, 11.106783)
+visible = false
 light_color = Color(1, 0.7705864, 0.47898167, 1)
 light_energy = 10.612
 light_size = 0.05

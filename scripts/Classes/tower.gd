@@ -52,8 +52,7 @@ func findLast():
 	var lastEnemy
 	var index
 	if !tracking_array.is_empty(): 
-		index = tracking_array.size()-1 
-		lastEnemy = tracking_array[index]
+		lastEnemy = tracking_array[-1]
 	return lastEnemy
 ## finds the strongest Enemy
 func findStrongest(): 

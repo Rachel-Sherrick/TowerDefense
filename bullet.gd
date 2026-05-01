@@ -1,24 +1,32 @@
 extends CharacterBody3D
 class_name Bullet
 
-const SPEED = 60.0
+const SPEED = 30.0
 
 #this variable needs to be changed I think in order for the
 #projectile to go towards the enemy
-var target = Vector3(0,0,0)
+var target_position = Vector3(0,0,0)
+var target: Enemy = null
+
 var attack_damage: int = 1
 
 func _ready() -> void:
 	$AnimatedSprite3D.play("travel")
 
 func _physics_process(delta: float) -> void:
-	var dir: Vector3 = global_position.direction_to(target)
-	$AnimatedSprite3D.rotation.z = (dir.z + -90.0)
+	var dir: Vector3 = global_position.direction_to(target_position)
+	##Makes the bullet home in on the target
+	if target != null and is_instance_valid(target):
+		dir = global_position.direction_to(target.global_position)
+	#$AnimatedSprite3D.rotation.z = (dir.z + -90.0)
 	velocity = dir * SPEED
+	velocity.y = 0.0
 	
-	var collision_info = move_and_collide(velocity * delta, false, 1, true)
 	
-	if collision_info:
+	move_and_slide()
+	var collision_info = get_last_slide_collision()
+	
+	if collision_info != null:
 		print("wizard hit ",collision_info.get_collider())
 		check_target_hit(collision_info.get_collider())
 	
@@ -26,7 +34,7 @@ func _physics_process(delta: float) -> void:
 	#move_and_slide()
 	
 	##deletes object if stuck in ground
-	if global_position.y <= 0.5:
+	if global_position.y <= 0.1:
 		queue_free()
 	
 #if the projectile hit an enemy, delete the enemy & projectile

@@ -14,6 +14,11 @@ func _ready() -> void:
 	attack_interval_timer.wait_time = attack_interval
 	attack_interval_timer.start()
 
+func _physics_process(delta: float) -> void:
+	super(delta)
+	if animation_controller.get_animation() == "idle" and velocity != Vector3.ZERO:
+		animation_controller.play("walk")
+
 func _on_timer_timeout():
 	attack_ready = true
 	print(name, "'s ATTACK READY")

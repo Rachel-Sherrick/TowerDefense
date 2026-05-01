@@ -67,6 +67,7 @@ right_click={
 3d_physics/layer_3="Tower"
 3d_physics/layer_4="Spawn"
 3d_physics/layer_5="Shop"
+3d_physics/layer_9="Bullet"
 
 [physics]
 

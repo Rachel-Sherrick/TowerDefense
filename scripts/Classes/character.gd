@@ -123,8 +123,6 @@ func update_tracking_structures() -> bool:
 		tracking_array.clear()
 		return false
 		
-	for body in obj_list:
-		pass
 	return true
 	
 
@@ -144,8 +142,8 @@ func _on_range_detection_body_entered(body: Node3D) -> void:
 
 
 func addTrack(body):
-		if !tracking_array.has(body): 
-			tracking_array.push_front(body)
+	if !tracking_array.has(body): 
+		tracking_array.push_front(body)
 		
 func removeTrack(body): 
 	if tracking_array.has(body): 

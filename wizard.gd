@@ -16,7 +16,8 @@ func _ready() -> void:
 	timer.wait_time = attack_interval
 	timer.start()
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
+	super(delta)
 	if fire_ready == true && $RangeDetection.has_overlapping_bodies():
 		print("Enemy detcted")
 		#await attack_handler()
@@ -26,13 +27,6 @@ func _process(delta: float) -> void:
 		#animation_controller.play("idle")
 		pass
 
-func _physics_process(delta: float) -> void:
-	super(delta)
-	#if in_range == true && fire_ready == true:
-		##Uncommenting this function call will cause a problem
-		##that needs to be debugged
-		#fire_projectile(aim_list[0])
-
 func _on_range_detection_body_exited(body: Node3D) -> void:
 	super(body)
 	print("Enemy exited ", name, "'s range")
@@ -41,6 +35,7 @@ func _on_range_detection_body_exited(body: Node3D) -> void:
 func _on_range_detection_body_entered(body: Node3D) -> void:
 	super(body)
 	print("Enemy entered ", name, "'s range")
+	print("Wizard is tracking ", tracking_array)
 	in_range = true
 	
 	
@@ -59,7 +54,9 @@ func fire_projectile(target: Enemy) -> void:
 	if target != null:
 		target_glob_pos = Vector3(target.global_position.x, projectile.position.y, target.global_position.z)
 		
-	projectile.target = target_glob_pos
+	projectile.target_position = target_glob_pos
+	if target != null and is_instance_valid(target):
+		projectile.target = target
 	projectile.attack_damage = attack_damage
 	
 	await $AnimationController._on_attack_firing()
