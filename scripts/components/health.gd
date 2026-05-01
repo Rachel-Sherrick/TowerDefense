@@ -16,19 +16,13 @@ var current_health: int
 
 
 func _ready() -> void:
-	var parent = get_parent()
-
-	if parent != null:
-		max_health = 5
-
 	current_health = max_health
 	print(get_parent().name, "spawned with health:", current_health)
 
-	if parent != null:
-		var bar = parent.get_node_or_null("HealthBar/MeshInstance3D")
-		if bar != null and bar.mesh != null:
-			bar.mesh = bar.mesh.duplicate()
-			bar.scale.x = 1.0
+	var bar = $"..".get_node_or_null("HealthBar/MeshInstance3D")
+	if bar != null and bar.mesh != null:
+		bar.mesh = bar.mesh.duplicate()
+		bar.scale.x = 1.0
 
 	emit_signal("health_changed", current_health, max_health)
 	_update_bar()
@@ -99,5 +93,6 @@ func _handle_death() -> void:
 
 	emit_signal("died")
 
-	if destroy_parent_on_death and parent:
-		parent.queue_free()
+	## Removed so a death animation can play
+	#if destroy_parent_on_death and parent:
+		#parent.queue_free()

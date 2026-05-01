@@ -186,17 +186,8 @@ size = Vector3(5, 1, 2)
 [node name="Ant" unique_id=254305490 instance=ExtResource("1_5tacl")]
 collision_priority = 3.0
 script = ExtResource("2_anuxv")
-final_target_name = null
-attack_range = null
 speed = 2.5
-jump_velocity = null
-range_detection = null
-damage_multiplier = null
-target_type = null
-strength = null
 attack_damage = 1
-attack_interval = null
-value = null
 
 [node name="Body" parent="." index="0" unique_id=447693479]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 1, 0)

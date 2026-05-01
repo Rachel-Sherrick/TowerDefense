@@ -22,12 +22,6 @@ animations = [{
 
 [node name="Tower" unique_id=254305490 groups=["Tower"] instance=ExtResource("1_g54jp")]
 collision_layer = 4
-axis_lock_linear_x = true
-axis_lock_linear_y = true
-axis_lock_linear_z = true
-axis_lock_angular_x = true
-axis_lock_angular_y = true
-axis_lock_angular_z = true
 script = ExtResource("2_gnv0d")
 metadata/_edit_group_ = true
 

@@ -364,6 +364,9 @@ sprite_frames = SubResource("SpriteFrames_yjbyf")
 animation = &"swing"
 frame_progress = 0.82617325
 
+[node name="Health" parent="." index="4" unique_id=1530811456]
+max_health = 10
+
 [node name="WarriorTimer" type="Timer" parent="." index="5" unique_id=1405007805]
 one_shot = true
 

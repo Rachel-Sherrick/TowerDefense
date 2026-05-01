@@ -92,7 +92,7 @@ func set_target_type(type: int) -> bool:
 	return true
 
 func _ready() -> void:
-	pass
+	velocity = Vector3.ZERO
 
 func _physics_process(delta: float) -> void:
 	set_phys_framecount(get_phys_framecount() + 1)
@@ -176,5 +176,13 @@ func heal(amount: int) -> void:
 	print(name, " healed +", after - before, " | Current health: ", after)
 
 
+func terminate() -> void:
+	set_physics_process(false)
+	set_process(false)
+	$AnimationController.on_death()
+	await $AnimationController.death_complete
+	queue_free()
+
 func _on_health_died() -> void:
 	emit_signal("died", value)
+	terminate()
