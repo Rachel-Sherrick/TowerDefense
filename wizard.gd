@@ -38,7 +38,7 @@ func _on_range_detection_body_exited(body: Node3D) -> void:
 	print("Enemy exited ", name, "'s range")
 	in_range = false
 
-func _on_range_body_entered(body: Node3D) -> void:
+func _on_range_detection_body_entered(body: Node3D) -> void:
 	super(body)
 	print("Enemy entered ", name, "'s range")
 	in_range = true

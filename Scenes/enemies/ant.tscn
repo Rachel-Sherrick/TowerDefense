@@ -184,6 +184,7 @@ albedo_color = Color(0.8745098, 0, 0.19215687, 0.14509805)
 size = Vector3(5, 1, 2)
 
 [node name="Ant" unique_id=254305490 instance=ExtResource("1_5tacl")]
+collision_priority = 3.0
 script = ExtResource("2_anuxv")
 speed = 2.5
 attack_damage = 1
@@ -202,7 +203,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 [node name="RangeMesh" parent="RangeDetection" index="0" unique_id=371440239]
 visible = true
 
-[node name="RangeCollision" parent="RangeDetection" index="1" unique_id=831990961]
+[node name="RangeCollision" parent="RangeDetection" index="1" unique_id=831990961 groups=["Character"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_pas25")
 
@@ -219,6 +220,7 @@ frame_progress = 0.0
 
 [node name="AntTimer" type="Timer" parent="." index="7" unique_id=1313310677]
 one_shot = true
+autostart = true
 
 [node name="AntHurtBox" type="Area3D" parent="." index="8" unique_id=649490344]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1, 0.5, 0)

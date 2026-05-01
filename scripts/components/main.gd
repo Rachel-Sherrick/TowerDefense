@@ -10,4 +10,7 @@ func _process(delta: float) -> void:
 	
 ###H.S NEEDS THIS TO STAY HERE
 func _on_player_died() -> void:
+	for child in $Battleground/Characters.get_children():
+		child.queue_free()
+	
 	get_tree().change_scene_to_file("res://EndOfGameLOSE.tscn")

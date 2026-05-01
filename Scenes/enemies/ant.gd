@@ -14,20 +14,16 @@ func _ready() -> void:
 	attack_interval_timer.wait_time = attack_interval
 	attack_interval_timer.start()
 
-func _physics_process(delta: float) -> void:
-	super(delta)
-
 func _on_timer_timeout():
 	attack_ready = true
 	print(name, "'s ATTACK READY")
 
 ##handles the attacks
 func attack_handler() -> void:
-	if (attack_ready == true) and ($RangeDetection.has_overlapping_bodies()):
+	if (attack_ready == true):
 		##prevents animations from getting overwritten
 		if (animation_controller.get_animation() == "walk" or animation_controller.get_animation() == "idle"): 
 			attack_ready = false
-			print()
 			## plays the animation and only deals damage when
 			## the attack's wind up is finished
 			attack_play_animation()
@@ -42,9 +38,9 @@ func attack_handler() -> void:
 				attack_damage_to_enemy(enemy)
 			print("Ant's attack complete")
 			
+			reset_cooldown()
 			##forces attacks to wait till animation is finished till a new one begins
 			await animation_controller.animation_finished
-			reset_cooldown()
 
 func attack_play_animation() -> void:
 	print("Ant is now attacking")
@@ -54,7 +50,7 @@ func attack_play_animation() -> void:
 func attack_damage_to_enemy(enemy: Character) -> void:
 	print(name, " attacked ", enemy.name)
 	## !! see comments in Character.gd !!
-	target_tower.take_damage(attack_damage)
+	enemy.take_damage(attack_damage)
 	print(enemy.name + " health: ", enemy.get_health())
 	
 func reset_cooldown() -> void:

@@ -31,7 +31,7 @@ func _physics_process(delta: float) -> void:
 func _on_range_detection_body_exited(body: Node3D) -> void:
 	super(body)
 
-func _on_range_body_entered(body: Node3D) -> void:
+func _on_range_detection_body_entered(body: Node3D) -> void:
 	super(body)
 	#if swing_ready:
 	#	attack_handler()

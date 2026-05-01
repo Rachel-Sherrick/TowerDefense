@@ -1,6 +1,9 @@
 extends Character
 class_name Tower
 
+func _ready() -> void:
+	velocity = Vector3.ZERO
+
 func _process(delta: float) -> void:
 	currentTarget = target()
 

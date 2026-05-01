@@ -334,7 +334,6 @@ margin = 0.08
 size = Vector3(5, 1, 4)
 
 [node name="Warrior" unique_id=254305490 instance=ExtResource("1_wfww2")]
-collision_priority = 2.0
 script = ExtResource("2_xumaq")
 attack_damage = 1
 
@@ -382,6 +381,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_6csb2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1.25)
 shape = SubResource("BoxShape3D_3a2cj")
 
+[connection signal="body_entered" from="RangeDetection" to="." method="_on_range_body_entered"]
 [connection signal="animation_changed" from="AnimationController/SpriteBody" to="AnimationController" method="_on_sprite_body_animation_changed"]
 [connection signal="animation_finished" from="AnimationController/SpriteBody" to="AnimationController" method="_on_sprite_body_animation_finished"]
 [connection signal="sprite_frames_changed" from="AnimationController/SpriteBody" to="AnimationController" method="_on_sprite_body_frame_changed"]

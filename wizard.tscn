@@ -217,6 +217,7 @@ one_shot = true
 
 [connection signal="firing" from="." to="AnimationController" method="_on_attack_firing"]
 [connection signal="readying" from="." to="AnimationController" method="_on_wizard_readying"]
+[connection signal="body_entered" from="RangeDetection" to="." method="_on_range_body_entered"]
 [connection signal="animation_finished" from="AnimationController/SpriteBody" to="AnimationController" method="_on_sprite_body_animation_finished"]
 [connection signal="frame_changed" from="AnimationController/SpriteBody" to="AnimationController" method="_on_sprite_body_frame_changed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

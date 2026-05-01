@@ -71,7 +71,7 @@ metadata/_edit_lock_ = true
 collision_layer = 6
 collision_mask = 6
 input_ray_pickable = false
-monitorable = false
+priority = 4
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
@@ -123,7 +123,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_px5sl")
 [node name="Potions" type="Node" parent="." unique_id=1579418923]
 script = ExtResource("5_px5sl")
 
-[connection signal="body_entered" from="RangeDetection" to="." method="_on_range_body_entered"]
+[connection signal="body_entered" from="RangeDetection" to="." method="_on_range_detection_body_entered"]
 [connection signal="body_exited" from="RangeDetection" to="." method="_on_range_detection_body_exited"]
 [connection signal="animation_looped" from="AnimationController/SpriteBody" to="AnimationController" method="_on_sprite_body_animation_looped"]
 [connection signal="died" from="Health" to="." method="_on_health_died"]

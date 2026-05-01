@@ -94,12 +94,11 @@ func set_target_type(type: int) -> bool:
 func _ready() -> void:
 	pass
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	set_phys_framecount(get_phys_framecount() + 1)
 	## DEBUG LINE: print(get_phys_framecount())
 	
-	
-	move_and_slide()
+	move_and_collide(velocity * delta)
 	
 	## updates body positions every 4 frames
 	if get_phys_framecount() % 4 == 0:
@@ -120,10 +119,9 @@ func update_tracking_structures() -> bool:
 	## !! remove the for loop below and replace with a call to sort
 	## the distance / strength array using the Array's built-in sort_custom()!!
 	
-	## add later
-	#if obj_list.is_empty():
-		#tracking_array.clear()
-		#return false
+	if obj_list.is_empty():
+		tracking_array.clear()
+		return false
 		
 	for body in obj_list:
 		pass
@@ -137,7 +135,7 @@ func _on_range_detection_body_exited(body: Node3D) -> void:
 	print(name + " no longer tracking " + body.name)
 	print(tracking_array)
 	
-func _on_range_body_entered(body: Node3D) -> void:
+func _on_range_detection_body_entered(body: Node3D) -> void:
 	## See healer.gd for old code
 	#adds the body entering to the front of the array
 	addTrack(body)
