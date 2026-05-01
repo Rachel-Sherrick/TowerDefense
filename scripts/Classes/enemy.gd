@@ -11,10 +11,12 @@ var target_tower: Node3D = null
 func _ready() -> void:
 	super()
 	find_target()
+	#print("TRACKING ARRAY: ", tracking_array)
 
 func _physics_process(delta: float) -> void:
 	move_or_attack(delta)
 	super(delta)
+	#print($RangeDetection.has_overlapping_bodies())
 
 ## finds its target by name
 func find_target() -> void:
@@ -33,8 +35,9 @@ func move_or_attack(delta: float) -> void:
 	if $RangeDetection.overlaps_body(target_tower):
 		velocity = Vector3.ZERO
 		attack_handler()
+		print("TARGETING: ", target_tower)
 	else:
-		print("ANT KEPT MOVING")
+		#print("ANT KEPT MOVING")
 		var dir := global_position.direction_to(target_tower.global_position)
 		velocity.x = dir.x * speed
 		velocity.z = dir.z * speed
