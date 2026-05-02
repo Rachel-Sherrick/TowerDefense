@@ -81,7 +81,7 @@ collision_layer = 0
 collision_mask = 3
 input_ray_pickable = false
 motion_mode = 1
-platform_floor_layers = 4294967032
+platform_floor_layers = 4294967024
 script = ExtResource("1_v7oki")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1245285078]

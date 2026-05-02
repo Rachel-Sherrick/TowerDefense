@@ -7,14 +7,16 @@ const SPEED = 30.0
 #projectile to go towards the enemy
 var target_position = Vector3(0,0,0)
 var target: Enemy = null
+## the initial direction of the bullet
+var dir: Vector3
 
 var attack_damage: int = 1
 
 func _ready() -> void:
 	$AnimatedSprite3D.play("travel")
+	dir = global_position.direction_to(target_position)
 
 func _physics_process(delta: float) -> void:
-	var dir: Vector3 = global_position.direction_to(target_position)
 	##Makes the bullet home in on the target
 	if target != null and is_instance_valid(target):
 		dir = global_position.direction_to(target.global_position)

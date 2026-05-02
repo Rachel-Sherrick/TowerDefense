@@ -143,7 +143,7 @@ func _on_range_detection_body_entered(body: Node3D) -> void:
 
 func addTrack(body):
 	if !tracking_array.has(body): 
-		tracking_array.push_front(body)
+		tracking_array.push_back(body)
 		
 func removeTrack(body): 
 	if tracking_array.has(body): 
