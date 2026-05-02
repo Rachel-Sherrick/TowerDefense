@@ -77,11 +77,11 @@ animations = [{
 
 [node name="Bullet" type="CharacterBody3D" unique_id=434509937]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
-collision_layer = 256
+collision_layer = 0
 collision_mask = 3
 input_ray_pickable = false
 motion_mode = 1
-platform_floor_layers = 4294967288
+platform_floor_layers = 4294967032
 script = ExtResource("1_v7oki")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1245285078]
