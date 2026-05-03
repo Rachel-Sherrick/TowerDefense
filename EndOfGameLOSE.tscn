@@ -103,10 +103,12 @@ text = "Quit?"
 flat = true
 
 [node name="Ant" type="Sprite2D" parent="CenterContainer" unique_id=392133987]
+visible = false
 position = Vector2(-2008.5, 2028.5)
 texture = ExtResource("3_h3rxy")
 
 [node name="Orb" type="Sprite2D" parent="CenterContainer" unique_id=565047272]
+visible = false
 position = Vector2(-1688.5, 1995.5)
 texture = ExtResource("4_d11ju")
 
