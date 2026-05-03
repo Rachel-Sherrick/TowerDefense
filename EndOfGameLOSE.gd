@@ -1,7 +1,11 @@
 extends Control
 
-func _on_quit_button_pressed() -> void:
-	get_tree().quit()
+func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
 
 func _on_retry_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://main.tscn")
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://Scenes/Game scenes/main.tscn")
+
+func _on_quit_button_pressed() -> void:
+	get_tree().quit()

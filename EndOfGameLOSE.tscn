@@ -1,25 +1,30 @@
 [gd_scene format=3 uid="uid://c6us0wgyg738j"]
 
+[ext_resource type="Texture2D" uid="uid://bgtc26nbum7rh" path="res://Scenes/LOSEscreenHelper.png" id="1_b7g8v"]
+[ext_resource type="Script" uid="uid://ccvideuhh2ayg" path="res://EndOfGameLOSE.gd" id="1_kn40w"]
+
 [node name="DeathScreen" type="Control" unique_id=565792286]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 1878.0
+offset_top = -1912.0
+offset_right = 1878.0
+offset_bottom = -1912.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_kn40w")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1731766296]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1200.0
-offset_top = -1209.0
-offset_right = 1330.0
-offset_bottom = 720.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
+[node name="Background" type="TextureRect" parent="." unique_id=1839570070]
+layout_mode = 0
+offset_left = -1869.0
+offset_top = 1914.0
+offset_right = -505.0
+offset_bottom = 2630.0
+texture = ExtResource("1_b7g8v")
+expand_mode = 1
+stretch_mode = 4
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=1221706493]
 layout_mode = 1
@@ -41,25 +46,34 @@ layout_mode = 2
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1647809384]
 layout_mode = 2
 theme_override_font_sizes/font_size = 76
-text = "YOU ARE DECEASED "
 
 [node name="RetryButton" type="Button" parent="CenterContainer/VBoxContainer/Label" unique_id=42775432]
 layout_mode = 1
 anchors_preset = -1
-anchor_bottom = 1.268
-offset_left = -198.5
-offset_top = 125.5
-offset_right = 257.5
-offset_bottom = 260.112
+anchor_left = -2473.017
+anchor_right = -1545.6351
+anchor_bottom = 1.0
+offset_left = 761.5171
+offset_top = 2217.5
+offset_right = 84.13513
+offset_bottom = 2216.5
 grow_vertical = 2
-theme_override_font_sizes/font_size = 100
-text = "QUIT?"
+theme_override_font_sizes/font_size = 70
+text = "Retry? "
 
 [node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer/Label" unique_id=1001521474]
-layout_mode = 0
-offset_left = 333.5
-offset_top = 114.5
-offset_right = 920.5
-offset_bottom = 358.5
-theme_override_font_sizes/font_size = 99
-text = "TRY AGAIN!"
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -649.655
+anchor_top = -2.69
+anchor_right = 942.72205
+anchor_bottom = 5.787
+offset_left = -1657.845
+offset_top = 2501.95
+offset_right = -2859.2222
+offset_bottom = 1711.865
+theme_override_font_sizes/font_size = 67
+text = "Quit?"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Label/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Label/QuitButton" to="." method="_on_quit_button_pressed"]
