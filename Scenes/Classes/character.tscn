@@ -8,9 +8,7 @@
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_dnc73"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_glpr6"]
-radius = 1.5581055
-height = 6.5555
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yo45p"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pjt0s"]
 transparency = 1
@@ -23,8 +21,7 @@ bottom_radius = 3.0
 height = 0.05
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_pjt0s"]
-height = 3.4002075
-radius = 4.203125
+radius = 3.0
 
 [sub_resource type="TubeTrailMesh" id="TubeTrailMesh_pjt0s"]
 radius = 0.05
@@ -66,41 +63,44 @@ mesh = SubResource("CapsuleMesh_dnc73")
 
 [node name="CharacterCollision" type="CollisionShape3D" parent="." unique_id=492885942]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("CapsuleShape3D_glpr6")
+shape = SubResource("CapsuleShape3D_yo45p")
 metadata/_edit_lock_ = true
 
 [node name="RangeDetection" type="Area3D" parent="." unique_id=1602429880 groups=["Character"]]
 collision_layer = 6
 collision_mask = 6
 input_ray_pickable = false
-monitorable = false
+priority = 4
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
 [node name="RangeMesh" type="MeshInstance3D" parent="RangeDetection" unique_id=371440239]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 0)
+visible = false
 sorting_offset = -1.0
 mesh = SubResource("CylinderMesh_pjt0s")
 metadata/_edit_lock_ = true
 
 [node name="RangeCollision" type="CollisionShape3D" parent="RangeDetection" unique_id=831990961]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8143616, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CylinderShape3D_pjt0s")
 metadata/_edit_lock_ = true
 
 [node name="DiameterCheckMesh" type="MeshInstance3D" parent="RangeDetection" unique_id=2108971858]
 transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0.1, 0)
+visible = false
 mesh = SubResource("TubeTrailMesh_pjt0s")
 metadata/_edit_lock_ = true
 
 [node name="AnimationController" type="Node3D" parent="." unique_id=1020417921]
-transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0.8, -0.9)
+transform = Transform3D(1, 0, 0, 0, 0.7071067, 0.7071067, 0, -0.7071067, 0.7071067, 0, 0.8, -0.7)
 script = ExtResource("2_wa5vi")
 
 [node name="SpriteBody" type="AnimatedSprite3D" parent="AnimationController" unique_id=1996147602]
-transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.9455185, -0.32556814, 0, 0.32556814, 0.9455185, 0, 0, 0)
 layers = 4
 sorting_offset = 1.0
+offset = Vector2(0, 16)
 alpha_cut = 1
 render_priority = 1
 sprite_frames = SubResource("SpriteFrames_wa5vi")
@@ -122,8 +122,9 @@ surface_material_override/0 = SubResource("StandardMaterial3D_px5sl")
 [node name="Potions" type="Node" parent="." unique_id=1579418923]
 script = ExtResource("5_px5sl")
 
-[connection signal="body_entered" from="RangeDetection" to="." method="_on_range_body_entered"]
+[connection signal="body_entered" from="RangeDetection" to="." method="_on_range_detection_body_entered"]
 [connection signal="body_exited" from="RangeDetection" to="." method="_on_range_detection_body_exited"]
+[connection signal="animation_looped" from="AnimationController/SpriteBody" to="AnimationController" method="_on_sprite_body_animation_looped"]
 [connection signal="died" from="Health" to="." method="_on_health_died"]
 [connection signal="health_changed" from="Health" to="AnimationController" method="_on_health_health_changed"]
 [connection signal="took_damage" from="Health" to="AnimationController" method="_on_health_took_damage"]

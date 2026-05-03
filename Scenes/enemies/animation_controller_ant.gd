@@ -33,6 +33,6 @@ func _on_sprite_body_animation_finished() -> void:
 	stop()
 	emit_signal("animation_finished")
 
-
 func _on_sprite_body_frame_changed() -> void:
-	pass # Replace with function body.
+	if sprite.frame == 12:
+		emit_signal("hurt_frame_triggered")

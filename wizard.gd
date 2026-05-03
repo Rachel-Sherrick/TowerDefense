@@ -1,11 +1,9 @@
 extends Tower
 class_name Wizard
-
 #maybe this can be used for targeting? idk
-
-var bullet_scene = preload("res://bullet.tscn")
-
+signal readying
 signal firing
+var bullet_scene = preload("res://bullet.tscn")
 #tests if enemies are within the range detection
 var in_range: bool = false
 
@@ -14,42 +12,38 @@ var fire_ready: bool = false
 @onready var timer: Timer = $Timer
 
 func _ready() -> void:
+	$AnimationController.play("idle")
 	timer.wait_time = attack_interval
 	timer.start()
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
+	super(delta)
 	if fire_ready == true && $RangeDetection.has_overlapping_bodies():
+		print("Enemy detcted")
 		#await attack_handler()
-		fire_projectile(target())
+		if $AnimationController.get_animation() == "idle":
+			fire_projectile(target())
 	if !($RangeDetection.has_overlapping_bodies()):
 		#animation_controller.play("idle")
 		pass
-		
-		
-
-func _physics_process(delta: float) -> void:
-	super(delta)
-	#if in_range == true && fire_ready == true:
-		##Uncommenting this function call will cause a problem
-		##that needs to be debugged
-		#fire_projectile(aim_list[0])
-		#
 
 func _on_range_detection_body_exited(body: Node3D) -> void:
 	super(body)
 	print("Enemy exited ", name, "'s range")
 	in_range = false
 
-func _on_range_body_entered(body: Node3D) -> void:
+func _on_range_detection_body_entered(body: Node3D) -> void:
 	super(body)
 	print("Enemy entered ", name, "'s range")
+	print("Wizard is tracking ", tracking_array)
 	in_range = true
 	
 	
 func fire_projectile(target: Enemy) -> void:
-	print("WIZARD FIRING ATTACK")
-	emit_signal("firing")
-	var projectile = bullet_scene.instantiate()
+	emit_signal("readying")
+	await $AnimationController.wizard_ready
+	print("WIZARD READYING ATTACK")
+	var projectile: Bullet = bullet_scene.instantiate()
 	var target_glob_pos = Vector3(-1, 0, 0)
 	
 	## these prevent the bullet from flying off at odd angles or colliding into
@@ -60,11 +54,27 @@ func fire_projectile(target: Enemy) -> void:
 	if target != null:
 		target_glob_pos = Vector3(target.global_position.x, projectile.position.y, target.global_position.z)
 		
-	projectile.target = target_glob_pos
+	projectile.target_position = target_glob_pos
+	if target != null and is_instance_valid(target):
+		projectile.target = target
 	projectile.attack_damage = attack_damage
-	add_child(projectile)
 	
+	await $AnimationController._on_attack_firing()
+	
+	print("BULLET FIRED")
+	add_child(projectile)
 	fire_ready = false
+	
+	await $AnimationController.animation_finished
+	$AnimationController._on_recoil()
+	reset_cooldown()
+
+func reset_cooldown() -> void:
+	fire_ready = false
+	timer.start()
+	await $AnimationController.animation_finished
+	$AnimationController.play("idle")
+	print(name + "'s attack on cooldown")
 
 func _on_timer_timeout() -> void:
 	fire_ready = true

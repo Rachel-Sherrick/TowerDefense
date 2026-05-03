@@ -1,6 +1,9 @@
 extends Character
 class_name Tower
 
+func _ready() -> void:
+	velocity = Vector3.ZERO
+
 func _process(delta: float) -> void:
 	currentTarget = target()
 
@@ -39,7 +42,7 @@ func findClosest():
 				closestEnemy = item
 	return closestEnemy
 ##finds the first enemy to enter the array 
-func findFirst(): 
+func findFirst() -> Character: 
 	var firstEnemy
 	if !tracking_array.is_empty(): 
 		firstEnemy = tracking_array[0]
@@ -49,8 +52,7 @@ func findLast():
 	var lastEnemy
 	var index
 	if !tracking_array.is_empty(): 
-		index = tracking_array.size()-1 
-		lastEnemy = tracking_array[index]
+		lastEnemy = tracking_array[-1]
 	return lastEnemy
 ## finds the strongest Enemy
 func findStrongest(): 

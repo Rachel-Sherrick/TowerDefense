@@ -1305,7 +1305,7 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -67.0
+offset_top = -78.0
 offset_right = 109.0
 grow_vertical = 0
 theme_override_colors/font_color = Color(0.4392157, 0.8784314, 0.6, 1)
@@ -1317,8 +1317,10 @@ flat = true
 autowrap_trim_flags = 192
 icon_alignment = 1
 
-[node name="CoinsLabel" type="Label" parent="Player/GUI" unique_id=1595139303]
-layout_mode = 1
+[node name="CoinCanvas" type="CanvasLayer" parent="Player/GUI" unique_id=248554406]
+layer = 2
+
+[node name="CoinsLabel" type="Label" parent="Player/GUI/CoinCanvas" unique_id=1595139303]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -1473,6 +1475,18 @@ theme_override_fonts/font = ExtResource("12_0w7h6")
 text = "0"
 horizontal_alignment = 2
 
+[node name="StartRoundButton" type="Button" parent="Player/GUI" unique_id=2091251641]
+layout_mode = 1
+offset_left = 200.0
+offset_right = 318.0
+offset_bottom = 78.0
+theme_override_colors/font_color = Color(0.99607843, 0.84705883, 0.3882353, 1)
+theme_override_colors/font_hover_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
+theme_override_fonts/font = ExtResource("12_0w7h6")
+theme_override_font_sizes/font_size = 48
+text = "- Start -"
+flat = true
+
 [node name="Battleground" type="Node3D" parent="." unique_id=1447681041]
 
 [node name="Shop" type="Node3D" parent="Battleground" unique_id=685433725]
@@ -1489,7 +1503,7 @@ transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70
 metadata/_edit_lock_ = true
 
 [node name="Camera3D" type="Camera3D" parent="Battleground/BattleCamera" unique_id=1112084879]
-transform = Transform3D(1, 0, 0, 0, 0.9471711, -0.3207287, 0, 0.3207287, 0.9471711, 0, -23.773878, 74.62061)
+transform = Transform3D(1, 0, 0, 0, 0.9455185, -0.32556814, 0, 0.32556814, 0.9455185, 0, -23.773878, 74.62061)
 attributes = ExtResource("7_q80nm")
 projection = 1
 current = true
@@ -1527,6 +1541,7 @@ spot_angle = 80.0
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="Battleground/BattleCamera" unique_id=467411058]
 transform = Transform3D(1, 0, 0, 0, 0.8182903, 0.5748053, 0, -0.5748053, 0.8182903, 0, 11.106783, 11.106783)
+visible = false
 light_color = Color(1, 0.7705864, 0.47898167, 1)
 light_energy = 10.612
 light_size = 0.05
@@ -1558,6 +1573,7 @@ spot_angle_attenuation = 1.6245042
 
 [node name="Ground" type="StaticBody3D" parent="Battleground" unique_id=1885948079]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+collision_mask = 0
 metadata/_edit_lock_ = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Battleground/Ground" unique_id=1828453882]
@@ -1581,10 +1597,6 @@ texture = ExtResource("7_4yj7t")
 environment = SubResource("Environment_0xm2m")
 
 [node name="Characters" type="Node3D" parent="Battleground" unique_id=765419014]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.012677, 0, -2.3001575)
-
-[node name="Wizard" parent="Battleground/Characters" unique_id=254305490 instance=ExtResource("8_yhwuq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.032525)
 
 [node name="PlaceableArea" type="Area3D" parent="Battleground" unique_id=125249582]
 collision_layer = 8
@@ -1744,9 +1756,15 @@ spawn_interval = 5.0
 [node name="EnemySpawnPoint" type="Marker3D" parent="EnemySpawner" unique_id=1467880243]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 0)
 
+[node name="SpawnTimer" type="Timer" parent="EnemySpawner" unique_id=1666190873]
+wait_time = 4.0
+autostart = true
+
 [connection signal="purchase" from="Player/GUI/ShopCanvas" to="Player" method="_on_shop_purchase"]
 [connection signal="input_event" from="Player/GUI/ShopCanvas/ShopSlots/Slot1" to="Player/GUI/ShopCanvas" method="_on_slot_1_input_event"]
+[connection signal="mouse_entered" from="Player/GUI/ShopCanvas/ShopSlots/Slot1" to="Player/GUI/ShopCanvas" method="_on_slot_1_mouse_entered"]
 [connection signal="input_event" from="Player/GUI/ShopCanvas/ShopSlots/Slot2" to="Player/GUI/ShopCanvas" method="_on_slot_2_input_event"]
+[connection signal="mouse_entered" from="Player/GUI/ShopCanvas/ShopSlots/Slot2" to="Player/GUI/ShopCanvas" method="_on_slot_2_mouse_entered"]
 [connection signal="input_event" from="Player/GUI/ShopCanvas/ShopSlots/Slot3" to="Player/GUI/ShopCanvas" method="_on_slot_3_input_event"]
 [connection signal="input_event" from="Player/GUI/ShopCanvas/ShopSlots/Slot4" to="Player/GUI/ShopCanvas" method="_on_slot_4_input_event"]
 [connection signal="input_event" from="Player/GUI/ShopCanvas/ShopSlots/Slot5" to="Player/GUI/ShopCanvas" method="_on_slot_5_input_event"]
@@ -1771,5 +1789,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 0)
 [connection signal="pressed" from="Player/GUI/InventoryBar/OpenCloseButton" to="Player/GUI" method="_on_open_close_button_pressed"]
 [connection signal="input_event" from="Player/GUI/InventoryBar/WarriorBox/WarriorSelect" to="Player" method="_on_warrior_select_input_event"]
 [connection signal="input_event" from="Player/GUI/InventoryBar/WizardBox/WizardSelect" to="Player" method="_on_wizard_select_input_event"]
-[connection signal="child_entered_tree" from="Battleground" to="Player" method="_on_battleground_child_entered_tree"]
+[connection signal="pressed" from="Player/GUI/StartRoundButton" to="EnemySpawner" method="_on_start_round_button_pressed"]
+[connection signal="child_entered_tree" from="Battleground/Characters" to="Player" method="_on_battleground_child_entered_tree"]
 [connection signal="input_event" from="Battleground/PlaceableArea" to="Player" method="_place_tower"]
+[connection signal="timeout" from="EnemySpawner/SpawnTimer" to="EnemySpawner" method="_on_spawn_timer_timeout"]

@@ -74,8 +74,6 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yvydg"]
 albedo_color = Color(1, 0.80784315, 0, 1)
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k1sas"]
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_wfww2"]
 resource_local_to_scene = true
 animations = [{
@@ -342,18 +340,13 @@ attack_damage = 1
 [node name="Body" parent="." index="0" unique_id=447693479]
 surface_material_override/0 = SubResource("StandardMaterial3D_yvydg")
 
-[node name="CharacterCollision" parent="." index="1" unique_id=492885942]
-shape = SubResource("CapsuleShape3D_k1sas")
-
-[node name="RangeCollision" parent="RangeDetection" parent_id_path=PackedInt32Array(1602429880) index="1" unique_id=831990961]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5098562, 0)
-
 [node name="AnimationController" parent="." index="3" unique_id=1020417921]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0.8, -0.9)
 script = ExtResource("3_6dc4p")
 
 [node name="SpriteBody" parent="AnimationController" index="0" unique_id=1996147602]
+offset = Vector2(0, 24)
 modulate = Color(1, 1, 1, 1)
-shaded = true
 sprite_frames = SubResource("SpriteFrames_wfww2")
 animation = &"swing_east"
 frame_progress = 0.0
@@ -364,6 +357,9 @@ alpha_cut = 1
 sprite_frames = SubResource("SpriteFrames_yjbyf")
 animation = &"swing"
 frame_progress = 0.82617325
+
+[node name="Health" parent="." index="4" unique_id=1530811456]
+max_health = 10
 
 [node name="WarriorTimer" type="Timer" parent="." index="5" unique_id=1405007805]
 one_shot = true
@@ -382,6 +378,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_6csb2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1.25)
 shape = SubResource("BoxShape3D_3a2cj")
 
+[connection signal="body_entered" from="RangeDetection" to="." method="_on_range_body_entered"]
 [connection signal="animation_changed" from="AnimationController/SpriteBody" to="AnimationController" method="_on_sprite_body_animation_changed"]
 [connection signal="animation_finished" from="AnimationController/SpriteBody" to="AnimationController" method="_on_sprite_body_animation_finished"]
 [connection signal="sprite_frames_changed" from="AnimationController/SpriteBody" to="AnimationController" method="_on_sprite_body_frame_changed"]

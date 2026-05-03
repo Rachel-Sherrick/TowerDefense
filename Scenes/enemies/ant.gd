@@ -16,6 +16,8 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	super(delta)
+	if animation_controller.get_animation() == "idle" and velocity != Vector3.ZERO:
+		animation_controller.play("walk")
 
 func _on_timer_timeout():
 	attack_ready = true
@@ -23,13 +25,11 @@ func _on_timer_timeout():
 
 ##handles the attacks
 func attack_handler() -> void:
-	super()
-	if (attack_ready == true) and ($RangeDetection.has_overlapping_bodies()):
+	if (attack_ready == true):
 		##prevents animations from getting overwritten
-		if (animation_controller.get_animation() == "walk" or 
-			animation_controller.get_animation() == "idle"): 
+		print("Attack is busy waiting")
+		if (animation_controller.get_animation() == "walk" or animation_controller.get_animation() == "idle"): 
 			attack_ready = false
-			
 			## plays the animation and only deals damage when
 			## the attack's wind up is finished
 			attack_play_animation()
@@ -38,26 +38,32 @@ func attack_handler() -> void:
 			## targets an enemy; does not change target if there is no enemy returned
 			var enemy_in_range = hurt_box.get_overlapping_bodies()
 			#show_hurt_box()
+			
+			print("Ant is attempting to attack ", enemy_in_range)
 			for enemy in enemy_in_range:
 				attack_damage_to_enemy(enemy)
-			print("Attack complete")
+			print("Ant's attack complete")
+			
 			
 			##forces attacks to wait till animation is finished till a new one begins
 			await animation_controller.animation_finished
 			reset_cooldown()
-			emit_signal("attack_complete") 
 
 func attack_play_animation() -> void:
+	print("Ant is now attacking")
 	animation_controller.play("attack")
 
 #dealing warrior sword swing damage to enemies
 func attack_damage_to_enemy(enemy: Character) -> void:
 	print(name, " attacked ", enemy.name)
 	## !! see comments in Character.gd !!
-	target_tower.take_damage(attack_damage)
+	enemy.take_damage(attack_damage)
 	print(enemy.name + " health: ", enemy.get_health())
 	
 func reset_cooldown() -> void:
 	attack_interval_timer.start()
-	animation_controller.play("idle")
+	if velocity == Vector3.ZERO:
+		animation_controller.play("idle")
+	else:
+		animation_controller.play("walk")
 	print(name + "'s attack on cooldown")

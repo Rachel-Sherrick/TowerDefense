@@ -1,6 +1,8 @@
 extends CharacterBody3D
 class_name Character
 
+signal died(value: float)
+
 @onready var health_component = $Health
 @onready var potions = $Potions
 #### K = take damage <<< test for potions to actually appear to work.. 
@@ -43,7 +45,7 @@ var phys_framecount = 0
 ## Only set range through RangeDetection's set_range
 @export var range_detection = 1
 ## Damage multiplier for when the character deals damage to another character
-@export var damage = 1
+@export var damage_multiplier = 1
 ## The default targeting priority
 @export var target_type: int = FIRST
 ## Arbitrary definition for strength for targeting
@@ -90,13 +92,11 @@ func set_target_type(type: int) -> bool:
 	return true
 
 func _ready() -> void:
-	if self is Warrior:
-		health_component.died.connect(get_tree().current_scene._on_player_died)
+	velocity = Vector3.ZERO
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	set_phys_framecount(get_phys_framecount() + 1)
 	## DEBUG LINE: print(get_phys_framecount())
-	
 	
 	move_and_slide()
 	
@@ -115,13 +115,14 @@ func get_distance_char(body: Node3D) -> float:
 ## by rule of thumb characters do not tracks allies unless toggled
 func update_tracking_structures() -> bool:
 	## updates the position for all colliding bodies
-	var obj_list = $RangeDetection.get_overlapping_bodies()
+	var obj_list: Array = $RangeDetection.get_overlapping_bodies()
 	## !! remove the for loop below and replace with a call to sort
 	## the distance / strength array using the Array's built-in sort_custom()!!
-	for body in obj_list:
-		## See healer.gd for old code
-		#print(body.name + " distance from " + name + " is " + str(get_distance_char(body)))
-		pass
+	
+	if obj_list.is_empty():
+		tracking_array.clear()
+		return false
+		
 	return true
 	
 
@@ -132,16 +133,17 @@ func _on_range_detection_body_exited(body: Node3D) -> void:
 	print(name + " no longer tracking " + body.name)
 	print(tracking_array)
 	
-func _on_range_body_entered(body: Node3D) -> void:
+func _on_range_detection_body_entered(body: Node3D) -> void:
 	## See healer.gd for old code
 	#adds the body entering to the front of the array
 	addTrack(body)
+	print(name + " is tracking " + body.name)
 	print(tracking_array) 
 
 
 func addTrack(body):
-		if !tracking_array.has(body): 
-			tracking_array.push_front(body)
+	if !tracking_array.has(body): 
+		tracking_array.push_back(body)
 		
 func removeTrack(body): 
 	if tracking_array.has(body): 
@@ -170,3 +172,15 @@ func heal(amount: int) -> void:
 	var after = health_component.current_health
 
 	print(name, " healed +", after - before, " | Current health: ", after)
+
+
+func terminate() -> void:
+	set_physics_process(false)
+	set_process(false)
+	$AnimationController.on_death()
+	await $AnimationController.death_complete
+	queue_free()
+
+func _on_health_died() -> void:
+	emit_signal("died", value)
+	terminate()
