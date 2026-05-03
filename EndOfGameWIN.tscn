@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://rsi3enlx7yrb"]
+
+[ext_resource type="Script" uid="uid://r8sxiea7ynv6" path="res://EndOfGameWIN.gd" id="1_5l18s"]
+[ext_resource type="Texture2D" uid="uid://bgtc26nbum7rh" path="res://Scenes/LOSEscreenHelper.png" id="2_vnhwh"]
+[ext_resource type="FontFile" uid="uid://cchfdyetdjd7q" path="res://fonts/DarumadropOne-Regular.ttf" id="3_fhra1"]
+
+[node name="DeathScreen" type="Control" unique_id=565792286]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5l18s")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1839570070]
+visible = false
+layout_mode = 0
+offset_left = -1869.0
+offset_top = 1914.0
+offset_right = -505.0
+offset_bottom = 2630.0
+texture = ExtResource("2_vnhwh")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1221706493]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=447074866]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1647809384]
+layout_mode = 2
+theme_override_font_sizes/font_size = 76
+text = "YOU WIN!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RetryButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=42775432]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4392157, 0.8784314, 0.6, 1)
+theme_override_colors/font_hover_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
+theme_override_fonts/font = ExtResource("3_fhra1")
+theme_override_font_sizes/font_size = 70
+text = "Retry? "
+flat = true
+
+[node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1001521474]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4392157, 0.8784314, 0.6, 1)
+theme_override_colors/font_hover_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
+theme_override_fonts/font = ExtResource("3_fhra1")
+theme_override_font_sizes/font_size = 67
+text = "Quit?"
+flat = true
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

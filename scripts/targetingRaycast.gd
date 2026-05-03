@@ -11,9 +11,15 @@ var target : Character = null
 func _ready() -> void:
 	##Defaults the raycast to the radius of the RangeDetection
 	var range_radius = $"../RangeDetection/RangeCollision".shape.radius
-	target_position.z = range_radius
+	target_position = Vector3.ZERO
+
+func cpr() -> void:
+	pass
 
 func _physics_process(delta) -> void:
+	$"..".translate_object_local(Vector3(0.1,0,0))
+	$"..".translate_object_local(Vector3(-0.1,0,0))
+	call_deferred("cpr")
 	if is_colliding(): 
 			#Am I hitting a character or the landscape
 			if get_collider() is Character: 
@@ -48,7 +54,7 @@ func _on_character_disable_tracking(body: CollisionObject3D) -> void:
 	## This check may be passed up to be handled by character.gd later
 	if target_position == to_local(body.global_transform.origin):
 		## Returns to defaults
-		target_position.z = $"../RangeDetection/RangeCollision".shape.radius
+		target_position = Vector3.ZERO
 		set_physics_process(false)
 		hide()
 		print($"..".name + " stopped casting w/ " + body.name)

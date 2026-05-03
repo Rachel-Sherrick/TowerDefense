@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://c6us0wgyg738j"]
+
+[ext_resource type="Script" uid="uid://ccvideuhh2ayg" path="res://EndOfGameLOSE.gd" id="1_kn40w"]
+[ext_resource type="Texture2D" uid="uid://djsvlxd4stdyy" path="res://sprites/enemies/ant/idle/anttest.png" id="3_h3rxy"]
+[ext_resource type="FontFile" uid="uid://cchfdyetdjd7q" path="res://fonts/DarumadropOne-Regular.ttf" id="3_i4l1q"]
+[ext_resource type="Texture2D" uid="uid://b5paes0y46ut1" path="res://sprites/towers/orb/orb.png" id="4_d11ju"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_h3rxy"]
+
+[node name="DeathScreen" type="Control" unique_id=565792286]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1878.0
+offset_top = -1912.0
+offset_right = 1878.0
+offset_bottom = -1912.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kn40w")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1839570070]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -1869.0
+offset_top = 1914.0
+offset_right = -510.0
+offset_bottom = 2630.0
+texture = SubResource("CanvasTexture_h3rxy")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1221706493]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=447074866]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1647809384]
+layout_mode = 2
+theme_override_font_sizes/font_size = 76
+
+[node name="RetryButton" type="Button" parent="CenterContainer/VBoxContainer/Label" unique_id=42775432]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -2473.017
+anchor_right = -1545.6351
+anchor_bottom = 1.0
+offset_left = 589.5171
+offset_top = 2217.5
+offset_right = 84.13513
+offset_bottom = 2216.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.4392157, 0.8784314, 0.6, 1)
+theme_override_colors/font_hover_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
+theme_override_fonts/font = ExtResource("3_i4l1q")
+theme_override_font_sizes/font_size = 70
+text = "Retry? "
+flat = true
+
+[node name="Lose" type="Label" parent="CenterContainer/VBoxContainer/Label" unique_id=496067597]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -2473.017
+anchor_right = -1545.6351
+anchor_bottom = 1.0
+offset_left = 288.5171
+offset_top = 1620.5
+offset_right = -34.86487
+offset_bottom = 1690.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.24000001, 0.24000001, 1)
+theme_override_fonts/font = ExtResource("3_i4l1q")
+theme_override_font_sizes/font_size = 120
+text = "YOU LOST !!"
+
+[node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer/Label" unique_id=1001521474]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -649.655
+anchor_top = -2.69
+anchor_right = 942.72205
+anchor_bottom = 5.787
+offset_left = -1657.845
+offset_top = 2501.95
+offset_right = -2859.2222
+offset_bottom = 1711.865
+theme_override_colors/font_color = Color(0.4392157, 0.8784314, 0.6, 1)
+theme_override_colors/font_hover_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
+theme_override_fonts/font = ExtResource("3_i4l1q")
+theme_override_font_sizes/font_size = 67
+text = "Quit?"
+flat = true
+
+[node name="Ant" type="Sprite2D" parent="CenterContainer" unique_id=392133987]
+visible = false
+position = Vector2(-2008.5, 2028.5)
+texture = ExtResource("3_h3rxy")
+
+[node name="Orb" type="Sprite2D" parent="CenterContainer" unique_id=565047272]
+visible = false
+position = Vector2(-1688.5, 1995.5)
+texture = ExtResource("4_d11ju")
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Label/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Label/QuitButton" to="." method="_on_quit_button_pressed"]

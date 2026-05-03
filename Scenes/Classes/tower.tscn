@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://bmslpuj4gik5"]
+
+[ext_resource type="PackedScene" uid="uid://eou4mq5n6oh3" path="res://Scenes/Classes/character.tscn" id="1_g54jp"]
+[ext_resource type="Script" uid="uid://c1msriimmkk0j" path="res://scripts/Classes/tower.gd" id="2_gnv0d"]
+[ext_resource type="Script" uid="uid://7d8yo6rg6xgy" path="res://Scenes/Classes/towerGUI.gd" id="3_g54jp"]
+[ext_resource type="Texture2D" uid="uid://nj37xla1vxmg" path="res://sprites/testbert.png" id="3_suado"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vedim"]
+albedo_color = Color(0, 1, 1, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g54jp"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_suado")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Tower" unique_id=254305490 groups=["Tower"] instance=ExtResource("1_g54jp")]
+collision_layer = 4
+script = ExtResource("2_gnv0d")
+metadata/_edit_group_ = true
+
+[node name="Body" parent="." index="0" unique_id=447693479]
+surface_material_override/0 = SubResource("StandardMaterial3D_vedim")
+
+[node name="RangeDetection" parent="." index="2" unique_id=1602429880]
+collision_layer = 4
+collision_mask = 2
+
+[node name="SpriteBody" parent="AnimationController" parent_id_path=PackedInt32Array(1020417921) index="0" unique_id=1996147602]
+layers = 524289
+modulate = Color(0.33333334, 1, 0.9098039, 1)
+sprite_frames = SubResource("SpriteFrames_g54jp")
+frame_progress = 0.63789123
+
+[node name="Control" type="Control" parent="." index="5" unique_id=356163926]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 1
+script = ExtResource("3_g54jp")
+
+[node name="OptionButton" type="OptionButton" parent="Control" index="0" unique_id=766563876]
+layout_mode = 0
+offset_left = -54.0
+offset_top = -16.0
+offset_right = 54.0
+offset_bottom = 15.0
+mouse_filter = 1
+alignment = 1
+selected = 0
+item_count = 5
+popup/item_0/text = "First"
+popup/item_0/id = 0
+popup/item_1/text = "Last"
+popup/item_1/id = 1
+popup/item_2/text = "Closest"
+popup/item_2/id = 2
+popup/item_3/text = "Strongest"
+popup/item_3/id = 3
+popup/item_3/disabled = true
+popup/item_4/text = "Weakest"
+popup/item_4/id = 4
+popup/item_4/disabled = true
+
+[connection signal="item_selected" from="Control/OptionButton" to="." method="_on_option_button_item_selected"]

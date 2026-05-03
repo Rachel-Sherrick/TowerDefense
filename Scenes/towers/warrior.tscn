@@ -1,0 +1,385 @@
+[gd_scene format=3 uid="uid://tu18fp20hsnf"]
+
+[ext_resource type="PackedScene" uid="uid://bmslpuj4gik5" path="res://Scenes/Classes/tower.tscn" id="1_wfww2"]
+[ext_resource type="Script" uid="uid://cwgafh5f6iy56" path="res://scripts/warrior.gd" id="2_xumaq"]
+[ext_resource type="Script" uid="uid://xe4f7j5avtj" path="res://scripts/animation_controller_warrior.gd" id="3_6dc4p"]
+[ext_resource type="Texture2D" uid="uid://nj37xla1vxmg" path="res://sprites/testbert.png" id="4_ipyla"]
+[ext_resource type="Texture2D" uid="uid://buh8w0f7d6bqm" path="res://sprites/towers/thimble/testthim.png" id="5_5mqsj"]
+[ext_resource type="Texture2D" uid="uid://oecfcqpbmuhg" path="res://sprites/towers/thimble/swing_east/frame0000.png" id="6_kqi5p"]
+[ext_resource type="Texture2D" uid="uid://1b8rnwu866h3" path="res://sprites/towers/thimble/swing_east/frame0001.png" id="7_n3ll1"]
+[ext_resource type="Texture2D" uid="uid://bb44mfdh1pqun" path="res://sprites/towers/thimble/swing_east/frame0002.png" id="8_0bd53"]
+[ext_resource type="Texture2D" uid="uid://32h62ppsplsg" path="res://sprites/towers/thimble/swing_east/frame0003.png" id="9_3o4d4"]
+[ext_resource type="Texture2D" uid="uid://b5qdf80ol3gxn" path="res://sprites/towers/thimble/swing_east/frame0004.png" id="10_8qr6f"]
+[ext_resource type="Texture2D" uid="uid://bndn2l4k27j3f" path="res://sprites/towers/thimble/swing_east/frame0005.png" id="11_vsudl"]
+[ext_resource type="Texture2D" uid="uid://dwrvwhnfd8swh" path="res://sprites/towers/thimble/swing_east/frame0006.png" id="12_1fs8l"]
+[ext_resource type="Texture2D" uid="uid://bc2xdkkogi3j8" path="res://sprites/towers/thimble/swing_east/frame0007.png" id="13_glsuw"]
+[ext_resource type="Texture2D" uid="uid://dgmo3xw4rehiy" path="res://sprites/towers/thimble/swing_east/frame0008.png" id="14_uusn2"]
+[ext_resource type="Texture2D" uid="uid://c6447dcp1pasq" path="res://sprites/towers/thimble/swing_east/frame0009.png" id="15_smoeb"]
+[ext_resource type="Texture2D" uid="uid://71nrun6twabm" path="res://sprites/towers/thimble/swing_east/frame0010.png" id="16_e4tjh"]
+[ext_resource type="Texture2D" uid="uid://1mj07r0bnph2" path="res://sprites/towers/thimble/swing_east/frame0011.png" id="17_ohst7"]
+[ext_resource type="Texture2D" uid="uid://c4qdklpjw037" path="res://sprites/towers/thimble/swing_east/frame0012.png" id="18_hpf21"]
+[ext_resource type="Texture2D" uid="uid://cws2hxpd21nrl" path="res://sprites/towers/thimble/swing_north/frame0000.png" id="19_vf6es"]
+[ext_resource type="Texture2D" uid="uid://gxnnq432qgm5" path="res://sprites/towers/thimble/swing_north/frame0001.png" id="20_cmdyd"]
+[ext_resource type="Texture2D" uid="uid://dnuxffnmi1fst" path="res://sprites/towers/thimble/swing_north/frame0002.png" id="21_c4tsr"]
+[ext_resource type="Texture2D" uid="uid://do38exyropymb" path="res://sprites/towers/thimble/swing_north/frame0003.png" id="22_vxbuf"]
+[ext_resource type="Texture2D" uid="uid://dtcdlpolbh225" path="res://sprites/towers/thimble/swing_north/frame0004.png" id="23_c5ftj"]
+[ext_resource type="Texture2D" uid="uid://bkx0neh7n6dkt" path="res://sprites/towers/thimble/swing_north/frame0005.png" id="24_xe5y1"]
+[ext_resource type="Texture2D" uid="uid://pnfj6wew5j4u" path="res://sprites/towers/thimble/swing_north/frame0006.png" id="25_feslr"]
+[ext_resource type="Texture2D" uid="uid://d3kxmdp8dngg8" path="res://sprites/towers/thimble/swing_north/frame0007.png" id="26_4i88i"]
+[ext_resource type="Texture2D" uid="uid://crijop0xef6eh" path="res://sprites/towers/thimble/swing_north/frame0008.png" id="27_5qu45"]
+[ext_resource type="Texture2D" uid="uid://cl330ig7ixkm7" path="res://sprites/towers/thimble/swing_north/frame0009.png" id="28_x1o4n"]
+[ext_resource type="Texture2D" uid="uid://cav56km7uaxkp" path="res://sprites/towers/thimble/swing_north/frame0010.png" id="29_j53mn"]
+[ext_resource type="Texture2D" uid="uid://brvhqg1pbv2ne" path="res://sprites/towers/thimble/swing_north/frame0011.png" id="30_05bct"]
+[ext_resource type="Texture2D" uid="uid://2ya1bbv2gfnq" path="res://sprites/towers/thimble/swing_north/frame0012.png" id="31_upvup"]
+[ext_resource type="Texture2D" uid="uid://bu1mmya81dvu6" path="res://sprites/towers/thimble/ThimbleSwing/SwingBodySouth/frame0000.png" id="32_2741h"]
+[ext_resource type="Texture2D" uid="uid://dfuehjha55uj1" path="res://sprites/towers/thimble/ThimbleSwing/SwingBodySouth/frame0001.png" id="33_ccbcf"]
+[ext_resource type="Texture2D" uid="uid://c84wswflqcqxp" path="res://sprites/towers/thimble/ThimbleSwing/SwingBodySouth/frame0002.png" id="34_eapbp"]
+[ext_resource type="Texture2D" uid="uid://yd1icvrmscyi" path="res://sprites/towers/thimble/ThimbleSwing/SwingBodySouth/frame0003.png" id="35_1spux"]
+[ext_resource type="Texture2D" uid="uid://de8ytu6np5oun" path="res://sprites/towers/thimble/ThimbleSwing/SwingBodySouth/frame0004.png" id="36_q60o7"]
+[ext_resource type="Texture2D" uid="uid://cyaqngv0whycw" path="res://sprites/towers/thimble/ThimbleSwing/SwingBodySouth/frame0005.png" id="37_tpmuq"]
+[ext_resource type="Texture2D" uid="uid://bpewia6puo02h" path="res://sprites/towers/thimble/ThimbleSwing/SwingBodySouth/frame0006.png" id="38_3qccr"]
+[ext_resource type="Texture2D" uid="uid://be8n3aqfvef0g" path="res://sprites/towers/thimble/ThimbleSwing/SwingBodySouth/frame0007.png" id="39_gw4qi"]
+[ext_resource type="Texture2D" uid="uid://cdgca3wr23b2j" path="res://sprites/towers/thimble/ThimbleSwing/SwingBodySouth/frame0008.png" id="40_scn1i"]
+[ext_resource type="Texture2D" uid="uid://co4a5dj6skhh" path="res://sprites/towers/thimble/ThimbleSwing/SwingBodySouth/frame0009.png" id="41_14iy2"]
+[ext_resource type="Texture2D" uid="uid://deflndqeu4f36" path="res://sprites/towers/thimble/ThimbleSwing/SwingBodySouth/frame0010.png" id="42_ls47q"]
+[ext_resource type="Texture2D" uid="uid://cjwp5e4vjnspi" path="res://sprites/towers/thimble/ThimbleSwing/SwingBodySouth/frame0011.png" id="43_8elef"]
+[ext_resource type="Texture2D" uid="uid://b2jgp6w2u20lm" path="res://sprites/towers/thimble/ThimbleSwing/SwingBodySouth/frame0012.png" id="44_e0hqa"]
+[ext_resource type="Texture2D" uid="uid://dvmk6teuh3t80" path="res://sprites/towers/thimble/swing_west/frame0000.png" id="45_rgrqt"]
+[ext_resource type="Texture2D" uid="uid://dusp4tuwh38fm" path="res://sprites/towers/thimble/swing_west/frame0001.png" id="46_10faj"]
+[ext_resource type="Texture2D" uid="uid://cdcum6w7y4as6" path="res://sprites/towers/thimble/swing_west/frame0002.png" id="47_y4fb5"]
+[ext_resource type="Texture2D" uid="uid://cgff0gyy1dv5w" path="res://sprites/towers/thimble/swing_west/frame0003.png" id="48_maf60"]
+[ext_resource type="Texture2D" uid="uid://b2mpgeowwyydt" path="res://sprites/towers/thimble/swing_west/frame0004.png" id="49_olmtc"]
+[ext_resource type="Texture2D" uid="uid://cx1al0o2lrxkb" path="res://sprites/towers/thimble/swing_west/frame0005.png" id="50_fcrq8"]
+[ext_resource type="Texture2D" uid="uid://d2ha7p5mcilhc" path="res://sprites/towers/thimble/swing_west/frame0006.png" id="51_63l8u"]
+[ext_resource type="Texture2D" uid="uid://0yon1s32mkhb" path="res://sprites/towers/thimble/swing_west/frame0007.png" id="52_2e1j6"]
+[ext_resource type="Texture2D" uid="uid://blk0e6ysvybji" path="res://sprites/towers/thimble/swing_west/frame0008.png" id="53_kmho0"]
+[ext_resource type="Texture2D" uid="uid://dj6fptynjsnx3" path="res://sprites/towers/thimble/swing_west/frame0009.png" id="54_b70fl"]
+[ext_resource type="Texture2D" uid="uid://m8o07vsf54wy" path="res://sprites/towers/thimble/swing_west/frame0010.png" id="55_pfi5n"]
+[ext_resource type="Texture2D" uid="uid://cqmqtsdqonw86" path="res://sprites/towers/thimble/swing_west/frame0011.png" id="56_7ki4u"]
+[ext_resource type="Texture2D" uid="uid://c1vhvjjtbg6gu" path="res://sprites/towers/thimble/swing_west/frame0012.png" id="57_2jl4x"]
+[ext_resource type="Texture2D" uid="uid://c8idobeu4ji6n" path="res://sprites/towers/thimble/ThimbleSwing/Swing/frame0000.png" id="58_4xsme"]
+[ext_resource type="Texture2D" uid="uid://cu58bobjyptxp" path="res://sprites/towers/thimble/ThimbleSwing/Swing/frame0001.png" id="59_iixfy"]
+[ext_resource type="Texture2D" uid="uid://d03jt22tyqal" path="res://sprites/towers/thimble/ThimbleSwing/Swing/frame0002.png" id="60_kr223"]
+[ext_resource type="Texture2D" uid="uid://bpxm8tvkvb21f" path="res://sprites/towers/thimble/ThimbleSwing/Swing/frame0003.png" id="61_4po0s"]
+[ext_resource type="Texture2D" uid="uid://bw0fj0qu1kw4v" path="res://sprites/towers/thimble/ThimbleSwing/Swing/frame0004.png" id="62_ty73c"]
+[ext_resource type="Texture2D" uid="uid://boq841m48moh2" path="res://sprites/towers/thimble/ThimbleSwing/Swing/frame0005.png" id="63_4sx8x"]
+[ext_resource type="Texture2D" uid="uid://hkfsugqcbeku" path="res://sprites/towers/thimble/ThimbleSwing/Swing/frame0006.png" id="64_8socu"]
+[ext_resource type="Texture2D" uid="uid://cad0mlq7ekctd" path="res://sprites/towers/thimble/ThimbleSwing/Swing/frame0007.png" id="65_nqtw4"]
+[ext_resource type="Texture2D" uid="uid://dgttdk5muol5m" path="res://sprites/towers/thimble/ThimbleSwing/Swing/frame0008.png" id="66_eix78"]
+[ext_resource type="Texture2D" uid="uid://cc8xcemir4l4r" path="res://sprites/towers/thimble/ThimbleSwing/Swing/frame0009.png" id="67_y24nk"]
+[ext_resource type="Texture2D" uid="uid://dnpk58okwersf" path="res://sprites/towers/thimble/ThimbleSwing/Swing/frame0010.png" id="68_13iqb"]
+[ext_resource type="Texture2D" uid="uid://chim8ds0rph21" path="res://sprites/towers/thimble/ThimbleSwing/Swing/frame0011.png" id="69_6oikn"]
+[ext_resource type="Texture2D" uid="uid://ci0v3wi8o5ndr" path="res://sprites/towers/thimble/ThimbleSwing/Swing/frame0012.png" id="70_fw8hc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yvydg"]
+albedo_color = Color(1, 0.80784315, 0, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wfww2"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ipyla")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_5mqsj")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_kqi5p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_n3ll1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_0bd53")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_3o4d4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_8qr6f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_vsudl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_1fs8l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_glsuw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_uusn2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_smoeb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_e4tjh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_ohst7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_hpf21")
+}],
+"loop": false,
+"name": &"swing_east",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_vf6es")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_cmdyd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_c4tsr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_vxbuf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_c5ftj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_xe5y1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_feslr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_4i88i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_5qu45")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_x1o4n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_j53mn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_05bct")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_upvup")
+}],
+"loop": false,
+"name": &"swing_north",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("32_2741h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_ccbcf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_eapbp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_1spux")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_q60o7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_tpmuq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_3qccr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_gw4qi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_scn1i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_14iy2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_ls47q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_8elef")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_e0hqa")
+}],
+"loop": false,
+"name": &"swing_south",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("45_rgrqt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_10faj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_y4fb5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_maf60")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_olmtc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_fcrq8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_63l8u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_2e1j6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_kmho0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_b70fl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_pfi5n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_7ki4u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_2jl4x")
+}],
+"loop": false,
+"name": &"swing_west",
+"speed": 24.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yjbyf"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("58_4xsme")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_iixfy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_kr223")
+}, {
+"duration": 1.0,
+"texture": ExtResource("61_4po0s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("62_ty73c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("63_4sx8x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("64_8socu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_nqtw4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_eix78")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67_y24nk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("68_13iqb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_6oikn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("70_fw8hc")
+}],
+"loop": true,
+"name": &"swing",
+"speed": 24.0
+}]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4wr01"]
+size = Vector3(5, 1, 4.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6csb2"]
+transparency = 1
+albedo_color = Color(0.8745098, 0, 0.19215687, 0.14509805)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3a2cj"]
+margin = 0.08
+size = Vector3(5, 1, 4)
+
+[node name="Warrior" unique_id=254305490 instance=ExtResource("1_wfww2")]
+script = ExtResource("2_xumaq")
+attack_damage = 1
+
+[node name="Body" parent="." index="0" unique_id=447693479]
+surface_material_override/0 = SubResource("StandardMaterial3D_yvydg")
+
+[node name="AnimationController" parent="." index="3" unique_id=1020417921]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0.8, -0.9)
+script = ExtResource("3_6dc4p")
+
+[node name="SpriteBody" parent="AnimationController" index="0" unique_id=1996147602]
+offset = Vector2(0, 24)
+modulate = Color(1, 1, 1, 1)
+sprite_frames = SubResource("SpriteFrames_wfww2")
+animation = &"swing_east"
+frame_progress = 0.0
+
+[node name="SpriteSword" type="AnimatedSprite3D" parent="AnimationController" index="1" unique_id=228143765]
+transform = Transform3D(-1.2499694, -0.0061707315, -0.0061706225, 7.683411e-08, -0.8838838, 0.8838839, -0.008726653, 0.8838622, 0.88386244, -0.1, 1.204, -1)
+alpha_cut = 1
+sprite_frames = SubResource("SpriteFrames_yjbyf")
+animation = &"swing"
+frame_progress = 0.82617325
+
+[node name="Health" parent="." index="4" unique_id=1530811456]
+max_health = 10
+
+[node name="WarriorTimer" type="Timer" parent="." index="5" unique_id=1405007805]
+one_shot = true
+
+[node name="warrior_hurt_box" type="Area3D" parent="." index="6" unique_id=1392525411]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+collision_layer = 0
+collision_mask = 2
+
+[node name="hurt_box_mesh" type="MeshInstance3D" parent="warrior_hurt_box" index="0" unique_id=1680302769]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1)
+mesh = SubResource("BoxMesh_4wr01")
+surface_material_override/0 = SubResource("StandardMaterial3D_6csb2")
+
+[node name="hurt_box_collision" type="CollisionShape3D" parent="warrior_hurt_box" index="1" unique_id=122771932]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1.25)
+shape = SubResource("BoxShape3D_3a2cj")
+
+[connection signal="body_entered" from="RangeDetection" to="." method="_on_range_body_entered"]
+[connection signal="animation_changed" from="AnimationController/SpriteBody" to="AnimationController" method="_on_sprite_body_animation_changed"]
+[connection signal="animation_finished" from="AnimationController/SpriteBody" to="AnimationController" method="_on_sprite_body_animation_finished"]
+[connection signal="sprite_frames_changed" from="AnimationController/SpriteBody" to="AnimationController" method="_on_sprite_body_frame_changed"]
+[connection signal="timeout" from="WarriorTimer" to="." method="_on_timer_timeout"]

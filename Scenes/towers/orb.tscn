@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://cjienrf7jmnht"]
+
+[ext_resource type="PackedScene" uid="uid://bmslpuj4gik5" path="res://Scenes/Classes/tower.tscn" id="1_v50ir"]
+[ext_resource type="Script" uid="uid://c7l4fiivwii5k" path="res://orb.gd" id="2_lpxna"]
+[ext_resource type="Texture2D" uid="uid://nj37xla1vxmg" path="res://sprites/testbert.png" id="3_qerhb"]
+[ext_resource type="Texture2D" uid="uid://cdn0me7tfq28o" path="res://sprites/towers/orb/Idle/frame0000.png" id="4_461qj"]
+[ext_resource type="Texture2D" uid="uid://bw6qc8j1iy8yg" path="res://sprites/towers/orb/Idle/frame0001.png" id="5_txmas"]
+[ext_resource type="Texture2D" uid="uid://8li7qrkrg8y8" path="res://sprites/towers/orb/Idle/frame0002.png" id="6_okjtv"]
+[ext_resource type="Texture2D" uid="uid://v0cchpo187ni" path="res://sprites/towers/orb/Idle/frame0003.png" id="7_yfudi"]
+[ext_resource type="Texture2D" uid="uid://bu6e8myqhv8r2" path="res://sprites/towers/orb/Idle/frame0004.png" id="8_2yld2"]
+[ext_resource type="Texture2D" uid="uid://b4wk7k7u7gs8b" path="res://sprites/towers/orb/Idle/frame0005.png" id="9_0ophx"]
+[ext_resource type="Texture2D" uid="uid://ub8u377vq7ou" path="res://sprites/towers/orb/Idle/frame0006.png" id="10_l77b2"]
+[ext_resource type="Texture2D" uid="uid://ebww6jc6465n" path="res://sprites/towers/orb/Idle/frame0007.png" id="11_gb0u0"]
+[ext_resource type="Texture2D" uid="uid://0f2q015gsxqj" path="res://sprites/towers/orb/Idle/frame0008.png" id="12_7wsyf"]
+[ext_resource type="Texture2D" uid="uid://x22agei3yeey" path="res://sprites/towers/orb/Idle/frame0009.png" id="13_nutj2"]
+[ext_resource type="Texture2D" uid="uid://0vjnh3lp4jdg" path="res://sprites/towers/orb/Idle/frame0010.png" id="14_2fi1l"]
+[ext_resource type="Texture2D" uid="uid://b1r8hpm8kb7lk" path="res://sprites/towers/orb/Idle/frame0011.png" id="15_8mjsk"]
+[ext_resource type="Texture2D" uid="uid://bcpiuekfrv11q" path="res://sprites/towers/orb/Idle/frame0012.png" id="16_xpew6"]
+[ext_resource type="Texture2D" uid="uid://d06ynh8h1yd3q" path="res://sprites/towers/orb/Idle/frame0013.png" id="17_prneo"]
+[ext_resource type="Texture2D" uid="uid://cjgahty20yxp4" path="res://sprites/towers/orb/Idle/frame0014.png" id="18_bt31i"]
+[ext_resource type="Texture2D" uid="uid://dyqhu5o3dqcux" path="res://sprites/towers/orb/Idle/frame0015.png" id="19_812iv"]
+[ext_resource type="Texture2D" uid="uid://03tjxvm72o0n" path="res://sprites/towers/orb/Idle/frame0016.png" id="20_0ajdm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_461qj"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_qerhb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_461qj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_txmas")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_okjtv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_yfudi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_2yld2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_0ophx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_l77b2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_gb0u0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_7wsyf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_nutj2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_2fi1l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_8mjsk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_xpew6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_prneo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_bt31i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_812iv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_0ajdm")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 24.0
+}]
+
+[node name="Orb" unique_id=254305490 instance=ExtResource("1_v50ir")]
+script = ExtResource("2_lpxna")
+
+[node name="SpriteBody" parent="AnimationController" parent_id_path=PackedInt32Array(1020417921) index="0" unique_id=1996147602]
+offset = Vector2(0, 33)
+sprite_frames = SubResource("SpriteFrames_461qj")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.6260335
+
+[node name="Control" parent="." index="5" unique_id=356163926]
+visible = false
