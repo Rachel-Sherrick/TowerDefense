@@ -1475,6 +1475,18 @@ theme_override_fonts/font = ExtResource("12_0w7h6")
 text = "0"
 horizontal_alignment = 2
 
+[node name="StartRoundButton" type="Button" parent="Player/GUI" unique_id=2091251641]
+layout_mode = 1
+offset_left = 200.0
+offset_right = 318.0
+offset_bottom = 78.0
+theme_override_colors/font_color = Color(0.99607843, 0.84705883, 0.3882353, 1)
+theme_override_colors/font_hover_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
+theme_override_fonts/font = ExtResource("12_0w7h6")
+theme_override_font_sizes/font_size = 48
+text = "- Start -"
+flat = true
+
 [node name="Battleground" type="Node3D" parent="." unique_id=1447681041]
 
 [node name="Shop" type="Node3D" parent="Battleground" unique_id=685433725]
@@ -1777,6 +1789,7 @@ autostart = true
 [connection signal="pressed" from="Player/GUI/InventoryBar/OpenCloseButton" to="Player/GUI" method="_on_open_close_button_pressed"]
 [connection signal="input_event" from="Player/GUI/InventoryBar/WarriorBox/WarriorSelect" to="Player" method="_on_warrior_select_input_event"]
 [connection signal="input_event" from="Player/GUI/InventoryBar/WizardBox/WizardSelect" to="Player" method="_on_wizard_select_input_event"]
+[connection signal="pressed" from="Player/GUI/StartRoundButton" to="EnemySpawner" method="_on_start_round_button_pressed"]
 [connection signal="child_entered_tree" from="Battleground/Characters" to="Player" method="_on_battleground_child_entered_tree"]
 [connection signal="input_event" from="Battleground/PlaceableArea" to="Player" method="_place_tower"]
 [connection signal="timeout" from="EnemySpawner/SpawnTimer" to="EnemySpawner" method="_on_spawn_timer_timeout"]

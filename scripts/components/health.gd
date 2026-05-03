@@ -13,6 +13,8 @@ signal orb_destroyed()
 @export var destroy_parent_on_death: bool = true
 
 var current_health: int
+#var ants_killed = 0
+signal enemy_killed()
 
 
 func _ready() -> void:
@@ -90,6 +92,10 @@ func _update_bar() -> void:
 func _handle_death() -> void:
 	var parent = get_parent()
 	var tree = get_tree()
+	
+	if parent.name.contains("Ant"):
+		#ants_killed += 1
+		emit_signal("enemy_killed")
 
 	emit_signal("died")
 

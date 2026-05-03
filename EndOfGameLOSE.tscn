@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bgtc26nbum7rh" path="res://Scenes/LOSEscreenHelper.png" id="1_b7g8v"]
 [ext_resource type="Script" uid="uid://ccvideuhh2ayg" path="res://EndOfGameLOSE.gd" id="1_kn40w"]
+[ext_resource type="FontFile" uid="uid://cchfdyetdjd7q" path="res://fonts/DarumadropOne-Regular.ttf" id="3_i4l1q"]
 
 [node name="DeathScreen" type="Control" unique_id=565792286]
 layout_mode = 3
@@ -58,8 +59,12 @@ offset_top = 2217.5
 offset_right = 84.13513
 offset_bottom = 2216.5
 grow_vertical = 2
+theme_override_colors/font_color = Color(0.4392157, 0.8784314, 0.6, 1)
+theme_override_colors/font_hover_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
+theme_override_fonts/font = ExtResource("3_i4l1q")
 theme_override_font_sizes/font_size = 70
 text = "Retry? "
+flat = true
 
 [node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer/Label" unique_id=1001521474]
 layout_mode = 1
@@ -72,8 +77,12 @@ offset_left = -1657.845
 offset_top = 2501.95
 offset_right = -2859.2222
 offset_bottom = 1711.865
+theme_override_colors/font_color = Color(0.4392157, 0.8784314, 0.6, 1)
+theme_override_colors/font_hover_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
+theme_override_fonts/font = ExtResource("3_i4l1q")
 theme_override_font_sizes/font_size = 67
 text = "Quit?"
+flat = true
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Label/RetryButton" to="." method="_on_retry_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Label/QuitButton" to="." method="_on_quit_button_pressed"]
