@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://c6us0wgyg738j"]
 
-[ext_resource type="Texture2D" uid="uid://bgtc26nbum7rh" path="res://Scenes/LOSEscreenHelper.png" id="1_b7g8v"]
 [ext_resource type="Script" uid="uid://ccvideuhh2ayg" path="res://EndOfGameLOSE.gd" id="1_kn40w"]
+[ext_resource type="Texture2D" uid="uid://djsvlxd4stdyy" path="res://sprites/enemies/ant/idle/anttest.png" id="3_h3rxy"]
 [ext_resource type="FontFile" uid="uid://cchfdyetdjd7q" path="res://fonts/DarumadropOne-Regular.ttf" id="3_i4l1q"]
+[ext_resource type="Texture2D" uid="uid://b5paes0y46ut1" path="res://sprites/towers/orb/orb.png" id="4_d11ju"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_h3rxy"]
 
 [node name="DeathScreen" type="Control" unique_id=565792286]
 layout_mode = 3
@@ -18,15 +21,13 @@ grow_vertical = 2
 script = ExtResource("1_kn40w")
 
 [node name="Background" type="TextureRect" parent="." unique_id=1839570070]
-visible = false
+modulate = Color(0, 0, 0, 1)
 layout_mode = 0
 offset_left = -1869.0
 offset_top = 1914.0
-offset_right = -505.0
+offset_right = -510.0
 offset_bottom = 2630.0
-texture = ExtResource("1_b7g8v")
-expand_mode = 1
-stretch_mode = 4
+texture = SubResource("CanvasTexture_h3rxy")
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=1221706493]
 layout_mode = 1
@@ -67,6 +68,22 @@ theme_override_font_sizes/font_size = 70
 text = "Retry? "
 flat = true
 
+[node name="Lose" type="Label" parent="CenterContainer/VBoxContainer/Label" unique_id=496067597]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -2473.017
+anchor_right = -1545.6351
+anchor_bottom = 1.0
+offset_left = 288.5171
+offset_top = 1620.5
+offset_right = -34.86487
+offset_bottom = 1690.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.24000001, 0.24000001, 1)
+theme_override_fonts/font = ExtResource("3_i4l1q")
+theme_override_font_sizes/font_size = 120
+text = "YOU LOST !!"
+
 [node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer/Label" unique_id=1001521474]
 layout_mode = 1
 anchors_preset = -1
@@ -84,6 +101,14 @@ theme_override_fonts/font = ExtResource("3_i4l1q")
 theme_override_font_sizes/font_size = 67
 text = "Quit?"
 flat = true
+
+[node name="Ant" type="Sprite2D" parent="CenterContainer" unique_id=392133987]
+position = Vector2(-2008.5, 2028.5)
+texture = ExtResource("3_h3rxy")
+
+[node name="Orb" type="Sprite2D" parent="CenterContainer" unique_id=565047272]
+position = Vector2(-1688.5, 1995.5)
+texture = ExtResource("4_d11ju")
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Label/RetryButton" to="." method="_on_retry_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Label/QuitButton" to="." method="_on_quit_button_pressed"]

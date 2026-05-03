@@ -35,12 +35,13 @@ func advance_wave():
 			wave += 1
 			round = 1
 			wave_label.text = ("Wave: " + str(wave))
-		else: 
+		else:
 			round += 1
+			if round > 1:
+				start_round_button.text = "- Finish -"
 			round_label.text = ("Round: " + str(round))
 			start_round_button.show()
 			round_started = false
-			emit_signal("round_completed")
 
 func spawn_enemy() -> void:
 	var enemy: Enemy = enemy_scene.instantiate()
@@ -74,6 +75,9 @@ func _on_start_round_button_pressed() -> void:
 			return
 		if _count >= max_enemies:
 			print("Count too big")
+			if round > 1:
+				print("Round complete")
+				emit_signal("round_completed")
 			return
 		spawn_enemy()
 	round_started = true

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://rsi3enlx7yrb"]
 
-[ext_resource type="Script" uid="uid://ccvideuhh2ayg" path="res://EndOfGameLOSE.gd" id="1_5l18s"]
+[ext_resource type="Script" uid="uid://r8sxiea7ynv6" path="res://EndOfGameWIN.gd" id="1_5l18s"]
 [ext_resource type="Texture2D" uid="uid://bgtc26nbum7rh" path="res://Scenes/LOSEscreenHelper.png" id="2_vnhwh"]
 [ext_resource type="FontFile" uid="uid://cchfdyetdjd7q" path="res://fonts/DarumadropOne-Regular.ttf" id="3_fhra1"]
 
@@ -9,10 +9,6 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1878.0
-offset_top = -1912.0
-offset_right = 1878.0
-offset_bottom = -1912.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5l18s")
