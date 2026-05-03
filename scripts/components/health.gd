@@ -1,11 +1,14 @@
+class_name Health
 extends Node
 # Reusable Health Component
 # Adds health behavior to any Node parent.
 
 signal health_changed(current_health: int, max_health: int)
+signal took_damage(health_lost: int)
 signal died
+signal orb_destroyed()
 
-@export var max_health: int = 100
+@export var max_health: int = 5
 @export var defense: int = 0
 @export var destroy_parent_on_death: bool = true
 
@@ -15,8 +18,8 @@ var current_health: int
 func _ready() -> void:
 	var parent = get_parent()
 
-	if parent != null and (parent.name == "Tower" or parent.name == "Tower2"):
-		max_health = 50
+	if parent != null:
+		max_health = 5
 
 	current_health = max_health
 	print(get_parent().name, "spawned with health:", current_health)
@@ -59,6 +62,7 @@ func take_damage(amount: int) -> void:
 	print(get_parent().name, "took damage. Current health:", current_health)
 
 	emit_signal("health_changed", current_health, max_health)
+	emit_signal("took_damage", final_damage)
 	_update_bar()
 
 	if current_health == 0:
@@ -92,11 +96,6 @@ func _update_bar() -> void:
 func _handle_death() -> void:
 	var parent = get_parent()
 	var tree = get_tree()
-
-	if parent != null and (parent.name == "Tower" or parent.name == "Tower2"):
-		if tree != null:
-			tree.call_deferred("change_scene_to_file", "res://EndOfGameLose.tscn")
-		return
 
 	emit_signal("died")
 

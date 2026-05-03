@@ -1,0 +1,234 @@
+[gd_scene format=3 uid="uid://n3sq5ue6gb1g"]
+
+[ext_resource type="Script" uid="uid://x4t7jsds1x63" path="res://scene_manager.gd" id="1_s4vtk"]
+[ext_resource type="FontFile" uid="uid://xrhcnace7lij" path="res://fonts/Chicle-Regular.ttf" id="2_d4clo"]
+[ext_resource type="Texture2D" uid="uid://buh8w0f7d6bqm" path="res://sprites/towers/thimble/testthim.png" id="2_vno1p"]
+[ext_resource type="FontFile" uid="uid://cchfdyetdjd7q" path="res://fonts/DarumadropOne-Regular.ttf" id="3_mqr7l"]
+[ext_resource type="Texture2D" uid="uid://d0xqq0gycm7vw" path="res://sprites/towers/battery/batterywizard.png" id="3_vuion"]
+[ext_resource type="Texture2D" uid="uid://b5paes0y46ut1" path="res://sprites/towers/orb/orb.png" id="4_gtard"]
+[ext_resource type="Texture2D" uid="uid://djsvlxd4stdyy" path="res://sprites/enemies/ant/idle/anttest.png" id="4_vuion"]
+
+[sub_resource type="Gradient" id="Gradient_gtard"]
+offsets = PackedFloat32Array(0.060897436, 1)
+colors = PackedColorArray(0, 0.21176471, 0.23137255, 1, 0, 0.21176471, 0.23137255, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vuion"]
+gradient = SubResource("Gradient_gtard")
+
+[node name="StartScreen" type="Node2D" unique_id=815437450]
+
+[node name="SceneManager" type="Node" parent="." unique_id=890916445]
+script = ExtResource("1_s4vtk")
+
+[node name="MainScreen" type="CanvasLayer" parent="." unique_id=2042955016]
+
+[node name="background" type="Node" parent="MainScreen" unique_id=987804639]
+
+[node name="ColorRect" type="ColorRect" parent="MainScreen/background" unique_id=1176737578]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.21045962, 0.23087221, 1)
+
+[node name="ThimbleSprite" type="Sprite2D" parent="MainScreen/background" unique_id=614328864]
+position = Vector2(1073.0001, 389.00003)
+scale = Vector2(1.6416669, 1.6416669)
+texture = ExtResource("2_vno1p")
+
+[node name="ShadowGradient" type="TextureRect" parent="MainScreen/background" unique_id=1479009653]
+offset_left = 860.0
+offset_top = 712.0
+offset_right = 929.4564
+offset_bottom = 801.3334
+rotation = -1.5707964
+scale = Vector2(5, 5)
+texture = SubResource("GradientTexture2D_vuion")
+
+[node name="BatterySprite" type="Sprite2D" parent="MainScreen/background" unique_id=1060790318]
+position = Vector2(1249, 430.00003)
+scale = Vector2(1.9177083, 1.9177085)
+texture = ExtResource("3_vuion")
+
+[node name="ShadowGradient2" type="TextureRect" parent="MainScreen/background" unique_id=109964918]
+offset_left = 873.56415
+offset_top = 709.0
+offset_right = 968.4189
+offset_bottom = 868.81195
+rotation = -1.5707964
+scale = Vector2(3, 3)
+texture = SubResource("GradientTexture2D_vuion")
+
+[node name="AntSprite" type="Sprite2D" parent="MainScreen/background" unique_id=1931248551]
+position = Vector2(286.99997, 310.99997)
+rotation = 0.005312622
+scale = Vector2(1.1416177, 1.1262152)
+texture = ExtResource("4_vuion")
+
+[node name="ShadowGradient4" type="TextureRect" parent="MainScreen/background" unique_id=587878204]
+offset_left = 90.0
+offset_top = 529.0
+offset_right = 184.85474
+offset_bottom = 662.1671
+rotation = -1.5707964
+scale = Vector2(3, 3)
+texture = SubResource("GradientTexture2D_vuion")
+
+[node name="TowerSprite" type="Sprite2D" parent="MainScreen/background" unique_id=1416364333]
+position = Vector2(194.84369, 436.61353)
+rotation = 0.0053126216
+scale = Vector2(1.6598643, 1.63747)
+texture = ExtResource("4_gtard")
+
+[node name="ShadowGradient3" type="TextureRect" parent="MainScreen/background" unique_id=2039965619]
+offset_left = 8.843674
+offset_top = 714.6135
+offset_right = 103.69841
+offset_bottom = 837.0751
+rotation = -1.5707964
+scale = Vector2(3, 3)
+texture = SubResource("GradientTexture2D_vuion")
+
+[node name="Title" type="Label" parent="MainScreen" unique_id=1335564781]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -327.5
+offset_top = 100.0
+offset_right = 327.5
+offset_bottom = 188.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
+theme_override_fonts/font = ExtResource("2_d4clo")
+theme_override_font_sizes/font_size = 72
+text = "Amothecary Adventures TD"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartButton" type="Button" parent="MainScreen" unique_id=1979632857]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -79.5
+offset_top = -110.0
+offset_right = 79.5
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.99607843, 0.84705883, 0.3882353, 1)
+theme_override_colors/font_hover_color = Color(0.4392157, 0.8784314, 0.6, 1)
+theme_override_fonts/font = ExtResource("3_mqr7l")
+theme_override_font_sizes/font_size = 64
+text = "Start"
+flat = true
+
+[node name="HowToPlayButton" type="Button" parent="MainScreen" unique_id=1585844480]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -79.5
+offset_top = 15.0
+offset_right = 79.5
+offset_bottom = 111.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.99607843, 0.84705883, 0.3882353, 1)
+theme_override_colors/font_hover_color = Color(0.4392157, 0.8784314, 0.6, 1)
+theme_override_fonts/font = ExtResource("3_mqr7l")
+theme_override_font_sizes/font_size = 64
+text = "How To Play"
+flat = true
+
+[node name="QuitButton" type="Button" parent="MainScreen" unique_id=954023080]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -79.5
+offset_top = 140.0
+offset_right = 79.5
+offset_bottom = 236.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.99607843, 0.84705883, 0.3882353, 1)
+theme_override_colors/font_hover_color = Color(0.4392157, 0.8784314, 0.6, 1)
+theme_override_fonts/font = ExtResource("3_mqr7l")
+theme_override_font_sizes/font_size = 64
+text = "Quit"
+flat = true
+
+[node name="HowToPlayScreen" type="CanvasLayer" parent="." unique_id=715647047]
+layer = 2
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="HowToPlayScreen" unique_id=580345196]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.21176471, 0.23137255, 1)
+
+[node name="Label" type="Label" parent="HowToPlayScreen" unique_id=868482088]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -149.5
+offset_top = 50.0
+offset_right = 149.5
+offset_bottom = 138.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
+theme_override_fonts/font = ExtResource("2_d4clo")
+theme_override_font_sizes/font_size = 72
+text = "How To Play:"
+
+[node name="Label2" type="Label" parent="HowToPlayScreen" unique_id=772933493]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -226.0
+offset_top = 150.0
+offset_right = 226.0
+offset_bottom = 220.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
+theme_override_fonts/font = ExtResource("3_mqr7l")
+theme_override_font_sizes/font_size = 48
+text = "Defend Magus Moth's Orb of Conjuration from the Ants!
+
+Buy towers in the shop, then open your inventory, left click 
+on the tower, then right click the battlefield to place your
+towers. 
+Defeat all waves of Ants to win!"
+horizontal_alignment = 1
+
+[node name="BackButton" type="Button" parent="HowToPlayScreen" unique_id=400116296]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -62.5
+offset_top = -120.0
+offset_right = 62.5
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.99607843, 0.84705883, 0.3882353, 1)
+theme_override_colors/font_hover_color = Color(0.4392157, 0.8784314, 0.6, 1)
+theme_override_fonts/font = ExtResource("2_d4clo")
+theme_override_font_sizes/font_size = 72
+text = "Back"
+flat = true
+
+[connection signal="pressed" from="MainScreen/StartButton" to="SceneManager" method="_on_button_pressed"]
+[connection signal="pressed" from="MainScreen/HowToPlayButton" to="SceneManager" method="_on_how_to_play_button_pressed"]
+[connection signal="pressed" from="MainScreen/QuitButton" to="SceneManager" method="_on_quit_button_pressed"]
+[connection signal="pressed" from="HowToPlayScreen/BackButton" to="SceneManager" method="_on_back_button_pressed"]

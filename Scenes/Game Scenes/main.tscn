@@ -1,0 +1,1775 @@
+[gd_scene format=3 uid="uid://cmjnhkpnq3l66"]
+
+[ext_resource type="AudioStream" uid="uid://7vmjaaxleyae" path="res://songs/sneswip1.wav" id="1_kek77"]
+[ext_resource type="Script" uid="uid://buqk23l3b6tsp" path="res://scripts/components/main.gd" id="1_vivmo"]
+[ext_resource type="Script" uid="uid://cx5lcq6iqwfvi" path="res://scripts/audio_stream_player.gd" id="2_4c57u"]
+[ext_resource type="Script" uid="uid://cpi153lw0sggb" path="res://player.gd" id="3_dg77c"]
+[ext_resource type="Script" uid="uid://c8gmgykjml3m1" path="res://shop.gd" id="3_w48qg"]
+[ext_resource type="PackedScene" uid="uid://tu18fp20hsnf" path="res://Scenes/towers/warrior.tscn" id="5_0miwv"]
+[ext_resource type="Texture2D" uid="uid://dxojowqqxxamn" path="res://EnvironmentGLBs/Seamless-Oak-Texture3.png" id="6_hn62u"]
+[ext_resource type="Texture2D" uid="uid://c286ok2fs05bo" path="res://EnvironmentGLBs/Rim.png" id="7_4yj7t"]
+[ext_resource type="CameraAttributesPractical" uid="uid://b4wnelwhnjghp" path="res://new_camera_attributes_practical.tres" id="7_q80nm"]
+[ext_resource type="PackedScene" uid="uid://cspaxkbchu6l3" path="res://wizard.tscn" id="8_yhwuq"]
+[ext_resource type="PackedScene" uid="uid://cmyw1wq2h0igv" path="res://Scenes/enemies/ant.tscn" id="9_032wp"]
+[ext_resource type="Texture2D" uid="uid://buh8w0f7d6bqm" path="res://sprites/towers/thimble/testthim.png" id="10_032wp"]
+[ext_resource type="Texture2D" uid="uid://dhn0tkx40kvo2" path="res://sprites/ShopPosterize1.jpg" id="10_57bla"]
+[ext_resource type="FontFile" uid="uid://xrhcnace7lij" path="res://fonts/Chicle-Regular.ttf" id="11_0miwv"]
+[ext_resource type="PackedScene" uid="uid://cjienrf7jmnht" path="res://Scenes/towers/orb.tscn" id="11_me364"]
+[ext_resource type="FontFile" uid="uid://cchfdyetdjd7q" path="res://fonts/DarumadropOne-Regular.ttf" id="12_0w7h6"]
+[ext_resource type="Script" uid="uid://cnflpnfv23xkc" path="res://game_manager.gd" id="13_84767"]
+[ext_resource type="Texture2D" uid="uid://djsvlxd4stdyy" path="res://sprites/enemies/ant/idle/anttest.png" id="13_t6f6y"]
+[ext_resource type="Texture2D" uid="uid://cqntj47yjhkuy" path="res://sprites/lock.png" id="14_5o5tl"]
+[ext_resource type="Texture2D" uid="uid://d0xqq0gycm7vw" path="res://sprites/towers/battery/batterywizard.png" id="16_me364"]
+[ext_resource type="Texture2D" uid="uid://cxcgrt5b7njaf" path="res://sprites/potions/HealthFrontPosterized.png" id="17_ifosd"]
+[ext_resource type="Texture2D" uid="uid://bmgl6l8crr5hi" path="res://sprites/potions/RangeFrontPosterized.png" id="18_biugc"]
+[ext_resource type="Texture2D" uid="uid://dre2to8s2qtik" path="res://sprites/potions/DamageFrontPosterized.png" id="19_q80nm"]
+[ext_resource type="PackedScene" uid="uid://blqact6xyog7f" path="res://EnvironmentGLBs/environmentScenes/tree2.tscn" id="19_wolj3"]
+[ext_resource type="Texture2D" uid="uid://dllbc8np46no8" path="res://sprites/potions/SpeedFrontPosterized.png" id="20_tvq8n"]
+[ext_resource type="Texture2D" uid="uid://sf0gpga81ulo" path="res://sprites/potions/RangeTopPosterized.png" id="23_biugc"]
+[ext_resource type="Script" uid="uid://biq4srx5lcvcm" path="res://Scenes/Game Scenes/enemy_spawner.gd" id="23_q80nm"]
+[ext_resource type="PackedScene" uid="uid://c0su5xed22cwb" path="res://EnvironmentGLBs/environmentScenes/tree3.tscn" id="26_wolj3"]
+[ext_resource type="PackedScene" uid="uid://dvkrhrg0xhe2l" path="res://EnvironmentGLBs/environmentScenes/tree1.tscn" id="27_aobh2"]
+[ext_resource type="PackedScene" uid="uid://cf253tkxihwse" path="res://EnvironmentGLBs/environmentScenes/jackMush.tscn" id="28_54h8o"]
+[ext_resource type="PackedScene" uid="uid://ci8t8gv05yqg0" path="res://EnvironmentGLBs/environmentScenes/rock.tscn" id="28_ia0fb"]
+[ext_resource type="PackedScene" uid="uid://qwcib3hg8bwk" path="res://EnvironmentGLBs/environmentScenes/KingMush.tscn" id="31_30g23"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yhwuq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q80nm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_30g23"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xm2m"]
+albedo_texture = ExtResource("6_hn62u")
+metallic = 1.0
+clearcoat_roughness = 0.4
+refraction_scale = 1.0
+uv2_scale = Vector3(0, 0, 0)
+texture_filter = 1
+texture_repeat = false
+grow_amount = -7.265
+point_size = 128.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_7dm0k"]
+material = SubResource("StandardMaterial3D_0xm2m")
+size = Vector3(95, 2, 35)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7dm0k"]
+size = Vector3(95, 2, 60)
+
+[sub_resource type="Sky" id="Sky_ig7tw"]
+
+[sub_resource type="Environment" id="Environment_0xm2m"]
+background_mode = 1
+background_color = Color(0.25246772, 0.17417556, 0.058864124, 1)
+sky = SubResource("Sky_ig7tw")
+ambient_light_color = Color(0.6001798, 0.9692821, 0.74341196, 1)
+tonemap_mode = 2
+fog_mode = 1
+fog_light_color = Color(0.21466157, 0.38458094, 0.2701914, 1)
+fog_density = 1.0
+fog_sky_affect = 0.117
+fog_height_density = -0.05
+fog_depth_curve = 0.49999785
+fog_depth_end = 2930.5
+volumetric_fog_albedo = Color(0.55, 1, 0.88, 1)
+volumetric_fog_emission = Color(0.21, 0.21, 0.21, 1)
+volumetric_fog_anisotropy = -0.02
+volumetric_fog_length = 6.05
+volumetric_fog_ambient_inject = 0.4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w48qg"]
+transparency = 1
+albedo_color = Color(0.5686275, 0.54509807, 0.49019608, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vivmo"]
+material = SubResource("StandardMaterial3D_w48qg")
+size = Vector3(60, 1.1, 27)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h2yge"]
+size = Vector3(60, 0.2, 27)
+
+[node name="Main" type="Node" unique_id=1602813131]
+script = ExtResource("1_vivmo")
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=306243073]
+stream = ExtResource("1_kek77")
+volume_db = -15.0
+script = ExtResource("2_4c57u")
+
+[node name="Player" type="Node" parent="." unique_id=955624252]
+script = ExtResource("3_dg77c")
+warrior_scene = ExtResource("5_0miwv")
+wizard_scene = ExtResource("8_yhwuq")
+money = 5.0
+interest = 1.2
+selected_item = "warrior"
+
+[node name="GUI" type="Control" parent="Player" unique_id=1775035197]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1366.0
+offset_bottom = 720.0
+mouse_filter = 1
+script = ExtResource("13_84767")
+
+[node name="ShopCanvas" type="CanvasLayer" parent="Player/GUI" unique_id=1615819721]
+layer = 2
+visible = false
+script = ExtResource("3_w48qg")
+
+[node name="ColorRect" type="ColorRect" parent="Player/GUI/ShopCanvas" unique_id=804026196]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/GUI/ShopCanvas" unique_id=1252862250]
+position = Vector2(683, 360.50003)
+scale = Vector2(0.71562505, 0.6731482)
+texture = ExtResource("10_57bla")
+
+[node name="ShopSlots" type="Node2D" parent="Player/GUI/ShopCanvas" unique_id=81603362]
+
+[node name="Slot1" type="Area2D" parent="Player/GUI/ShopCanvas/ShopSlots" unique_id=1818299629]
+position = Vector2(527, 312)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/GUI/ShopCanvas/ShopSlots/Slot1" unique_id=472860760]
+scale = Vector2(5.5, 7.5)
+shape = SubResource("RectangleShape2D_yhwuq")
+debug_color = Color(0, 0.6, 0.69803923, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/GUI/ShopCanvas/ShopSlots/Slot1" unique_id=1744100962]
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("10_032wp")
+
+[node name="Label" type="Label" parent="Player/GUI/ShopCanvas/ShopSlots/Slot1" unique_id=180944370]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.5
+offset_top = -116.0
+offset_right = 31.5
+offset_bottom = -93.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.99607843, 0.84705883, 0.3882353, 1)
+theme_override_fonts/font = ExtResource("11_0miwv")
+theme_override_font_sizes/font_size = 30
+text = "Thimble"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Slot2" type="Area2D" parent="Player/GUI/ShopCanvas/ShopSlots" unique_id=2122947439]
+position = Vector2(683, 312)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/GUI/ShopCanvas/ShopSlots/Slot2" unique_id=210418393]
+scale = Vector2(5.5, 7.5)
+shape = SubResource("RectangleShape2D_yhwuq")
+debug_color = Color(0, 0.6, 0.69803923, 0)
+
+[node name="Label" type="Label" parent="Player/GUI/ShopCanvas/ShopSlots/Slot2" unique_id=1477563222]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -29.0
+offset_top = -116.0
+offset_right = 29.0
+offset_bottom = -93.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.99607843, 0.84705883, 0.3882353, 1)
+theme_override_fonts/font = ExtResource("11_0miwv")
+theme_override_font_sizes/font_size = 30
+text = "Battery"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/GUI/ShopCanvas/ShopSlots/Slot2" unique_id=257331582]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("16_me364")
+
+[node name="Slot3" type="Area2D" parent="Player/GUI/ShopCanvas/ShopSlots" unique_id=616214912]
+position = Vector2(840, 312)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/GUI/ShopCanvas/ShopSlots/Slot3" unique_id=161586366]
+scale = Vector2(5.5, 7.5)
+shape = SubResource("RectangleShape2D_yhwuq")
+debug_color = Color(0, 0.6, 0.69803923, 0)
+
+[node name="Label" type="Label" parent="Player/GUI/ShopCanvas/ShopSlots/Slot3" unique_id=617703137]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -116.0
+offset_right = 20.0
+offset_bottom = -93.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.99607843, 0.84705883, 0.3882353, 1)
+theme_override_fonts/font = ExtResource("11_0miwv")
+theme_override_font_sizes/font_size = 30
+text = "Health"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/GUI/ShopCanvas/ShopSlots/Slot3" unique_id=1462346056]
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("17_ifosd")
+
+[node name="Gray" type="ColorRect" parent="Player/GUI/ShopCanvas/ShopSlots/Slot3" unique_id=1397339149]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = -75.0
+offset_right = 55.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.40784314, 0.40784314, 0.40784314, 0.78431374)
+
+[node name="lock" type="Sprite2D" parent="Player/GUI/ShopCanvas/ShopSlots/Slot3/Gray" unique_id=1556592936]
+position = Vector2(55, 75)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("14_5o5tl")
+
+[node name="Slot4" type="Area2D" parent="Player/GUI/ShopCanvas/ShopSlots" unique_id=1073384499]
+position = Vector2(527, 582)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/GUI/ShopCanvas/ShopSlots/Slot4" unique_id=1033818363]
+scale = Vector2(5.5, 7.5)
+shape = SubResource("RectangleShape2D_yhwuq")
+debug_color = Color(0, 0.6, 0.69803923, 0)
+
+[node name="Label" type="Label" parent="Player/GUI/ShopCanvas/ShopSlots/Slot4" unique_id=1145628947]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -116.0
+offset_right = 24.0
+offset_bottom = -93.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.99607843, 0.84705883, 0.3882353, 1)
+theme_override_fonts/font = ExtResource("11_0miwv")
+theme_override_font_sizes/font_size = 30
+text = "Range"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/GUI/ShopCanvas/ShopSlots/Slot4" unique_id=411590329]
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("18_biugc")
+
+[node name="Gray2" type="ColorRect" parent="Player/GUI/ShopCanvas/ShopSlots/Slot4" unique_id=928220430]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = -75.0
+offset_right = 55.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.40784314, 0.40784314, 0.40784314, 0.78431374)
+
+[node name="lock" type="Sprite2D" parent="Player/GUI/ShopCanvas/ShopSlots/Slot4/Gray2" unique_id=127241964]
+position = Vector2(55, 75)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("14_5o5tl")
+
+[node name="Slot5" type="Area2D" parent="Player/GUI/ShopCanvas/ShopSlots" unique_id=864297946]
+position = Vector2(683, 582)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/GUI/ShopCanvas/ShopSlots/Slot5" unique_id=1912676197]
+scale = Vector2(5.5, 7.5)
+shape = SubResource("RectangleShape2D_yhwuq")
+debug_color = Color(0, 0.6, 0.69803923, 0)
+
+[node name="Label" type="Label" parent="Player/GUI/ShopCanvas/ShopSlots/Slot5" unique_id=1287964161]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -116.0
+offset_right = 32.0
+offset_bottom = -93.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.99607843, 0.84705883, 0.3882353, 1)
+theme_override_fonts/font = ExtResource("11_0miwv")
+theme_override_font_sizes/font_size = 30
+text = "Damage"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/GUI/ShopCanvas/ShopSlots/Slot5" unique_id=1082330082]
+position = Vector2(-10, 0)
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("19_q80nm")
+
+[node name="Gray3" type="ColorRect" parent="Player/GUI/ShopCanvas/ShopSlots/Slot5" unique_id=1012160015]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = -75.0
+offset_right = 55.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.40784314, 0.40784314, 0.40784314, 0.78431374)
+
+[node name="lock" type="Sprite2D" parent="Player/GUI/ShopCanvas/ShopSlots/Slot5/Gray3" unique_id=210909231]
+position = Vector2(55, 75)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("14_5o5tl")
+
+[node name="Slot6" type="Area2D" parent="Player/GUI/ShopCanvas/ShopSlots" unique_id=1446563503]
+position = Vector2(840, 582)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/GUI/ShopCanvas/ShopSlots/Slot6" unique_id=541820159]
+scale = Vector2(5.5, 7.5)
+shape = SubResource("RectangleShape2D_yhwuq")
+debug_color = Color(0, 0.6, 0.69803923, 0)
+
+[node name="Label" type="Label" parent="Player/GUI/ShopCanvas/ShopSlots/Slot6" unique_id=876465135]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -116.0
+offset_right = 24.0
+offset_bottom = -93.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.99607843, 0.84705883, 0.3882353, 1)
+theme_override_fonts/font = ExtResource("11_0miwv")
+theme_override_font_sizes/font_size = 30
+text = "Speed"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/GUI/ShopCanvas/ShopSlots/Slot6" unique_id=1356667994]
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("20_tvq8n")
+
+[node name="Gray4" type="ColorRect" parent="Player/GUI/ShopCanvas/ShopSlots/Slot6" unique_id=1774015889]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = -75.0
+offset_right = 55.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.40784314, 0.40784314, 0.40784314, 0.78431374)
+
+[node name="lock" type="Sprite2D" parent="Player/GUI/ShopCanvas/ShopSlots/Slot6/Gray4" unique_id=1684495854]
+position = Vector2(55, 75)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("14_5o5tl")
+
+[node name="ShopExitButton" type="Button" parent="Player/GUI/ShopCanvas" unique_id=958897747]
+offset_right = 129.0
+offset_bottom = 86.0
+theme_override_colors/font_color = Color(0.99607843, 0.84705883, 0.3882353, 1)
+theme_override_colors/font_hover_color = Color(0.4392157, 0.8784314, 0.6, 1)
+theme_override_fonts/font = ExtResource("11_0miwv")
+theme_override_font_sizes/font_size = 64
+text = "Back"
+flat = true
+
+[node name="GuideButton" type="Button" parent="Player/GUI/ShopCanvas" unique_id=657997984]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -86.0
+offset_right = 129.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.99607843, 0.84705883, 0.3882353, 1)
+theme_override_colors/font_hover_color = Color(0.4392157, 0.8784314, 0.6, 1)
+theme_override_fonts/font = ExtResource("11_0miwv")
+theme_override_font_sizes/font_size = 64
+text = "Guide"
+flat = true
+
+[node name="GuideCanvas" type="CanvasLayer" parent="Player/GUI" unique_id=523156356]
+process_mode = 3
+layer = 3
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="Player/GUI/GuideCanvas" unique_id=692574822]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.21176471, 0.23137255, 1)
+
+[node name="InfoTitle" type="Label" parent="Player/GUI/GuideCanvas" unique_id=911915064]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -193.0
+offset_top = 20.0
+offset_right = 193.0
+offset_bottom = 98.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
+theme_override_fonts/font = ExtResource("11_0miwv")
+theme_override_font_sizes/font_size = 64
+text = "Information Guide"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TowerLabel" type="Label" parent="Player/GUI/GuideCanvas" unique_id=1116229951]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 175.0
+offset_top = -185.0
+offset_right = 322.0
+offset_bottom = -107.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
+theme_override_fonts/font = ExtResource("11_0miwv")
+theme_override_font_sizes/font_size = 64
+text = "Towers"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ThimbleButton" type="Button" parent="Player/GUI/GuideCanvas/TowerLabel" unique_id=373747687]
+layout_mode = 0
+offset_top = 100.0
+offset_right = 298.0
+offset_bottom = 167.0
+theme_override_colors/font_color = Color(0.99607843, 0.84705883, 0.3882353, 1)
+theme_override_colors/font_hover_color = Color(0.4392157, 0.8784314, 0.6, 1)
+theme_override_fonts/font = ExtResource("12_0w7h6")
+theme_override_font_sizes/font_size = 40
+text = "Thimble Warrior"
+flat = true
+
+[node name="BatteryButton" type="Button" parent="Player/GUI/GuideCanvas/TowerLabel" unique_id=504305181]
+layout_mode = 0
+offset_top = 200.0
+offset_right = 298.0
+offset_bottom = 267.0
+theme_override_colors/font_color = Color(0.99607843, 0.84705883, 0.3882353, 1)
+theme_override_colors/font_hover_color = Color(0.4392157, 0.8784314, 0.6, 1)
+theme_override_fonts/font = ExtResource("12_0w7h6")
+theme_override_font_sizes/font_size = 40
+text = "Battery Wizard"
+flat = true
+
+[node name="PotionsLabel" type="Label" parent="Player/GUI/GuideCanvas" unique_id=298303263]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -77.0
+offset_top = -185.0
+offset_right = 77.0
+offset_bottom = -107.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
+theme_override_fonts/font = ExtResource("11_0miwv")
+theme_override_font_sizes/font_size = 64
+text = "Potions"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RangeButton" type="Button" parent="Player/GUI/GuideCanvas/PotionsLabel" unique_id=1798735469]
+layout_mode = 0
+offset_top = 100.0
+offset_right = 207.0
+offset_bottom = 167.0
+theme_override_colors/font_color = Color(0.99607843, 0.84705883, 0.3882353, 1)
+theme_override_colors/font_hover_color = Color(0.4392157, 0.8784314, 0.6, 1)
+theme_override_fonts/font = ExtResource("12_0w7h6")
+theme_override_font_sizes/font_size = 40
+text = "Range Buff"
+flat = true
+
+[node name="DamageButton" type="Button" parent="Player/GUI/GuideCanvas/PotionsLabel" unique_id=800752428]
+layout_mode = 0
+offset_top = 200.0
+offset_right = 240.0
+offset_bottom = 267.0
+theme_override_colors/font_color = Color(0.99607843, 0.84705883, 0.3882353, 1)
+theme_override_colors/font_hover_color = Color(0.4392157, 0.8784314, 0.6, 1)
+theme_override_fonts/font = ExtResource("12_0w7h6")
+theme_override_font_sizes/font_size = 40
+text = "Damage Buff"
+flat = true
+
+[node name="SpeedButton" type="Button" parent="Player/GUI/GuideCanvas/PotionsLabel" unique_id=1762364445]
+layout_mode = 0
+offset_top = 300.0
+offset_right = 240.0
+offset_bottom = 367.0
+theme_override_colors/font_color = Color(0.99607843, 0.84705883, 0.3882353, 1)
+theme_override_colors/font_hover_color = Color(0.4392157, 0.8784314, 0.6, 1)
+theme_override_fonts/font = ExtResource("12_0w7h6")
+theme_override_font_sizes/font_size = 40
+text = "Speed Buff"
+flat = true
+
+[node name="HealthButton" type="Button" parent="Player/GUI/GuideCanvas/PotionsLabel" unique_id=1218890794]
+layout_mode = 0
+offset_top = 400.0
+offset_right = 240.0
+offset_bottom = 467.0
+theme_override_colors/font_color = Color(0.99607843, 0.84705883, 0.3882353, 1)
+theme_override_colors/font_hover_color = Color(0.4392157, 0.8784314, 0.6, 1)
+theme_override_fonts/font = ExtResource("12_0w7h6")
+theme_override_font_sizes/font_size = 40
+text = "Health Buff"
+flat = true
+
+[node name="EnemiesLabel" type="Label" parent="Player/GUI/GuideCanvas" unique_id=1489804121]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -351.0
+offset_top = -185.0
+offset_right = -175.0
+offset_bottom = -107.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
+theme_override_fonts/font = ExtResource("11_0miwv")
+theme_override_font_sizes/font_size = 64
+text = "Enemies"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PurpleButton" type="Button" parent="Player/GUI/GuideCanvas/EnemiesLabel" unique_id=836502319]
+layout_mode = 0
+offset_top = 100.0
+offset_right = 195.0
+offset_bottom = 167.0
+theme_override_colors/font_color = Color(0.99607843, 0.84705883, 0.3882353, 1)
+theme_override_colors/font_hover_color = Color(0.4392157, 0.8784314, 0.6, 1)
+theme_override_fonts/font = ExtResource("12_0w7h6")
+theme_override_font_sizes/font_size = 40
+text = "Purple Ant"
+flat = true
+
+[node name="YellowButton" type="Button" parent="Player/GUI/GuideCanvas/EnemiesLabel" unique_id=1282457931]
+layout_mode = 0
+offset_top = 200.0
+offset_right = 201.0
+offset_bottom = 267.0
+theme_override_colors/font_color = Color(0.99607843, 0.84705883, 0.3882353, 1)
+theme_override_colors/font_hover_color = Color(0.4392157, 0.8784314, 0.6, 1)
+theme_override_fonts/font = ExtResource("12_0w7h6")
+theme_override_font_sizes/font_size = 40
+text = "Yellow Ant"
+flat = true
+
+[node name="RedButton" type="Button" parent="Player/GUI/GuideCanvas/EnemiesLabel" unique_id=1437165053]
+layout_mode = 0
+offset_top = 300.0
+offset_right = 201.0
+offset_bottom = 367.0
+theme_override_colors/font_color = Color(0.99607843, 0.84705883, 0.3882353, 1)
+theme_override_colors/font_hover_color = Color(0.4392157, 0.8784314, 0.6, 1)
+theme_override_fonts/font = ExtResource("12_0w7h6")
+theme_override_font_sizes/font_size = 40
+text = "Red Ant"
+flat = true
+
+[node name="BackButton" type="Button" parent="Player/GUI/GuideCanvas" unique_id=2084622460]
+offset_right = 112.0
+offset_bottom = 86.0
+theme_override_colors/font_color = Color(0.99607843, 0.84705883, 0.3882353, 1)
+theme_override_colors/font_hover_color = Color(0.4392157, 0.8784314, 0.6, 1)
+theme_override_fonts/font = ExtResource("11_0miwv")
+theme_override_font_sizes/font_size = 64
+text = "Back"
+flat = true
+
+[node name="InfoCanvases" type="CanvasLayer" parent="Player/GUI/GuideCanvas" unique_id=1892525353]
+layer = 5
+visible = false
+
+[node name="XButton" type="Button" parent="Player/GUI/GuideCanvas/InfoCanvases" unique_id=1968947025]
+offset_left = 25.0
+offset_top = -15.0
+offset_right = 101.0
+offset_bottom = 138.0
+theme_override_colors/font_color = Color(0.8401444, 0.26496843, 0.18532676, 1)
+theme_override_colors/font_hover_color = Color(0.9529412, 0.5411765, 0.18431373, 1)
+theme_override_fonts/font = ExtResource("12_0w7h6")
+theme_override_font_sizes/font_size = 100
+text = "X"
+flat = true
+
+[node name="ThimbleCanvas" type="CanvasLayer" parent="Player/GUI/GuideCanvas/InfoCanvases" unique_id=1899372787]
+layer = 4
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="Player/GUI/GuideCanvas/InfoCanvases/ThimbleCanvas" unique_id=1175226983]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.21176471, 0.23137255, 1)
+
+[node name="Label" type="Label" parent="Player/GUI/GuideCanvas/InfoCanvases/ThimbleCanvas" unique_id=1363612916]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -195.0
+offset_top = 20.0
+offset_right = 195.0
+offset_bottom = 108.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
+theme_override_fonts/font = ExtResource("11_0miwv")
+theme_override_font_sizes/font_size = 72
+text = "Thimble Warrior"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/GUI/GuideCanvas/InfoCanvases/ThimbleCanvas" unique_id=411060992]
+position = Vector2(250, 350)
+texture = ExtResource("10_032wp")
+
+[node name="Label2" type="Label" parent="Player/GUI/GuideCanvas/InfoCanvases/ThimbleCanvas" unique_id=494805102]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -283.0
+offset_top = -185.0
+offset_right = 628.0
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
+theme_override_fonts/font = ExtResource("12_0w7h6")
+theme_override_font_sizes/font_size = 32
+text = "Description:
+Nothing can best the trusty and reliable thimble warrior, 
+probably. The story goes that, enamored by thimbles,
+ Magus Moth puppeteered them on his fingertips, until he 
+learned magic could do that forhim. Wait, do moths have fingers? "
+
+[node name="Label3" type="Label" parent="Player/GUI/GuideCanvas/InfoCanvases/ThimbleCanvas" unique_id=800228023]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -283.0
+offset_top = 140.0
+offset_right = 628.0
+offset_bottom = 392.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
+theme_override_fonts/font = ExtResource("12_0w7h6")
+theme_override_font_sizes/font_size = 32
+text = "Stats:
+Damage: 1 DP per swing
+Fire rate: 1 swing per second"
+
+[node name="BatteryCanvas" type="CanvasLayer" parent="Player/GUI/GuideCanvas/InfoCanvases" unique_id=401673474]
+layer = 4
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="Player/GUI/GuideCanvas/InfoCanvases/BatteryCanvas" unique_id=680091842]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.21176471, 0.23137255, 1)
+
+[node name="Label" type="Label" parent="Player/GUI/GuideCanvas/InfoCanvases/BatteryCanvas" unique_id=1321434553]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -195.0
+offset_top = 20.0
+offset_right = 195.0
+offset_bottom = 108.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
+theme_override_fonts/font = ExtResource("11_0miwv")
+theme_override_font_sizes/font_size = 72
+text = "Battery Wizard"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/GUI/GuideCanvas/InfoCanvases/BatteryCanvas" unique_id=668550968]
+position = Vector2(250, 350)
+scale = Vector2(2, 2)
+texture = ExtResource("16_me364")
+
+[node name="Label2" type="Label" parent="Player/GUI/GuideCanvas/InfoCanvases/BatteryCanvas" unique_id=2113309870]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -283.0
+offset_top = -185.0
+offset_right = 628.0
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
+theme_override_fonts/font = ExtResource("12_0w7h6")
+theme_override_font_sizes/font_size = 32
+text = "Description:
+The lights in Magus Moth's hut are all battery powered; they are
+brighter and he can get very close without being eviscerated. 
+After doing a little tooling, he figured out how to use them for
+defense purposes. [RIP all moths who flew too close to the sun] "
+
+[node name="Label3" type="Label" parent="Player/GUI/GuideCanvas/InfoCanvases/BatteryCanvas" unique_id=843681400]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -283.0
+offset_top = 140.0
+offset_right = 628.0
+offset_bottom = 392.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
+theme_override_fonts/font = ExtResource("12_0w7h6")
+theme_override_font_sizes/font_size = 32
+text = "Stats:
+Damage: 2 DP per hit
+Fire rate: 1 fire per 3 seconds"
+
+[node name="HealthCanvas" type="CanvasLayer" parent="Player/GUI/GuideCanvas/InfoCanvases" unique_id=1000864721]
+layer = 4
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="Player/GUI/GuideCanvas/InfoCanvases/HealthCanvas" unique_id=2106886810]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.21176471, 0.23137255, 1)
+
+[node name="Label" type="Label" parent="Player/GUI/GuideCanvas/InfoCanvases/HealthCanvas" unique_id=586759884]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -195.0
+offset_top = 20.0
+offset_right = 195.0
+offset_bottom = 108.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
+theme_override_fonts/font = ExtResource("11_0miwv")
+theme_override_font_sizes/font_size = 72
+text = "Health Potion"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/GUI/GuideCanvas/InfoCanvases/HealthCanvas" unique_id=902094422]
+position = Vector2(250, 350)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("17_ifosd")
+
+[node name="Label2" type="Label" parent="Player/GUI/GuideCanvas/InfoCanvases/HealthCanvas" unique_id=1550111933]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -283.0
+offset_top = -185.0
+offset_right = 628.0
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
+theme_override_fonts/font = ExtResource("12_0w7h6")
+theme_override_font_sizes/font_size = 32
+text = "Description:
+TBD"
+
+[node name="Label3" type="Label" parent="Player/GUI/GuideCanvas/InfoCanvases/HealthCanvas" unique_id=1378620539]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -283.0
+offset_top = 140.0
+offset_right = 628.0
+offset_bottom = 392.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
+theme_override_fonts/font = ExtResource("12_0w7h6")
+theme_override_font_sizes/font_size = 32
+text = "Stats:
+"
+
+[node name="PurpleAntCanvas" type="CanvasLayer" parent="Player/GUI/GuideCanvas/InfoCanvases" unique_id=1571464534]
+layer = 4
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="Player/GUI/GuideCanvas/InfoCanvases/PurpleAntCanvas" unique_id=100644948]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.21176471, 0.23137255, 1)
+
+[node name="Label" type="Label" parent="Player/GUI/GuideCanvas/InfoCanvases/PurpleAntCanvas" unique_id=828754076]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -195.0
+offset_top = 20.0
+offset_right = 195.0
+offset_bottom = 108.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
+theme_override_fonts/font = ExtResource("11_0miwv")
+theme_override_font_sizes/font_size = 72
+text = "Purple Ant"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/GUI/GuideCanvas/InfoCanvases/PurpleAntCanvas" unique_id=1718483879]
+position = Vector2(250, 350)
+texture = ExtResource("13_t6f6y")
+
+[node name="Label2" type="Label" parent="Player/GUI/GuideCanvas/InfoCanvases/PurpleAntCanvas" unique_id=2029753941]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -283.0
+offset_top = -185.0
+offset_right = 628.0
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
+theme_override_fonts/font = ExtResource("12_0w7h6")
+theme_override_font_sizes/font_size = 32
+text = "Description:
+TBD"
+
+[node name="Label3" type="Label" parent="Player/GUI/GuideCanvas/InfoCanvases/PurpleAntCanvas" unique_id=1388518079]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -283.0
+offset_top = 140.0
+offset_right = 628.0
+offset_bottom = 392.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
+theme_override_fonts/font = ExtResource("12_0w7h6")
+theme_override_font_sizes/font_size = 32
+text = "Stats:
+TBD"
+
+[node name="YellowAntCanvas" type="CanvasLayer" parent="Player/GUI/GuideCanvas/InfoCanvases" unique_id=1227381230]
+layer = 4
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="Player/GUI/GuideCanvas/InfoCanvases/YellowAntCanvas" unique_id=943574611]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.21176471, 0.23137255, 1)
+
+[node name="Label" type="Label" parent="Player/GUI/GuideCanvas/InfoCanvases/YellowAntCanvas" unique_id=1500045337]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -195.0
+offset_top = 20.0
+offset_right = 195.0
+offset_bottom = 108.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
+theme_override_fonts/font = ExtResource("11_0miwv")
+theme_override_font_sizes/font_size = 72
+text = "Yellow Ant"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/GUI/GuideCanvas/InfoCanvases/YellowAntCanvas" unique_id=1144639074]
+position = Vector2(250, 350)
+
+[node name="Label2" type="Label" parent="Player/GUI/GuideCanvas/InfoCanvases/YellowAntCanvas" unique_id=1853057995]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -283.0
+offset_top = -185.0
+offset_right = 628.0
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
+theme_override_fonts/font = ExtResource("12_0w7h6")
+theme_override_font_sizes/font_size = 32
+text = "Description:
+TBD"
+
+[node name="Label3" type="Label" parent="Player/GUI/GuideCanvas/InfoCanvases/YellowAntCanvas" unique_id=1788629721]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -283.0
+offset_top = 140.0
+offset_right = 628.0
+offset_bottom = 392.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
+theme_override_fonts/font = ExtResource("12_0w7h6")
+theme_override_font_sizes/font_size = 32
+text = "Stats:
+TBD"
+
+[node name="RedAntCanvas" type="CanvasLayer" parent="Player/GUI/GuideCanvas/InfoCanvases" unique_id=1675316680]
+layer = 4
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="Player/GUI/GuideCanvas/InfoCanvases/RedAntCanvas" unique_id=259717862]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.21176471, 0.23137255, 1)
+
+[node name="Label" type="Label" parent="Player/GUI/GuideCanvas/InfoCanvases/RedAntCanvas" unique_id=1528683660]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -195.0
+offset_top = 20.0
+offset_right = 195.0
+offset_bottom = 108.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
+theme_override_fonts/font = ExtResource("11_0miwv")
+theme_override_font_sizes/font_size = 72
+text = "Red Ant"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/GUI/GuideCanvas/InfoCanvases/RedAntCanvas" unique_id=2090978107]
+position = Vector2(250, 350)
+
+[node name="Label2" type="Label" parent="Player/GUI/GuideCanvas/InfoCanvases/RedAntCanvas" unique_id=1365523722]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -283.0
+offset_top = -185.0
+offset_right = 628.0
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
+theme_override_fonts/font = ExtResource("12_0w7h6")
+theme_override_font_sizes/font_size = 32
+text = "Description:
+TBD"
+
+[node name="Label3" type="Label" parent="Player/GUI/GuideCanvas/InfoCanvases/RedAntCanvas" unique_id=1344298541]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -283.0
+offset_top = 140.0
+offset_right = 628.0
+offset_bottom = 392.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
+theme_override_fonts/font = ExtResource("12_0w7h6")
+theme_override_font_sizes/font_size = 32
+text = "Stats:
+TBD"
+
+[node name="RangeCanvas" type="CanvasLayer" parent="Player/GUI/GuideCanvas/InfoCanvases" unique_id=2082393101]
+layer = 4
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="Player/GUI/GuideCanvas/InfoCanvases/RangeCanvas" unique_id=1022876033]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.21176471, 0.23137255, 1)
+
+[node name="Label" type="Label" parent="Player/GUI/GuideCanvas/InfoCanvases/RangeCanvas" unique_id=574026423]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -195.0
+offset_top = 20.0
+offset_right = 195.0
+offset_bottom = 108.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
+theme_override_fonts/font = ExtResource("11_0miwv")
+theme_override_font_sizes/font_size = 72
+text = "Range Buff Potion"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/GUI/GuideCanvas/InfoCanvases/RangeCanvas" unique_id=124464260]
+position = Vector2(250, 350)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("18_biugc")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Player/GUI/GuideCanvas/InfoCanvases/RangeCanvas" unique_id=349230860]
+position = Vector2(750, 500)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("23_biugc")
+
+[node name="Label2" type="Label" parent="Player/GUI/GuideCanvas/InfoCanvases/RangeCanvas" unique_id=1397337329]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -283.0
+offset_top = -185.0
+offset_right = 628.0
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
+theme_override_fonts/font = ExtResource("12_0w7h6")
+theme_override_font_sizes/font_size = 32
+text = "Description:
+Increases tower range detection area."
+
+[node name="DamageCanvas" type="CanvasLayer" parent="Player/GUI/GuideCanvas/InfoCanvases" unique_id=2134398004]
+layer = 4
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="Player/GUI/GuideCanvas/InfoCanvases/DamageCanvas" unique_id=1788791138]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.21176471, 0.23137255, 1)
+
+[node name="Label" type="Label" parent="Player/GUI/GuideCanvas/InfoCanvases/DamageCanvas" unique_id=762024580]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -195.0
+offset_top = 20.0
+offset_right = 195.0
+offset_bottom = 108.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
+theme_override_fonts/font = ExtResource("11_0miwv")
+theme_override_font_sizes/font_size = 72
+text = "Damage Buff Potion"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/GUI/GuideCanvas/InfoCanvases/DamageCanvas" unique_id=553490165]
+position = Vector2(250, 350)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("19_q80nm")
+
+[node name="Label2" type="Label" parent="Player/GUI/GuideCanvas/InfoCanvases/DamageCanvas" unique_id=1158012176]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -283.0
+offset_top = -185.0
+offset_right = 628.0
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
+theme_override_fonts/font = ExtResource("12_0w7h6")
+theme_override_font_sizes/font_size = 32
+text = "Description:
+Increases tower damage points per hit"
+
+[node name="SpeedCanvas" type="CanvasLayer" parent="Player/GUI/GuideCanvas/InfoCanvases" unique_id=497022694]
+layer = 4
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="Player/GUI/GuideCanvas/InfoCanvases/SpeedCanvas" unique_id=2073483430]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.21176471, 0.23137255, 1)
+
+[node name="Label" type="Label" parent="Player/GUI/GuideCanvas/InfoCanvases/SpeedCanvas" unique_id=994723270]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -195.0
+offset_top = 20.0
+offset_right = 195.0
+offset_bottom = 108.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
+theme_override_fonts/font = ExtResource("11_0miwv")
+theme_override_font_sizes/font_size = 72
+text = "Speed Buff Potion"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/GUI/GuideCanvas/InfoCanvases/SpeedCanvas" unique_id=1845010388]
+position = Vector2(250, 350)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("20_tvq8n")
+
+[node name="Label2" type="Label" parent="Player/GUI/GuideCanvas/InfoCanvases/SpeedCanvas" unique_id=607830203]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -283.0
+offset_top = -185.0
+offset_right = 628.0
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
+theme_override_fonts/font = ExtResource("12_0w7h6")
+theme_override_font_sizes/font_size = 32
+text = "Description:
+Increases tower rate of fire"
+
+[node name="PauseCanvas" type="CanvasLayer" parent="Player/GUI" unique_id=1398946150]
+process_mode = 3
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="Player/GUI/PauseCanvas" unique_id=209685949]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.21176471, 0.23137255, 0.39215687)
+
+[node name="Label" type="Label" parent="Player/GUI/PauseCanvas" unique_id=743957223]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -157.5
+offset_top = -160.0
+offset_right = 157.5
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
+theme_override_fonts/font = ExtResource("11_0miwv")
+theme_override_font_sizes/font_size = 72
+text = "Game Paused"
+
+[node name="PlayButton" type="Button" parent="Player/GUI/PauseCanvas" unique_id=1577812047]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.5
+offset_top = -51.0
+offset_right = 110.5
+offset_bottom = 51.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.99607843, 0.84705883, 0.3882353, 1)
+theme_override_colors/font_hover_color = Color(0.4392157, 0.8784314, 0.6, 1)
+theme_override_fonts/font = ExtResource("12_0w7h6")
+theme_override_font_sizes/font_size = 64
+text = "Resume"
+flat = true
+
+[node name="QuitButton" type="Button" parent="Player/GUI/PauseCanvas" unique_id=826728294]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.5
+offset_top = 40.0
+offset_right = 110.5
+offset_bottom = 142.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.99607843, 0.84705883, 0.3882353, 1)
+theme_override_colors/font_hover_color = Color(0.4392157, 0.8784314, 0.6, 1)
+theme_override_fonts/font = ExtResource("12_0w7h6")
+theme_override_font_sizes/font_size = 64
+text = "Quit"
+flat = true
+
+[node name="PauseButton" type="Button" parent="Player/GUI" unique_id=912079800]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -131.0
+offset_top = -78.0
+offset_right = -2.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.4392157, 0.8784314, 0.6, 1)
+theme_override_colors/font_hover_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
+theme_override_fonts/font = ExtResource("12_0w7h6")
+theme_override_font_sizes/font_size = 48
+text = "Pause"
+flat = true
+icon_alignment = 1
+
+[node name="ShopButton" type="Button" parent="Player/GUI" unique_id=918771931]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -67.0
+offset_right = 109.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.4392157, 0.8784314, 0.6, 1)
+theme_override_colors/font_hover_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
+theme_override_fonts/font = ExtResource("12_0w7h6")
+theme_override_font_sizes/font_size = 48
+text = "Shop"
+flat = true
+autowrap_trim_flags = 192
+icon_alignment = 1
+
+[node name="CoinsLabel" type="Label" parent="Player/GUI" unique_id=1595139303]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -176.0
+offset_right = -12.0
+offset_bottom = 70.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0.4392157, 0.8784314, 0.6, 1)
+theme_override_fonts/font = ExtResource("12_0w7h6")
+theme_override_font_sizes/font_size = 48
+text = "Coins: 0"
+
+[node name="RoundLabel" type="Label" parent="Player/GUI" unique_id=828578322]
+layout_mode = 0
+offset_left = 10.0
+offset_right = 185.0
+offset_bottom = 70.0
+theme_override_colors/font_color = Color(0.4392157, 0.8784314, 0.6, 1)
+theme_override_fonts/font = ExtResource("12_0w7h6")
+theme_override_font_sizes/font_size = 48
+text = "Round: 1"
+
+[node name="WaveLabel" type="Label" parent="Player/GUI" unique_id=1774085245]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 50.0
+offset_right = 185.0
+offset_bottom = 120.0
+theme_override_colors/font_color = Color(0.4392157, 0.8784314, 0.6, 1)
+theme_override_fonts/font = ExtResource("12_0w7h6")
+theme_override_font_sizes/font_size = 48
+text = "Wave: 1"
+
+[node name="InventoryBar" type="ColorRect" parent="Player/GUI" unique_id=64472063]
+layout_mode = 0
+offset_left = 524.0
+offset_top = -100.0
+offset_right = 844.0
+mouse_filter = 2
+color = Color(0.70980394, 0.90588236, 0.8666667, 0.78431374)
+
+[node name="OpenCloseButton" type="Button" parent="Player/GUI/InventoryBar" unique_id=1421272251]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -25.0
+offset_right = 6.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2, 2)
+theme_override_colors/font_color = Color(0.4392157, 0.8784314, 0.6, 1)
+theme_override_colors/font_hover_color = Color(0.70980394, 0.90588236, 0.8666667, 1)
+theme_override_fonts/font = ExtResource("12_0w7h6")
+theme_override_font_sizes/font_size = 18
+text = "Inventory"
+flat = true
+
+[node name="WarriorBox" type="ColorRect" parent="Player/GUI/InventoryBar" unique_id=915752473]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 60.0
+offset_top = -40.0
+offset_right = 100.0
+grow_vertical = 2
+scale = Vector2(2, 2)
+mouse_filter = 2
+color = Color(0.99607843, 0.84705883, 0.3882353, 1)
+
+[node name="WarriorSelect" type="Area2D" parent="Player/GUI/InventoryBar/WarriorBox" unique_id=806784879]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/GUI/InventoryBar/WarriorBox/WarriorSelect" unique_id=8178388]
+position = Vector2(20, 20)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_q80nm")
+debug_color = Color(0, 0.6, 0.7019608, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/GUI/InventoryBar/WarriorBox" unique_id=1952044322]
+position = Vector2(20, 20)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("10_032wp")
+
+[node name="WarriorCount" type="Label" parent="Player/GUI/InventoryBar/WarriorBox" unique_id=1472085798]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -35.0
+offset_top = -15.0
+offset_right = 5.0
+offset_bottom = 8.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0.21176471, 0.23137255, 1)
+theme_override_fonts/font = ExtResource("12_0w7h6")
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="WizardBox" type="ColorRect" parent="Player/GUI/InventoryBar" unique_id=228488003]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -140.0
+offset_top = -40.0
+offset_right = -100.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(2, 2)
+mouse_filter = 2
+color = Color(0.99607843, 0.84705883, 0.3882353, 1)
+
+[node name="WizardSelect" type="Area2D" parent="Player/GUI/InventoryBar/WizardBox" unique_id=590741819]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/GUI/InventoryBar/WizardBox/WizardSelect" unique_id=1016601080]
+position = Vector2(20, 20)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_30g23")
+debug_color = Color(0, 0.6, 0.7019608, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/GUI/InventoryBar/WizardBox" unique_id=895037726]
+position = Vector2(20, 20)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("16_me364")
+
+[node name="WizardCount" type="Label" parent="Player/GUI/InventoryBar/WizardBox" unique_id=1073270355]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -35.0
+offset_top = -15.0
+offset_right = 5.0
+offset_bottom = 8.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0.21176471, 0.23137255, 1)
+theme_override_fonts/font = ExtResource("12_0w7h6")
+text = "0"
+horizontal_alignment = 2
+
+[node name="Battleground" type="Node3D" parent="." unique_id=1447681041]
+
+[node name="Shop" type="Node3D" parent="Battleground" unique_id=685433725]
+transform = Transform3D(2.5, 0, 0, 0, 2.360941, 0.8221667, 0, -0.8221667, 2.360941, 0.098, -3.2781668, -76.0817)
+
+[node name="ShopBody" type="Sprite3D" parent="Battleground/Shop" unique_id=1266716294]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999934, -5.066395e-07, 0, 5.066395e-07, 0.99999934, 0, -4.2656846, 13.437979)
+shaded = true
+alpha_cut = 1
+texture = ExtResource("10_57bla")
+
+[node name="BattleCamera" type="Marker3D" parent="Battleground" unique_id=611099172]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0.184, 5, 5)
+metadata/_edit_lock_ = true
+
+[node name="Camera3D" type="Camera3D" parent="Battleground/BattleCamera" unique_id=1112084879]
+transform = Transform3D(1, 0, 0, 0, 0.9471711, -0.3207287, 0, 0.3207287, 0.9471711, 0, -23.773878, 74.62061)
+attributes = ExtResource("7_q80nm")
+projection = 1
+current = true
+size = 24.0
+near = 5.0
+far = 251.54
+
+[node name="Camera3D2" type="Camera3D" parent="Battleground/BattleCamera" unique_id=411834890]
+transform = Transform3D(1, 0, 0, 0, 0.9471713, -0.32072872, 0, 0.32072872, 0.9471713, 0, -23.773878, 74.62061)
+visible = false
+attributes = ExtResource("7_q80nm")
+projection = 1
+current = true
+size = 24.0
+near = 5.0
+far = 251.54
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Battleground/BattleCamera" unique_id=584399821]
+transform = Transform3D(0.95105654, 0.108725056, -0.2892583, 0, 0.93605953, 0.35184166, 0.309017, -0.3346213, 0.89024556, 0, 0, 23)
+light_color = Color(0.7254902, 1, 1, 1)
+light_energy = 0.193
+shadow_bias = 0.04
+shadow_blur = 1.5
+metadata/_edit_lock_ = true
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Battleground/BattleCamera" unique_id=1670686775]
+transform = Transform3D(0.95105654, 0.10872505, -0.28925833, 0, 0.9360596, 0.3518417, 0.30901703, -0.33462128, 0.8902457, -31.13137, 0, 5.0000005)
+visible = false
+light_color = Color(1, 0.6703333, 0.13999999, 1)
+light_energy = 11.487
+light_specular = 1.65
+shadow_enabled = true
+spot_range = 74.711
+spot_angle = 80.0
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Battleground/BattleCamera" unique_id=467411058]
+transform = Transform3D(1, 0, 0, 0, 0.8182903, 0.5748053, 0, -0.5748053, 0.8182903, 0, 11.106783, 11.106783)
+light_color = Color(1, 0.7705864, 0.47898167, 1)
+light_energy = 10.612
+light_size = 0.05
+light_specular = 1.65
+spot_range = 79.637
+spot_angle = 39.69
+spot_angle_attenuation = 1.6245042
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="Battleground/BattleCamera" unique_id=1709975343]
+transform = Transform3D(1, 0, 0, 0, 0.8182903, 0.5748053, 0, -0.5748053, 0.8182903, 0, 11.106783, 11.106783)
+light_color = Color(1, 0.6703333, 0.13999999, 1)
+light_energy = 10.612
+light_size = 0.05
+light_specular = 1.65
+shadow_enabled = true
+spot_range = 79.637
+spot_angle = 76.25
+spot_angle_attenuation = 1.6245042
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="Battleground/BattleCamera" unique_id=779640026]
+transform = Transform3D(0.9995274, -0.029300272, -0.00929936, 0.021149674, 0.8749939, -0.48367202, 0.02230862, 0.4832467, 0.8751999, 1.8472214, 11.738634, -26.266134)
+light_color = Color(0.9999998, 0.75879073, 0.448583, 1)
+light_energy = 12.0
+light_size = 0.05
+light_specular = 1.65
+spot_range = 79.637
+spot_angle = 73.44
+spot_angle_attenuation = 1.6245042
+
+[node name="Ground" type="StaticBody3D" parent="Battleground" unique_id=1885948079]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+metadata/_edit_lock_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Battleground/Ground" unique_id=1828453882]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+mesh = SubResource("BoxMesh_7dm0k")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Battleground/Ground" unique_id=1595735021]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.230896, 0, 0)
+shape = SubResource("BoxShape3D_7dm0k")
+debug_color = Color(0, 0.6, 0.7019608, 0)
+metadata/_edit_lock_ = true
+
+[node name="Sprite3D" type="Sprite3D" parent="Battleground/Ground" unique_id=1260229614]
+transform = Transform3D(17.99726, 0.010503119, -0.013938111, 0, 0.79863554, 0.601815, 0.3141433, -0.6017233, 0.7985139, 0, 1.3033026, -15.2661)
+visible = false
+shaded = true
+texture = ExtResource("7_4yj7t")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Battleground" unique_id=1008975528]
+environment = SubResource("Environment_0xm2m")
+
+[node name="Characters" type="Node3D" parent="Battleground" unique_id=765419014]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.012677, 0, -2.3001575)
+
+[node name="Wizard" parent="Battleground/Characters" unique_id=254305490 instance=ExtResource("8_yhwuq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.032525)
+
+[node name="PlaceableArea" type="Area3D" parent="Battleground" unique_id=125249582]
+collision_layer = 8
+collision_mask = 0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Battleground/PlaceableArea" unique_id=1195277658]
+mesh = SubResource("BoxMesh_vivmo")
+skeleton = NodePath("../CollisionShape3D")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Battleground/PlaceableArea" unique_id=2063056620]
+shape = SubResource("BoxShape3D_h2yge")
+debug_color = Color(0, 0.6, 0.7019608, 0)
+
+[node name="Props" type="Node3D" parent="Battleground" unique_id=1164932755]
+
+[node name="DeathScreen" type="CanvasLayer" parent="Battleground" unique_id=1194717850]
+process_mode = 2
+visible = false
+
+[node name="PanelRoot" type="Control" parent="Battleground/DeathScreen" unique_id=1278374948]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Battleground/DeathScreen/PanelRoot" unique_id=1731966274]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.70000005)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Battleground/DeathScreen/PanelRoot" unique_id=1871296367]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 188.0
+offset_bottom = 73.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Battleground/DeathScreen/PanelRoot/VBoxContainer" unique_id=1563501605]
+layout_mode = 2
+text = "YOU WERE DESTROYED!!!"
+
+[node name="RetryButton" type="Button" parent="Battleground/DeathScreen/PanelRoot/VBoxContainer" unique_id=29513303]
+process_mode = 2
+layout_mode = 2
+text = "RETRY?"
+
+[node name="QuitButton" type="Button" parent="Battleground/DeathScreen/PanelRoot/VBoxContainer" unique_id=40259777]
+process_mode = 2
+layout_mode = 2
+text = "QUIT!!!!!"
+
+[node name="Orb" parent="Battleground" unique_id=399436037 instance=ExtResource("11_me364")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 0)
+
+[node name="Environment" type="Node3D" parent="." unique_id=1064133283]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.409234)
+
+[node name="trees" type="Node3D" parent="Environment" unique_id=428416987]
+
+[node name="tree1Posterized" parent="Environment/trees" unique_id=682523987 instance=ExtResource("27_aobh2")]
+transform = Transform3D(0.5591618, 0, -0.5721347, 0, 0.8, 0, 0.5721347, 0, 0.5591618, -20.672655, 3.6148682, -8.894728)
+
+[node name="tree2Posterized" parent="Environment/trees" unique_id=772968056 instance=ExtResource("19_wolj3")]
+transform = Transform3D(0.7304155, 0, 0.32633296, 0, 0.8, 0, -0.32633296, 0, 0.7304155, 21.7521, 3.6378875, -9.677833)
+
+[node name="tree3Posterized" parent="Environment/trees" unique_id=1548448643 instance=ExtResource("26_wolj3")]
+transform = Transform3D(0.43242726, 0, -0.67305773, 0, 0.8, 0, 0.67305773, 0, 0.43242726, 5.9222717, 3.6253085, -12.328614)
+
+[node name="tree2Posterized2" parent="Environment/trees" unique_id=957997568 instance=ExtResource("19_wolj3")]
+transform = Transform3D(0.7534819, 0, -0.2688216, 0, 0.8, 0, 0.2688216, 0, 0.7534819, -18.159067, 3.6378875, -10.460803)
+
+[node name="tree1Posterized2" parent="Environment/trees" unique_id=1193977988 instance=ExtResource("27_aobh2")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -16.481455, 3.6148682, -13.191803)
+
+[node name="tree3Posterized2" parent="Environment/trees" unique_id=915705683 instance=ExtResource("26_wolj3")]
+transform = Transform3D(0.27484906, 0, 0.7513042, 0, 0.8, 0, -0.7513042, 0, 0.27484906, -13.453262, 3.6253104, -11.260515)
+
+[node name="tree1Posterized3" parent="Environment/trees" unique_id=1317504468 instance=ExtResource("27_aobh2")]
+transform = Transform3D(0.5100145, 0, 0.61634827, 0, 0.8, 0, -0.61634827, 0, 0.5100145, -7.303142, 3.6148682, -11.614123)
+
+[node name="tree2Posterized3" parent="Environment/trees" unique_id=1715822286 instance=ExtResource("19_wolj3")]
+transform = Transform3D(0.75803196, 0, -0.25570995, 0, 0.79999995, 0, 0.25570995, 0, 0.75803196, -0.017717838, 3.6378875, -12.470705)
+
+[node name="tree2Posterized4" parent="Environment/trees" unique_id=485823365 instance=ExtResource("19_wolj3")]
+transform = Transform3D(-0.442876, 0, -0.6662289, 0, 0.8, 0, 0.6662289, 0, -0.442876, 11.258421, 3.6378875, -10.617927)
+
+[node name="tree1Posterized4" parent="Environment/trees" unique_id=1862209460 instance=ExtResource("27_aobh2")]
+transform = Transform3D(0.76541024, 0, -0.23269534, 0, 0.8, 0, 0.23269534, 0, 0.76541024, 19.525248, 3.6148682, -11.379046)
+
+[node name="tree3Posterized3" parent="Environment/trees" unique_id=665979122 instance=ExtResource("26_wolj3")]
+transform = Transform3D(-0.37913537, 0, -0.70445466, 0, 0.79999995, 0, 0.70445466, 0, -0.37913537, 17.755127, 3.6253104, -9.362063)
+
+[node name="tree3Posterized4" parent="Environment/trees" unique_id=64430834 instance=ExtResource("26_wolj3")]
+transform = Transform3D(0.7029471, 0, 0.38192332, 0, 0.8, 0, -0.38192332, 0, 0.7029471, -2.3997552, 3.6253104, -10.643226)
+
+[node name="mushrooms" type="Node3D" parent="Environment" unique_id=614979665]
+
+[node name="KingMushPosterized" parent="Environment/mushrooms" unique_id=320133709 instance=ExtResource("31_30g23")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.456868, -4.7683716e-07, -9.86937)
+
+[node name="JackMushPosterized" parent="Environment/mushrooms" unique_id=581041537 instance=ExtResource("28_54h8o")]
+transform = Transform3D(-0.017504795, 0, -0.99984676, 0, 1, 0, 0.99984676, 0, -0.017504795, 4.9542046, 0.06058857, -13.236093)
+
+[node name="JackMushPosterized2" parent="Environment/mushrooms" unique_id=328634742 instance=ExtResource("28_54h8o")]
+transform = Transform3D(-0.83739454, 0, 0.5465989, 0, 1, 0, -0.5465989, 0, -0.83739454, 7.0858936, 0.06058857, -9.317312)
+
+[node name="KingMushPosterized2" parent="Environment/mushrooms" unique_id=1868139818 instance=ExtResource("31_30g23")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2692313, 0, -12.826311)
+
+[node name="KingMushPosterized3" parent="Environment/mushrooms" unique_id=2105874683 instance=ExtResource("31_30g23")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.335497, 0, -8.778921)
+
+[node name="JackMushPosterized3" parent="Environment/mushrooms" unique_id=1913596098 instance=ExtResource("28_54h8o")]
+transform = Transform3D(0.7021406, 0, -0.71203834, 0, 1, 0, 0.71203834, 0, 0.7021406, -19.130205, 0.06058857, -11.503359)
+
+[node name="rocks" type="Node3D" parent="Environment" unique_id=531251791]
+
+[node name="rockPosterized" parent="Environment/rocks" unique_id=1085555523 instance=ExtResource("28_ia0fb")]
+transform = Transform3D(0.6204891, 0, -0.45654413, 0, 0.6980562, 0, 0.31980583, 0, 0.88578945, -16.080353, 0.24497971, -10.695463)
+
+[node name="rockPosterized2" parent="Environment/rocks" unique_id=974711316 instance=ExtResource("28_ia0fb")]
+transform = Transform3D(-0.08838063, 0, -0.42539027, 0, 0.4344744, 0, 0.42539027, 0, -0.08838063, -0.92323136, 0.07341549, -10.688224)
+
+[node name="rockPosterized3" parent="Environment/rocks" unique_id=1015751809 instance=ExtResource("28_ia0fb")]
+transform = Transform3D(0.74943405, 0, 0.29832062, 0, 0.77904975, 0, -0.21276085, 0, 1.0508119, 0.2712084, 0.15465602, -10.411734)
+
+[node name="rockPosterized4" parent="Environment/rocks" unique_id=1161958080 instance=ExtResource("28_ia0fb")]
+transform = Transform3D(0.7974231, -0.28288087, 0.244441, 0, 0.83427334, 0.3379092, -0.45460242, -0.49620456, 0.42877677, 16.284225, 0.19741616, -10.748842)
+
+[node name="EnemySpawner" type="Node3D" parent="." unique_id=1336024822 node_paths=PackedStringArray("spawn_point")]
+script = ExtResource("23_q80nm")
+enemy_scene = ExtResource("9_032wp")
+spawn_point = NodePath("EnemySpawnPoint")
+spawn_interval = 5.0
+
+[node name="EnemySpawnPoint" type="Marker3D" parent="EnemySpawner" unique_id=1467880243]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 0)
+
+[connection signal="purchase" from="Player/GUI/ShopCanvas" to="Player" method="_on_shop_purchase"]
+[connection signal="input_event" from="Player/GUI/ShopCanvas/ShopSlots/Slot1" to="Player/GUI/ShopCanvas" method="_on_slot_1_input_event"]
+[connection signal="input_event" from="Player/GUI/ShopCanvas/ShopSlots/Slot2" to="Player/GUI/ShopCanvas" method="_on_slot_2_input_event"]
+[connection signal="input_event" from="Player/GUI/ShopCanvas/ShopSlots/Slot3" to="Player/GUI/ShopCanvas" method="_on_slot_3_input_event"]
+[connection signal="input_event" from="Player/GUI/ShopCanvas/ShopSlots/Slot4" to="Player/GUI/ShopCanvas" method="_on_slot_4_input_event"]
+[connection signal="input_event" from="Player/GUI/ShopCanvas/ShopSlots/Slot5" to="Player/GUI/ShopCanvas" method="_on_slot_5_input_event"]
+[connection signal="input_event" from="Player/GUI/ShopCanvas/ShopSlots/Slot6" to="Player/GUI/ShopCanvas" method="_on_slot_6_input_event"]
+[connection signal="pressed" from="Player/GUI/ShopCanvas/ShopExitButton" to="Player/GUI" method="_on_shop_exit_button_pressed"]
+[connection signal="pressed" from="Player/GUI/ShopCanvas/GuideButton" to="Player/GUI" method="_on_guide_button_pressed"]
+[connection signal="pressed" from="Player/GUI/GuideCanvas/TowerLabel/ThimbleButton" to="Player/GUI" method="_on_thimble_button_pressed"]
+[connection signal="pressed" from="Player/GUI/GuideCanvas/TowerLabel/BatteryButton" to="Player/GUI" method="_on_battery_button_pressed"]
+[connection signal="pressed" from="Player/GUI/GuideCanvas/PotionsLabel/RangeButton" to="Player/GUI" method="_on_range_button_pressed"]
+[connection signal="pressed" from="Player/GUI/GuideCanvas/PotionsLabel/DamageButton" to="Player/GUI" method="_on_damage_button_pressed"]
+[connection signal="pressed" from="Player/GUI/GuideCanvas/PotionsLabel/SpeedButton" to="Player/GUI" method="_on_speed_button_pressed"]
+[connection signal="pressed" from="Player/GUI/GuideCanvas/PotionsLabel/HealthButton" to="Player/GUI" method="_on_health_button_pressed"]
+[connection signal="pressed" from="Player/GUI/GuideCanvas/EnemiesLabel/PurpleButton" to="Player/GUI" method="_on_purple_button_pressed"]
+[connection signal="pressed" from="Player/GUI/GuideCanvas/EnemiesLabel/YellowButton" to="Player/GUI" method="_on_yellow_button_pressed"]
+[connection signal="pressed" from="Player/GUI/GuideCanvas/EnemiesLabel/RedButton" to="Player/GUI" method="_on_red_button_pressed"]
+[connection signal="pressed" from="Player/GUI/GuideCanvas/BackButton" to="Player/GUI" method="_on_back_button_pressed"]
+[connection signal="pressed" from="Player/GUI/GuideCanvas/InfoCanvases/XButton" to="Player/GUI" method="_on_x_button_pressed"]
+[connection signal="pressed" from="Player/GUI/PauseCanvas/PlayButton" to="Player/GUI" method="_on_play_button_pressed"]
+[connection signal="pressed" from="Player/GUI/PauseCanvas/QuitButton" to="Player/GUI" method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Player/GUI/PauseButton" to="Player/GUI" method="_on_pause_button_pressed"]
+[connection signal="pressed" from="Player/GUI/ShopButton" to="Player/GUI" method="_on_shop_button_pressed"]
+[connection signal="pressed" from="Player/GUI/InventoryBar/OpenCloseButton" to="Player/GUI" method="_on_open_close_button_pressed"]
+[connection signal="input_event" from="Player/GUI/InventoryBar/WarriorBox/WarriorSelect" to="Player" method="_on_warrior_select_input_event"]
+[connection signal="input_event" from="Player/GUI/InventoryBar/WizardBox/WizardSelect" to="Player" method="_on_wizard_select_input_event"]
+[connection signal="child_entered_tree" from="Battleground" to="Player" method="_on_battleground_child_entered_tree"]
+[connection signal="input_event" from="Battleground/PlaceableArea" to="Player" method="_place_tower"]

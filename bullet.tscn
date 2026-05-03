@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://dlo7pv48xqef5"]
+
+[ext_resource type="Script" uid="uid://b42jt7q7m8llf" path="res://bullet.gd" id="1_v7oki"]
+[ext_resource type="Texture2D" uid="uid://dihwy7tnduwhk" path="res://sprites/towers/Wizard/Projectile Impact/frame0000.png" id="2_gofb6"]
+[ext_resource type="Texture2D" uid="uid://cmqfvirryatpp" path="res://sprites/towers/Wizard/Projectile Impact/frame0001.png" id="3_4bibm"]
+[ext_resource type="Texture2D" uid="uid://cxj274cv42ei0" path="res://sprites/towers/Wizard/Projectile Impact/frame0002.png" id="4_as0xd"]
+[ext_resource type="Texture2D" uid="uid://dyxeokc8dvp3g" path="res://sprites/towers/Wizard/Projectile Impact/frame0003.png" id="5_2eep6"]
+[ext_resource type="Texture2D" uid="uid://dvvxop5pcr1mc" path="res://sprites/towers/Wizard/Projectile Impact/frame0004.png" id="6_qd0d2"]
+[ext_resource type="Texture2D" uid="uid://cnmatowrusgea" path="res://sprites/towers/Wizard/Projectile Impact/frame0005.png" id="7_4r2mu"]
+[ext_resource type="Texture2D" uid="uid://cx7pngflxm4m7" path="res://sprites/towers/Wizard/Projectile Impact/frame0006.png" id="8_o7457"]
+[ext_resource type="Texture2D" uid="uid://m0aav1xo5wt4" path="res://sprites/towers/Wizard/Projectile Impact/frame0007.png" id="9_ugsrq"]
+[ext_resource type="Texture2D" uid="uid://dehcemg6xafq4" path="res://sprites/towers/Wizard/Projectile Travel/frame0000.png" id="10_o7457"]
+[ext_resource type="Texture2D" uid="uid://b4kl4tb83u6tc" path="res://sprites/towers/Wizard/Projectile Travel/frame0001.png" id="11_ugsrq"]
+[ext_resource type="Texture2D" uid="uid://ddlcvg4opbxf5" path="res://sprites/towers/Wizard/Projectile Travel/frame0002.png" id="12_51pxt"]
+[ext_resource type="Texture2D" uid="uid://biulq0nf6w44v" path="res://sprites/towers/Wizard/Projectile Travel/frame0003.png" id="13_05w2j"]
+[ext_resource type="Texture2D" uid="uid://bkfcuuw6kghav" path="res://sprites/towers/Wizard/Projectile Travel/frame0004.png" id="14_ck3xx"]
+[ext_resource type="Texture2D" uid="uid://bwghdh6vj6gjv" path="res://sprites/towers/Wizard/Projectile Travel/frame0005.png" id="15_5kas7"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_cegan"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_82xsv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h0pa3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_gofb6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4bibm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_as0xd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_2eep6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_qd0d2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_4r2mu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_o7457")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ugsrq")
+}],
+"loop": true,
+"name": &"impact",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_o7457")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ugsrq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_51pxt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_05w2j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ck3xx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_5kas7")
+}],
+"loop": true,
+"name": &"travel",
+"speed": 24.0
+}]
+
+[node name="Bullet" type="CharacterBody3D" unique_id=434509937]
+transform = Transform3D(-2.1855694e-08, -0.5, 0, 0.5, -2.1855694e-08, 0, 0, 0, 0.5, 0, 0, 0)
+collision_mask = 3
+motion_mode = 1
+script = ExtResource("1_v7oki")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1245285078]
+visible = false
+mesh = SubResource("CapsuleMesh_cegan")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=79341429]
+shape = SubResource("CapsuleShape3D_82xsv")
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=302503794]
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=1065222592]
+transform = Transform3D(-1.2255268e-07, 2.8036783, 2.8036783, -3.965, -1.7331566e-07, 0, 1.2255268e-07, -2.8036783, 2.8036783, 0, 0, 0)
+sprite_frames = SubResource("SpriteFrames_h0pa3")
+animation = &"travel"
+frame_progress = 0.693415
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dvkrhrg0xhe2l"]
+
+[ext_resource type="PackedScene" uid="uid://b5wynifishbr1" path="res://EnvironmentGLBs/tree1Posterized.glb" id="1_w5fyd"]
+
+[node name="tree1Posterized" unique_id=682523987 instance=ExtResource("1_w5fyd")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)

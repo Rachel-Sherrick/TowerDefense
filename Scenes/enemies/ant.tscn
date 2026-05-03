@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://cmyw1wq2h0igv"]
 
 [ext_resource type="PackedScene" uid="uid://doxjo2c5tjq6e" path="res://Scenes/Classes/enemy.tscn" id="1_5tacl"]
+[ext_resource type="Script" uid="uid://dhfd4wq7ym23m" path="res://Scenes/enemies/ant.gd" id="2_anuxv"]
 [ext_resource type="Texture2D" uid="uid://cy4olopey5qye" path="res://sprites/enemies/ant/attack/frame0000.png" id="2_kvl2v"]
 [ext_resource type="Texture2D" uid="uid://nj37xla1vxmg" path="res://sprites/testbert.png" id="2_q4ieg"]
+[ext_resource type="Script" uid="uid://uf62f1lsgkra" path="res://Scenes/enemies/animation_controller_ant.gd" id="3_anuxv"]
 [ext_resource type="Texture2D" uid="uid://ba020ghdrflc1" path="res://sprites/enemies/ant/attack/frame0001.png" id="3_yu62i"]
 [ext_resource type="Texture2D" uid="uid://nbsknk42hyih" path="res://sprites/enemies/ant/walk/frame0000.png" id="4_oa1bq"]
 [ext_resource type="Texture2D" uid="uid://b86v8mmkswr41" path="res://sprites/enemies/ant/attack/frame0002.png" id="4_xtrik"]
@@ -35,7 +37,10 @@
 [ext_resource type="Texture2D" uid="uid://cyky1ih3xjuo3" path="res://sprites/enemies/ant/walk/frame0014.png" id="18_kvl2v"]
 [ext_resource type="Texture2D" uid="uid://bk5qjveh8qksv" path="res://sprites/enemies/ant/walk/frame0015.png" id="19_yu62i"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_ragae"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_pas25"]
+size = Vector3(3.25, 1, 1.25)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pas25"]
 resource_local_to_scene = true
 animations = [{
 "frames": [{
@@ -87,7 +92,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("17_jvttg")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
 "speed": 24.0
 }, {
@@ -164,11 +169,60 @@ animations = [{
 "speed": 24.0
 }]
 
-[node name="Character" unique_id=254305490 instance=ExtResource("1_5tacl")]
+[sub_resource type="BoxMesh" id="BoxMesh_cqwif"]
+size = Vector3(0.75, 1, 1)
 
-[node name="SpriteBody" parent="AnimationController" parent_id_path=PackedInt32Array(1020417921) index="0" unique_id=1996147602]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fcl87"]
+transparency = 1
+albedo_color = Color(0.8745098, 0, 0.19215687, 0.14509805)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_anuxv"]
+size = Vector3(2, 1, 3.5)
+
+[node name="Ant" unique_id=254305490 instance=ExtResource("1_5tacl")]
+script = ExtResource("2_anuxv")
+final_target_name = "Orb"
+target_name = "Orb"
+attack_range = 2.0
+speed = 2.5
+
+[node name="Body" parent="." index="0" unique_id=447693479]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 1, 0)
+layers = 1
+
+[node name="CharacterCollision" parent="." index="1" unique_id=492885942]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_pas25")
+
+[node name="AnimationController" parent="." index="3" unique_id=1020417921]
+script = ExtResource("3_anuxv")
+
+[node name="SpriteBody" parent="AnimationController" index="0" unique_id=1996147602]
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, -0.3, 0)
 modulate = Color(1, 1, 1, 1)
-sprite_frames = SubResource("SpriteFrames_ragae")
-animation = &"attack"
+sprite_frames = SubResource("SpriteFrames_pas25")
+animation = &"walk"
 frame_progress = 0.0
+
+[node name="AntTimer" type="Timer" parent="." index="7" unique_id=1313310677]
+one_shot = true
+
+[node name="AntHurtBox" type="Area3D" parent="." index="8" unique_id=649490344]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1, 0, 0)
+collision_layer = 0
+collision_mask = 2
+
+[node name="AntHurtMesh" type="MeshInstance3D" parent="AntHurtBox" index="0" unique_id=1295453681]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 3.5, 0, 1.002, 1)
+visible = false
+mesh = SubResource("BoxMesh_cqwif")
+surface_material_override/0 = SubResource("StandardMaterial3D_fcl87")
+
+[node name="AntHurtCollision" type="CollisionShape3D" parent="AntHurtBox" index="1" unique_id=1999800655]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1)
+shape = SubResource("BoxShape3D_anuxv")
+
+[connection signal="animation_changed" from="AnimationController/SpriteBody" to="AnimationController" method="_on_sprite_body_animation_changed"]
+[connection signal="animation_finished" from="AnimationController/SpriteBody" to="AnimationController" method="_on_sprite_body_animation_finished"]
+[connection signal="frame_changed" from="AnimationController/SpriteBody" to="AnimationController" method="_on_sprite_body_frame_changed"]
+[connection signal="timeout" from="AntTimer" to="." method="_on_timer_timeout"]
